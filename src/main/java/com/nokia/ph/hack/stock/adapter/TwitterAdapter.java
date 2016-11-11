@@ -3,6 +3,7 @@ package com.nokia.ph.hack.stock.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import twitter4j.GeoLocation;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -29,12 +30,29 @@ public class TwitterAdapter
     public List<String> getSymbolPublicTweets( String symbol ) throws TwitterException
     {
         List<String> retVal = new ArrayList<>();
-        Query query = new Query( "$SECB since:2013-10-31 until:2016-11-11" );
+        Query query = new Query();
+        query.setCount( 200 );
+
+        //Search query
+        query.setQuery( "$GOOG" );
+
+        //One day
+        query.setSince( "2016-11-10" );
+        query.setUntil( "2016-11-11" );
+
+        //Limit to US
+        query.setGeoCode( new GeoLocation( 39.726867, -98.656872 ), 2500, Query.KILOMETERS );
+
+        System.out.println( "Searching using: " + query );
+
         QueryResult result = twitter.search( query );
-        for( Status status : result.getTweets() )
+        List<Status> tweets = result.getTweets();
+        for( Status status : tweets )
         {
             retVal.add( status.getText() );
         }
+
+        System.out.println( "Found " + tweets.size() );
 
         return retVal;
     }
