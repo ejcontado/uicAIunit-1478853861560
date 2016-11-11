@@ -136,7 +136,7 @@
 	    	var list = $('#symbol_list');
 	    	
 	    	nodeArray.forEach(function(symbols_data){
-	    	list.append( '<li data-value="1"><a href="#"><span>'+ symbols_data[0][0]  +'</span></a></li>');
+	    		list.append( '<li data-value="'+ symbols_data[0][0]  +'" class="ticker-symbols" ><a href="javascript:void(0)" onclick="analyze(\''+ symbols_data[0][0]  +'\')"><span>'+ symbols_data[0][0]  +'</span></a></li>');
 	    	});
 	    		
 	    
@@ -145,11 +145,6 @@
 	</script>
 	<script>
     	require(['jquery', 'wulf/combobox','wulf/navbar', 'wulf/Servlet'], function($){
-    		
-    		
-    		$(document).ready(function(){
-    			analyze();
-    		});
     		
 		    $(document).on('input','.combobox .n-inputfield', function() {
 			        var toggle = $('button.dropdown-toggle');
@@ -164,6 +159,12 @@
 			        if( $(this).val() == 0 && isOpen ){
 			            parent.find(toggle).trigger('click');
 			        }
+			        
+			        var typedInput = $(this).val();
+			        $('li.ticker-symbols').hide();
+			        $('li.ticker-symbols[data-value^='+typedInput+']').show();
+			        
+			        console.debug($(this).val());
 			   });
 		      $('#myCombobox1').combobox();
 		      $(document).ready(function () {

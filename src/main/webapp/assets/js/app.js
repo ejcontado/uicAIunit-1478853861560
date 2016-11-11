@@ -1,5 +1,5 @@
-function analyze(){
-		ajaxRequest({type : "symbol", symbol : "AAPL"}, "StockInsightServlet", false, ajaxSuccess)
+function analyze(tickerSymbol){
+		ajaxRequest({type : "symbol", symbol : tickerSymbol}, "StockInsightServlet", false, ajaxSuccess)
 }
 
 function ajaxRequest(data, url, cache, fxn) {
