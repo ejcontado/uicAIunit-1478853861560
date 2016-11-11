@@ -40,8 +40,6 @@ public class TwitterAdapter
         setQueryDate( query, startDate, endDate );
         query.setGeoCode( new GeoLocation( 39.726867, -98.656872 ), 2500, Query.KILOMETERS );
 
-        System.out.println( query );
-
         int lastTweetSize = -1;
         int numberOfTweets = 400;
         long lastID = Long.MAX_VALUE;
@@ -87,16 +85,14 @@ public class TwitterAdapter
             retVal.add( msg );
         }
 
-        System.out.println( "Gathered " + tweets.size() + " tweets." );
         return retVal;
     }
 
     private void setQueryDate( Query query, String startDate, String endDate )
     {
-        SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
-
         if( GeneralUtils.isEmpty( startDate ) || GeneralUtils.isEmpty( endDate ) )
         {
+            SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
             Calendar cal = Calendar.getInstance();
             query.setUntil( sdf.format( cal.getTime() ) );
 
