@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import twitter4j.TwitterException;
+import wasdev.twitter.TwitterAdapter;
+
 /**
  * Servlet implementation class SimpleServlet
  */
@@ -21,7 +24,12 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.getWriter().print("Ej so very mcuh sucx yow");
+        try {
+			TwitterAdapter ta = new TwitterAdapter();
+		} catch (TwitterException e) {
+			e.printStackTrace();
+		}
+        response.getWriter().print("Ej so verymcuh sfgdfgucx yow");
     }
 
 }
