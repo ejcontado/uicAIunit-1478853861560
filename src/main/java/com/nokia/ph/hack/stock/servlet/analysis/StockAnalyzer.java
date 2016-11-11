@@ -46,12 +46,12 @@ public class StockAnalyzer
         String sampleText =
             "A year ago, in assuming the tasks of the Presidency, I said that few generations, in all history, had been granted the role of being the great defender of freedom in its hour of maximum danger. This is our good fortune; and I welcome it now as I did a year ago. For it is the fate of this generation-of you in the Congress and of me as President--to live with a struggle we did not start, in a world we did not make. But the pressures of life are not always distributed by choice. And while no nation has ever faced such a challenge, no nation has ever been so ready to seize the burden and the glory of freedom.";
 
-        Profile profile = watsons.getAnalysis( sampleText );
+        /*Profile profile = watsons.getAnalysis( sampleText );
         String analysis = getAnalysisFromProfile( profile );
         System.out.println( "************** WATSONS **************" );
-        System.out.println( analysis );
+        System.out.println( analysis );*/
 
-        return analysis;
+        return "Hello";
     }
 
     private String getAnalysisFromProfile( Profile profile )

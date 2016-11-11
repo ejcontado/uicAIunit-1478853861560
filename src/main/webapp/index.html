@@ -134,12 +134,16 @@
                         </div>
                     </div>
 	
-	<!-- Call SimpleServlet to get the "Hello World" message  -->
-<!--	<script type="text/javascript" src="index.js"></script> -->
+	<script src="assets/js/app.js"></script>
 	<script src="assets/js/require.js"></script>
 	<script src="assets/js/require-config.js"></script>
 	<script>
     	require(['jquery', 'wulf/combobox','wulf/navbar', 'wulf/Servlet'], function($){
+    		
+    		$(document).ready(function(){
+    			analyze();
+    		});
+    		
 		    $(document).on('input','.combobox .n-inputfield', function() {
 			        var toggle = $('button.dropdown-toggle');
 			        var parent = $(this).parent('.combobox');
