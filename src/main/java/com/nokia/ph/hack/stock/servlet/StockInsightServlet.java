@@ -15,7 +15,7 @@ import com.nokia.ph.hack.stock.servlet.utils.GeneralUtils;
 public class StockInsightServlet extends HttpServlet
 {
 
-	private static final long serialVersionUID = -8613518709760109141L;
+    private static final long serialVersionUID = -8613518709760109141L;
 
     @Override
     protected void doGet( HttpServletRequest request, HttpServletResponse response )
@@ -23,9 +23,11 @@ public class StockInsightServlet extends HttpServlet
     {
         String type = getRequestParameter( request, "type" );
         String symbol = getRequestParameter( request, "symbol" );
+        String startDate = getRequestParameter( request, "start_date" );
+        String endDate = getRequestParameter( request, "end_date" );
 
         StockAnalyzer analyzer = new StockAnalyzer();
-        String analysis = analyzer.getAnalysis( type, symbol );
+        String analysis = analyzer.getAnalysis( type, symbol, startDate, endDate );
 
         response.setContentType( "application/json" );
         response.getWriter().print( analysis );

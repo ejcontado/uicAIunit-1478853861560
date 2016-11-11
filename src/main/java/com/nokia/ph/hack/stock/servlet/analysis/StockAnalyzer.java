@@ -28,12 +28,12 @@ public class StockAnalyzer
         }
     }
 
-    public String getAnalysis( String type, String symbol )
+    public String getAnalysis( String type, String symbol, String startDate, String endDate )
     {
         List<String> tweets;
         try
         {
-            tweets = twitter.getSymbolPublicTweets( symbol );
+            tweets = twitter.getSymbolPublicTweets( symbol, startDate, endDate );
         }
         catch( TwitterException e )
         {
