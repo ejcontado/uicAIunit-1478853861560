@@ -14,10 +14,8 @@ import com.nokia.ph.hack.stock.servlet.utils.GeneralUtils;
 @WebServlet( "/StockInsightServlet" )
 public class StockInsightServlet extends HttpServlet
 {
-    /**
-     * 
-     */
-    private static final long serialVersionUID = -8613518709760109141L;
+
+	private static final long serialVersionUID = -8613518709760109141L;
 
     @Override
     protected void doGet( HttpServletRequest request, HttpServletResponse response )
