@@ -104,18 +104,28 @@
                 </div>
             </div>
         </nav>
-        
+        <div class="row " style="padding:20px">
+        <div class="col-sm-8  panel panel-shadow demo-menu-example-panel nav-secondary-vertical " style="width:30%;height:100%;padding:10px;">
+        <h3>Stock Symbol</h3>
         <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
-                        <input id="combo1" type="text" class="form-control n-inputfield">
-
-                        <div class="input-group-btn">
-                            <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
-                                    class="caret"></span></button>
-                            <ul  id= "symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu">
-
-                            </ul>
-                        </div>
-                    </div>
+                  <input id="combo1" type="text" class="form-control n-inputfield">
+                  <div class="input-group-btn">
+                  <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+	              <ul  id= "symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu"> </ul>
+              </div>
+         </div>
+         
+         <h4>Stock Name</h4>
+         <input id="stockName" type="text" class="form-control n-inputfield n-inputfield-uneditable" readonly value="">
+         <h4>Sector:</h4>
+         <input id="sectorName" type="text" class=" n-inputfield n-inputfield-uneditable" readonly value="" style="width:50%">
+         <h4>Industry:</h4>
+         <input id="industryName" type="text" class="form-control n-inputfield n-inputfield-uneditable" readonly value=""style="width:50%">
+         </div>
+         <div class="col-sm-8  panel panel-shadow demo-menu-example-panel nav-secondary-vertical " style="width:70%;height:100%;padding:10px;">
+         </div>
+         </div>
+         
 	
 	<script src="assets/js/app.js"></script>
 	<script src="assets/js/require.js"></script>
@@ -125,22 +135,32 @@
 	
 	  var symbols = 'assets/stock_symbol/NASDAQ.txt';
 
-	    
+	  		var nodeArray=new Array(); 
+	  	
 	    	jQuery.get(symbols, function(data) {
 	    		var myvar = data;
-	    		var nodeArray=new Array(); 
+	    		
 	    		var arrLines = myvar.split("\n");
 	    		  arrLines.forEach(function (line) {
 	    		    nodeArray.push(new Array(line.split("\t")));
 	    		  });
+	  	    	
 	    	var list = $('#symbol_list');
 	    	
 	    	nodeArray.forEach(function(symbols_data){
-	    		list.append( '<li data-value="'+ symbols_data[0][0]  +'" class="ticker-symbols" ><a href="javascript:void(0)" onclick="analyze(\''+ symbols_data[0][0]  +'\')"><span>'+ symbols_data[0][0]  +'</span></a></li>');
+	    		list.append( '<li data-value="'+ symbols_data[0][0]  +'" class="ticker-symbols" ><a href="javascript:void(0)" onclick="analyze(\''+ symbols_data[0][0]  +'\');"><span>'+ symbols_data[0][0]  +'</span></a></li>');
 	    	});
 	    		
-	    
-	    });
+	    	$("#myCombobox1").find("li").on("click",function(event)
+	    	{
+	    		console.log($(this).attr("data-value"));
+	    		console.log(nodeArray);
+				nodeArray.forEach(function(node)
+				{
+					
+				}
+	    	});
+	    	});
 	});
 	</script>
 	<script>
@@ -164,7 +184,6 @@
 			        $('li.ticker-symbols').hide();
 			        $('li.ticker-symbols[data-value^='+typedInput+']').show();
 			        
-			        console.debug($(this).val());
 			   });
 		      $('#myCombobox1').combobox();
 		      $(document).ready(function () {
