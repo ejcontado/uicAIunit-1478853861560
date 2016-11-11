@@ -43,7 +43,7 @@ public class TwitterAdapter
         System.out.println( query );
 
         int lastTweetSize = -1;
-        int numberOfTweets = 1024;
+        int numberOfTweets = 400;
         long lastID = Long.MAX_VALUE;
         ArrayList<Status> tweets = new ArrayList<Status>();
 

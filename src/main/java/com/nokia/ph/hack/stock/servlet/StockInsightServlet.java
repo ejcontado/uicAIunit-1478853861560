@@ -29,6 +29,8 @@ public class StockInsightServlet extends HttpServlet
         StockAnalyzer analyzer = new StockAnalyzer();
         String analysis = analyzer.getAnalysis( type, symbol, startDate, endDate );
 
+        System.out.println(analysis);
+        
         response.setContentType( "application/json" );
         response.getWriter().print( analysis );
     }

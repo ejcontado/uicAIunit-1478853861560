@@ -40,13 +40,33 @@ public class StockAnalyzer
             throw new AnalsysisException( e );
         }
 
-        String sampleText =
-            "A year ago, in assuming the tasks of the Presidency, I said that few generations, in all history, had been granted the role of being the great defender of freedom in its hour of maximum danger. This is our good fortune; and I welcome it now as I did a year ago. For it is the fate of this generation-of you in the Congress and of me as President--to live with a struggle we did not start, in a world we did not make. But the pressures of life are not always distributed by choice. And while no nation has ever faced such a challenge, no nation has ever been so ready to seize the burden and the glory of freedom.";
-
-        return "Hello";
+//        String sampleText =
+//            "A year ago, in assuming the tasks of the Presidency, "
+//            + "I said that few generations, in all history, had been granted "
+//            + "the role of being the great defender of freedom in its hour of maximum danger. "
+//            + "This is our good fortune; and I welcome it now as I did a year ago."
+//            + " For it is the fate of this generation-of you in the Congress and of me as President--to live with a struggle we did not start,"
+//            + " in a world we did not make. But the pressures of life are not always distributed by choice. "
+//            + "And while no nation has ever faced such a challenge, no nation has ever been so ready to seize the burden and the glory of freedom.";
+        
+        if(tweets.isEmpty()) {
+        	return "Error no tweets found";
+        }
+        String tweetsConcatenated = getConcatenatedTweets(tweets);
+        
+        String analysis = watsons.getToneAnalysis(tweetsConcatenated).toString();
+        return analysis;
     }
 
-    private String getAnalysisFromProfile( Profile profile )
+    private String getConcatenatedTweets(List<String> tweets) {
+		StringBuilder sb = new StringBuilder();
+    	for(String tweet : tweets) {
+			sb.append(tweet + "\n");
+		}
+    	return sb.toString();
+	}
+
+	private String getAnalysisFromProfile( Profile profile )
     {
         return profile.toString();
     }
