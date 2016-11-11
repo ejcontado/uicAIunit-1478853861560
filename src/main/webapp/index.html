@@ -158,7 +158,7 @@
 				nodeArray.forEach(function(node)
 				{
 					
-				}
+				});
 	    	});
 	    	});
 	});
@@ -181,8 +181,17 @@
 			        }
 			        
 			        var typedInput = $(this).val();
-			        $('li.ticker-symbols').hide();
-			        $('li.ticker-symbols[data-value^='+typedInput+']').show();
+			          
+			           if( typedInput == 0  && isOpen ){
+			               parent.find(toggle).trigger('click');
+			           }
+			           
+			           if('' == typedInput){
+			            $('li.ticker-symbols').show();
+			           }else{
+			            $('li.ticker-symbols').hide();
+			            $('li.ticker-symbols[data-value^='+typedInput+']').show();
+			           }
 			        
 			   });
 		      $('#myCombobox1').combobox();
