@@ -33,7 +33,13 @@
                 <artifactId>geronimo-servlet_3.0_spec</artifactId>
                 <version>1.0</version>
             </dependency>
+            <dependency>
+<groupId>com.ibm.watson.developer_cloud</groupId>
+<artifactId>java-sdk</artifactId>
+<version>3.5.0</version>
+</dependency>
         </dependencies>
+        
     </dependencyManagement>
 
     <dependencies>
@@ -42,6 +48,11 @@
             <artifactId>geronimo-servlet_3.0_spec</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+<groupId>com.ibm.watson.developer_cloud</groupId>
+<artifactId>java-sdk</artifactId>
+<version>3.5.0</version>
+</dependency>
     </dependencies>
 
     <build>
