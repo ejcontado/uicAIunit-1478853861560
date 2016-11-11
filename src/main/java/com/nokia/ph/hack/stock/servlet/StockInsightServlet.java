@@ -17,20 +17,20 @@ public class StockInsightServlet extends HttpServlet
     /**
      * 
      */
-    private static final long serialVersionUID = -3161191497012406808L;
+    private static final long serialVersionUID = -8613518709760109141L;
 
     @Override
     protected void doGet( HttpServletRequest request, HttpServletResponse response )
         throws ServletException, IOException
     {
-        response.setContentType( "application/json" );
-
         String type = getRequestParameter( request, "type" );
         String symbol = getRequestParameter( request, "symbol" );
-        System.out.println( "Type: " + type + " Symbol: " + symbol );
 
         StockAnalyzer analyzer = new StockAnalyzer();
-        response.getWriter().print( analyzer.getAnalysis( type, symbol ) );
+        String analysis = analyzer.getAnalysis( type, symbol );
+
+        response.setContentType( "application/json" );
+        response.getWriter().print( analysis );
     }
 
     private String getRequestParameter( HttpServletRequest request, String string )
