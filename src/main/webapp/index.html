@@ -138,7 +138,31 @@
 	<script src="assets/js/require.js"></script>
 	<script src="assets/js/require-config.js"></script>
 	<script>
+	require(['jquery'], function($){
+	
+	  var symbols = 'assets/stock_symbol/PSE2.txt';
+
+	    $(document).ready(function() {
+	    	jQuery.get(symbols, function(data) {
+	    		var myvar = data;
+	    		var nodeArray=new Array(); 
+	    		var arrLines = myvar.split("\n");
+	    		  arrLines.forEach(function (line) {
+	    		    nodeArray.push(new Array(line.split("\t")));
+	    		  });
+	    	var list = $('#symbol_list');
+	    	console.log(list);
+	    	nodeArray.forEach(function(symbols_data){
+	    	list.append( '<li data-value="1"><a href="#"><span>'+ symbols_data[0]  +'</span></a></li>');
+	    	});
+	    		
+	    	});
+	    });
+	});
+	</script>
+	<script>
     	require(['jquery', 'wulf/combobox','wulf/navbar', 'wulf/Servlet'], function($){
+    		
     		
     		$(document).ready(function(){
     			analyze();
