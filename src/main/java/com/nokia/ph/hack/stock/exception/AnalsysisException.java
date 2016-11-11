@@ -1,4 +1,4 @@
-package com.nokia.ph.hack.stock.adapter;
+package com.nokia.ph.hack.stock.exception;
 
 public class AnalsysisException extends RuntimeException
 {

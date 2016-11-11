@@ -3,9 +3,9 @@ package com.nokia.ph.hack.stock.servlet.analysis;
 import java.util.List;
 
 import com.ibm.watson.developer_cloud.personality_insights.v3.model.Profile;
-import com.nokia.ph.hack.stock.adapter.AnalsysisException;
 import com.nokia.ph.hack.stock.adapter.TwitterAdapter;
 import com.nokia.ph.hack.stock.adapter.WatsonsAdapter;
+import com.nokia.ph.hack.stock.exception.AnalsysisException;
 
 import twitter4j.TwitterException;
 
