@@ -153,11 +153,15 @@
 	    		
 	    	$("#myCombobox1").find("li").on("click",function(event)
 	    	{
-	    		console.log($(this).attr("data-value"));
-	    		console.log(nodeArray);
+	    		var currentNode = $(this).attr("data-value");
 				nodeArray.forEach(function(node)
 				{
-					
+					if(node[0][0]===currentNode)
+					{
+						$("#stockName").attr("value",node[0][1]);
+						$("#sectorName").attr("value",node[0][5]);
+						$("#industryName").attr("value",node[0][6]);
+					}
 				});
 	    	});
 	    	});
