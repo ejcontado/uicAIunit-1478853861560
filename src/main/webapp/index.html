@@ -111,25 +111,8 @@
                         <div class="input-group-btn">
                             <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
                                     class="caret"></span></button>
-                            <ul  class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu">
-                                <li data-value="1"><a href="#"><span>One</span></a></li>
-                                <li data-value="2"><a href="#"><span>Two</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
-                                <li data-value="3"><a href="#"><span>Five</span></a></li>
-                                <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            <ul  id= "symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu">
+
                             </ul>
                         </div>
                     </div>
@@ -140,9 +123,9 @@
 	<script>
 	require(['jquery'], function($){
 	
-	  var symbols = 'assets/stock_symbol/PSE2.txt';
+	  var symbols = 'assets/stock_symbol/NASDAQ.txt';
 
-	    $(document).ready(function() {
+	    
 	    	jQuery.get(symbols, function(data) {
 	    		var myvar = data;
 	    		var nodeArray=new Array(); 
@@ -151,12 +134,12 @@
 	    		    nodeArray.push(new Array(line.split("\t")));
 	    		  });
 	    	var list = $('#symbol_list');
-	    	console.log(list);
+	    	
 	    	nodeArray.forEach(function(symbols_data){
-	    	list.append( '<li data-value="1"><a href="#"><span>'+ symbols_data[0]  +'</span></a></li>');
+	    	list.append( '<li data-value="1"><a href="#"><span>'+ symbols_data[0][0]  +'</span></a></li>');
 	    	});
 	    		
-	    	});
+	    
 	    });
 	});
 	</script>
