@@ -1,0 +1,119 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.timezone.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_timezone">Timezone</h1>
+<hr>
+<div class="col-md-4">
+    <div id="timezone-demo-container" class="col-md-11">
+        Normal
+        <div class="btn-group selectlist selectlist-resize n-timezone" data-resize="none" data-markup="timezone"
+             id="mySelectlisttimezone">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                <span class="selected-label"></span>
+                <span class="selected-caret"><span class="caret"></span></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul id="timezonedata" class="dropdown-menu n-dropdown-menu-scroll" role="menu">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-8">
+    <p>JS & CSS dependency:</p>
+<pre>
+For timezone components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.timezone.min.css" rel="stylesheet"&gt;</pre>
+    <p class="demo-pre-title">Invoke Timezone.js by Required JS:</p>
+    <pre>
+<code>
+    &lt;script src="../assets/js/require.js"&gt;&lt;/script&gt;
+    &lt;script src="../assets/js/require-config.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+    require(['jquery', <span class="demo-highlight-color">'wulf/timezone'</span>]);
+    &lt;/script&gt;
+</code>
+    </pre>
+    <p class="demo-pre-title">Via Javascript</p>
+    <p class="demo-pre-description">Call the timezone control via JavaScript:</p>
+    <pre>
+<code>
+    $('mySelectlistTimezone').nTimezone();
+</code>
+    </pre>
+    <p class="demo-pre-title">Via Data-API</p>
+    <p class="demo-pre-description">Add data-markup="timezone" to the .n-timezone element that you wish to initialize on $.ready().</p>
+     <pre>
+<code>
+    &lt;div class="btn-group selectlist selectlist-resize <span class="demo-highlight-color">n-timezone</span>" data-resize="none" <span class="demo-highlight-color">data-markup="timezone"</span> id="mySelectlistTimezone"&gt;
+        &lt;button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false"&gt;
+            &lt;span class="selected-label"&gt;&lt;/span&gt;
+            &lt;span class="selected-caret"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu n-dropdown-menu-scroll" role="menu"&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+</code>
+    </pre>
+    <p class="demo-pre-title">Methods</p>
+    <p class="demo-pre-description">.setDefault(PackedZoneString)</p>
+    <p class="demo-pre-comment">Set the default timezone to show.</p>
+    <pre>
+<code>
+    $('mySelectlisttimezone').setDefault('Asia/Shanghai');
+</code>
+    </pre>
+    <p class="demo-pre-description">.addZone(PackedZoneString)</p>
+    <p class="demo-pre-description">.addZone(PackedZoneString[])</p>
+    <p class="demo-pre-comment">Add more timezone to list. The strings passed in should be in this format: ZoneName|ZoneOffset.</p>
+     <pre>
+<code>
+    $('mySelectlisttimezone').addZone('Asia/Beijing|+08:00');
+    $('mySelectlisttimezone').addZone(['Asia/Beijing|+08:00', 'Europe/Oulu|+03:00']);
+</code>
+    </pre>
+    <p class="demo-pre-description">.removeZone(PackedZoneString)</p>
+    <p class="demo-pre-description">.removeZone(PackedZoneString[])</p>
+    <p class="demo-pre-comment">Remove the timezone in list.</p>
+    <pre>
+<code>
+    $('mySelectlisttimezone').removeZone('Asia/Beijing');
+    $('mySelectlisttimezone').removeZone(['Asia/Beijing', 'Asia/Shanghai']);
+</code>
+    </pre>
+</div>
+
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/timezone'], function ($) {
+        $(document).ready(function(){
+            $('#mySelectlisttimezone').setDefaultZone('Europe/Helsinki');
+            $('#mySelectlisttimezone').addZone(['Asia/Beijing|+08:00','Europe/Oulu|+03:00']);
+            $('#mySelectlisttimezone').removeZone(['Asia/Beijing']);
+        })
+    });
+</script>
+</body>
+</html>

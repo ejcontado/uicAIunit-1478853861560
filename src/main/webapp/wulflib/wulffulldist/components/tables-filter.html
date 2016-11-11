@@ -1,0 +1,668 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_table_filter">Tables with filters <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+
+<div id="table-demo-container1" class="col-md-12">
+
+    <p>When filters are present, they are displayed in a tall row directly under the column heads.
+        Filters can be cleared individually or they can all be cleared at once with a single click.
+        There will be filter result information at the bottom if filter is working.</p>
+
+    <div class="demo-table-min-size">
+        <table class="n-table n-table-standard n-table-striped n-table-hover n-table-filter">
+            <thead>
+            <tr>
+                <th>Column1<span class="icon icon-filter"></span></th>
+                <th>Column2<span class="icon icon-filter"></span></th>
+                <th>Column3<span class="icon icon-filter"></span></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox1">
+                        <input type="text" class="form-control n-inputfield" id="TA-tablewithfilter-table1filter1" placeholder="Filter...">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table1button1" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Four</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Five</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Six</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox2">
+                        <input type="text" class="form-control n-inputfield" placeholder="Filter...">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close" id="TA-tablewithfilter-table1column2icon"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table1button2" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1" id="TA-tablewithfilter-table1column2option1"><a href="javascript:void(0);"><span>Option1</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option2</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option3</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option4</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option5</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option6</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox3">
+                        <input type="text" class="form-control n-inputfield" id="TA-tablewithfilter-table1filter3" placeholder="Filter...">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table1button3" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>Critical fault</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Major fault</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Minor fault</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Warning</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Fault cleared</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Unknown situation</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th><span class="icon icon-close-rounded"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="TA-tablewithfilter-table1row1">
+                <td id="TA-tablewithfilter-table1one">One</td>
+                <td>Option1</td>
+                <td>Critical fault</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table1row2">
+                <td>Two</td>
+                <td id="TA-tablewithfilter-table1option2">Option2</td>
+                <td>Major fault</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table1row3">
+                <td>Three</td>
+                <td>Option3</td>
+                <td id="TA-tablewithfilter-table1minorfault">Minor fault</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table1row4">
+                <td id="TA-tablewithfilter-table1four">Four</td>
+                <td>Option4</td>
+                <td>Warning</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table1row5">
+                <td>Five</td>
+                <td id="TA-tablewithfilter-table1option5">Option5</td>
+                <td>Fault cleared</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table1row6">
+                <td>Six</td>
+                <td>Option6</td>
+                <td id="TA-tablewithfilter-table1situation">Unknown situation</td>
+                <td></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <div class="n-table-total has-filter">
+                        <span class="icon icon-filter"></span>
+                        <span class="n-table-filter-result">Results: <span>534</span></span>
+                        <span>Total: <span>5237</span></span>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="col-md-12">
+    <p>JS &amp; CSS dependency:</p>
+        <pre>For table with filters components,you can use following css import code:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"&gt;
+        </pre>
+    <p>
+        Source code for table content:
+    </p>
+    <pre>
+<code>
+    &lt;!-- HTML --&gt;
+    &lt;table class="n-table n-table-standard n-table-striped n-table-hover <span
+        class="demo-highlight-color">n-table-filter</span>"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;Column1<span class="demo-highlight-color">&lt;span class="icon icon-filter"&gt;&lt;/span&gt;</span>&lt;/th&gt;...&lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+    &lt;th&gt;
+                    <span class="demo-highlight-color">&lt;div class="input-group input-append dropdown combobox" data-resize="auto" data-initialize="combobox" id="myCombobox1"&gt;
+                        &lt;input type="text" class="form-control n-inputfield"&gt;
+                        &lt;a class="n-filter-clear-control"&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/a&gt;
+                        &lt;div class="input-group-btn"&gt;
+                            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+                            &lt;ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll"&gt;
+                                &lt;li data-value="1"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                                &lt;li data-value="2"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                                &lt;li data-value="1"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;Three&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;</span>
+    &lt;/th&gt;
+    ...
+    &lt;th&gt;<span class="demo-highlight-color">&lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;</span>&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;...&lt;/tbody&gt;
+    &lt;tfoot&gt;
+    &lt;tr&gt;
+    &lt;td colspan="4"&gt;
+    &lt;div class="n-table-total <span class="demo-highlight-color">has-filter</span>"&gt;
+                        <span class="demo-highlight-color">&lt;span class="icon icon-filter"&gt;&lt;/span&gt;
+                        &lt;span class="n-table-filter-result"&gt;Results: &lt;span&gt;534&lt;/span&gt;&lt;/span&gt;
+                        &lt;span&gt;Total: &lt;span&gt;5237&lt;/span&gt;&lt;/span&gt;</span>
+    &lt;/div&gt;
+    &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;/table&gt;
+
+    &lt;!-- Javascript --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt;&lt;/script&gt;
+    <span class="demo-highlight-color">&lt;script src="../wulfdist/js/dependencies/fuelux.js"&gt;&lt;/script&gt;</span>
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/wulf.min.js"&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+    $(document).ready(function () {
+    <span class="demo-highlight-color">$('#myCombobox1').combobox();</span>
+    <span class="demo-highlight-color">$(".n-dropdown-menu-scroll").nScrollbar();</span>
+    });
+    &lt;/script&gt;</code>
+    </pre>
+</div>
+<div id="table-demo-container2" class="col-md-12">
+
+    <p>The following example show filter result and page informationi at the same time</p>
+
+    <div class="demo-table-min-size">
+        <table class="n-table n-table-standard n-table-striped n-table-hover n-table-filter">
+            <thead>
+            <tr>
+                <th>Column1<span class="icon icon-filter"></span></th>
+                <th>Column2<span class="icon icon-filter"></span></th>
+                <th>Column3<span class="icon icon-filter"></span></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox11">
+                        <input type="text" class="form-control n-inputfield" placeholder="Filter...">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table2button1" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Four</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Five</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Six</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox21">
+                        <input type="text" class="form-control n-inputfield" placeholder="Filter...">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table2button2" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option1</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option2</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option3</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option4</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option5</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option6</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox31">
+                        <input type="text" class="form-control n-inputfield" placeholder="Filter...">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table2button3" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>Critical fault</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Major fault</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Minor fault</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Warning</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Fault cleared</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Unknown situation</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th><span class="icon icon-close-rounded"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>One</td>
+                <td>Option1</td>
+                <td>Critical fault</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Two</td>
+                <td>Option2</td>
+                <td>Major fault</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Three</td>
+                <td>Option3</td>
+                <td>Minor fault</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Four</td>
+                <td>Option4</td>
+                <td>Warning</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Five</td>
+                <td>Option5</td>
+                <td>Fault cleared</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Six</td>
+                <td>Option6</td>
+                <td>Unknown situation</td>
+                <td></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <div class="n-table-total has-filter">
+                        <span class="icon icon-filter"></span>
+                        <span class="n-table-filter-result">Results: <span>534</span></span>
+                        <span>Total: <span>5237</span></span>
+                    </div>
+
+                    <div class="n-table-pagenum">
+                        <button class="btn btn-icon" id="TA-tablewithfilter-forwardbutton">
+                            <span class="icon icon-first"></span>
+                        </button>
+                        <button class="btn btn-icon">
+                            <span class="icon icon-back"></span>
+                        </button>
+                        <span>Page</span><input id="Example1" type="text" class="n-inputfield n-inputfield-small"
+                                                placeholder="1"><span>/ 255</span>
+                        <button class="btn btn-icon" id="TA-tablewithfilter-nextbutton">
+                            <span class="icon icon-next"></span>
+                        </button>
+                        <button class="btn btn-icon">
+                            <span class="icon icon-last"></span>
+                        </button>
+                    </div>
+                    <div class="n-table-pageselect">
+
+                        <div class="n-table-pagecombox">
+                            <div class="input-group input-append dropdown combobox n-combobutton-small n-page-combox"
+                                 data-initialize="combobox" id="myCombobox12">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small">
+
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table2button"
+                                            data-toggle="dropdown"><span
+                                            class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>1</span></a></li>
+                                        <li data-value="2" id="TA-tablewithfilter-table2page2"><a href="javascript:void(0);"><span>2</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>3</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="n-table-suffix">
+                            <span>Items per page</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="col-md-12">
+    <p>
+        Source code for table content:
+    </p>
+    <pre>
+<code>
+&lt;!-- HTML --&gt;
+&lt;table class="n-table n-table-standard n-table-striped n-table-hover <span class="demo-highlight-color">n-table-filter</span>"&gt;
+&lt;thead&gt;...&lt;/thead&gt;
+&lt;tbody&gt;...&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;
+&lt;td colspan="4"&gt;<span class="demo-highlight-color">
+    &lt;div class="n-table-total has-filter"&gt;
+                        &lt;span class="icon icon-filter"&gt;&lt;/span&gt;
+                        &lt;span class="n-table-filter-result"&gt;Results: &lt;span&gt;534&lt;/span&gt;&lt;/span&gt;
+                        &lt;span&gt;Total: &lt;span&gt;5237&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="n-table-pagenum"&gt;
+        &lt;button class="btn btn-icon"&gt;
+        &lt;span class="icon icon-first"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button class="btn btn-icon"&gt;
+        &lt;span class="icon icon-back"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;span&gt;Page&lt;/span&gt;&lt;input id="Example1" type="text" class="n-inputfield" placeholder="1"&gt;&lt;span&gt;/255&lt;/span&gt;
+        &lt;button class="btn btn-icon"&gt;
+        &lt;span class="icon icon-next"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button class="btn btn-icon"&gt;
+        &lt;span class="icon icon-last"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class="n-table-pageselect"&gt;
+        &lt;div class="n-table-pagecombox"&gt;
+            &lt;div class="input-group input-append dropdown combobox n-page-combox" data-initialize="combobox" id="myCombobox1"&gt;
+            &lt;input type="text" class="form-control n-inputfield"&gt;
+                &lt;div class="input-group-btn"&gt;
+                &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;
+                &lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+                    &lt;ul class="dropdown-menu dropdown-menu-right" role="menu"&gt;
+                        &lt;li data-value="1"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;li data-value="2"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;li data-value="3"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="n-table-suffix"&gt;
+            &lt;span&gt;Items per page&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</span>
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;
+
+&lt;!-- Javascript --&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt;&lt;/script&gt;
+<span class="demo-highlight-color">&lt;script src="../wulfdist/js/dependencies/fuelux.js"&gt;&lt;/script&gt;</span>
+&lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+&lt;script src="../wulfdist/js/wulf.min.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+$(document).ready(function () {
+<span class="demo-highlight-color">$('#myCombobox1').combobox();</span>
+<span class="demo-highlight-color">$(".n-dropdown-menu-scroll").nScrollbar();</span>
+});
+&lt;/script&gt;</code>
+    </pre>
+</div>
+<div id="table-demo-container3" class="col-md-12">
+    <h4>Scroll table with filters</h4>
+
+    <p>Option to show only gray filter icon at the bottom if the filter is supported but not used.</p>
+
+    <div class="demo-table-min-size">
+        <table class="n-table n-table-standard n-table-striped n-table-hover n-table-filter">
+            <thead>
+            <tr>
+                <th>Column1<span class="icon icon-filter"></span></th>
+                <th>Column2<span class="icon icon-filter"></span></th>
+                <th>Column3<span class="icon icon-filter"></span></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox4">
+                        <input type="text" class="form-control n-inputfield" id="TA-tablewithfilter-table3filter1">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table3button1" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Four</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Five</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Six</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox5">
+                        <input type="text" class="form-control n-inputfield">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="TA-tablewithfilter-table3button2"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option1</span></a></li>
+                                <li data-value="2" id="TA-tablewithfilter-table3option2item"><a href="javascript:void(0);"><span>Option2</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option3</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option4</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Option5</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Option6</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th>
+                    <div class="input-group input-append dropdown combobox" data-resize="auto"
+                         data-initialize="combobox"
+                         id="myCombobox6">
+                        <input type="text" class="form-control n-inputfield" id="TA-tablewithfilter-table3filter3">
+                        <a class="n-filter-clear-control" href="javascript:void(0);"><span
+                                class="icon icon-close"></span></a>
+
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" id="TA-tablewithfilter-table3button3" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll">
+                                <li data-value="1"><a href="javascript:void(0);"><span>Critical fault</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Major fault</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Minor fault</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Warning</span></a></li>
+                                <li data-value="1"><a href="javascript:void(0);"><span>Fault cleared</span></a></li>
+                                <li data-value="2"><a href="javascript:void(0);"><span>Unknown situation</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+                <th><span class="icon icon-close-rounded"></span></th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <div class="n-table-total no-filter">
+                        <span class="icon icon-filter"></span>
+                        <span class="n-table-filter-result">Results: <span>534</span></span>
+                        <span>Total: <span>5237</span></span>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+            <tbody class="n-table-scrollbar">
+            <tr id="TA-tablewithfilter-table3row1">
+                <td id="TA-tablewithfilter-table3one">One</td>
+                <td>Option1</td>
+                <td>Critical fault</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table3row2">
+                <td>Two</td>
+                <td id="TA-tablewithfilter-table3option2">Option2</td>
+                <td>Major fault</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table3row3">
+                <td>Three</td>
+                <td>Option3</td>
+                <td id="TA-tablewithfilter-table3minorfault">Minor fault</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table3row4">
+                <td id="TA-tablewithfilter-table3four">Four</td>
+                <td>Option4</td>
+                <td>Warning</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table3row5">
+                <td>Five</td>
+                <td id="TA-tablewithfilter-table3option5">Option5</td>
+                <td>Fault cleared</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table3row6">
+                <td>Six</td>
+                <td id="TA-tablewithfilter-table3option6">Option6</td>
+                <td>Unknown situation</td>
+                <td></td>
+            </tr>
+            <tr id="TA-tablewithfilter-table3row7">
+                <td>One</td>
+                <td>Option6</td>
+                <td id="TA-tablewithfilter-table3unknown">Unknown situation</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Two</td>
+                <td>Option6</td>
+                <td>Unknown situation</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="col-md-12">
+    <pre>
+<code>
+    &lt;!-- Standard table with scrollbar --&gt;
+    &lt;table class="n-table"&gt;
+    &lt;thead&gt;...&lt;/thead&gt;
+    &lt;tbody <span class="demo-highlight-color">class="n-table-scrollbar"</span>&gt;...&lt;/tbody&gt;
+    &lt;tfoot&gt;
+    &lt;tr&gt;
+    &lt;td colspan="4"&gt;
+    &lt;div class="n-table-total <span class="demo-highlight-color">no-filter</span>"&gt;
+    &lt;span class="icon icon-filter"&gt;&lt;/span&gt;
+    &lt;span class="n-table-filter-result"&gt;Results: &lt;span&gt;534&lt;/span&gt;&lt;/span&gt;
+    &lt;span&gt;Total: &lt;span&gt;5237&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+    &lt;/table&gt;</code>
+    </pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/tables', 'wulf/combobox'], function($){
+        $(document).ready(function() {
+            $('#myCombobox1').combobox();
+            $('#myCombobox2').combobox();
+            $('#myCombobox3').combobox();
+            $('#myCombobox4').combobox();
+            $('#myCombobox5').combobox();
+            $('#myCombobox6').combobox();
+            $(".n-dropdown-menu-scroll").nScrollbar();
+        });
+    });
+</script>
+</body>
+</html>

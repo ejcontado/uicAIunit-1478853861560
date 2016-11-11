@@ -1,0 +1,263 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.drilldown.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_drillDown">Drilldown <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div id="table-demo-container" class="col-md-6">
+
+
+    <table class="n-table n-table-standard n-table-striped n-table-cell-hover n-drilldown-table">
+        <thead>
+        <tr>
+            <th class="n-sortable">With icon</span>
+                <span class="icon icon-arrow"></span>
+            </th>
+            <th class="n-sortable">With text</span>
+                <span class="icon icon-arrow"></span>
+            </th>
+            <th class="text-right n-sortable">With error/alert
+                <span class="icon icon-arrow"></span></th>
+            <th class="text-right n-sortable">With number<span class="icon icon-arrow"></span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+            <td class="text-center">
+                <div class="n-cell-icon-container">
+                     <div class="n-cell-icon">
+                         <span class="icon icon-fault-critical"></span>
+                    </div>
+                 </div>
+            </td>
+            <td data-target-selector="#item1" id="TA-drilldown-withtext"><span>Critical fault</span>
+            </td>
+            <td class="n-cell-error n-drillDown-item text-right" data-target-selector="#item2"
+                id="TA-drilldown-withterror"><span>2010</span></td>
+            <td class="text-right n-drillDown-item" data-target-selector="#item3" id="TA-drilldown-withtnumber">
+                <span>910</span></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div>
+                    <div class="n-drillDown-collapsed" id="item1">
+                        <div class="n-drillDown-arrowContainer">
+                            <div class="n-drillDown-arrow"></div>
+                        </div>
+                        <div class="n-drillDown-content">
+                            <div class="n-drillDown-inner">Example1</div>
+                            <button class="btn btn-close" id="TA-drilldown-closeicon1"><span class="icon icon-close"></span></button>
+                        </div>
+                    </div>
+                    <div class="n-drillDown-collapsed" id="item2" >
+                        <div class="n-drillDown-arrowContainer">
+                            <div class="n-drillDown-arrow"></div>
+                        </div>
+                        <div class="n-drillDown-content">
+                            <div class="n-drillDown-inner">Example2</div>
+                            <button class="btn btn-close" id="TA-drilldown-closeicon2"><span class="icon icon-close"></span></button>
+                        </div>
+                    </div>
+                    <div class="n-drillDown-collapsed" id="item3">
+                        <div class="n-drillDown-arrowContainer">
+                            <div class="n-drillDown-arrow"></div>
+                        </div>
+                        <div class="n-drillDown-content">
+                            <div class="n-drillDown-inner">Example3</div>
+                            <button class="btn btn-close" id="TA-drilldown-closeicon3"><span class="icon icon-close"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">
+                <div class="n-cell-icon-container">
+                    <div class="n-cell-icon">
+                        <span class="icon icon-fault-major"></span>
+                    </div>
+                </div>
+            </td>
+            <td class="n-drillDown-item" data-target-selector="#item4" id="TA-drilldown-withtext2"><span>Major fault</span></td>
+            <td class="n-cell-error text-right n-drillDown-item" data-target-selector="#item5" id="TA-drilldown-witherror2"><span>2010</span></td>
+            <td class="text-right n-drillDown-item" data-target-selector="#item6" id="TA-drilldown-withnumber2"><span>910</span></td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div>
+                    <div class="n-drillDown-collapsed" id="item4">
+                        <div class="n-drillDown-arrowContainer">
+                            <div class="n-drillDown-arrow"></div>
+                        </div>
+                        <div class="n-drillDown-content">
+                            <div class="n-drillDown-inner">Example4</div>
+                            <button class="btn btn-close" id="TA-drilldown-closeicon4"><span class="icon icon-close"></span></button>
+                        </div>
+                    </div>
+                    <div class="n-drillDown-collapsed" id="item5" >
+                        <div class="n-drillDown-arrowContainer">
+                            <div class="n-drillDown-arrow"></div>
+                        </div>
+                        <div class="n-drillDown-content">
+                            <div class="n-drillDown-inner">Example5</div>
+                            <button class="btn btn-close" id="TA-drilldown-closeicon5"><span class="icon icon-close"></span></button>
+                        </div>
+                    </div>
+                    <div class="n-drillDown-collapsed" id="item6">
+                        <div class="n-drillDown-arrowContainer">
+                            <div class="n-drillDown-arrow"></div>
+                        </div>
+                        <div class="n-drillDown-content">
+                            <div class="n-drillDown-inner">Example6</div>
+                            <button class="btn btn-close" id="TA-drilldown-closeicon6"><span class="icon icon-close"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-6">
+    <p>JS & CSS dependency:</p>
+<pre>
+For drilldown components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.drilldown.min.css" rel="stylesheet"/&gt;
+</pre>
+    <pre>
+<code>
+    &lt;!-- Basic drillDown --&gt;
+        &lt;div id="table-demo-container" class="col-md-6"&gt;
+        &lt;table class="n-table n-table-standard n-table-striped n-table-cell-hover n-drilldown-table"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th class="n-sortable"&gt;With icon&lt;/span&gt;
+                    &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+                    &lt;/th&gt;
+                    &lt;th class="n-sortable"&gt;With text&lt;/span&gt;
+                    &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+                    &lt;/th&gt;
+                    &lt;th class="text-right n-sortable"&gt;With error/alert
+                     &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+                    &lt;th class="text-right n-sortable"&gt;With number&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+                    &lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-critical"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td data-target-selector="#item1"&gt;&lt;span&gt;Critical fault&lt;/span&gt;&lt;/td&gt;
+                    &lt;td class="n-cell-error text-right n-drillDown-item" data-target-selector="#item2"&gt;
+                    &lt;span&gt;2010&lt;/span&gt;&lt;/td&gt;
+                    &lt;td class="text-right n-drillDown-item" data-target-selector="#item3"&gt;&lt;span&gt;910&lt;/span&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div&gt;
+                    &lt;div class="n-drillDown-collapsed" id="item1"&gt;
+                    &lt;div class="n-drillDown-arrowContainer"&gt;
+                    &lt;div class="n-drillDown-arrow"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-content"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Example1&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-collapsed" id="item2" &gt;
+                    &lt;div class="n-drillDown-arrowContainer"&gt;
+                    &lt;div class="n-drillDown-arrow"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-content"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Example2&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-collapsed" id="item3"&gt;
+                    &lt;div class="n-drillDown-arrowContainer"&gt;
+                    &lt;div class="n-drillDown-arrow"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-content"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Example3&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-major"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td class="n-drillDown-item" data-target-selector="#item4"&gt;&lt;span&gt;Major fault&lt;/span&gt;/td&gt;
+                    &lt;td class="n-cell-error text-right n-drillDown-item" data-target-selector="#item5"&gt;&lt;span&gt;2010&lt;/span&gt;&lt;/td&gt;
+                    &lt;td class="text-right n-drillDown-item" data-target-selector="#item6"&gt;&lt;span&gt;910&lt;/span&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div&gt;
+                    &lt;div class="n-drillDown-collapsed" id="item4"&gt;
+                    &lt;div class="n-drillDown-arrowContainer"&gt;
+                    &lt;div class="n-drillDown-arrow"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-content"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Example4&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-collapsed" id="item5" &gt;
+                    &lt;div class="n-drillDown-arrowContainer"&gt;
+                    &lt;div class="n-drillDown-arrow"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-content"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Example5&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-collapsed" id="item6"&gt;
+                    &lt;div class="n-drillDown-arrowContainer"&gt;
+                    &lt;div class="n-drillDown-arrow"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-drillDown-content"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Example6&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;/div&gt;
+
+    &lt;!-- Java Script --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/fuelux.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/wulf.min.js"&gt&lt/script&gt;
+</code>
+</pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/drilldown']);
+</script>
+</body>
+</html>

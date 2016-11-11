@@ -1,0 +1,605 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "@{less-path-of-bootstrap}mixins/opacity.less";
+@import "@{less-path-of-bootstrap}modals.less";
+@import "./mixins/dialog.less";
+@import "./mixins/vendor-prefixes.less";
+@import "variables.less";
+
+// OT3 p.84
+// Note 1: these settings are for normal dialogs (not ok for splash screen)
+// Note 2: navbar.less produces the banner curve
+.modal {
+  &.active {
+    .modal-header {
+      .n-dialog-header-fg-filler {
+        padding-right: 0;
+        border-top: 3px solid @modal-active-header-filler-border-top;
+      }
+      .n-dialog-header-curve > .fg-corner {
+        height: 72% !important;
+        border-top: 3px solid @modal-active-header-curve-border-top;
+      }
+    }
+  }
+}
+
+.modal-content {
+  text-align: left;
+  #gradient > .vertical(@n-banner-dlg-gradient-gray-end, @n-dialog-gradient-bottom);
+  .box-shadow(0px 5px 10px lighten(black, 65%));
+}
+
+.modal-header {
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+
+  .modal-title {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block;
+    padding: 0;
+    margin: 9px 0 0 26px;
+    z-index: 2;
+    color: @gray-dark;
+    font-size: 20px;
+
+    .icon {
+      font-size: 16px;
+      line-height: inherit;
+      margin: 0 6px 0 1px;
+    }
+  }
+  .n-dialog-header-curve {
+    position: relative;
+    float: left;
+    margin-top: 10px;
+    z-index: 1;
+    .n-banner-dlg-gray-to-dark;
+  }
+  .n-dialog-header-fg-filler {
+    .n-banner-dlg-filler-gray;
+  }
+  .n-dialog-header-bg-filler {
+    .n-banner-dlg-filler-gray-dark;
+    border-radius: 6px 6px 0 0;
+  }
+  .modal-title-subheading {
+    color: @gray-global;
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 3px 0 0 0;
+    margin: 12px 0 0 26px;
+    z-index: 3;
+  }
+  .modal-title-instruction {
+    color: @gray-dark;
+    font-size: 14px;
+    padding: 15px 0 0 0;
+    margin: 0 0 0 26px;
+  }
+  .modal-title-instruction-plain {
+    color: @gray-dark;
+    font-size: 14px;
+    padding: 23px 0 0 0;
+    margin: 0 0 0 26px;
+  }
+  .modal-title-no_subtitle {
+    color: @gray-dark;
+    font-size: 14px;
+    padding: 27px 0 0 0;
+    margin: 0 0 0 26px;
+  }
+  .modal-title-active {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    white-space: nowrap;
+    display: inline-block;
+    margin: 9.5px 0 -1px 26px;
+    z-index: 2;
+    color: @gray-dark;
+    font-size: 20px;
+  }
+  .modal-title-error-warning {
+    color: @gray-dark;
+    font-size: 14px;
+    padding: 8px 0 0 0;
+    margin: 12px 0 0 26px;
+  }
+  .icon-close-rounded {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    font-size: 18px;
+    // Need to keep this button as the topmost item in z-order (related to title texts)
+    z-index: 4;
+    cursor: pointer;
+    &:before {
+      color: @n-dialog-mini-close-background;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .modal-header .hidden-xs {
+    display: block !important;
+  }
+}
+
+.modal-body-subtitle {
+  margin: 15px 22px 0 22px;
+  padding: 17px 6px 0 6px;
+  border-top: 1px solid @n-dialog-internal-divider;
+}
+
+.modal-body {
+  margin: 23px 22px 0 22px;
+  padding: 17px 6px 0 6px;
+  border-top: 1px solid @n-dialog-internal-divider;
+}
+
+.modal-footer {
+  border-top: 1px solid @n-dialog-internal-divider;
+  margin: 13px 22px 16px 22px;
+  padding: 16px 0 0 0;
+  color: @gray-global;
+  // Need to override Bootstrap default button-button distance settings
+  .btn + .btn {
+    margin: 3px;
+  }
+}
+
+.n-dialog-warning {
+
+  .modal-header {
+    .modal-title {
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+      display: inline-block;
+      padding: 0;
+      margin: 9px 0 0 19px;
+      z-index: 2;
+      color: @gray-dark;
+      font-size: 20px;
+    }
+
+    .n-dialog-header-curve {
+      .n-banner-dlg-gray-to-orange;
+    }
+
+    .n-dialog-header-fg-filler {
+      .n-banner-dlg-filler-gray;
+    }
+
+    .n-dialog-header-bg-filler {
+      .n-banner-dlg-filler-gray-orange;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .icon-close-rounded {
+      &:before {
+        color: @n-dialog-mini-close-white;
+      }
+    }
+  }
+}
+
+.n-dialog-critical {
+
+  .modal-header {
+    .modal-title {
+      position: relative;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+      display: inline-block;
+      padding: 0;
+      margin: 9px 0 0 19px;
+      z-index: 2;
+      color: @gray-dark;
+      font-size: 20px;
+    }
+
+    .n-dialog-header-curve {
+      .n-banner-dlg-gray-to-red;
+    }
+
+    .n-dialog-header-fg-filler {
+      .n-banner-dlg-filler-gray;
+    }
+
+    .n-dialog-header-bg-filler {
+      .n-banner-dlg-filler-gray-red;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .icon-close-rounded {
+      &:before {
+        color: @n-dialog-mini-close-white;
+      }
+    }
+  }
+}
+
+// +++ About dialog special settings override some modal settings
+.n-dialog-about {
+  width: 475px;
+  .n-about-logo {
+    text-align: right;
+    padding: 65px 0 30px 0; // 27 from dialog edge + 45 distance to version and system info , 95 to the dialog-header
+  }
+  .n-about-table {
+    margin-right: 6px; // 27 distance from dialog edge
+    margin-left: 4px; // 26 distance from dialog edge
+    line-height: 28px; // 32 but the bottom-padding (needed for vertical text centering) causes stretching
+    height: 100%;
+  }
+  .n-about-table-hrline {
+    td, th {
+      .box-shadow(inset 0 -1px 0 0 @n-about-hrline-shadow);
+      // to fix WULF-333, comment out follow line
+      //border-bottom: 1px inset @n-about-hrline-border;
+      white-space: nowrap;
+      color: @gray-global;
+      padding-bottom: 4px !important;
+    }
+    td:last-child {
+      white-space: normal;
+      width: 99%;
+      text-align: right;
+    }
+  }
+  // Override the common modal border settings, no hr lines
+  .modal-header {
+    .modal-title-subheading {
+      padding-top: 1px;
+    }
+  }
+  .modal-body {
+    border-top: none;
+    border-bottom: none;
+    margin: 0 27px 0 27px;
+    padding: 0;
+  }
+  .modal-footer {
+    line-height: 57px;
+    height: 32px;
+    margin: 20px 26px 20px 26px;
+    border: none;
+    padding: 0;
+    .about-close {
+      float: right;
+      margin-top: 0;
+    }
+    > table {
+      width: 100%;
+    }
+    .about-copyright {
+      line-height: 15px;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.n-dialog-confirm {
+  .modal-body {
+    border-top: none;
+    padding-top: 7px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+  .modal-footer {
+    padding-top: 18px;
+  }
+}
+
+// DIALOG BANNER
+.n-banner-dlg-filler-gray {
+
+  #gradient > .vertical(@n-banner-dlg-gradient-gray-start, @n-banner-dlg-gradient-gray-end);
+  height: @n-banner-dlg-gradient-gray-height;
+  left: 0;
+  max-width: 80%;
+  padding-right: 12px;
+  float: left;
+  position: relative;
+  top: 10px;
+  z-index: 1;
+}
+
+.n-banner-dlg-gray-to-dark {
+  .n-banner-dlg-x-to-y (@n-banner-dlg-gradient-gray-height; ~"gray"; ~"dark")
+}
+
+.n-banner-dlg-gray-to-red {
+  .n-banner-dlg-x-to-y (@n-banner-dlg-gradient-gray-height; ~"gray"; ~"red")
+}
+
+.n-banner-dlg-gray-to-orange {
+  .n-banner-dlg-x-to-y (@n-banner-dlg-gradient-gray-height; ~"gray"; ~"orange")
+}
+
+.n-banner-dlg-filler-gray-dark {
+  .n-banner-dlg-filler-x(@n-banner-dlg-gradient-gray-dark-height; ~"dark")
+}
+
+.n-banner-dlg-filler-gray-red {
+  .n-banner-dlg-filler-x(@n-banner-dlg-gradient-gray-dark-height; ~"red")
+}
+
+.n-banner-dlg-filler-gray-orange {
+  .n-banner-dlg-filler-x(@n-banner-dlg-gradient-gray-dark-height; ~"orange")
+}
+
+@media (max-width: @screen-sm-min) {
+  .modal-content {
+    .box-shadow(0 5px 15px @modal-content-maxwidth-shadow);
+    min-width: 491px;
+  }
+}
+
+.modal-resize-dialog {
+  .modal-content {
+    overflow: hidden;
+    min-width: 315px;
+    min-height: 360px;
+    .modal-header {
+      .modal-title-subheading {
+        margin-right: 26px;
+      }
+      .n-dialog-header-resize {
+        position: relative;
+        top: -10px;
+        max-width: 70%;
+        width: auto;
+        height: auto;
+        .n-dialog-header-fg-filler {
+          top: 0;
+          width: 100%;
+        }
+        .n-dialog-header-curve {
+          top: 0;
+          left: auto;
+          right: -90px;
+        }
+        .modal-title {
+          padding-top: 10px;
+        }
+      }
+      .modal-title-subheading {
+        padding-bottom: 1px;
+      }
+    }
+
+    .modal-body {
+      overflow: hidden;
+      min-height: 300px;
+    }
+
+    .modal-footer {
+      position: absolute;
+      z-index: 1;
+      background-image: linear-gradient(to bottom, @modal-resize-dialog-footer-bg-gradient-start 0%, @modal-resize-dialog-footer-bg-gradient-end 100%);
+      .icon-indicator {
+        right: -22px;
+        bottom: -33px;
+      }
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.resizer {
+  z-index: 2;
+}
+
+.modal-header .icon-close-rounded:after {
+  content: "\00a0";
+  position: absolute;
+  background: @gray-dark;
+  width: 0;
+  height: 8px;
+  top: 5px;
+  left: 5px;
+}
+
+.modal-dialog {
+  & .modal-header .icon-close-rounded {
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 3px @modal-dialog-plain-header-close-icon;
+
+    &:hover {
+      &::after {
+        width: 8px;
+      }
+
+      &::before {
+        color: @modal-dialog-header-close-hover;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 3px #00a1cc;
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      &::after {
+        width: 0;
+      }
+      &::before {
+        color: black;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 2px @modal-dialog-header-close-focus;
+      }
+    }
+
+    &:active {
+      border: none;
+      &::after {
+        width: 8px;
+      }
+      &::before {
+        color: @modal-dialog-header-close-active;
+        box-shadow: inset 0 0 0 2px @modal-dialog-header-close-active-shadow-inset;
+        border-radius: 50%;
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    &.disabled {
+      outline: none;
+      border-radius: 50%;
+      border: none;
+      box-shadow: none;
+      &::after {
+        width: 0;
+      }
+      &::before {
+        color: @modal-dialog-header-close-disabled;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  }
+
+  &.n-dialog-warning .modal-header .icon-close-rounded {
+
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px @gray-white;
+
+    &:hover {
+      &::after {
+        background: @modal-dialog-warning-header-close-hover-background;
+      }
+      &::before {
+        color: @modal-dialog-warning-header-close-hover;
+        box-shadow: inset 0 0 0 2px @modal-dialog-warning-header-close-hover-border;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      &::after {
+        width: 8px;
+        background: @modal-dialog-warning-header-close-focus-background;
+      }
+      &::before {
+        color: black;
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    &:active {
+      border: none;
+      &::after {
+        width: 8px;
+        background: @gray-dark;
+      }
+      &::before {
+        color: @modal-dialog-warning-header-close-active;
+        border: none;
+        box-shadow: inset 0 0 0 2px @modal-dialog-warning-header-close-active-shadow-inset;
+        border-radius: 50%;
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    &.disabled {
+      outline: none;
+      border-radius: 50%;
+      border: none;
+      box-shadow: none;
+      &::after {
+        width: 0;
+      }
+      &::before {
+        color: @modal-dialog-warning-header-close-diasbled;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  }
+
+  &.n-dialog-critical .modal-header .icon-close-rounded {
+
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px @gray-white;
+
+    &:hover {
+      &::after {
+        background: @modal-dialog-critical-header-close-hover-background;
+      }
+      &::before {
+        color: @modal-dialog-critical-header-close-hover;
+        box-shadow: inset 0 0 0 2px @modal-dialog-critical-header-close-hover-border;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+      &::after {
+        width: 8px;
+        background: @modal-dialog-critical-header-close-focus-background;
+      }
+      &::before {
+        color: black;
+        z-index: 1;
+        position: relative;
+        //box-shadow: inset 0 0 0 2px @modal-dialog-critical-header-close-focus-background;
+      }
+    }
+
+    &:active {
+      border: none;
+      &::after {
+        width: 8px;
+        background: @gray-dark;
+      }
+      &::before {
+        color: @modal-dialog-critical-header-close-active;
+        border: none;
+        box-shadow: inset 0 0 0 2px @modal-dialog-critical-header-close-active-shadow;
+        border-radius: 50%;
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    &.disabled {
+      outline: none;
+      border-radius: 50%;
+      border: none;
+      box-shadow: none;
+      &::after {
+        width: 0;
+      }
+      &::before {
+        color: @modal-dialog-critical-header-close-disabled;
+        box-shadow: none;
+        border: none;
+      }
+    }
+  }
+}
+

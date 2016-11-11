@@ -1,0 +1,7 @@
+<div role="alert" class="alert" ng-class="{'alert-error' : $ctrl.type === 'error'}" ng-keypress="$ctrl.handleKeypress($event)">
+    <span class="icon" ng-class="{true : 'icon-' + $ctrl.type, false: 'icon-info'}[$ctrl.typeSpecified]"></span>
+    <ng-transclude></ng-transclude>
+    <a href="#" aria-label="Alert close button" role="button" class="n-close" ng-if="$ctrl.closeable" ng-click="$ctrl.close()">
+        <span aria-hidden="true" class="icon icon-close"></span>
+    </a>
+</div>

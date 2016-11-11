@@ -1,0 +1,293 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.tree-normal.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+	<link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_tree_scrollbar">Tree with scrollbar</h1>
+<hr>
+<div class="col-md-4">
+	<div class="fuelux menu-tree">
+		<ul id="myTree" class="tree tree-scroll" role="tree">
+			<li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false">
+				<div class="tree-branch-header">
+					<a href="#" class="tree-branch-name">
+						<span class="glyphicon icon-caret glyphicon-play"></span>
+						<span class="glyphicon icon-folder glyphicon-folder-close"></span>
+						<span class="tree-label"></span>
+					</a>
+				</div>
+				<ul class="tree-branch-children" role="group"></ul>
+				<div class="tree-loader" role="alert">Loading...</div>
+			</li>
+			<li class="tree-item hide" data-template="treeitem" role="treeitem">
+				<a href="#" class="tree-item-name" target="content">
+					<span class="glyphicon icon-item fueluxicon-bullet"></span>
+					<span class="tree-label"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="fuelux menu-tree">
+		<h4>Tree Panel with scrollbar</h4>
+		<ul id="myTree-checkbox" class="tree tree-has-checkbox tree-scroll" role="tree">
+			<li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false">
+				<div class="tree-branch-header">
+					<a href="#" class="tree-branch-name">
+						<span class="glyphicon icon-caret glyphicon-play"></span>
+						<span class="glyphicon icon-folder glyphicon-folder-close"></span>
+						<span class="checkbox" name="folder" >
+						   <input id="tree_checkbox_folder" name='folder' type="checkbox">
+						   <label for="tree_checkbox_folder" ></label>
+						</span>
+						<span class="tree-label"></span>
+					</a>
+				</div>
+				<ul class="tree-branch-children" role="group"></ul>
+				<div class="tree-loader" role="alert">Loading...</div>
+			</li>
+			<li class="tree-item hide" data-template="treeitem" role="treeitem">
+				<a href="#" class="tree-item-name"  target="content">
+					<span class="glyphicon icon-item fueluxicon-bullet"></span>
+                <span class="checkbox" name="file">
+                    <input id="tree_checkbox_file" name='file' type="checkbox">
+                    <label for="tree_checkbox_file" ></label>
+                </span>
+					<span class="tree-label"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="fuelux menu-tree">
+		<h4>Disabled Tree Panel with scrollbar</h4>
+		<ul id="myTree-disabled" class="tree tree-has-checkbox tree-scroll" role="tree">
+			<li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false">
+				<div class="tree-branch-header">
+					<a href="#" class="tree-branch-name">
+						<span class="glyphicon icon-caret glyphicon-play"></span>
+						<span class="glyphicon icon-folder glyphicon-folder-close"></span>
+						<span class="checkbox" name="folder" >
+						   <input id="tree_checkbox_folder2" name='folder' type="checkbox">
+						   <label for="tree_checkbox_folder2" ></label>
+						</span>
+						<span class="tree-label"></span>
+					</a>
+				</div>
+				<ul class="tree-branch-children" role="group"></ul>
+				<div class="tree-loader" role="alert">Loading...</div>
+			</li>
+			<li class="tree-item hide" data-template="treeitem" role="treeitem">
+				<a href="#" class="tree-item-name"  target="content">
+					<span class="glyphicon icon-item fueluxicon-bullet"></span>
+                <span class="checkbox" name="file">
+                    <input id="tree_checkbox_file2" name='file' type="checkbox">
+                    <label for="tree_checkbox_file2" ></label>
+                </span>
+					<span class="tree-label"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="col-md-8">
+	<pre>
+<code>
+&lt;!-- import css style and js file --&gt;
+&lt;!-- NOTICE: always import fuelux.css --&gt;
+
+&lt;link href="./wulfdist/css/fuelux.css" rel="stylesheet"/&gt;
+&lt;link href="./wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="./wulfdist/css/wulf.tree-normal.min.css" rel="stylesheet"/&gt;
+&lt;link href="./wulfdist/css/wulf.links.min.css" rel="stylesheet"/&gt;
+&lt;link href="demo.css" rel="stylesheet"&gt;
+
+&lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+&lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt&lt/script&gt;
+&lt;script src="../wulfdist/js/dependencies/fuelux.min.js"&gt&lt/script&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+&lt;script src="../wulfdist/js/wulf.min.js"&gt&lt/script&gt;
+</code>
+	</pre>
+	<pre>
+<code>
+&lt;!-- Tree component without checkbox and with scroll --&gt;
+&lt;div class="fuelux menu-tree"&gt;
+ &lt;ul id="myTree" class="tree <span class="demo-highlight-color">tree-scroll</span>" role="tree"&gt;
+  &lt;li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false"&gt;
+   &lt;div class="tree-branch-header"&gt;
+	&lt;a class="tree-branch-name"&gt;
+	 &lt;span class="glyphicon icon-caret glyphicon-play"&gt;&lt;/span&gt;
+	 &lt;span class="glyphicon icon-folder glyphicon-folder-close"&gt;&lt;/span&gt;
+	 &lt;span class="tree-label"&gt;&lt;/span&gt;
+	&lt;/a&gt;
+   &lt;/div&gt;
+   &lt;ul class="tree-branch-children" role="group"&gt;&lt;/ul&gt;
+  &lt;div class="tree-loader" role="alert"&gt;Loading...&lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li class="tree-item hide" data-template="treeitem" role="treeitem"&gt;
+   &lt;a class="tree-item-name"  target="content"&gt;
+	&lt;span class="glyphicon icon-item fueluxicon-bullet"&gt;&lt;/span&gt;
+	&lt;span class="tree-label"&gt;&lt;/span&gt;
+   &lt;/a&gt;
+  &lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/div&gt;</code>
+	</pre>
+	<pre>
+<code>
+&lt;!-- Tree component with checkbox and scroll --&gt;
+&lt;div class="fuelux menu-tree"&gt;
+  &lt;ul id="myTree" class="tree <span class="demo-highlight-color">tree-scroll</span> tree-has-checkbox" role="tree"&gt;
+	&lt;li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false"&gt;
+	  &lt;div class="tree-branch-header"&gt;
+		&lt;a class="tree-branch-name"&gt;
+		  &lt;span class="glyphicon icon-caret glyphicon-play"&gt;&lt;/span&gt;
+		  &lt;span class="glyphicon icon-folder glyphicon-folder-close"&gt;&lt;/span&gt;
+		  &lt;span class="checkbox" name="folder" &gt;
+			&lt;input id="xx" name='folder' type="checkbox"&gt;&lt;/input&gt;
+			&lt;label for="xx"&gt;&lt;/label&gt;
+		  &lt;/span&gt;
+		  &lt;span class="tree-label"&gt;&lt;/span&gt;
+		&lt;/a&gt;
+	  &lt;/div&gt;
+	  &lt;ul class="tree-branch-children" role="group"&gt;&lt;/ul&gt;
+	  &lt;div class="tree-loader" role="alert"&gt;Loading...&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li class="tree-item hide" data-template="treeitem" role="treeitem"&gt;
+	  &lt;a class="tree-item-name"  target="content"&gt;
+		&lt;span class="glyphicon icon-item fueluxicon-bullet"&gt;&lt;/span&gt;
+		&lt;span class="checkbox" name="file" &gt;
+		  &lt;input id="xx" name='file' type="checkbox"&gt;&lt;/input&gt;
+		  &lt;label for="xx"&gt;&lt;/label&gt;
+		&lt;/span&gt;
+		&lt;span class="tree-label"&gt;&lt;/span&gt;
+	  &lt;/a&gt;
+	&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code>
+	</pre>
+	<br/>
+	To enable scorllbar for tree, you can simply call enableScrollbar method for tree component. The parameters stand for the width and height of the tree component.
+	<pre>
+<code>
+&lt;!-- Initiate tree data in js --&gt;
+&lt;script&gt;
+$(document).ready(
+ function ()
+ {
+	$('#myTree').tree({
+		dataSource: dataSource,
+		folderSelect :false
+	});
+
+	&lt;-- get data for tree component --&gt;
+	dataSource = function(parentData, callback){//...}
+	<span class="demo-highlight-color">$('#myTree').tree('enableScrollbar', 250, 300);</span>
+ }
+&lt;/script&gt;</code>
+	</pre>
+	<br/>
+	To disable the tree, you can simply call disable method for tree component
+	<pre>
+<code>
+&lt;script&gt;
+$(document).ready( function ()
+{
+	<span class="demo-highlight-color">$('#myTree').tree('disable');</span>
+});
+&lt;/script&gt;
+</code>
+	</pre>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+	require(['jquery', 'wulf/tree'], function ($) {
+		$(document).ready(
+				function ()
+				{
+					childNodesArray = [
+						{ "name": "Content", "type": "folder", "attr":{"parentNode" : "rootNode", "src" :"", "id":"Content"}},
+						{ "name": "Components", "type": "folder", "attr":{"parentNode" : "Content", "src" :"","id":"Components"}},
+						{ "name": "Typography", "type": "item", "attr":{"parentNode" : "Components", "src":""}},
+						{ "name": "Input field", "type": "item", "attr":{"parentNode" : "Components", "src" :""}},
+						{ "name": "Button", "type": "item", "attr":{"parentNode" : "Components", "src" :""}},
+						{ "name": "Toggle button", "type": "item", "attr":{"parentNode" : "Components", "src" :""}},
+						{ "name": "Widgets", "type": "folder", "attr":{"parentNode" : "Content", "src" :"", "id":"Widgets"}},
+						{ "name": "Form", "type": "item", "attr":{"parentNode" : "Widgets", "src" :""}},
+						{ "name": "Banner<span class='draft'>(D)</span>", "type": "item", "attr":{"parentNode" : "Widgets", "src" :""}},
+						{ "name": "Banner (condensed)<span class='draft'>(D)</span>", "type": "item", "attr":{"parentNode" : "Widgets", "src" :""}},
+						{ "name": "About dialog", "type": "item", "attr":{"parentNode" : "Widgets", "src" :""}},
+						{ "name": "Other", "type": "folder", "attr":{"parentNode" : "Content", "src" :""}},
+						{ "name": "Demo (old)", "type": "folder", "attr":{"parentNode" : "Other", "src" :""}},
+						{ "name": "About WULF", "type": "item", "attr":{"parentNode" : "Other", "src" :""}},
+						{ "name": "Test1", "type": "item", "attr":{"parentNode" : "Demo (old)", "src" :""}},
+						{ "name": "Test2", "type": "item", "attr":{"parentNode" : "Demo (old)", "src" :""}}
+					];
+
+					function staticDataSource(openedParentData, callback) {
+						if(typeof openedParentData.attr != 'undefined'){
+							callback({
+								data: get(childNodesArray,openedParentData.name)
+							});
+						}else{
+							callback({
+								data: get(childNodesArray ,"rootNode")
+							});
+						}
+					}
+
+					function get(arrPerson,objValue)
+					{
+						return $.grep(arrPerson, function(cur,i){
+							return cur.attr.parentNode==objValue;
+						});
+					}
+
+					var basicTree = $('#myTree');
+					basicTree.tree({
+						dataSource: staticDataSource,
+						folderSelect :false
+					});
+					basicTree.tree('enableScrollbar', 250, 300);
+
+					basicTree.tree('openFolder', $('#Content'));
+					basicTree.tree('openFolder', $('#Widgets'));
+					basicTree.tree('openFolder', $('#Information'));
+
+					// Tree with checkbox
+					var checkTree = $('#myTree-checkbox');
+					checkTree.tree({
+						dataSource: staticDataSource,
+						folderSelect :false
+					});
+					checkTree.tree('discloseAll');
+					checkTree.tree('enableScrollbar', 250, 300);
+
+					// Tree with checkbox
+					var disabledTree = $('#myTree-disabled');
+					disabledTree.tree({
+						dataSource: staticDataSource,
+						folderSelect :false
+					});
+					disabledTree.tree('discloseAll');
+					disabledTree.tree('enableScrollbar', 250, 300);
+					disabledTree.tree('disable');
+				});
+	});
+</script>
+</body>
+</html>

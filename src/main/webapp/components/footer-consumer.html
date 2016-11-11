@@ -1,0 +1,91 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.footer.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<div class="n-footer-wrapper">
+    <h1 class="component-header" id="nokia_footer_product">Consumer Footer<a href="../demo-dev-react.html">
+        <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+    <hr>
+    <p>JS & CSS dependency:</p>
+<pre>
+For footer components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.footer.min.css" rel="stylesheet"/&gt;
+</pre>
+    <p>To create a consumer footer, firstly, contents that are non-footer are wrapped in <code>n-footer-wrapper</code>. Place contents of the footer inside
+        <code>n-footer</code> or <code>n-footer-bordered</code>. Place footer links in the footer inside <code>n-footer-left</code>. Add copyright inside
+        <code>n-footer-right</code> as normal. Then add <code>n-footer-icons</code> inside <code>n-footer-right</code> and add images wrapped with <code>item-icon</code>
+        inside <code>n-footer-icons</code> as seen in the code sample below.
+    </p>
+    <pre>
+<code>
+    &lt;!-- Page content wrapper --&gt;
+    &lt;div class="<span class="demo-highlight-color">n-footer-wrapper</span>"&gt;
+        &lt;!-- page items --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Basic footer --&gt;
+    &lt;div class="<span class="demo-highlight-color">n-footer</span>"&gt;
+        &lt;div class="<span class="demo-highlight-color">n-footer-left</span>"&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#" class="<span class="demo-highlight-color">n-footer-links</span>"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="<span class="demo-highlight-color">n-footer-links</span>"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="<span class="demo-highlight-color">n-footer-links</span>"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div>
+        &lt;div class="<span class="demo-highlight-color">n-footer-right</span>"&gt;
+            &lt;div class="<span class="demo-highlight-color">n-footer-copyright</span>"&gt;
+                &copy; 2016 Nokia. All rights reserved.
+            &lt;/div&gt;
+            &lt;div class="<span class="demo-highlight-color">n-footer-icons</span>"&gt;
+                &lt;a class="<span class="demo-highlight-color">item-icon</span>"&gt;
+                    &lt;img src="../assets/images/wulf.png"&gt;
+                &lt;/a&gt;
+                &lt;a class="<span class="demo-highlight-color">item-icon</span>"&gt;
+                    &lt;img src="../assets/images/wulf.png"&gt;
+                &lt;/a&gt;
+                &lt;a class="<span class="demo-highlight-color">item-icon</span>"&gt;
+                    &lt;img src="../assets/images/wulf.png"&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code>
+    </pre>
+</div>
+<div class="n-footer" id="TA-footerConsumer">
+    <div class="n-footer-left" id="TA-footerConsumer-left">
+        <ul>
+            <li id="TA-footer-links1"><a href="#" class="n-footer-links">Link 1</a></li>
+            <li id="TA-footer-links2"><a href="#" class="n-footer-links">Link 2</a></li>
+            <li id="TA-footer-links3"><a href="#" class="n-footer-links">Link 3</a></li>
+        </ul>
+    </div>
+    <div class="n-footer-right" id="TA-footerConsumer-right">
+        <div class="n-footer-copyright" id="TA-footer-copyright">
+            &copy; 2016 Nokia. All rights  reserved.
+        </div>
+        <div class="n-footer-icons" id="TA-footerConsumer-right-icons">
+            <a href="#" class="item-icon" id="TA-footerConsumer-right-icon1">
+                <img src="../assets/images/wulf.png" id="TA-footer-img1">
+            </a>
+            <a href="#" class="item-icon" id="TA-footerConsumer-right-icon2">
+                <img src="../assets/images/wulf.png" id="TA-footer-img2">
+            </a>
+            <a href="#" class="item-icon" id="TA-footerConsumer-right-icon3">
+                <img src="../assets/images/wulf.png" id="TA-footer-img3">
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

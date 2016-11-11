@@ -1,0 +1,402 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-jqWidget.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_table_paging">Table (JQWidget) with paging
+    <a href="../demo-dev-react.html">
+        <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a>
+</h1>
+<hr>
+<div class="col-md-12">
+    <div id="component-header" class="col-md-12">
+        <div id="table-paging" class="n-grid-paging n-jqxgrid-table" tabindex="0"></div>
+    </div>
+    <div class="col-md-12">
+        <br>
+        <p>The first step is to add links to the javascript files and css dependencies to your project. Table widget
+            requires the following files:</p>
+        <pre>
+<code>
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-jqwidget.min.css" rel="stylesheet"/&gt;
+    &lt;script src="./js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcore.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdata.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxbuttons.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxscrollbar.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxmenu.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcheckbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxlistbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdropdownlist.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.edit.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.selection.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxpanel.js"&gt;&lt;/script&gt;
+    <span class="demo-highlight-color">&lt;script src="./js/dependencies/jqxgrid.pager.js"&gt;&lt;/script&gt;</span>
+    <span class="demo-highlight-color">&lt;script src="./js/dependencies/jqxcombobox.js"&gt;&lt;/script&gt;</span>
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="./js/wulf.min.js"&gt;&lt;/script&gt;</code>
+        </pre>
+        <p>The next step is to create a DIV element within the body of the html document.</p>
+        <pre>
+<code>
+    &lt;div id="table-paging"&gt;&lt;/div&gt;</code>
+        </pre>
+        <p>The last step is to initialize the widget. </p>
+        <pre>
+<code>
+    &lt;script&gt;
+        $(document).ready( function() {
+        /*---------------- test data ----------------*/
+        var data = new Array();
+        data[0] = {
+        name: 'Avatar',
+        alarmnumber: '113211',
+        alarmtext: 'System module error',
+        alarmtime: "1985/03/26"
+        };
+        ...
+
+        var source =
+        {
+        localdata: data,
+        datafields:
+        [
+        {name: 'name', type: 'string'},
+        {name: 'alarmnumber', type: 'number'},
+        {name: 'alarmtext', type: 'string'},
+        {name: 'alarmtime', type: 'string'}
+        ],
+        datatype: "array"
+        };
+
+        var columns = [
+        {text: 'Distinguished Name',datafield: 'name'},
+        {text: 'Alarm Number', datafield: 'alarmnumber',cellsalign: 'right', align:"right"},
+        {
+        text: 'Alarm Text', datafield: 'alarmtext', width: 200},
+        {
+        text: 'Alarm Time', datafield: 'alarmtime'}
+        ]
+
+        var dataAdapter = new $.jqx.dataAdapter(source);
+
+        $("#table-paging").jqxGrid(
+        {
+            width: 700,
+            height:330,
+            source: dataAdapter,
+            showfilterrow: true,
+            selectionmode: 'multiplecellsextended',
+            columns: columns,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            <span class="demo-highlight-color">pageable: true</span>,
+            <span class="demo-highlight-color">pagerheight: 40</span>,
+            <span class="demo-highlight-color">pagerrenderer: $.grid.pagerrenderer.bind(null, "#table-paging"),</span>
+            <span class="demo-highlight-color">
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+            </span>
+        });
+    &lt;/script&gt;</code></pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/grid'], function ($) {
+        var data = new Array();
+        data[0] = {
+            name: 'Avatar',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26"
+        };
+        data[1] = {
+            name: 'Robert',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26"
+        };
+        data[2] = {
+            name: 'Tom',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26"
+        };
+        data[3] = {
+            name: 'Green',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26"
+        };
+        data[4] = {
+            name: 'Abby',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26"
+        };
+        data[5] = {
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26"
+        };
+        data[6] = {
+            name: 'Nina',
+            alarmnumber: '113217',
+            alarmtext: 'System module error',
+            alarmtime: "1985/07/22"
+        };
+        data[7] = {
+            name: 'Mike',
+            alarmnumber: '113218',
+            alarmtext: 'System module error',
+            alarmtime: "2001/12/08"
+        };
+        data[8] = {
+            name: 'Lucy',
+            alarmnumber: '113219',
+            alarmtext: 'System module error',
+            alarmtime: "2013/07/13"
+        };
+        data[9] = {
+            name: 'Lili',
+            alarmnumber: '113555',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/03/11"
+        };
+        data[10] = {
+            name: 'Cat',
+            alarmnumber: '113312',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/06/26"
+        };
+        data[11] = {
+            name: 'Tery',
+            alarmnumber: '113678',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26"
+        };
+        data[12] = {
+            name: 'Avatar1',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26"
+        };
+        data[13] = {
+            name: 'Robert1',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26"
+        };
+        data[14] = {
+            name: 'Tom1',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26"
+        };
+        data[15] = {
+            name: 'Green1',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26"
+        };
+        data[16] = {
+            name: 'Abby1',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26"
+        };
+        data[17] = {
+            name: 'Caven1',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26"
+        };
+        data[18] = {
+            name: 'Nina1',
+            alarmnumber: '113217',
+            alarmtext: 'System module error',
+            alarmtime: "1985/07/22"
+        };
+        data[19] = {
+            name: 'Mike1',
+            alarmnumber: '113218',
+            alarmtext: 'System module error',
+            alarmtime: "2001/12/08"
+        };
+        data[20] = {
+            name: 'Lucy1',
+            alarmnumber: '113219',
+            alarmtext: 'System module error',
+            alarmtime: "2013/07/13"
+        };
+        data[21] = {
+            name: 'Lili1',
+            alarmnumber: '113555',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/03/11"
+        };
+        data[22] = {
+            name: 'Cat1',
+            alarmnumber: '113312',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/06/26"
+        };
+        data[23] = {
+            name: 'Tery1',
+            alarmnumber: '113678',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26"
+        };
+        data[24] = {
+            name: 'Avatar2',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26"
+        };
+        data[25] = {
+            name: 'Robert2',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26"
+        };
+        data[26] = {
+            name: 'Tom2',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26"
+        };
+        data[27] = {
+            name: 'Green2',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26"
+        };
+        data[28] = {
+            name: 'Abby2',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26"
+        };
+        data[29] = {
+            name: 'Caven2',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26"
+        };
+        data[30] = {
+            name: 'Nina2',
+            alarmnumber: '113217',
+            alarmtext: 'System module error',
+            alarmtime: "1985/07/22"
+        };
+        data[31] = {
+            name: 'Mike2',
+            alarmnumber: '113218',
+            alarmtext: 'System module error',
+            alarmtime: "2001/12/08"
+        };
+        data[32] = {
+            name: 'Lucy2',
+            alarmnumber: '113219',
+            alarmtext: 'System module error',
+            alarmtime: "2013/07/13"
+        };
+        data[33] = {
+            name: 'Lili2',
+            alarmnumber: '113555',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/03/11"
+        };
+        data[34] = {
+            name: 'Cat2',
+            alarmnumber: '113312',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/06/26"
+        };
+        data[35] = {
+            name: 'Tery2',
+            alarmnumber: '113678',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26"
+        };
+        var source =
+        {
+            localdata: data,
+            datafields: [
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'}
+            ],
+            datatype: "array"
+        };
+
+    var columns = [
+        {
+            text: 'Distinguished name', datafield: 'name'
+        },
+        {
+            text: 'Alarm number',
+            datafield: 'alarmnumber',
+            cellsalign: 'right',
+            align: "right"
+        },
+        {
+            text: 'Alarm text', datafield: 'alarmtext', width: 300
+        },
+        {
+            text: 'Alarm time', datafield: 'alarmtime'
+        }
+    ];
+
+        var dataAdapter = new $.jqx.dataAdapter(source);
+
+
+        $("#table-paging").jqxGrid(
+                {
+                    width: 1000,
+                    height: 310,
+                    source: dataAdapter,
+                    pageable: true,
+                    selectionmode: 'multiplecellsextended',
+                    columns: columns,
+                    scrollBarSize: 8,
+                    pagerheight: 40,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    pagerrenderer: $.grid.pagerrenderer.bind(null, "#table-paging"),
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e);
+                    }
+                });
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tree-normal.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.flyout.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Taskpad</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_taskpad">Taskpad</h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4 flyout-demo">
+            <div class="n-flyout n-taskpad" id="myFlyout" data-markup="flyout" data-direction="right" data-expand="false">
+                <div class="n-flyout-container">
+                    <div class="n-taskpad-header" id="TA-taskpad-header">
+                        <div class="n-search n-search-clearable n-taskpad-header-search" id="TA-taskpad-header-search">
+                            <a class="n-search-icon" href="#">
+                                <span class="icon icon-search"></span></a>
+                            <input id="Example3" type="text" class="n-inputfield n-search-input" placeholder="Filter">
+                            <a class="n-search-control-icon" href="#">
+                                <span class="icon icon-close"></span></a>
+                        </div>
+                        <a class="n-taskpad-header-settings" href="#" id="TA-taskpad-header-setting">
+                            <span class="icon icon-settings"></span>
+                        </a>
+                    </div>
+                    <div class="fuelux menu-tree n-taskpad-tree" id="TA-taskpad-tree">
+                        <ul class="tree" role="tree" id="myTree">
+                            <li class="tree-branch hide" data-template="treebranch" role="treeitem"
+                                aria-expanded="false" id="TA-taskpad-tree-li1">
+                                <div class="tree-branch-header">
+                                    <a class="tree-branch-name" href="#">
+                                        <span class="glyphicon icon-arrow"></span>
+                                        <span class="glyphicon icon-folder glyphicon-folder-close"></span>
+                                        <span class="tree-label"></span>
+                                    </a>
+                                </div>
+                                <ul class="tree-branch-children" role="group"></ul>
+                                <div class="tree-loader" role="alert">Loading...</div>
+                            </li>
+                            <li class="tree-item hide" data-template="treeitem" role="treeitem" id="TA-taskpad-tree-li2">
+                                <a class="tree-item-name" href="#">
+                                    <span class="glyphicon icon-item fueluxicon-bullet"></span>
+                                    <span class="tree-label"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="n-flyout-open" href="#" id="TA-taskpad-open">
+                    <span class="middle"><i class="icon icon-list"></i></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <p>The taskpad is a flyout menu with expansion. Interactivity follows the standard tree control. It also
+                uses the search with clear selection.
+            </p>
+            <p>JS & CSS dependency:</p>
+        <pre>
+For taskpad components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.tree-normal.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.flyout.min.css" rel="stylesheet"&gt;</pre>
+            <pre>
+<code>
+    &lt;div class="n-flyout <span class="demo-highlight-color">n-taskpad</span>" id="myFlyout"&gt;
+    &lt;div class="n-flyout-container"&gt;
+    &lt;div class="n-taskpad-header"&gt;
+    &lt;div class="n-search n-search-clearable <span class="demo-highlight-color">n-taskpad-header-search</span>"&gt;
+    &lt;-- Search box with clear selection --&gt;
+    &lt;/div&gt;
+    &lt;a class="<span class="demo-highlight-color">n-taskpad-header-settings</span> href="#"&gt;
+    &lt;span class="icon icon-settings"&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="fuelux menu-tree <span class="demo-highlight-color">n-taskpad-tree</span>"&gt;
+    &lt;-- Tree component without checkbox --&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a class="n-flyout-open" href="#"&gt;
+    &lt;i class="icon icon-list"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- Needed scripts --&gt;
+    &lt;script&gt;require(['wulf/flyout', 'wulf/tree', 'wulf/search']);&lt;/script&gt;
+    <br>
+    To use description and icon on the tree. Add "icon" and "desc" on a data source.
+    { "name": "Language", <span
+        class="demo-highlight-color">"icon": "icon-fault-major", "desc": "Language Selection"</span>...
+</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/flyout', 'wulf/tree', 'wulf/search'], function ($) {
+        $(document).ready(
+                function () {
+                    var childNodesArray = [
+                        {
+                            "name": "Frequent Tasks",
+                            "type": "folder",
+                            "attr": {"parentNode": "rootNode", "src": "", "id": "Tasks"}
+                        },
+                        {
+                            "name": "Sample Tasks",
+                            "type": "folder",
+                            "attr": {"parentNode": "Frequent Tasks", "src": "", "id": "Sample Tasks"}
+                        },
+                        {"name": "Sample", "type": "item", "attr": {"parentNode": "Sample Tasks", "src": ""}},
+                        {
+                            "name": "Favourites",
+                            "type": "folder",
+                            "attr": {"parentNode": "rootNode", "src": "", "id": "Favourites"}
+                        },
+                        {
+                            "name": "Sample Favourites",
+                            "type": "folder",
+                            "attr": {"parentNode": "Favourites", "src": "", "id": "Sample Favourites"}
+                        },
+                        {
+                            "name": "Sample",
+                            "desc": "Sample",
+                            "type": "item",
+                            "attr": {"parentNode": "Sample Favourites", "src": ""}
+                        },
+                        {"name": "All", "type": "folder", "attr": {"parentNode": "rootNode", "src": "", "id": "All"}},
+                        {
+                            "name": "Misc",
+                            "desc": "Miscellaneous Tasks",
+                            "type": "folder",
+                            "attr": {"parentNode": "All", "src": "", "id": "Misc"}
+                        },
+                        {
+                            "name": "Maps",
+                            "desc": "Internet Map Service",
+                            "type": "item",
+                            "attr": {"parentNode": "Misc", "src": ""}
+                        },
+                        {
+                            "name": "Search",
+                            "desc": "Internet Map Engines",
+                            "type": "item",
+                            "attr": {"parentNode": "Misc", "src": ""}
+                        },
+                        {
+                            "name": "Tools",
+                            "desc": "Useful Tools",
+                            "type": "folder",
+                            "attr": {"parentNode": "All", "src": "", "id": "Tools"}
+                        },
+                        {
+                            "name": "Language",
+                            "icon": "icon-fault-major",
+                            "desc": "Language Selection",
+                            "type": "item",
+                            "attr": {"parentNode": "Tools", "src": ""}
+                        },
+                        {
+                            "name": "Sign in",
+                            "desc": "Sign into Portal",
+                            "type": "item",
+                            "attr": {"parentNode": "Tools", "src": ""}
+                        },
+                        {"name": "Help", "type": "folder", "attr": {"parentNode": "All", "src": "", "id": "Help"}},
+                        {
+                            "name": "Group 1",
+                            "icon": "icon-warning",
+                            "type": "item",
+                            "attr": {"parentNode": "Help", "src": ""}
+                        },
+                        {
+                            "name": "Group 2",
+                            "icon": "icon-warning",
+                            "type": "item",
+                            "attr": {"parentNode": "Help", "src": ""}
+                        }
+                    ];
+
+                    function staticDataSource(openedParentData, callback) {
+                        if (typeof openedParentData.attr != 'undefined') {
+                            callback({
+                                data: get(childNodesArray, openedParentData.name)
+                            });
+                        } else {
+                            callback({
+                                data: get(childNodesArray, "rootNode")
+                            });
+                        }
+                    }
+
+                    function get(arrPerson, objValue) {
+                        return $.grep(arrPerson, function (cur, i) {
+                            return cur.attr.parentNode == objValue;
+                        });
+                    }
+
+                    $('#myTree').tree({
+                        dataSource: staticDataSource,
+                        folderSelect: false
+                    });
+                });
+    });
+</script>
+</body>
+</html>

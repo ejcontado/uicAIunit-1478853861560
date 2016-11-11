@@ -1,0 +1,16 @@
+<div class="navbar" ng-keydown="$ctrl.keydownHandler($event)">
+    <div class="navbar-inner">
+        <ul class="nav nav-pills">
+            <li ng-repeat="step in $ctrl.steps"
+                ng-class="{'active' : step.setActive, 'passed' : $index < $ctrl.selectedStepIdx}"
+                ng-attr-ng-style="{{!$last && $ctrl.stepDistance || undefined}}">
+                <a href="javascript:void(0)" aria-expanded="true">
+                    <span>{{step.bulletText}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="tab-content" ng-transclude>
+</div>
+

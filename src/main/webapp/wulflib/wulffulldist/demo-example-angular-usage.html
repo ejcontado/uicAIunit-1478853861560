@@ -1,0 +1,27 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content" style="height: calc(100% - 20px); width: calc(100% - 20px);">
+
+<div class="col-md-12">
+    <h1>Usage for wulf to support angular</h1>
+    <p>Let's use <b>wulfdist_ang15</b> as example, it is same for bower update(by using dist). There are four ways to support angular with wulf, you can decide to choose one as you need:</p>
+    <ol>
+        <li>wulfdist_ang15/js/wulf.angular.tlp.min.js: it includes all angular js files and all template files.</li>
+        <li>wulfdist_ang15/js/wulf.angular.min.js: It includes all angular js files but no template files. it needs to work with template folder together.</li>
+        <li>wulfdist_ang15/js/components/*/*.tlp.min.js: JS file + template file only for seperated component</li>
+        <li>wulfdist_ang15/js/components/*/*.js: Only JS file for seperated component, it needs to work with template folder together.</li>
+    </ol>
+    <p>Tips for using template folder if you choose option #2 or #4:<br>
+        The templateUrl is relative path, that is wf/ng-template/*/*.html. Please copy the template folder to the correrct path if template is needed.
+    </p>
+</div>
+</body>
+</html>

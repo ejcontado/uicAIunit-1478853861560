@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Footer bordered with links</title>
+</head>
+<body class="demo-body-content">
+<div class="n-footer-wrapper">
+    <h1 class="component-header" id="nokia_footer_bordered">Footer bordered with links</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <wf-tabs>
+                <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+Footer bordered with links:
+<wf-footer  links="demo.footerLinksBordered.links" copyright="demo.footerLinksBordered.copyright"></wf-footer>
+                    </code></pre>
+                </wf-pane>
+                <wf-pane label="JavaScript">
+                <pre ng-non-bindable><code data-language="javascript">
+require(['angular', 'wulf-ng/footer/footer'], function (angular) {
+angular.module('wf.ng.demo', ['wf.angular.footer']).controller('footerDemoController', footerDemoController);
+function footerDemoController() {
+    this.footerLinksBordered = {};
+     this.footerLinksBordered.copyright = " 2016 Nokia. All rights reserved.";
+     this.footerLinksBordered.links = [{name: "Link1", href: "#"}, {name:"Link2", href:"#"},{name:"Link3", href:"#"}];
+}
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+    strictDi: true
+    });
+});
+                </code></pre>
+                </wf-pane>
+            </wf-tabs>
+        </div>
+    </div>
+</div>
+<div ng-controller="footerDemoController as demo">
+    <wf-footer  id="TA-Angular-footer-bordered-links"  links="demo.footerLinksBordered.links" copyright="demo.footerLinksBordered.copyright" ></wf-footer>
+</div>
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/footer/footer.tlp.min','wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.footer','wf.angular.tabs']).controller('footerDemoController', footerDemoController);
+        function footerDemoController(){
+            this.footerLinksBordered = {};
+            this.footerLinksBordered.copyright = " 2016 Nokia. All rights reserved.";
+            this.footerLinksBordered.links = [{name: "Link1", href: "#"}, {name:"Link2", href:"#"},{name:"Link3", href:"#"}];
+        }
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

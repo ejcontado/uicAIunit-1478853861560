@@ -1,0 +1,455 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_input_field">Text field <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Standard text fields</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form class="form-horizontal inputfield-list">
+            <div class="form-group">
+                <label for="Example1" class="col-sm-5 control-label" style="width: 180px">Normal field:</label>
+                <div class="col-sm-7">
+                    <input id="Example1" type="text" class="form-control n-inputfield" placeholder="Label inside">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Example2" class="col-sm-5 control-label label-disabled" style="width: 180px">Disabled field:</label>
+                <div class="col-sm-7">
+                    <input id="Example2" type="text" class="form-control n-inputfield" disabled value="Disabled field">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Example3" class="col-sm-5 control-label" style="width: 180px">Not-editable field:</label>
+                <div class="col-sm-7">
+                    <input id="Example3" type="text" class="form-control n-inputfield" readonly value="Not editable text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Testing1" class="col-sm-5 control-label" style="width: 180px">Focus test:</label>
+                <div class="col-sm-7">
+                    <input id="Testing1" type="text" class="form-control n-inputfield" value="for testing focus">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="no-edit-right" class="col-sm-5 control-label" style="width: 180px">No edit rights field:</label>
+                <div class="col-sm-7">
+                    <input id="no-edit-right" type="text" class="form-control n-inputfield n-inputfield-uneditable" readonly value="I don't have write rights">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="static-text" class="col-sm-5 control-label" style="width: 180px">Static text:</label>
+                <div class="col-sm-7">
+                    <input id="static-text" type="text" class="form-control n-form-control-static"
+                           readonly value="Static text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="with-clear-button" class="col-sm-5 control-label" style="width: 180px">Field with
+                    clear button:</label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-clearable">
+                        <input id="with-clear-button" type="text" class="form-control n-inputfield" placeholder="Label inside">
+                        <a class="n-inputfield-control-icon hide-element" href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="with-filter-button" class="col-sm-5 control-label-sm" style="width: 180px">Field with filter:</label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-filter n-inputfield-clearable">
+                        <a class="n-inputfield-filter-icon"><span class="icon icon-filter"></span> </a>
+                        <input id="with-filter-button" type="text" class="form-control n-inputfield" placeholder="Filter...">
+                        <a class="n-inputfield-control-icon hide-element" href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For text field components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"&gt;</pre>
+        <p>
+            Restrictions: Do not use <code>placeholder</code> in disabled text field.
+        </p>
+        <pre>
+<code>
+    &lt;!-- Standard size text field --&gt;
+    &lt;label for="Example1" class="control-label">Normal field:&lt;/label&gt;
+    &lt;input id="Example1" type="text" class="form-control n-inputfield" placeholder="Label inside"&gt;
+
+    &lt;!-- Disabled text field --&gt;
+    &lt;label for="Example2" class="control-label <span class="demo-highlight-color">label-disabled</span>"&gt;Disabled field:&lt;/label&gt;
+    &lt;input id="Example2" type="text" class="form-control n-inputfield" <span class="demo-highlight-color">disabled</span> value="Disabled field"&gt;
+
+    &lt;!-- Standard size not-editable text field, e.g. no edit rights --&gt;
+    &lt;input class="form-control n-inputfield <span class="demo-highlight-color">n-inputfield-uneditable</span>" <span class="demo-highlight-color">readonly</span>&gt;
+
+    &lt;!-- Static text --&gt;
+    &lt;input class="form-control <span class="demo-highlight-color">n-form-control-static</span>" <span
+        class="demo-highlight-color">readonly</span>&gt;
+
+    &lt;!-- Clearable text field --&gt;
+    &lt;div class="<span class="demo-highlight-color">n-inputfield-clearable</span>"&gt;
+        &lt;input type="text" class="form-control n-inputfield"&gt;
+        &lt;a class="n-inputfield-control-icon hide-element"&gt;
+            &lt;span role="button" aria-label="clear textfield content" class="icon icon-close"&gt;&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+
+    Note: You may initially hide the n-input-control-icon to display it only when there is text inside:
+    .hide-element{
+        display: none;
+    }</code>
+          </pre>
+    </div>
+
+    <div class="col-md-12">
+        <h4>Small text fields</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form class="form-horizontal inputfield-list">
+            <div class="form-group">
+                <label for="small-example1" class="col-sm-5 control-label-sm" style="width: 180px">Normal field:</label>
+                <div class="col-sm-7">
+                    <input id="small-example1" type="text" class="form-control n-inputfield n-inputfield-small"
+                           placeholder="Label inside">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="small-example2" class="col-sm-5 control-label-sm label-disabled" style="width: 180px">Disabled field:</label>
+                <div class="col-sm-7">
+                    <input id="small-example2" type="text" class="form-control n-inputfield n-inputfield-small" disabled
+                           value="Disabled field">
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="small-example3" class="col-sm-5 control-label-sm" style="width: 180px">Not-editable field:</label>
+        <div class="col-sm-7">
+            <input id="small-example3" type="text" class="form-control n-inputfield n-inputfield-small"
+                   readonly  value="Not editable text">
+        </div>
+            </div>
+            <div class="form-group">
+                <label for="small-testing" class="col-sm-5 control-label-sm" style="width: 180px">Focus test:</label>
+                <div class="col-sm-7">
+                    <input id="small-testing" type="text" class="form-control n-inputfield n-inputfield-small"
+                           value="for testing focus">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="small-no-edit-right" class="col-sm-5 control-label-sm" style="width: 180px">No edit rights field:</label>
+                <div class="col-sm-7">
+                    <input id="small-no-edit-right" type="text"
+                           class="form-control n-inputfield n-inputfield-small n-inputfield-uneditable"
+                           readonly value="I don't have write rights">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="static-text-small" class="col-sm-5 control-label-sm" style="width: 180px">Static text:</label>
+                <div class="col-sm-7">
+                    <input id="static-text-small" type="text" class="form-control n-form-control-static n-form-control-static-small"
+                           readonly value="Static text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Clear-button-small" class="col-sm-5 control-label-sm" style="width: 180px">Field with clear button:</label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-clearable">
+                        <input id="Clear-button-small" type="text" class="form-control n-inputfield n-inputfield-small" placeholder="Label inside">
+                        <a class="n-inputfield-control-icon n-inputfield-control-icon-small hide-element" href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="filter-button-small" class="col-sm-5 control-label-sm" style="width: 180px">Field with filter:</label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-filter n-inputfield-clearable">
+                        <a class="n-inputfield-filter-icon-small"><span class="icon icon-filter"></span> </a>
+                        <input id="filter-button-small" type="text" class="form-control n-inputfield n-inputfield-small" placeholder="Filter...">
+                        <a class="n-inputfield-control-icon n-inputfield-control-icon-small hide-element" href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+          <pre>
+<code>
+    &lt;!-- Small text field --&gt;
+    &lt;label for="small-example1" class="control-label-sm" style="width: 180px">Normal field:&lt;/label&gt;
+    &lt;input id="small-example1" class="form-control n-inputfield <span class="demo-highlight-color">n-inputfield-small</span>"&gt;
+
+    &lt;!-- Small text field not-editable text field, e.g. no edit rights --&gt;
+    &lt;input class="form-control n-inputfield <span class="demo-highlight-color">n-inputfield-small n-inputfield-uneditable</span>" <span class="demo-highlight-color">readonly</span>&gt;
+
+    &lt;!-- Small clearable text field --&gt;
+    &lt;div class="<span class="demo-highlight-color">n-inputfield-clearable</span>"&gt;
+        &lt;input type="text" class="form-control n-inputfield <span class="demo-highlight-color">n-inputfield-small</span>"&gt;
+        &lt;a class="n-inputfield-control-icon <span class="demo-highlight-color">n-inputfield-control-icon-small</span>"&gt;
+            &lt;span class="icon icon-close"&gt;&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;</code>
+          </pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="panel panel-shadow panel-blue-cap">
+            <div class="panel-heading">
+                <h1>Text fields with indicators</h1>
+            </div>
+            <div class="panel-body">
+                <div class="panel-section">
+                    <form class="form-horizontal">
+                        <div class="form-group" aria-label="Title row">
+                            <h2 class="col-sm-2"></h2>
+
+                            <h2 class="col-sm-2">Plain with icon</h2>
+
+                            <h2 class="col-sm-2">Small</h2>
+
+                            <h2 class="col-sm-2">Disabled normal</h2>
+
+                            <h2 class="col-sm-2">Disabled small</h2>
+                        </div>
+                        <div class="form-group">
+                            <label for="standardExample" class="col-sm-2 control-label">Standard:</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield" id="standardExample">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield " disabled
+                                       value="Disabled with long text">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small" disabled
+                                       value="Disabled with long text">
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="col-sm-2 control-label">Required:</label>
+
+                            <div class="col-sm-2 input-required">
+                                <input type="text" class="form-control n-inputfield" id="requiredExample">
+                                <a class="form-control-feedback"><span class="icon icon-mandatory"></span></a>
+                            </div>
+                            <div class="col-sm-2 input-required">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small">
+                                <a class="form-control-feedback form-control-feedback-small">
+                                    <span class="icon icon-mandatory"></span></a>
+                            </div>
+                            <div class="col-sm-2 no-feedback">
+                                <input type="text" class="form-control n-inputfield" disabled
+                                       value="Disabled very long text">
+                            </div>
+                            <div class="col-sm-2 no-feedback">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small" disabled
+                                       value="Disabled very long text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Error:</label>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield has-error" id="errorExample"
+                                       value="An error">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small has-error"
+                                       value="Small error">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield has-error" disabled
+                                       value="Disabled very long error">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small has-error"
+                                       disabled value="Disabled very long error">
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback entry-changed">
+                            <label class="col-sm-2 control-label">Entry changed:</label>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield" id="entryChangedExample">
+                                <a class="form-control-feedback"><span class="icon icon-edited"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small">
+                                <a class="form-control-feedback form-control-feedback-small">
+                                    <span class="icon icon-edited"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield " disabled
+                                       value="Disabled very long text">
+                                <a class="form-control-feedback"><span class="icon icon-edited-disabled"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small" disabled
+                                       value="Disabled very long text">
+                                <a class="form-control-feedback form-control-feedback-small">
+                                    <span class="icon icon-edited-disabled"></span></a>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback valid">
+                            <label class="col-sm-2 control-label">Entry valid:</label>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield" id="inputSuccessExample">
+                                <a class="form-control-feedback"><span class="icon icon-ok"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small">
+                                <a class="form-control-feedback form-control-feedback-small">
+                                    <span class="icon icon-ok"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield " disabled
+                                       value="Disabled very long text">
+                                <a class="form-control-feedback"><span class="icon icon-ok-disabled"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small " disabled
+                                       value="Disabled very long text">
+                                <a class="form-control-feedback form-control-feedback-small">
+                                    <span class="icon icon-ok-disabled"></span></a>
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback input-error">
+                            <label class="col-sm-2 control-label">Entry invalid:</label>
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield" id="entryInvalidExample">
+                                <a class="form-control-feedback"><span class="icon icon-input-error"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small">
+                                <a class="form-control-feedback form-control-feedback-small">
+                                    <span class="icon icon-input-error"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield " disabled
+                                       value="Disabled very long text">
+                                <a class="form-control-feedback">
+                                    <span class="icon icon-input-error-disabled"></span></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small " disabled
+                                       value="Disabled very long text">
+                                <a class="form-control-feedback form-control-feedback-small">
+                                    <span class="icon icon-input-error-disabled"></span></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p>Text field with Mandatory icon(<span class="icon icon-mandatory"></span>) has functionality. Others with indicators
+    will support functionality in future.</p>
+
+<div class="col-md-10">
+		<pre>
+<code>
+    &lt;!-- Basic pattern in the form --&gt;
+    &lt;div class="form-group has-feedback"&gt;
+        &lt;div&gt;
+            &lt;input type="text" class="form-control n-inputfield"&gt;
+            &lt;a class="form-control-feedback"&gt;&lt;span class="icon icon-input-error"&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Required field --&gt; class="icon icon-mandatory" feedback type class="input-required"
+    &lt;!-- Invalid field --&gt; class="icon icon-input-error" feedback type class="input-error"
+    &lt;!-- Changed field --&gt; class="icon icon-edited" feedback type class="input-changed"
+    &lt;!-- Valid field --&gt; class="icon icon-ok" feedback type class="input-valid"
+
+    Feedback type can be used with form-group class or with form-control-feedback class
+
+    &lt;!-- Has an error --&gt;
+    &lt;input type="text" class="form-control n-inputfield has-error"></code>
+          </pre>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-shadow panel-blue-cap">
+            <div class="panel-heading">
+                <h1>Fieldset</h1>
+            </div>
+            <div class="panel-body">
+                <div class="panel-section">
+                    <form class="form-horizontal">
+                        <div class="form-group" aria-label="Title row">
+                            <fieldset class="n-fieldset">
+                                <legend>MME</legend>
+                                <label for="address">MME address:</label><input id="address" type="text" class="form-control n-inputfield n-inputfield-small">
+                                <label for="realm">MME realm:</label><input id="realm" type="text" class="form-control n-inputfield n-inputfield-small">
+                                <label for="reattach">Reattach required:</label><input id="reattach" type="text" class="form-control n-inputfield n-inputfield-small">
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <pre>
+<code>
+    &lt;fieldset class="<span class="demo-highlight-color">n-fieldset</span>"&gt;
+        &lt;legend&gt;MME&lt;/legend&gt;
+        &lt;label for="address"&gt;MME address:&lt;/label&gt;&lt;input id="address" type="text" class="form-control n-inputfield-small"&gt;
+        &lt;label for="realm"&gt;MME realm:&lt;/label&gt;&lt;input id="realm" type="text" class="form-control n-inputfield-small"&gt;
+        &lt;label for="reattach"&gt;Reattach required:&lt;/label&gt;&lt;input id="reattach" type="text" class="form-control n-inputfield-small"&gt;
+    &lt;/fieldset&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/inputfield']);
+</script>
+</body>
+</html>

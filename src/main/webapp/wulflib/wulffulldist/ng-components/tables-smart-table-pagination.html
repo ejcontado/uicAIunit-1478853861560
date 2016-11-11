@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <title>Table</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Table with paging</h1>
+<hr>
+<div class="col-md-12" style="padding-left: 0">
+    <div class="demo-table-min-size" ng-controller="TableDemoController as demo">
+        <h4>Standard table with paging</h4>
+        Change Language:
+        <div class="btn-group selectlist selectlist-resize" data-resize="none" data-initialize="selectlist" id="mySelectlist" style="width: 175px; margin-bottom: 6px">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                <span class="selected-label"></span>
+                <span class="selected-caret" ><span class="caret"></span></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li data-value="1"><a href="#" ng-click="change('table_en')"><span>English</span></a></li>
+                <li data-value="2"><a href="#" ng-click="change('table_ch')"><span>Simplified Chinese</span></a></li>
+                <li data-value="3"><a href="#" ng-click="change('table_pl')"><span>Poland</span></a></li>
+                <li data-value="4"><a href="#" ng-click="change('table_fl')"><span>Finnish</span></a></li>
+            </ul>
+            <input class="hidden hidden-field" name="mySelectlist" readonly="readonly" aria-hidden="true" type="text"/>
+        </div>
+        <table id="TA-tableWithPaging" wf-table="rowCollection" class="n-table n-table-standard n-table-striped n-table-hover n-table-filter">
+            <thead>
+            <tr>
+                <th>Column1<span class="icon icon-filter"></span></th>
+                <th>Column2<span class="icon icon-filter"></span></th>
+                <th>Column3<span class="icon icon-filter"></span></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <input wf-search="c1" type="text" class="form-control n-inputfield" placeholder="Filter...">
+                </th>
+                <th>
+                    <input wf-search="c2" type="text" class="form-control n-inputfield" placeholder="Filter...">
+                </th>
+                <th>
+                    <input wf-search="c3" type="text" class="form-control n-inputfield" placeholder="Filter...">
+                </th>
+                <th>
+                    <button id="TA-tableWithPaging-closeBtn" class="btn btn-close" wf-clear><span class="icon icon-close"></span></button>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="TA-tableWithPaging-row{{$index}}" ng-repeat="row in rowCollection">
+                <td>{{row.c1}}</td>
+                <td>{{row.c2}}</td>
+                <td>{{row.c3}}</td>
+                <td class=""></td>
+            </tr>
+
+            </tbody>
+            <tfoot >
+            <tr>
+                <td colspan="4">
+                    <div id="TA-tableWithPaging-pagenation" wf-pagination="" wf-items-by-page="itemsByPage"></div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<hr>
+
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+&lt;div class="demo-table-min-size" ng-controller="TableDemoController as demo"&gt;
+    &lt;table wf-table="rowCollection" class="n-table n-table-standard n-table-striped n-table-hover n-table-filter"&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Column1&lt;span class="icon icon-filter"&gt;&lt;/span&gt;&lt;/th&gt;
+            &lt;th&gt;Column2&lt;span class="icon icon-filter"&gt;&lt;/span&gt;&lt;/th&gt;
+            &lt;th&gt;Column3&lt;span class="icon icon-filter"&gt;&lt;/span&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;
+                &lt;input wf-search="c1" type="text" class="form-control n-inputfield" placeholder="Filter..."&gt;
+            &lt;/th&gt;
+            &lt;th&gt;
+                &lt;input wf-search="c2" type="text" class="form-control n-inputfield" placeholder="Filter..."&gt;
+            &lt;/th&gt;
+            &lt;th&gt;
+                &lt;input wf-search="c3" type="text" class="form-control n-inputfield" placeholder="Filter..."&gt;
+            &lt;/th&gt;
+            &lt;th&gt;
+                 &lt;button class="btn btn-close" wf-clear&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+        &lt;tr ng-repeat="row in rowCollection"&gt;
+            &lt;td&gt;{{row.c1}}&lt;/td&gt;
+            &lt;td&gt;{{row.c2}}&lt;/td&gt;
+            &lt;td&gt;{{row.c3}}&lt;/td&gt;
+            &lt;td class=""&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;/tbody&gt;
+        &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;
+                &lt;div wf-pagination="" wf-items-by-page="itemsByPage"&gt;&lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.tables']).controller('TableDemoController', ['$scope', function (scope, filter) {
+    scope.rowCollection = [];
+    var faultTypeArray = ['Critical', 'Major', 'Minor', 'Warning', 'Unknown'];
+    for(var i = 1;i <= 90;i++) {
+        var data = {c1: i, c2: 'Optional' + i, c3: faultTypeArray[i % 5]};
+        scope.rowCollection.push(data);
+    }
+
+    scope.itemsByPage=5;
+}]);
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+        strictDi: true
+    });
+});
+
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="i18n">
+                <pre ng-non-bindable>
+                    <code data-language="i18n">
+require(['angular','angularTranslate','translateLoader'], function (angular) {
+angular.module('wf.ng.demo', ['pascalprecht.translate'])
+    .config(['$translateProvider', '$translatePartialLoaderProvider',function ($translateProvider, $translatePartialLoaderProvider) {
+             $translatePartialLoaderProvider.addPart('table');
+             $translateProvider.useLoader('$translatePartialLoader', {
+                 urlTemplate: 'i18n/{part}/{lang}.json'
+             });
+             $translateProvider.preferredLanguage('table_en');
+             $translateProvider.useSanitizeValueStrategy(null);
+        }]);
+})
+//The way getting value in template
+{{'total'|translate}}
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular','angularTranslate','translateLoader','wulf-ng/tables/smart-table.tlp.min', 'wulf-ng/tabs/tabs.tlp.min', 'wulf/tables'], function (angular) {
+         angular.module('wf.ng.demo', ['pascalprecht.translate','wf.angular.tables', 'wf.angular.tabs'])
+           .controller('TableDemoController', ['$scope', '$translate',function ($scope,$translate) {
+               $scope.rowCollection = [];
+            var faultTypeArray = ['Critical', 'Major', 'Minor', 'Warning', 'Unknown'];
+            for(var i = 1;i <= 90;i++) {
+                var data = {c1: i, c2: 'Optional' + i, c3: faultTypeArray[i % 5]};
+                $scope.rowCollection.push(data);
+            }
+
+               $scope.itemsByPage=5;
+               $scope.change = function (lang) {
+                   $translate.use(lang);
+               };
+        }])
+         .config(['$translateProvider', '$translatePartialLoaderProvider',function ($translateProvider, $translatePartialLoaderProvider) {
+
+             $translatePartialLoaderProvider.addPart('table');
+             $translateProvider.useLoader('$translatePartialLoader', {
+                 urlTemplate: 'i18n/{part}/{lang}.json'
+             });
+             $translateProvider.preferredLanguage('table_en');
+             $translateProvider.useSanitizeValueStrategy(null);
+        }]);
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "@{less-path-of-fuelux}mixins.less";
+@import "variables.less";
+
+.n-timezone {
+  div.filter-input {
+    padding: 0 3px;
+    border: 1px solid @n-timezone-filter-input-border;
+    box-shadow: 0 6px 12px @n-timezone-filter-input-shadow;
+    background-color: @dropdown-menu-background;
+    margin-top: 31px;
+    position: absolute;
+    z-index: 999;
+    width: inherit;
+
+    .n-inputfield-clearable {
+      padding-top: 3px;
+
+      .n-inputfield-control-icon {
+        line-height: 34px;
+      }
+    }
+  }
+
+  ul {
+    height: auto;
+    max-height: 330px;
+    padding: 0 0 3px 0;
+    border-top: none;
+    top: 71px;
+
+    li > a {
+      display: block;
+      padding: 3px 12px;
+      clear: both;
+      font-weight: normal;
+      line-height: @line-height-base;
+      color: @dropdown-link-color;
+      white-space: nowrap; // prevent links from randomly breaking onto new lines
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        color: @dropdown-link-hover-color;
+        background-color: @dropdown-link-hover-bg;
+      }
+    }
+
+    >.mCustomScrollBox{
+      padding: 0;
+      width: 100%;
+      border-radius:0;
+      background-color: transparent;
+
+      >.mCSB_container{
+        margin-right: 0;
+      }
+    }
+  }
+  .seperator {
+    width: 98%;
+    margin: 3px auto;
+    height: 1px;
+    background-color: @input-border;
+  }
+}

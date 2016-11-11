@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-jqWidget.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+    <h1 class="component-header" id="nokia_treeTable-addRemoveRows">Table (JQWidget) - Add and Remove Rows</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Table with add/delete rows using table with row selection.</h4>
+            <div class="col-md-12">
+                <div id="table-alternating-row-selection"
+                     class="grid-alternating-rows n-table-hover n-jqxgrid-table"></div>
+                <div class="grid-button-container">
+                    <button class="btn btn-small" id="add-row">New Row</button>
+                    <button class="btn btn-small" id="del-row">Delete</button>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <h4>Table with add/delete rows using table with scroll.</h4>
+                <div id="table-alternating-row-selection-scroll"
+                     class="grid-alternating-rows n-table-hover n-jqxgrid-table"></div>
+                <div class="grid-button-container">
+                    <button class="btn btn-small" id="add-row-scroll">New Row</button>
+                    <button class="btn btn-small" id="del-row-scroll">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <p>JS &amp; CSS dependency:</p>
+        <pre>For table(JQWidget)-add-remove-rows components,you can use following css import code:
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-jqWidget.min.css" rel="stylesheet"/&gt;
+        </pre>
+    <pre>
+    <code>
+        This is based on the standard Table(jqWidget).
+
+        Add buttons to your table:
+
+        &lt;div id="table-alternating-row-selection" class="grid-alternating-rows n-table-hover n-jqxgrid-table"&gt;&lt;/div&gt;
+        &lt;div class="<span class="demo-highlight-color">grid-button-container</span>"&gt;
+            &lt;button class="btn btn-small" id="add-row"&gt;New Row&lt;/button&gt;
+            &lt;button class="btn btn-small" id="del-row"&gt;Delete&lt;/button&gt;
+        &lt;/div&gt;
+
+        Add <span class="demo-highlight-color">addrow</span> and <span class="demo-highlight-color">deleterow</span> functions to the <span class="demo-highlight-color">source</span>:
+
+        var <span class="demo-highlight-color">source</span>=
+        {
+            localdata: data,
+            datatype: "array",
+            //Additional code here
+
+            <span class="demo-highlight-color">addrow</span>: function (rowid, rowdata, position, commit) {
+                // synchronize with the server - send insert command
+                // call commit with parameter true if the synchronization with the server is successful
+                // and with parameter false if the synchronization failed.
+                // you can pass additional argument to the commit callback which represents the new ID if it is generated from a DB.
+                commit(true);
+            },
+
+             <span class="demo-highlight-color">deleterow</span>: function (rowid, commit) {
+                // synchronize with the server - send delete command
+                // call commit with parameter true if the synchronization with the server is successful
+                // and with parameter false if the synchronization failed.
+                commit(true);
+            }
+        };
+
+        var dataAdapter = new $.jqx.dataAdapter(source);
+        var tableAltRowSel = $("#table-alternating-row-selection-default");
+
+        tableAltRowSel.jqxGrid({
+            width: 1150,
+            autoheight: true,
+            source: dataAdapter,
+            editable: true,
+
+            //Additional Code Here
+
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+            ready: function(){
+            }
+        });
+
+        //You can then attach the blow functions to the buttons you created.
+        $('#add-row').on('click', function () {
+            <span class="demo-highlight-color">$.grid.nAddRow(tableAltRowSel, generaterow());</span>
+        });
+        $('#del-row').on('click', function () {
+            <span class="demo-highlight-color">$.grid.nDelRow(tableAltRowSel);</span>
+        });
+
+        Usage:
+        <span class="demo-highlight-color">$.grid.nAddRow</span>(grid, rowData);
+        <span class="demo-highlight-color">$.grid.nDelRow</span>(grid);
+
+        References:
+        For full source of the script for JQWidget Table, see Table (jqWidget).
+        JQWidgets Grid Example (Create, Remove, Update): <a href="http://www.jqwidgets.com/jquery-widgets-demo/demos/jqxgrid/index.htm">Link</a>
+        Example: <a href="http://www.jqwidgets.com/jquery-widgets-demo/demos/jqxgrid/createremoveupdatedata.htm">Link</a>
+
+    </code>
+    </pre>
+    <p>To enable the inline delete button on grid cells:</p>
+    <pre>
+    <code>
+        Use <span class="demo-highlight-color">$.grid.nDeleteButtonOnCellRenderer</span> as the cell renderer on a column:
+        {
+            text: 'Cancel',
+            columntype: 'custom',
+            datafield: 'cancel',
+            cellsrenderer: <span class="demo-highlight-color">$.grid.nDeleteButtonOnCellRenderer,</span>
+            width: 100,
+            minWidth: 60
+        }
+
+        Aside from adding deleterow function to the source,
+        You need to enable it on the jqxGrid ready function by using <span class="demo-highlight-color">$.grid.nEnableDeleteButtonOnCell(grid)</span>:
+
+        ready: function(){
+            $.grid.nAttachAddRowButton(tableAltRowSelCustom,'#add-row', generaterow);
+            $.grid.nAttachDelRowButton(tableAltRowSelCustom,'#del-row');
+            <span class="demo-highlight-color">$.grid.nEnableDeleteButtonOnCell(tableAltRowSelCustom);</span>
+        }
+    </code>
+    </pre>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/grid'], function ($) {
+        /*---------------- image render/editor ----------------*/
+        var imagerenderer = function (row, datafield, value) {
+            return '<div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon '+value+'"></span></div></div>';
+        };
+        /*---------------- test data ----------------*/
+        var data = new Array();
+        data[0] = {
+            severity: 'icon-fault-critical',
+            name: 'Avatar',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26",
+            acknowledgment: "false",
+            cancel: 'icon-cancel'
+        };
+        data[1] = {
+            severity: 'icon-fault-major',
+            name: 'Robert',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26",
+            acknowledgment: "false",
+            cancel: 'icon-cancel'
+        };
+        data[2] = {
+            severity: 'icon-fault-minor',
+            name: 'Tom',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26",
+            acknowledgment: "false",
+            cancel: 'icon-cancel'
+        };
+        data[3] = {
+            severity: 'icon-fault-warning',
+            name: 'Green',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+        data[4] = {
+            severity: 'icon-fault-cleared',
+            name: 'Abby',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+        data[5] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+
+        data[6] = {
+            severity: 'icon-fault-major',
+            name: 'Green',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+
+        data[7] = {
+            severity: 'icon-fault-unknown',
+            name: 'Jim',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+
+        var dataScroll = new Array();
+        dataScroll[0] = {
+            severity: 'icon-fault-critical',
+            name: 'Avatar',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26",
+            acknowledgment: "false",
+            cancel: 'icon-cancel'
+        };
+        dataScroll[1] = {
+            severity: 'icon-fault-major',
+            name: 'Robert',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26",
+            acknowledgment: "false",
+            cancel: 'icon-cancel'
+        };
+        dataScroll[2] = {
+            severity: 'icon-fault-minor',
+            name: 'Tom',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26",
+            acknowledgment: "false",
+            cancel: 'icon-cancel'
+        };
+        dataScroll[3] = {
+            severity: 'icon-fault-warning',
+            name: 'Green',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+        dataScroll[4] = {
+            severity: 'icon-fault-cleared',
+            name: 'Abby',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+        dataScroll[5] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+
+        dataScroll[6] = {
+            severity: 'icon-fault-major',
+            name: 'Green',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+
+        dataScroll[7] = {
+            severity: 'icon-fault-unknown',
+            name: 'Jim',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            cancel: 'icon-cancel'
+        };
+
+        var source =
+        {
+            localdata: data,
+            datatype: "array",
+            datafields: [
+                {name: 'severity', type: 'Image'},
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'},
+                {name: 'acknowledgment', type: 'bool'},
+                {name: 'cancel', type: 'Image'}
+            ],
+
+            addrow: function (rowid, rowdata, position, commit) {
+                // synchronize with the server - send insert command
+                // call commit with parameter true if the synchronization with the server is successful
+                // and with parameter false if the synchronization failed.
+                // you can pass additional argument to the commit callback which represents the new ID if it is generated from a DB.
+                commit(true);
+            },
+
+            deleterow: function (rowid, commit) {
+                // synchronize with the server - send delete command
+                // call commit with parameter true if the synchronization with the server is successful
+                // and with parameter false if the synchronization failed.
+                commit(true);
+            }
+        };
+
+        var sourceScroll =
+        {
+            localdata: dataScroll,
+            datatype: "array",
+            datafields: [
+                {name: 'severity', type: 'Image'},
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'},
+                {name: 'acknowledgment', type: 'bool'},
+                {name: 'cancel', type: 'Image'}
+            ],
+
+            addrow: function (rowid, rowdata, position, commit) {
+                // synchronize with the server - send insert command
+                // call commit with parameter true if the synchronization with the server is successful
+                // and with parameter false if the synchronization failed.
+                // you can pass additional argument to the commit callback which represents the new ID if it is generated from a DB.
+                commit(true);
+            },
+
+            deleterow: function (rowid, commit) {
+                // synchronize with the server - send delete command
+                // call commit with parameter true if the synchronization with the server is successful
+                // and with parameter false if the synchronization failed.
+                commit(true);
+            }
+        };
+
+        var generaterow = function(){
+            var random = Math.round(Math.random() * 10);
+            var row = {
+                severity: 'icon-fault-warning',
+                name: 'Random-'+random,
+                alarmnumber: '113216',
+                alarmtext: 'Reset error',
+                alarmtime: "2015/12/26",
+                acknowledgment: "true",
+                cancel: 'icon-cancel'
+            };
+            return row;
+        };
+
+        var columns = [
+            {
+                text: 'Severity',
+                columntype: 'textbox',
+                datafield: 'severity',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100,
+                minWidth: 70
+            },
+
+            {
+                text: 'Distinguished name',
+                columntype: 'custom',
+                datafield: 'name',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nTextFieldCellRenderer,
+                createeditor: $.grid.nCreateTextFieldEditor,
+                initeditor: $.grid.nInitTextFieldEditor,
+                geteditorvalue: $.grid.nGetTextFieldEditorValue,
+                width: 200,
+                minWidth: 150
+            },
+
+
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align:"right",
+                width: 150,
+                minWidth: 110
+            },
+            {text: 'Alarm text', columntype: 'textbox', datafield: 'alarmtext', filtertype: 'input', width: 180, minWidth: 150},
+            {text: 'Alarm time', columntype: 'textbox', datafield: 'alarmtime', filtertype: 'input', width: 150, minWidth: 100},
+            {
+                text: 'Cancel',
+                columntype: 'custom',
+                datafield: 'cancel',
+                cellsrenderer: $.grid.nDeleteButtonOnCellRenderer,
+                width: 100,
+                minWidth: 60
+            }
+        ];
+
+        /*---------------- Add/Delete Rows Implementation ----------------*/
+        var dataAdapter = new $.jqx.dataAdapter(source);
+        var datatAdapterScroll = new $.jqx.dataAdapter(sourceScroll);
+        var tableAltRowSelCustom = $("#table-alternating-row-selection");
+        var tableAltRowSelCustomScroll = $("#table-alternating-row-selection-scroll");
+        tableAltRowSelCustom.jqxGrid({
+            width: 880,
+            autoheight: true,
+            source: dataAdapter,
+            showfilterrow: true,
+            filterable: true,
+            pageable: true,
+            editable: true,
+            columnsResize: true,
+            editmode: 'click',
+            enableBrowserSelection: true,
+            selectionMode: 'multiplerowsadvanced',
+            altRows: true,
+            columns: columns,
+            scrollBarSize: 6,
+            rowsheight: 26,
+            columnsheight: 26,
+            pagesize: 10,
+            pagerrenderer: $.grid.pagerrenderer.bind(null, "#table-alternating-row-selection", true),
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            },
+            ready: function(){
+                $.grid.nEnableDeleteButtonOnCell(tableAltRowSelCustom);
+            }
+        });
+
+        $('#add-row').on('click', function () {
+            $.grid.nAddRow(tableAltRowSelCustom, generaterow());
+        });
+        $('#del-row').on('click', function () {
+            $.grid.nDelRow(tableAltRowSelCustom);
+        });
+
+        tableAltRowSelCustomScroll.jqxGrid({
+            width: 880,
+            height: 200,
+            source: datatAdapterScroll,
+            editable: true,
+            columnsResize: true,
+            editmode: 'click',
+            enableBrowserSelection: true,
+            selectionMode: 'multiplerowsadvanced',
+            altRows: true,
+            columns: columns,
+            scrollBarSize: 6,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            },
+            ready: function(){
+                $.grid.nEnableDeleteButtonOnCell(tableAltRowSelCustomScroll);
+            }
+        });
+
+        $('#add-row-scroll').on('click', function () {
+            $.grid.nAddRow(tableAltRowSelCustomScroll, generaterow());
+        });
+        $('#del-row-scroll').on('click', function () {
+            $.grid.nDelRow(tableAltRowSelCustomScroll);
+        });
+
+        tableAltRowSelCustom.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        tableAltRowSelCustom.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        tableAltRowSelCustom.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        tableAltRowSelCustom.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        tableAltRowSelCustom.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        tableAltRowSelCustomScroll.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        tableAltRowSelCustomScroll.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        tableAltRowSelCustomScroll.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        tableAltRowSelCustomScroll.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        tableAltRowSelCustomScroll.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+    });
+</script>
+</body>
+</html>

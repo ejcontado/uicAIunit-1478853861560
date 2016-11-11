@@ -1,0 +1,22 @@
+<ul class="n-banner-right n-banner-nav n-banner-controls">
+    <li  ng-repeat="utility in $ctrl.utilitySet"   class="{{utility.cssClass}}"  role="presentation">
+        <a  href={{utility.link}} ng-if="utility.cssClass !== 'hidden-xs' && utility.cssClass !== 'dropdown'">
+            <i ng-class="{'icon icon-profile': (($ctrl.utilitySet.indexOf(utility) === 0)  && ($ctrl.utilitySet.length >= 1))}"></i>
+            {{utility.label}}
+        </a>
+        <p  ng-if="utility.cssClass === 'hidden-xs'">
+            {{utility.label}}
+        </p>
+        <a aria-expanded="false" class="n-banner-dropdown-toggle" data-toggle="dropdown" href={{utility.link}} role="button" ng-if="utility.cssClass === 'dropdown'">
+            <span> {{utility.label}}</span>
+            <i class="icon icon-arrow" ></i>
+        </a>
+        <ul class="dropdown-menu" role="menu" ng-if="utility.cssClass === 'dropdown'">
+            <li ng-repeat="utilityItem in utility.menuItems">
+                <a  href={{utilityItem.link}}>
+                    <span>{{utilityItem.label}}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

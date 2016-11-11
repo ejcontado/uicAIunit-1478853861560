@@ -1,0 +1,38 @@
+<div class="n-tree-table-control-area">
+    <button class="btn btn-icon" ng-click="$ctrl.expandAll()">
+        <span class="icon icon-expand"></span>
+    </button>
+    <button class="btn btn-icon" ng-click="$ctrl.collapseAll()">
+        <span class="icon icon-collapse-rounded"></span>
+    </button>
+</div>
+<div class="n-tree-table-container">
+    <table class="n-tree-table" border="1">
+        <thead>
+        <tr>
+            <td nowrap ng-repeat="headerText in $ctrl.tableHeaders track by $index" ng-class="[$ctrl.getTdAlign($index)]">{{headerText.title}}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-click="$ctrl.onRowClick(item)" ng-class="{'selected':item.model.selected}"
+            ng-repeat="item in $ctrl.treeTableModel.all() track by $index" ng-show="$ctrl.showTr(item)">
+            <td ng-if="$ctrl.hasCheckBox()">
+                <div class="checkbox checkbox-small">
+                    <input id="{{'tableCheckbox' + $index}}" type="checkbox" ng-checked="item.model.checked" ng-disabled="item.model.checkboxDisabled" ng-click="$ctrl.onCheckBoxClicked($event)"></input>
+                    <label for="{{'tableCheckbox' + $index}}"></label>
+                </div>
+            </td>
+            <td ng-repeat="tdContent in item.model.colData track by $index" 
+                ng-style='$ctrl.getIndent(item,$index)' 
+                ng-class="[$ctrl.getTdAlign($index + 1)]">
+                <span ng-if="$ctrl.hasToggleBtn(item,$index)"
+                      ng-class="{'btn_expand icon icon-arrow':item.model.expanded,'btn_collapse icon icon-next':!item.model.expanded}"
+                      ng-click="$ctrl.onToggleExpandClicked(item,$event);"></span>
+                <wf-tree-table-td tree-table-td-renderer="$ctrl.treeTableTdRenderer" index="$index"
+                               ng-class="{'with-expand-span-ahead':$ctrl.hasToggleBtn(item,$index)}"
+                               col-data="item.model.colData"></wf-tree-table-td>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

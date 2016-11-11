@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Combo box</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Combo box</h1>
+<hr>
+<div id="angular_section" class="row">
+    <div class="col-md-5">
+        <div ng-controller="ComboboxDemoController as demo">
+            <h4>Combo box textfield</h4>
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.textfiledCombobox.disabled}]" style="width: 120px">Standard:</label>
+                    <div class="col-sm-4">
+                        <wf-combobox pattern="demo.textfiledCombobox.pattern"
+                                     disable="demo.textfiledCombobox.disabled" id="TA-combobox-standardTextfield">
+                            <wf-combobox-item item-value="demo.items[0].value" item-text="demo.items[0].text" disable="demo.items[0].disabled" selected="demo.items[0].selected" on-item-selected="demo.items[0].onItemSelected" id="TA-combobox-standardTextfield-item0"></wf-combobox-item>
+                            <wf-combobox-item item-value="demo.items[1].value" item-text="demo.items[1].text" disable="demo.items[1].disabled" selected="demo.items[1].selected" on-item-selected="demo.items[1].onItemSelected" id="TA-combobox-standardTextfield-item1"></wf-combobox-item>
+                            <wf-combobox-item item-value="demo.items[2].value" item-text="demo.items[2].text" disable="demo.items[2].disabled" selected="demo.items[2].selected" on-item-selected="demo.items[2].onItemSelected" id="TA-combobox-standardTextfield-item2"></wf-combobox-item>
+                            <wf-combobox-item item-value="demo.items[3].value" item-text="demo.items[3].text" disable="demo.items[3].disabled" selected="demo.items[3].selected" on-item-selected="demo.items[3].onItemSelected" id="TA-combobox-standardTextfield-item3"></wf-combobox-item>
+                        </wf-combobox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.textfiledCombobox.disabled}]" style="width: 120px">With clear button:</label>
+                    <div class="col-sm-4">
+                        <wf-combobox pattern="demo.clearableTextfiledCombobox.pattern"
+                                     disable="demo.textfiledCombobox.disabled" id="TA-combobox-standardClear">
+                            <wf-combobox-item ng-repeat="item in demo.items" item-value="item.value" item-text="item.text" disable="item.disabled" selected="item.selected" on-item-selected="item.onItemSelected" id="TA-combobox-standardClear-item{{$index}}"></wf-combobox-item>
+                        </wf-combobox>
+                    </div>
+                </div>
+            </form>
+
+
+            <br/>
+            <h4>Combo box menu</h4>
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.textfiledCombobox.disabled}]" style="width: 120px">Standard:</label>
+                    <div class="col-sm-4">
+                        <wf-combobox pattern="demo.menuCombobox.pattern" disable="demo.menuCombobox.disabled" id="TA-combobox-standardMenu">
+                            <wf-combobox-item item-value="demo.items[0].value" item-text="demo.items[0].text" disable="demo.items[0].disabled" selected="demo.items[0].selected" on-item-selected="demo.items[0].onItemSelected" id="TA-combobox-standardMenu-item0"></wf-combobox-item>
+                            <wf-combobox-item item-value="demo.items[1].value" item-text="demo.items[1].text" disable="demo.items[1].disabled" selected="demo.items[1].selected" on-item-selected="demo.items[1].onItemSelected" id="TA-combobox-standardMenu-item1"></wf-combobox-item>
+                            <wf-combobox-item item-value="demo.items[2].value" item-text="demo.items[2].text" disable="demo.items[2].disabled" selected="demo.items[2].selected" on-item-selected="demo.items[2].onItemSelected" id="TA-combobox-standardMenu-item2"></wf-combobox-item>
+                            <wf-combobox-item item-value="demo.items[3].value" item-text="demo.items[3].text" disable="demo.items[3].disabled" selected="demo.items[3].selected" on-item-selected="demo.items[3].onItemSelected" id="TA-combobox-standardMenu-item3"></wf-combobox-item>
+                        </wf-combobox>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.textfiledCombobox.disabled}]" style="width: 120px">Small:</label>
+                    <div class="col-sm-4">
+                        <wf-combobox pattern="demo.smallMenuCombobox.pattern" disable="demo.menuCombobox.disabled" id="TA-combobox-smallMenu">
+                            <wf-combobox-item ng-repeat="item in demo.items" item-value="item.value" item-text="item.text" disable="item.disabled" selected="item.selected" on-item-selected="item.onItemSelected" id="TA-combobox-smallMenu-item{{$index}}"></wf-combobox-item>
+                        </wf-combobox>
+                    </div>
+                </div>
+
+                <br/>
+                <div style="position: relative; left: 116px;">
+                    <div>
+                        <button id="TA-combobox-disableBtn" class="btn btn-small"
+                                ng-click="demo.menuCombobox.disabled = !demo.menuCombobox.disabled; demo.textfiledCombobox.disabled = !demo.textfiledCombobox.disabled">
+                            {{demo.menuCombobox.disabled ? 'Enable' : 'Disable'}}
+                            combo box
+                        </button>
+                    </div>
+                    <div>
+                        <button id="TA-combobox-disableItemBtn" class="btn btn-small"
+                                ng-click="demo.items[2].disabled = !demo.items[2].disabled">{{demo.items[2].disabled ? 'Enable' : 'Disable'}}
+                            item3 in combo box
+                        </button>
+                    </div>
+
+                    <div>
+                        <button id="TA-combobox-disableAction" class="btn btn-small" ng-click="demo.enableDisableAction()" ng-cloak>
+                            {{demo.actionState?"Disable":"Enable"}} callback actions
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h2>Overview</h2>
+        <p>
+            Angular version of tabs component. It contains two components <code>wfCombobox</code> and <code>wfComboboxItem</code> which are implemented by using .component() method introduced since Angular1.5.
+            This component can be used to generate tab panes from both static and dynamic model data (using <code>ng-repeat</code> directive for <code>wf-combobox</code>).
+        </p>
+
+        <h2>wf-combobox settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>pattern: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>textfield (Default)</li>
+                        <li>clearable-textfield</li>
+                        <li>menu</li>
+                        <li>sm-menu</li>
+                    </ul>
+                </td>
+                <td>
+                    The pattern of combo box to be created.
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    Disable the combo box or not.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>wf-combobox-item settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>item-value: &lt;</code></td>
+                <td>
+                    String (Default is null)
+                </td>
+                <td>
+                    The value for combo box item.
+                </td>
+            </tr>
+            <tr>
+                <td><code>item-text: &lt;</code></td>
+                <td>
+                    String (Optional)
+                </td>
+                <td>
+                    The text for combo box item to shown. If not set, the text will present as the <code>item-value</code>.
+                </td>
+            </tr>
+            <tr>
+                <td><code>selected: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    Set the default selected item.
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    Disable the combo box item or not.
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-item-selected: &</code></td>
+                <td>
+                    function(itemValue, itemText, event)
+                </td>
+                <td>
+                    Callback function when combo box item was selected.
+                    <ul>
+                        <li>itemValue - the value for current combo box item</li>
+                        <li>itemText - The text for current combo box item to shown</li>
+                        <li>event - event when item is selected</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Keyboard accessibility</h2>
+        Besides the basic keyboard support, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+        <kbd>Tab</kbd></kbd> and <kbd>Enter</kbd>. This component also supports the following
+        keystrokes for the interaction.
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Move focus to next/previous item</td>
+                <td>
+                    <kbd>↑</kbd> or <kbd>↓</kbd>
+                    - previous/next item
+                </td>
+                <td>
+                    <ul>
+                        <li>The disabled item would be skipped</li>
+                        <li>Using <kbd>Tab</kbd> or <kbd><kbd>Shift</kbd> + <kbd>Tab</kbd></kbd> can navigate out of the
+                            group of items
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Select item</td>
+                <td>
+                    <kbd>Spacebar</kbd>/<kbd>Enter</kbd> - Select current
+                    focused item
+                </td>
+                <td>
+                    <ul>
+                        <li>The disabled item cannot be selected</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Trigger clear button</td>
+                <td>
+                    <kbd>Spacebar</kbd>/<kbd>Enter</kbd> - Click on clear button
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Missing functionality</h2>
+        <ul>
+            <li>Scrollbar not support yet.</li>
+            <li>Tooltip not support yet.</li>
+        </ul>
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+    <div ng-controller="ComboboxDemoController as demo">
+
+        <!-- Static structure-->
+        <wf-combobox pattern="demo.textfiledCombobox.pattern" disable="demo.textfiledCombobox.disabled">
+            <wf-combobox-item item-value="demo.items[0].value" item-text="demo.items[0].text" disable="demo.items[0].disabled" selected="demo.items[0].selected" on-item-selected="demo.items[0].onItemSelected"></wf-combobox-item>
+            <wf-combobox-item item-value="demo.items[1].value" item-text="demo.items[1].text" disable="demo.items[1].disabled" selected="demo.items[1].selected" on-item-selected="demo.items[0].onItemSelected"></wf-combobox-item>
+            <wf-combobox-item item-value="demo.items[2].value" item-text="demo.items[2].text" disable="demo.items[2].disabled" selected="demo.items[2].selected" on-item-selected="demo.items[0].onItemSelected"></wf-combobox-item>
+            <wf-combobox-item item-value="demo.items[3].value" item-text="demo.items[3].text" disable="demo.items[3].disabled" selected="demo.items[3].selected" on-item-selected="demo.items[0].onItemSelected"></wf-combobox-item>
+        </wf-combobox>
+
+        <!-- Dynamic structure-->
+         <wf-combobox pattern="demo.clearableTextfiledCombobox.pattern" disable="demo.textfiledCombobox.disabled">
+            <wf-combobox-item ng-repeat="item in demo.items" item-value="item.value" item-text="item.text" disable="item.disabled" selected="item.selected" on-item-selected="demo.items[0].onItemSelected"></wf-combobox-item>
+         </wf-combobox>
+    </div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+    angular.module('wf.ng.demo', ['wf.angular.combobox']).controller('ComboboxDemoController', ComboboxDemoController);
+
+    function ComboboxDemoController() {
+        this.textfiledCombobox = {};
+        this.clearableTextfiledCombobox = {};
+        this.menuCombobox = {};
+        this.smallMenuCombobox = {};
+
+        this.textfiledCombobox.pattern = 'textfield';
+        this.clearableTextfiledCombobox.pattern = 'clearable-textfield';
+        this.menuCombobox.pattern = 'menu';
+        this.smallMenuCombobox.pattern = 'sm-menu';
+
+        this.textfiledCombobox.disabled = false;
+        this.menuCombobox.disabled = false;
+
+        var onItemSelected = function(itemValue, itemText) {
+            alert('item-value: '+itemValue+ '\n' +'item-text: ' + itemText );
+        };
+        this.items = [
+            {value:'1', text:'One', disabled:false, selected:true, onItemSelected: onItemSelected},
+            {value:'2', text:'Two', disabled:false, onItemSelected: onItemSelected},
+            {value:'3', text:'Three', disabled:false, onItemSelected: onItemSelected},
+            {value:'4', text:'Really Long Link Thing That Goes Wider Here', disabled:false, onItemSelected: onItemSelected}
+        ];
+
+    }
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['angular', 'wulf-ng/combobox/combobox.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.combobox', 'wf.angular.tabs']).controller('ComboboxDemoController', ComboboxDemoController);
+
+        function ComboboxDemoController() {
+            var self = this;
+            this.textfiledCombobox = {};
+            this.clearableTextfiledCombobox = {};
+            this.menuCombobox = {};
+            this.smallMenuCombobox = {};
+
+            this.textfiledCombobox.pattern = 'textfield';
+            this.clearableTextfiledCombobox.pattern = 'clearable-textfield';
+            this.menuCombobox.pattern = 'menu';
+            this.smallMenuCombobox.pattern = 'sm-menu';
+
+            this.textfiledCombobox.disabled = false;
+            this.menuCombobox.disabled = false;
+
+            var onItemSelected = function(itemValue, itemText) {
+                if(self.actionState){
+                    alert('item-value: '+itemValue+ '\n' +'item-text: ' + itemText );
+                }
+            };
+            this.items = [
+                {value:'1', text:'One', disabled:false, selected:true, onItemSelected: onItemSelected},
+                {value:'2', text:'Two', disabled:false, onItemSelected: onItemSelected},
+                {value:'3', text:'Three', disabled:false, onItemSelected: onItemSelected},
+                {value:'4', text:'Really Long Link Thing That Goes Wider Here', disabled:false, onItemSelected: onItemSelected}
+            ];
+            this.actionState = false;
+            this.enableDisableAction = function () {
+                this.actionState = !this.actionState;
+            };
+
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

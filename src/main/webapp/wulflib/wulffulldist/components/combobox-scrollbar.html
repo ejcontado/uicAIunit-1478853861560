@@ -1,0 +1,242 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_comboboxes_scrollbar">Combobox with scrollbar</h1>
+<hr>
+<div class="row">
+    <div class="col-md-3">
+        <h4>Combo box textfield</h4>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="combo1" class="col-sm-4 control-label" style="width: 120px">Standard:</label>
+                <div class="col-sm-8">
+                    <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
+                        <input id="combo1" type="text" class="form-control n-inputfield">
+
+                        <div id="TA-comboboxWithScrollbar-standard" class="input-group-btn">
+                            <button id="TA-comboboxWithScrollbar-standardToggleBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul id="TA-comboboxWithScrollbar-standardDropdownMenu" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu">
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList1" data-value="1"><a href="#"><span>One</span></a></li>
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList2" data-value="2"><a href="#"><span>Two</span></a></li>
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList3" data-value="3"><a href="#"><span>Three</span></a></li>
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList4" data-value="3"><a href="#"><span>Three</span></a></li>
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList5" data-value="3"><a href="#"><span>Three</span></a></li>
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList6" data-value="3"><a href="#"><span>Three</span></a></li>
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList7" data-value="3"><a href="#"><span>Three</span></a></li>
+                                <li id="TA-comboboxWithScrollbar-standardDropdownList8" data-value="3"><a href="#"><span>Three</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="comboFilter" class="col-sm-4 control-label" style="width: 120px">Filter:</label>
+                <div class="col-sm-8">
+                    <div class="input-group input-append dropdown combobox combobox-filter" data-initialize="combobox"
+                         id="myComboboxFilter">
+                        <input id="comboFilter" type="text" class="form-control n-inputfield" autocomplete="off">
+
+                        <div id="TA-comboboxWithScrollbar-filter" class="input-group-btn">
+                            <button id="TA-comboboxWithScrollbar-filterToggleBtn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul id="TA-comboboxWithScrollbar-filterDropdownMenu" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu">
+                                <li data-value="1"><a href="#"><span>One</span></a></li>
+                                <li data-value="2"><a href="#"><span>Two</span></a></li>
+                                <li data-value="3"><a href="#"><span>Three</span></a></li>
+                                <li data-value="3"><a href="#"><span>Four</span></a></li>
+                                <li data-value="3"><a href="#"><span>Five</span></a></li>
+                                <li data-value="3"><a href="#"><span>Six</span></a></li>
+                                <li data-value="3"><a href="#"><span>Seven</span></a></li>
+                                <li data-value="3"><a href="#"><span>Eight</span></a></li>
+                                <li data-value="3"><a href="#"><span>Nine</span></a></li>
+                                <li data-value="3"><a href="#"><span>Ten</span></a></li>
+                                <li data-value="3"><a href="#"><span>Eleven</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="comboFilter" class="col-sm-4 control-label label-disabled" style="width: 120px">Disabled Filter:</label>
+                <div class="col-sm-8">
+                    <div class="input-group input-append dropdown combobox combobox-filter" data-initialize="combobox"
+                         id="myDisabledComboboxFilter">
+                        <input id="disabledComboFilter" type="text" class="form-control n-inputfield" disabled>
+
+                        <div id="TA-comboboxWithScrollbar-disabled" class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                    disabled><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu">
+                                <li data-value="1"><a href="#"><span>One</span></a></li>
+                                <li data-value="2"><a href="#"><span>Two</span></a></li>
+                                <li data-value="3"><a href="#"><span>Three</span></a></li>
+                                <li data-value="3"><a href="#"><span>Four</span></a></li>
+                                <li data-value="3"><a href="#"><span>Five</span></a></li>
+                                <li data-value="3"><a href="#"><span>six</span></a></li>
+                                <li data-value="3"><a href="#"><span>ThreeItem</span></a></li>
+                                <li data-value="3"><a href="#"><span>ThreeItem</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <h4>Combo box menu</h4>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 120px">Standard:</label>
+                <div class="col-sm-8">
+                    <div class="btn-group n-combobutton" data-initialize="selectlist"
+                         id="mySelectlist1">
+                        <button id="TA-comboboxWithScrollbar-boxmenuComboButton" type="button" class="btn n-combobutton-btn" data-toggle="tooltip" aria-expanded="false"><span
+                                class="selected-label"></span></button>
+                        <button id="TA-comboboxWithScrollbar-boxmenuToggleButton" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul id="TA-comboboxWithScrollbar-boxmenuDropdownMenu" class="n-dropdown-menu-scroll dropdown-menu" role="menu">
+                            <li id="TA-comboboxWithScrollbar-boxmenuDropdownList1"><a href="#"><span>Action</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-boxmenuDropdownList2"><a href="#"><span>Another action</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-boxmenuDropdownList3"><a href="#"><span>Something else here</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-boxmenuDropdownList4"><a href="#"><span>Separated link</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-boxmenuDropdownList5"><a href="#"><span>Separated link</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-boxmenuDropdownList6"><a href="#"><span>Separated link</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-boxmenuDropdownList7"><a href="#"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label-sm" style="width: 120px">Small:</label>
+                <div class="col-sm-8">
+                    <div class="btn-group n-combobutton n-combobutton-small" data-initialize="selectlist"
+                         id="mySelectlist2">
+                        <button id="TA-comboboxWithScrollbar-smallComboButton" type="button" class="btn n-combobutton-btn" data-toggle="tooltip"><span class="selected-label"></span>
+                        </button>
+                        <button id="TA-comboboxWithScrollbar-smallToggleButton" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul id="TA-comboboxWithScrollbar-smallDropdownMenu" class="n-dropdown-menu-scroll dropdown-menu" role="menu">
+                            <li id="TA-comboboxWithScrollbar-smallDropdownList1"><a href="#"><span>Action</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-smallDropdownList2"><a href="#"><span>Another action</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-smallDropdownList3"><a href="#"><span>Something else here</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-smallDropdownList4"><a href="#"><span>Something else here</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-smallDropdownList5"><a href="#"><span>Something else here</span></a></li>
+                            <li id="TA-comboboxWithScrollbar-smallDropdownList6"><a href="#"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-9">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For Combo box with scrollbar components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&lt;
+&lt;link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/&lt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&lt;
+&lt;link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/&lt;</pre>
+	<pre>
+<code>
+    &lt;!-- Combobox scroll (textfield) --&gt;
+    &lt;label for="combo1" class="control-label"&gt;Standard:&lt;/label&gt;
+    &lt;div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox"&gt;
+        &lt;input id="combo1" type="text" class="form-control n-inputfield"&gt;
+        &lt;div class="input-group-btn"&gt;
+            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;ul class="dropdown-menu dropdown-menu-right <span class="demo-highlight-color">n-dropdown-menu-scroll</span>&gt;
+                &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Combobox scroll filter(textfield) --&gt;
+    &lt;label for="comboFilter" class="control-label"&gt;Standard:&lt;/label&gt;
+    &lt;div class="input-group input-append dropdown combobox <span class="demo-highlight-color">combobox-filter</span>" data-initialize="combobox" id="myComboboxFilter"&gt;
+        &lt;input id="comboFilter" type="text" class="form-control n-inputfield"&gt;
+        &lt;div class="input-group-btn"&gt;
+            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;ul class="dropdown-menu dropdown-menu-right <span class="demo-highlight-color">n-dropdown-menu-scroll</span>&gt;
+                &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JS-script needed --&gt;
+    &lt;script src="../wulfdist/js/dependencies/fuelux.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $('#myCombobox').combobox();
+        $(document).ready(function () {
+            $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+                $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+            <span class="demo-highlight-color">$(".n-dropdown-menu-scroll").nScrollbar();</span>
+        });
+    &lt;/script&gt;
+
+    &lt;!-- The default value of combobox menu height is 150px. You can change the height by definition of follow style --&gt;
+    <span class="demo-highlight-color">.n-dropdown-menu-scroll{
+        height: 200px !important;
+    }</span>
+</code>
+</pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/combobox'], function($){
+        $('#myCombobox1').combobox();
+
+//        $('#mySelectlist1').adaptiveSelectlist();
+//        $('#mySelectlist2').adaptiveSelectlist();
+
+        $(document).ready(function () {
+            $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+                $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+            $(".n-dropdown-menu-scroll").nScrollbar();
+        });
+    });
+</script>
+
+</body>
+</html>

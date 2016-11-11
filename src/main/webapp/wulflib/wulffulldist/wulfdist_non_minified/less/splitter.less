@@ -1,0 +1,98 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+
+// Based on jqxSplitter from jqWidgets library
+.n-splitter {
+  border-radius: 6px;
+  border: 1px solid @n-dialog-internal-divider;
+  // splitbar
+  .jqx-fill-state-normal {
+    border: 1px solid @n-dialog-internal-divider;
+    &:hover {
+      border: 1px solid @n-dialog-internal-divider;
+    }
+  }
+  // button style in the splitbar, if used
+  .jqx-fill-state-pressed {
+    background: transparent;
+    border: 1px solid transparent;
+    &:hover {
+      border: 1px solid @blue-hover;
+    }
+  }
+  .jqx-widget-content {
+    font-family: @font-family-base;
+    font-size: 14px;
+    color: @gray-nav;
+  }
+
+  // Splitter without collapse: add three dots icon into the splitbars
+  .jqx-splitter-splitbar-vertical {
+    width: 6px !important;
+    &:after {
+      top: 45%;
+      font-family: @font-family-icons;
+      position: relative;
+      display: inline-block;
+      margin-left: -0.34em;
+      color: @n-splitter-splitbar-dots;
+      content: "\e955";
+      font-size: large;
+    }
+  }
+  .jqx-splitter-splitbar-horizontal {
+    height: 6px !important;
+    &:after {
+      left: 45%;
+      font-family: @font-family-icons;
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      margin-top: -0.435em;
+      color: @n-splitter-splitbar-dots;
+      content: "\e954";
+      font-size: large;
+    }
+  }
+
+  // NOT TO BE USED AT THE MOMENT, USABILITY PROBLEMS
+  // (icon should be arrow for collapse/expand purposes, but then it does not work logically with resize)
+  // Splitter with collapse: add three dots icon into the splitbars
+  .jqx-splitter-collapse-button-vertical {
+    height: 24px !important;
+    width: 6px !important;
+    left: -1px !important;
+    border-radius: 4px;
+    &:after {
+      font-family: @font-family-icons;
+      position: relative;
+      display: inline-block;
+      margin-left: -0.34em;
+      margin-top: 0.04em;
+      color: @n-splitter-splitbar-dots;
+      content: "\e955";
+      font-size: large;
+    }
+  }
+  .jqx-splitter-collapse-button-horizontal {
+    width: 24px !important;
+    height: 6px !important;
+    top: -1px !important;
+    border-radius: 4px;
+    &:after {
+      font-family: @font-family-icons;
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 0.16em;
+      margin-top: -0.435em;
+      color: @n-splitter-splitbar-dots;
+      content: "\e954";
+      font-size: large;
+    }
+  }
+}
+

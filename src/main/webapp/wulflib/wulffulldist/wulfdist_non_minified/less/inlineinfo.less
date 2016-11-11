@@ -1,0 +1,74 @@
+@import "@{less-path-of-bootstrap}mixins/opacity.less";
+@import "@{less-path-of-bootstrap}modals.less";
+@import "./mixins/dialog.less";
+@import "./mixins/vendor-prefixes.less";
+@import "variables.less";
+
+
+
+
+.modal-info-body {
+  margin: 12px 0 0 19px;
+  padding: 0 6px;
+}
+
+.modal-info-icon {
+  margin-left: 22px;
+  &::before{
+    padding-right: 10px;
+  }
+}
+
+.modal-icon-message{
+  padding: 13px 1px 0 9px;
+  margin:-3px 30px 1px 4px;
+  color:@gray-global;
+}
+
+.modal-icon-errorMessage{
+  font-weight: bold;
+  color:@brand-danger;
+  padding: 13px 1px 0 9px;
+  margin:-3px 30px 1px 4px;
+}
+.n-inline-header-curve {
+  position: relative;
+  float: left;
+  top: 10px;
+  z-index: 1;
+  .n-banner-dlg-gray-to-dark;
+}
+.n-inline-header-fg-filler {
+  .n-banner-dlg-filler-gray;
+}
+.n-inline-header-bg-filler {
+  .n-banner-dlg-filler-gray-dark;
+  border-radius: 6px 6px 0 0;
+}
+
+.modal-info-title {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  display: inline-block;
+  padding: 0;
+  margin: 9px 0 0 23px;
+  z-index: 2;
+  color: @gray-dark;
+  font-size: 20px;
+
+  .icon {
+    font-size: 16px;
+    line-height: inherit;
+    margin: 0 6px 0 -6px;
+  }
+}
+
+  .modal-info-title-instruction {
+    color: @gray-dark;
+    font-size: 14px;
+    padding: 16px 0 0 0;
+    margin: 6px 0 0 25px;
+  }

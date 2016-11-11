@@ -1,0 +1,31 @@
+<div class="n-banner-right n-banner-links-collapse dropdown">
+    <a href="#" class="n-banner-dropdown-toggle n-banner-links-collapse-dropdown-toggle show-on-blue-detached"
+       data-toggle="dropdown" aria-expanded="false" ng-if="$ctrl.overflowOpen" role="button">
+        <span class="icon icon-dropdown-menu"></span>
+    </a>
+    <ul class="n-banner-nav n-banner-links">
+        <li   ng-repeat="action  in  $ctrl.actionSet" class={{action.cssClass}} wf-overflow-mouse-event>
+            <a href={{action.link}}}  ng-if = "!(action.hasChild)" >
+                <span>
+                    <i class={{action.icon}}></i>
+                    <span>{{action.name}}</span>
+                </span>
+            </a>
+            <a  aria-expanded="false"  data-toggle="dropdown" href={{action.link}} role="button" ng-if="action.hasChild">
+                <span>
+                    <i class="icon icon-back show-on-blue-detached" ></i>
+                    <i class={{action.icon}}></i>
+                    <span>{{action.name}}</span>
+                    <span class="caret hidden-on-blue-detached"></span>
+                </span>
+            </a>
+            <ul class="dropdown-menu" role="menu" ng-if="action.hasChild">
+                <li ng-repeat="actionitem in action.childItems">
+                    <a href={{actionitem.link}} >
+                        <span>{{actionitem.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

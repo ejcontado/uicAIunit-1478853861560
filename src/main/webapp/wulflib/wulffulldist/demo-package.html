@@ -1,0 +1,90 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content" style="height: calc(100% - 20px); width: calc(100% - 20px);">
+
+<div class="col-md-12">
+    <h1>Supported Package Managers</h1>
+    <br>
+    <p>
+        You can use a <a
+        href="https://en.wikipedia.org/wiki/Package_manager" target="_blank" class="n-link">package manager</a> to ensure the
+        right
+        WULF version is in use. You find below the addresses for two such systems:
+    </p>
+    <div class="col-xs-11 col-xs-offset-1">
+        <p>
+            <strong>Bower</strong><br>
+            http://wulf-bower.china.nsn-net.net/
+        </p>
+        <p style="color: #A0A0A0">
+            <strong>npm</strong> <span class="draft">(DRAFT - setup ongoing)</span><br>
+            http://wulf-npm.dynamic.nsn-net.net:4873
+        </p>
+    </div>
+    <p>
+        Benefit of this is that you don't need to download and unpack manually the WULF distribution into your
+        development system. You can define easily which version of the WULF distribution you want to use
+        in your project using bower.json file for bower and package.json file for npm. After that your
+        compilation system can make sure that the right version is included to your web project.
+    </p>
+</div>
+
+<div class="col-md-12">
+    <h1>Usage</h1>
+    <br>
+    <strong>Bower Configuration:</strong><br>
+    <p>
+         1.Point the bower register to our wulf-bower server<br>
+         2.Add currect proxy setting to the rc file if you can't access the internet<br>	
+    </p>
+    <p>
+         Notice:<br>
+         The config is obtained by merging multiple configurations by this order of importance:<br>
+         CLI arguments via --config<br>
+         Environment variables<br>
+         Local .bowerrc located in the current working directory<br>
+         All .bowerrc files upwards the directory tree<br>
+         .bowerrc file located in user's home folder (~)<br>
+         .bowerrc file located in the global folder (/)<br>
+    </p>
+        <pre>
+<code><b>Content of the .bowerrc</b> (<a href="https://github.com/bower/spec/blob/master/config.md" target="_blank" class="n-link">Generic Example</a>)
+{
+    "registry": "http://wulf-bower.china.nsn-net.net/" ,
+    "timeout": 300000,
+    "proxy": "http://10.144.1.10:8080/",
+    "https-proxy": "https://10.144.1.10:8080/",
+    "no-proxy": "wulf-bower.china.nsn-net.net,gerrite1.ext.net.nokia.com"
+}
+</code></pre>
+    <p>	 
+         You can add the WULF dependency inside the package manager's configuration file:<br>
+    </p>
+    <pre>
+<code><b>Bower:
+save dependencies to your bower.json by bower install</b>
+     bower install wulf#1.2.0 --save
+or
+<b>edit bower.json to add wulf to the dependency</b>
+"dependencies": {
+    "wulf": "~1.2.0"
+}
+</code></pre>
+    <p>
+        Check out the <a
+        href="http://bower.io/" target="_blank" class="n-link">Bower web pages</a> and <a
+        href="https://www.npmjs.com/" target="_blank" class="n-link">npm web pages</a> for more details how to utilize these
+        systems.
+    </p>
+</div>
+
+</body>
+</html>

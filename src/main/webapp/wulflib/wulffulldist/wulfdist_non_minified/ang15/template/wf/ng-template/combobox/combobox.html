@@ -1,0 +1,31 @@
+<div ng-class="[$ctrl.comboboxClass, {'combobox-open':$ctrl.isOpen, 'open':$ctrl.isOpen, 'n-cancel-button': $ctrl.pattern === 'clearable-textfield'}]">
+    <input ng-show="$ctrl.pattern === 'textfield' || $ctrl.pattern === 'clearable-textfield'" ng-click="$ctrl.toggle($event)" type="text"
+           class="form-control n-inputfield" ng-model="$ctrl.selectedItemText" ng-disabled="$ctrl.disable">
+    <a ng-show="$ctrl.pattern === 'clearable-textfield' && $ctrl.selectedItemText.length > 0" ng-click="$ctrl.clearContent($event)"
+       ng-keydown="$ctrl.clearContent($event)" class="n-clear-button-icon" href="javascript:void(0)" ng-disabled="$ctrl.disable">
+        <span role="button" aria-label="clear content" class="icon icon-close"></span>
+    </a>
+    <button ng-show="$ctrl.pattern === 'menu' || $ctrl.pattern === 'sm-menu' || $ctrl.pattern === 'file-selection'" ng-disabled="$ctrl.disable"
+            ng-class="[{'combobox-menu-open':$ctrl.isOpen,'combobox-menu-close':!$ctrl.isOpen}]" ng-style="{'padding-right': '8px'}"
+            type="button" class="btn n-combobutton-btn" aria-expanded="false">
+        <span class="selected-label" ng-style="{'max-width':'100%'}">
+            <span ng-bind="$ctrl.selectedItemText" ng-style="{'overflow':'hidden', 'text-overflow':'ellipsis', 'max-width':'100%'}"></span>
+        </span>
+    </button>
+    <button ng-show="$ctrl.pattern === 'menu' || $ctrl.pattern === 'sm-menu' || $ctrl.pattern === 'file-selection'" ng-click="$ctrl.toggle($event)"
+            ng-disabled="$ctrl.disable" type="button" class="btn dropdown-toggle" aria-expanded="{{$ctrl.isOpen}}"
+            ng-keydown="$ctrl.keyboardStepInList($event)">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="input-group-btn" ng-style="{'width':$ctrl.menuWidth,'display':$ctrl.menuDisplay}">
+        <button ng-show="$ctrl.pattern === 'textfield' || $ctrl.pattern === 'clearable-textfield'" ng-click="$ctrl.toggle($event)" ng-disabled="$ctrl.disable"
+                type="button" class="btn btn-default dropdown-toggle" aria-expanded="{{$ctrl.isOpen}}"
+                ng-keydown="$ctrl.keyboardStepInList($event)">
+            <span class="caret"></span>
+        </button>
+        <ul ng-class="['dropdown-menu', {'dropdown-menu-right':$ctrl.pattern === 'textfield' || $ctrl.pattern === 'clearable-textfield'}]" style="display: block"
+            ng-style="{'width':$ctrl.pattern === 'menu' || $ctrl.pattern === 'sm-menu' || $ctrl.pattern === 'file-selection' ? '100%' : $ctrl.dropdownWidth+'px'}" ng-show="$ctrl.isOpen === true" ng-transclude>
+        </ul>
+    </div>
+</div>

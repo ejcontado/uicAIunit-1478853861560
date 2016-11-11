@@ -1,0 +1,91 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content" style="height: calc(100% - 20px); width: calc(100% - 20px);">
+
+<div class="col-md-12">
+    <h1>Instruction for distribution folder structure change</h1>
+    <h2><b>wulffulldist/wulfdist</b>: Distributed for jquery components, that is you can copy this folder for jquery based project.</h2>
+    <ul>
+        <li>CSS: Include style definition for all wulf components, it is common for all projects.</li>
+        <li>Fonts/Img: It is needed for the css style definition.</li>
+        <li>JS: Include all js files that is needed for wulf components.
+            <ul>
+                <li>components: seperated js file for each component</li>
+                <li>dependency: the 3rd part lib wulf depends on.</li>
+                <li>wulf.min.js: combine all seperated js files as one</li>
+                <li>wulf-concat-deps.min.js: wulf.min.js + depended 3rd lib(exclude jqxWidget since the size seems large, suggest import by youself if needed).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2><b>wulffulldist/wulfdist_ang15</b>: Distributed for angular components, that is you can copy this folder for angular based project.</h2>
+    <ul>
+        <li>CSS/Fonts/Img: Same with the folder in wulfdist, they are common for projects.</li>
+        <li>JS: Include angular related js and template files.
+            <ul>
+                <li>components: component js file, it need to work with template together; combined component and template files(suffix with *.tlp.min.js), that is no dependency on template file.</li>
+                <li>template: it is the component template file. it needs to work with component js file together.</li>
+                <li>wulf.angular.min.js: combine all component js files for angular but not include template file, it is minimized.</li>
+                <li>wulf.angular.tlp.min.js: combine all component js files and corresponding template files, it is minimized.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2><b>wulffulldist/wulfdist_non_minified</b>: All the files in this folder are not minimized, that is you can check the detail of css/js files.</h2>
+    <ul>
+        <li>CSS: Include css files for seperated component(wullf.*.css) and for all components(wulf.css). it is common for jquery based components and Angular based components.</li>
+        <li>JS: Include JQuery based js files for seperated component and for all components(wulf.js / wulf-concat-deps.js).</li>
+        <li>ang15: Include Angular based js files and template files for each component.
+            <ul>
+                <li>JS: seperated js file for the angular component, it needs to work with template together.</li>
+                <li>template: it is the component template file. </li>
+                <li>wulf.angular.js: it is a single file that include all components for angular. The template is still needed.</li>
+                <li>wulf.angular.tlp.js: it is a single file that include all components and template files.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h1>Instruction for dist folder</h1>
+    <ul>
+        <li>CSS: Include style definition for all wulf components, it is common for all projects.</li>
+        <li>Fonts/Img: It is needed for the css style definition.</li>
+        <li>JS: include JQuery based js files and Angular based js files.
+            <ul>
+                <li>wulf.js/wulf(.min).js: Combine all seperated component js files as one for JQuery based.</li>
+                <li>wulf-concat-deps(.min).js: wulf(.min).js + depended 3rd lib(exclude jqxWidget since the size seems large, suggest import by youself if needed).</li>
+                <li>angular15: Angular component related files.
+                    <ul>
+                        <li>components: component js file, it need to work with template together; combined component and template files(suffix with *.tlp.min.js), that is no dependency on template file.</li>
+                        <li>template: it is the component template file. it needs to work with component js file together.</li>
+                        <li>wulf.angular.min.js: it is a single file that include all components for angular. The template is still needed.</li>
+                        <li>wulf.angular.tlp.min.js: it is a single file that include all components and template files.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h1>Instruction for how to use angular</h1>
+    <p>Let's use <b>wulfdist_ang15</b> as example, it is same for bower update(by using dist). There are four ways to support angular with wulf, you can decide to choose one as you need:</p>
+    <ol>
+        <li>wulfdist_ang15/js/wulf.angular.tlp.min.js: it includes all angular js files and all template files.</li>
+        <li>wulfdist_ang15/js/wulf.angular.min.js: It includes all angular js files but no template files. it needs to work with template folder together.</li>
+        <li>wulfdist_ang15/js/components/*/*.tlp.min.js: JS file + template file only for seperated component</li>
+        <li>wulfdist_ang15/js/components/*/*.js: Only JS file for seperated component, it needs to work with template folder together.</li>
+    </ol>
+    <p>Tips for using template folder if you choose option #2 or #4:<br>
+        The templateUrl is relative path, that is wf/ng-template/*/*.html. Please copy the template folder to the correrct path if template is needed.
+    </p>
+</div>
+</body>
+</html>

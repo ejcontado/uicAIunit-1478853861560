@@ -1,0 +1,74 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link  href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Speedometer(jqWidget)</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header">Speedometer (jqWidget) <span class="draft">(DRAFT)</span></h1>
+<hr>
+<div class="row"  style="padding-left: 15px">
+    <div id='gaugeContainer' style="width:600px; height:400px"></div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            Place the speedometer into a &lt;div&gt;
+        </p>
+            <pre>
+<code>
+    &lt;!-- Main speedometer div --&gt;
+    &lt;div id="gaugeContainer" style="width:600px; height:400px"&gt;
+    &lt;/div&gt;</code>
+            </pre>
+
+        <p>Data and Settings ( For more settings, see the <a target="_blank" href="http://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxgauge/jquery-gauge-api.htm?search=jqxga">jqxGauge API Reference</a> )</p>
+            <pre>
+<code>
+    $('#gaugeContainer').jqxGauge({
+        ranges: [
+            { startValue: 0, endValue: 55, style: { fill: '#C9C9C9', stroke: '#C9C9C9' }, endWidth: 5, startWidth: 1 },
+            { startValue: 55, endValue: 110, style: { fill: '#FCF06A', stroke: '#FCF06A' }, endWidth: 10, startWidth: 5 },
+            { startValue: 110, endValue: 165, style: { fill: '#FCA76A', stroke: '#FCA76A' }, endWidth: 15, startWidth: 10 },
+            { startValue: 165, endValue: 220, style: { fill: '#FC6A6A', stroke: '#FC6A6A' }, endWidth: 20, startWidth: 15}],
+        ticksMinor: { interval: 5, size: '5%' },
+        ticksMajor: { interval: 10, size: '9%' },
+        value: 0,
+        colorScheme: 'scheme03',
+        animationDuration: 1200
+        });
+    $('#gaugeContainer').jqxGauge('value', 140);
+</code>
+            </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script type="text/javascript">
+    require(['jquery', 'wulf/gauge'], function ($) {
+        $('#gaugeContainer').jqxGauge({
+            ranges: [{ startValue: 0, endValue: 55, style: { fill: '#C9C9C9', stroke: '#C9C9C9' }, endWidth: 5, startWidth: 1 },
+                { startValue: 55, endValue: 110, style: { fill: '#FCF06A', stroke: '#FCF06A' }, endWidth: 10, startWidth: 5 },
+                { startValue: 110, endValue: 165, style: { fill: '#FCA76A', stroke: '#FCA76A' }, endWidth: 15, startWidth: 10 },
+                { startValue: 165, endValue: 220, style: { fill: '#FC6A6A', stroke: '#FC6A6A' }, endWidth: 20, startWidth: 15}],
+            ticksMinor: { interval: 5, size: '5%' },
+            ticksMajor: { interval: 10, size: '9%' },
+            value: 0,
+            colorScheme: 'scheme03',
+            animationDuration: 1200
+        });
+        $('#gaugeContainer').jqxGauge('value', 140);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+	<link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_tooltip">Tooltip <a href="../demo-dev-react.html">
+	<img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+	<div class="col-md-4" id="TA-Tooltip-instruction">
+		<p>
+			Hold pointer on top of the links below for few seconds to get the tooltips visible.
+		</p>
+
+		<div>
+			This text here is for demonstrating default <a class="n-link" id="TA-Tooltip-tooltip1" data-toggle="tooltip"
+														   title="Tooltip is a small popup area with tip text">tooltip</a>
+			behavior.
+		</div>
+		<div>
+			This text here is for demonstrating forced <a class="n-link" id="TA-Tooltip-bottomTooltip" data-placement="bottom" data-toggle="tooltip"
+														  title="Do not use ending punctuation in tooltip text">bottom
+			tooltip</a> behavior.
+		</div>
+		<div>
+			This text here is for demonstrating forced <a class="n-link" id="TA-Tooltip-rightTooltip" data-placement="right" data-toggle="tooltip"
+														  title="A tooltip should be short and maximum two lines of text">right
+			tooltip</a> behavior.
+		</div>
+	</div>
+	<div class="col-md-8">
+		<p>JS & CSS dependency:</p>
+<pre>
+For tooltip components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/&gt;
+</pre>
+		Data-placement can be: <code>top</code> | <code>bottom</code> | <code>left</code> |
+		<code>right</code> + left empty + optionally also <code>auto</code> to allow automatic positioning on the opposite side near
+		screen edges.
+		<p></p>
+	<pre>
+<code>
+	&lt;!-- Basic tooltip --&gt;
+	Some &lt;a class="link" data-toggle="tooltip" data-placement="bottom" href="#" title="explanation text"&gt;text&lt;/a&gt; to explain more with tooltip.
+
+	&lt;!-- JS-script needed --&gt;
+	&lt;script&gt;
+	   $(function () {
+		  $('[data-toggle="tooltip"]').tooltip();
+	   })
+	&lt;/script&gt;
+</code>
+</pre>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+	</div>
+	<div class="col-md-8">
+		Option: <code>container</code>. Appends the tooltip to a specific element. Example: container: 'body'. This option is particularly useful in that it allows you to position the tooltip in the flow of the document near the triggering element - which will prevent the tooltip from floating away from the triggering element during a window resize.
+	<pre>
+<code>
+	&lt;!-- JS-script --&gt;
+	&lt;script&gt;
+	  $(function () {
+	    $('[data-toggle="tooltip"]').tooltip({container: 'body', delay:500});
+	  })
+	&lt;/script&gt;
+</code>
+</pre>
+	</div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+	require(['jquery', 'bootstrap'], function ($) {
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip({container: 'body', delay:500});
+		})
+	});
+</script>
+</body>
+</html>

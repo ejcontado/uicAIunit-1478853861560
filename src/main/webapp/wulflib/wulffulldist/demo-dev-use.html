@@ -1,0 +1,76 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content" style="height: calc(100% - 20px);">
+
+<h1>Add WULF to your project</h1>
+<br>
+<div class="row">
+        <ol>
+            <li>Download the WULF distribution zip file from <a href="file://nsn-intra/eefs/wulf/WULF_Releases/"
+                                                                class="external-link n-link" rel="nofollow">the Release
+                Network
+                Drive </a> (see the page <a
+                href="https://confluence.int.net.nokia.com/display/WULF/1+Status+and+Plan" class="n-link" target="_blank">1
+                Status and Plan</a>
+                for main content of each release)
+            </li>
+            <li>
+                Unzip the distribution package
+            </li>
+            <li>
+                Copy the <b>wulfdist</b> folder into your project's root folder
+                <ul>
+                    <li>Note: the WULF full distribution package (wulffulldist) contains also demo related files in the
+                        root folder.<br>
+                        Those files are not explicitly required in your web project, they are just for reference and
+                        demo purposes (feel free to utilize them if you want).
+                    </li>
+                </ul>
+            </li>
+            <li>Link the needed WULF files (css and js) into your HTML pages, for example:
+
+            <pre>
+&lt;link href="wulfdist/css/wulf.min.css" rel="stylesheet"&gt;
+...your html page content...</pre>
+                Then:<br>
+                <pre>
+&lt;script src="wulfdist/js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="wulfdist/js/dependencies/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script src="wulfdist/js/dependencies/jquery.mCustomScrollbar.concat.min.js"&gt;&lt;/script&gt;
+&lt;script src="wulfdist/js/wulf.min.js"&gt;&lt;/script&gt;
+...your javascript files...</pre>
+                OR<br>
+            <pre>
+&lt;script src="wulfdist/js/dependencies/wulf-concat-deps.min.js"&gt;&lt;/script&gt;
+...your javascript files...</pre>
+                As wulf-concat-deps.min.js contains bootstrap.min.js, jquery.mCustomScrollbar.concat.min.js and
+                wulf.min.js, you can use that if you want.<br>
+            </li>
+            <li>
+                Add the needed extra dependencies (both css and js) for the complex components - see them from the
+                component examples in the demo<br>
+            </li>
+            <li>
+                Optimize (clean up) unnecessary files away
+                <ul>
+                    <li>
+                        Note: <strong>"wulfdist/css/images"</strong> package is used by jqWidgets. You can delete it
+                        if your project do not use those widgets at all.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    See the 'Examples' tab in this demo if you are not clear how to use the components.
+</div>
+
+</body>
+</html>
+

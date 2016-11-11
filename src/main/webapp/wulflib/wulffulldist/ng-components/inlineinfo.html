@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Inline info</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">In-line info</h1>
+<hr>
+<div id="angular_section" class="row">
+    <div ng-controller="InlineInfoController as demo">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Info:</label>
+                <wf-inlineinfo id="TA-Angular-Inline-Info" pattern="demo.info.pattern" message="demo.info.message"></wf-inlineinfo>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Error:</label>
+                <wf-inlineinfo id="TA-Angular-Inline-Error" pattern="demo.error.pattern" message="demo.error.message"></wf-inlineinfo>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Warning:</label>
+                <wf-inlineinfo id="TA-Angular-Inline-Waring" pattern="demo.warning.pattern" message="demo.warning.message"></wf-inlineinfo>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Success:</label>
+                <wf-inlineinfo id="TA-Angular-Inline-Success" pattern="demo.success.pattern" message="demo.success.message"></wf-inlineinfo>
+            </div>
+            <div class="form-group">
+                <h4>Toggle a inline info message by clicking the button</h4>
+                <button id="TA-Angular-Inline-button" class="btn btn-small toggle-target" data-target="#target" ng-click="demo.open($event)" ng-keydown="demo.keydownHandler($event)" >In-line
+                    info
+                </button>
+                <br/>
+                <div class="modal" id="target" role="inlineInfo"
+                     aria-hidden="false" tabindex='-1' ng-show="demo.isShow" style="display: block;" ng-keydown="demo.keydownHandler($event)">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" id="TA-Angular-Inline-Dialog">
+                                <div class="n-inline-header-fg-filler">
+                                    <h1 class="modal-info-title" id="myModalLabel">
+                                        User Management
+                                    </h1>
+                                </div>
+                                <div class="n-inline-header-bg-filler"></div>
+                                <div class="n-inline-header-curve ">
+                                    <div class="fg-mask"></div>
+                                    <div class="bg-mask"></div>
+                                    <div class="fg-corner"></div>
+                                    <div class="bg-corner"></div>
+                                </div>
+                                <i class="icon icon-close-rounded toggle-target" data-dismiss="modal" aria-label="Close"
+                                   tabindex='-1' ng-click="demo.cancel($event)"></i>
+                                <div style="clear: both"></div>
+                                <h2 class="modal-info-title-instruction">List of users</h2>
+                            </div>
+                            <div class="modal-info-body">Resetting will also reset transport and cause intertuption in
+                                traffic.
+                            </div>
+                            <div class="modal-icon-message ">
+                                <wf-inlineinfo pattern="demo.info.pattern" message="demo.info.message"></wf-inlineinfo>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-standard confirm-btn" data-dismiss="modal" ng-click="demo.cancel($event)">OK</button>
+                                <button class="btn btn-standard cancel-btn" data-dismiss="modal" ng-click="demo.cancel($event)">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <h2>Overview</h2>
+            <p>
+                Angular version of in-line info component which is implemented by using .component() method introduced
+                since Angular1.5.
+            </p>
+
+            <h2>wf-inlineinfo settings</h2>
+            <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+                <thead>
+                <tr>
+                    <th>Attributes:Bindings</th>
+                    <th>Accept value</th>
+                    <th>Note</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>pattern: &lt;</code></td>
+                    <td>
+                        <ul>
+                            <li>info (Default)</li>
+                            <li>error</li>
+                            <li>warning</li>
+                            <li>success</li>
+                        </ul>
+                    </td>
+                    <td>
+                        The type of in-line info.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>message: &lt;</code></td>
+                    <td>
+                        String (Default: info message)
+                    </td>
+                    <td>
+                        The message of in-line info.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<div ng-controller="InlineInfoController as demo">
+    <wf-inlineinfo pattern="demo.pattern" message="demo.message">The content of this inlineinfo. Support the HTML code.</wf-inlineinfo>
+</div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.inlineinfo']).controller('InlineInfoController', InlineInfoController);
+
+   function InlineInfoController() {
+        this.pattern = "info";
+        this.message = "Info message";
+    }
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['angular', 'angularAnimate', 'wulf-ng/inlineinfo/inlineinfo.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.inlineinfo', 'wf.angular.tabs']).controller('InlineInfoController', function InlineInfoController() {
+            var self = this;
+            self.isShow = false;
+
+            self.info = {};
+            self.info.pattern = "info";
+            self.info.message = "Info message";
+
+            self.success = {};
+            self.success.pattern = "success";
+            self.success.message = "Success message";
+
+            self.error = {};
+            self.error.pattern = "error";
+            self.error.message = "Error message";
+
+            self.warning = {};
+            self.warning.pattern = "warning";
+            self.warning.message = "Warning message";
+
+            self.keydownHandler = function (event) {
+                if (event.keyCode === 27){
+                    self.open(event);
+                }
+            };
+
+            self.open = function (event) {
+                var modal = document.querySelector('.modal');
+                if (!self.isShow) {
+                    self.isShow = true;
+                } else {
+                    self.isShow = !self.isShow;
+                    modal.focus();
+                }
+            };
+            self.cancel = function (event) {
+                self.open(event);
+            };
+
+            document.addEventListener('focus', function( event ) {
+                var modal = document.querySelector('.modal');
+                if ( self.isShow && !modal.contains( event.target ) ) {
+                    event.preventDefault();
+                    modal.focus();
+                }
+            }, true);
+        });
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

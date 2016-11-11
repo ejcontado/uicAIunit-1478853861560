@@ -1,0 +1,248 @@
+/*!
+   * WULF_toggle v0.0.1 (http://networks.nokia.com/)
+* Copyright 2015 Nokia Solutions and Networks. All rights Reserved.
+*/
+@import "./mixins/opacity.less";
+@import "./mixins/vendor-prefixes.less";
+@import "./mixins/gradients.less";
+@import "@{less-path-of-bootstrap}mixins/tab-focus.less";
+@import "@{less-path-of-bootstrap}variables.less";
+@import "variables";
+
+.n-toggle-switch {
+
+  input[type=checkbox] {
+    -moz-opacity: 0;
+    opacity: 0;
+    margin: 0;
+    //no opacity for IE to get normal checkbox visible
+    //filter: alpha(opacity=0);
+  }
+  margin: 4px;
+  position: relative;
+  user-select: none;
+
+  .n-toggle-switch-container {
+    display: block;
+    cursor: pointer;
+    height: inherit;
+    overflow: hidden;
+
+    .n-toggle-switch-handler {
+      display: block;
+      color: @n-toggle-switch-handler-text;
+      margin: 0 0 0 -100%;
+      width: 200%;
+
+      &:before {
+        content: "Off";
+      }
+
+      &:after {
+        content: "On";
+        text-align: right;
+      }
+
+      &:before,
+      &:after {
+        background-repeat: repeat-x;
+        box-shadow: none;
+        box-sizing: border-box;
+        display: block;
+        float: left;
+        height: 32px;
+        padding: 0;
+        text-shadow: @button-text-shadow-dark;
+        width: 50%;
+        #gradient.vertical(@n-toggle-switch-bg-grey-top, @n-toggle-switch-bg-grey-bottom);
+      }
+
+    }
+
+    .n-toggle-switch-slider {
+      #gradient.vertical(@n-toggle-switch-bg-gradient-normal-start, @n-toggle-switch-bg-gradient-normal-end);
+      border: 1px solid @n-toggle-switch-slider-border;
+      display: block;
+      margin: 1px;
+      position: absolute;
+      top: -1px;
+      //transition: all 0.1s ease-in 0s;
+
+      &:hover {
+        border: 1px solid @n-toggle-switch-slider-hover-border;
+        box-shadow: 0 0 1px 0 @n-toggle-switch-slider-hover-shadow, inset 0 0 0 1px @n-toggle-switch-slider-hover-shadow-inset;
+      }
+
+      &:hover + .n-toggle-switch-container {
+        border: 1px solid @n-toggle-switch-slider-hover-switch-container-border;
+        box-shadow: 0 1px 3px 0 @n-toggle-switch-slider-hover-switch-container-shadow, inset 0 0 0 1px @n-toggle-switch-slider-hover-switch-container-shadow-inset;
+      }
+
+      &:active {
+        background-repeat: repeat-x;
+        text-shadow: none;
+        #gradient.vertical(@n-toggle-switch-bg-light-grey-top, @n-toggle-switch-bg-light-grey-bottom);
+      }
+
+      &:active + .n-toggle-switch-container {
+        border-color: @n-toggle-switch-slider-active-switch-container-border;
+        box-shadow: 0 1px 3px 0 @n-toggle-switch-slider-active-switch-container-shadow;
+        color: @n-toggle-switch-slider-active-switch-container-text;
+        text-shadow: none;
+        #gradient.vertical(@n-toggle-switch-slider-active-switch-container-gradient-start, @n-toggle-switch-slider-active-switch-container-gradient-end);
+      }
+
+      &:focus {
+        border: 1px solid @n-toggle-switch-slider-focus;
+      }
+    }
+  }
+
+  .n-toggle-switch-input {
+    display: block;
+    position: absolute;
+
+    &:checked + .n-toggle-switch-container {
+      .n-toggle-switch-handler {
+        margin-left: -2px;
+      }
+
+      .n-toggle-switch-slider {
+        margin-right: 0;
+        right: 0;
+      }
+    }
+
+    &:focus + .n-toggle-switch-container {
+      .n-toggle-switch-slider {
+        border-color: @n-toggle-switch-input-focus-slider-border;
+      }
+    }
+
+    &:hover + .n-toggle-switch-container {
+      .n-toggle-switch-slider {
+        border-color: @n-toggle-switch-input-hover-slider-border;
+      }
+    }
+
+    &:active:enabled + .n-toggle-switch-container {
+      .n-toggle-switch-slider {
+        background-repeat: repeat-x;
+        text-shadow: none;
+        #gradient.vertical(@n-toggle-switch-bg-light-grey-top, @n-toggle-switch-bg-light-grey-bottom);
+      }
+    }
+
+    &[disabled] + .n-toggle-switch-container {
+      cursor: default;
+      pointer-events: none;
+      .n-toggle-switch-handler {
+        &:before,
+        &:after {
+          border: 1px solid @n-toggle-switch-bg-light-grey-border;
+          box-shadow: none;
+          text-shadow: none;
+          #gradient.vertical(@n-toggle-switch-bg-light-grey-top, @n-toggle-switch-bg-light-grey-bottom);
+        }
+      }
+
+      .n-toggle-switch-slider {
+        background-color: @n-toggle-switch-input-disabled-slider-bg;
+        border-color: @n-toggle-switch-input-disabled-slider-border;
+      }
+    }
+  }
+
+  // set size for a standard toggle button
+  &-standard {
+    width: @n-toggle-switch-width-standard;
+    height: @n-toggle-switch-height-standard;
+
+    .n-toggle-switch-container {
+      border-radius: @n-toggle-switch-border-radius-standard;
+
+      .n-toggle-switch-handler {
+        font-size: 14px;
+        line-height: @n-toggle-switch-height-standard;
+
+        &:before {
+          padding-left: 12px;
+        }
+
+        &:after {
+          padding-right: 15px;
+        }
+      }
+
+      .n-toggle-switch-slider {
+        border-radius: @n-toggle-switch-border-radius-standard;
+        height: @n-toggle-switch-height-standard;
+        right: @n-toggle-switch-slider-width-standard;
+        width: @n-toggle-switch-slider-width-standard;
+      }
+    }
+  }
+
+  // set size for a small toggle button
+  &-small {
+    width: @n-toggle-switch-width-small;
+    height: @n-toggle-switch-height-small;
+
+    .n-toggle-switch-container {
+      border-radius: @n-toggle-switch-border-radius-small;
+
+      .n-toggle-switch-handler {
+        font-size: 11px;
+        line-height: @n-toggle-switch-height-small;
+
+        &:before {
+          padding-left: 9px;
+        }
+
+        &:after {
+          padding-right: 10px;
+        }
+      }
+
+      .n-toggle-switch-slider {
+        border-radius: @n-toggle-switch-border-radius-small;
+        height: @n-toggle-switch-height-small;
+        right: @n-toggle-switch-slider-width-small;
+        width: @n-toggle-switch-slider-width-small;
+      }
+    }
+  }
+
+  // paint color to toggle button
+  &-color {
+    .n-toggle-switch-container {
+      .n-toggle-switch-handler {
+        &:before {
+          border-color: @n-toggle-switch-bg-red-border;
+          #gradient.vertical(@n-toggle-switch-bg-red-top, @n-toggle-switch-bg-red-bottom);
+        }
+
+        &:after {
+          border-color: @n-toggle-switch-bg-green-border;
+          #gradient.vertical(@n-toggle-switch-bg-green-top, @n-toggle-switch-bg-green-bottom);
+
+        }
+      }
+    }
+
+    // handle disabled colors
+    .n-toggle-switch-input[disabled] + .n-toggle-switch-container {
+      .n-toggle-switch-handler {
+        &:after {
+          border-color: @n-toggle-switch-bg-light-green-border;
+          #gradient.vertical(@n-toggle-switch-bg-light-green-top, @n-toggle-switch-bg-light-green-bottom);
+        }
+
+        &:before {
+          border-color: @n-toggle-switch-bg-light-red-border;
+          #gradient.vertical(@n-toggle-switch-bg-light-red-top, @n-toggle-switch-bg-light-red-bottom);
+        }
+      }
+    }
+  }
+}

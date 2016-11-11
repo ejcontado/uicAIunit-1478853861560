@@ -1,0 +1,125 @@
+@import "@{less-path-of-bootstrap}mixins/gradients.less";
+@import "variables";
+
+.scrollbars {
+  position: relative;
+  overflow: visible;
+
+  .scrolling-content-container {
+    overflow: hidden;
+  }
+
+  .scrolling-content {
+    display: inline-block;
+    position: relative;
+  }
+
+  .scrollbar-container {
+    position: absolute;
+
+    &.horizontal {
+      height: 8px;
+      left: 0;
+      bottom: 0;
+
+      .track {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 8px;
+        background-color: @scrollbar-track-background;
+        z-index: 10;
+        border-radius: 4px;
+        box-shadow: 0px -1px 0 @scrollbar-track-shadow;
+
+        div {
+          position: absolute;
+          right: -10px;
+          bottom: 0;
+          height: 8px;
+          width: 10px;
+        }
+      }
+
+      .thumb {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        #gradient > .vertical(@scrollbar-thumb-gradient-start, @scrollbar-thumb-gradient-end);
+        border-radius: 4px;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        z-index: 11;
+
+        &:hover {
+          #gradient > .vertical(@scrollbar-thumb-hover-gradient-start, @scrollbar-thumb-hover-gradient-end);
+          color: @scrollbar-thumb-hover-text-color;
+        }
+
+        &:active {
+          #gradient > .vertical(@scrollbar-thumb-active-gradient-start, @scrollbar-thumb-active-gradient-end);
+        }
+
+        &[disabled] {
+          background-color: @scrollbar-thumb-disabled-background;
+          cursor: default;
+        }
+      }
+    }
+
+    &.vertical {
+      width: 8px;
+      right: 0;
+      top: 0;
+
+      .track {
+        position: absolute;
+        right: 1px;
+        top: 0;
+        bottom: 0;
+        width: 8px;
+        background-color: @scrollbar-track-background;
+        border-radius: 4px;
+        box-shadow: 1px 0 1px @scrollbar-track-shadow;
+
+        div {
+          position: absolute;
+          right: 0;
+          bottom: -10px;
+          width: 8px;
+          height: 10px;
+        }
+      }
+
+      .thumb {
+        top: 0;
+        right: 0;
+        width: 8px;
+        height: 31px;
+        #gradient > .horizontal(@scrollbar-thumb-gradient-start, @scrollbar-thumb-gradient-end);
+        border-radius: 4px;
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        z-index: 11;
+
+        &:hover {
+          #gradient > .horizontal(@scrollbar-thumb-hover-gradient-start, @scrollbar-thumb-hover-gradient-end);
+          color: @scrollbar-thumb-hover-text-color;
+        }
+
+        &:active {
+          #gradient > .horizontal(@scrollbar-thumb-active-gradient-start, @scrollbar-thumb-active-gradient-end);
+        }
+
+        &[disabled] {
+          background-color: @scrollbar-thumb-disabled-background;
+          cursor: default;
+        }
+      }
+    }
+  }
+}

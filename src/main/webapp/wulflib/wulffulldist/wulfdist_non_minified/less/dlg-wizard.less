@@ -1,0 +1,116 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/gradients.less";
+@import "variables.less";
+
+.n-dlg-wizard {
+
+  .modal-body {
+    padding: 0;
+    margin: 15px 22px 0 22px;
+    border-top: none;
+  }
+
+  .navbar {
+    min-height: 40px;
+    padding: 0 4px;
+    .navbar-inner > ul {
+      li {
+        > a {
+          height: 40px;
+          width: 40px;
+          border-radius: 40px;
+          background-image: radial-gradient(circle, @n-dlg-wizard-navbar-list-item-bg-gradient-start, @n-dlg-wizard-navbar-list-item-bg-gradient-central, @n-dlg-wizard-navbar-list-item-bg-gradient-end);
+          padding: 0;
+          pointer-events: none;
+
+          > span {
+            display: inline-block;
+            height: 28px;
+            width: 28px;
+            border-radius: 28px;
+            font-weight: bold;
+            font-size: 16px;
+            background-color: @n-dlg-wizard-navbar-list-item-text-bg;
+            margin: 6px 0 0 6px;
+            line-height: 28px;
+            color: @n-dlg-wizard-navbar-list-item-text;
+            padding: 0;
+            text-align: center;
+            border: 1px solid @n-dlg-wizard-navbar-list-item-text-border;
+          }
+        }
+
+        &.active:not(:last-child)::before {
+          content: "";
+          position: absolute;
+          left: 40px;
+          top: 16px;
+          width: 10px;
+          border-top: 1px solid @n-dlg-wizard-navbar-list-row-border;
+          border-bottom: 1px solid @n-dlg-wizard-navbar-list-row-border;
+          #gradient.vertical(@n-dlg-wizard-navbar-list-active-row-gradient-start, @n-dlg-wizard-navbar-list-active-row-gradient-end);
+          height: 7px;
+          border-radius: 0 4px 4px 0;
+          z-index: 100;
+        }
+
+        &:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          left: 40px;
+          right: -2px;
+          top: 16px;
+          border-top: 1px solid @n-dlg-wizard-navbar-list-row-border;
+          border-bottom: 1px solid @n-dlg-wizard-navbar-list-row-border;
+          #gradient.vertical(@n-dlg-wizard-navbar-list-row-gradient-start, @n-dlg-wizard-navbar-list-row-gradient-end);
+          height: 7px;
+        }
+
+        &.active, &.passed {
+          > a {
+            background-image: linear-gradient(to bottom, @n-dlg-wizard-navbar-list-active-row-gradient-start, @n-dlg-wizard-navbar-list-active-row-gradient-end);
+          }
+        }
+
+        &.passed::after {
+          background-image: linear-gradient(to bottom, @n-dlg-wizard-navbar-list-passed-row-gradient-start, @n-dlg-wizard-navbar-list-passed-row-gradient-end);
+          transition: background-image 0.2s ease-in-out;
+        }
+
+        + li {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+
+    .n-dlg-wizard-step-description {
+      padding: 0 4px 15px;
+      margin-top: 13px;
+      border-bottom: 1px solid @n-dlg-wizard-step-description-border;
+    }
+
+    .n-dlg-wizard-step-content {
+      padding: 13px 4px 0;
+    }
+  }
+
+  .modal-footer {
+    .btn.disabled {
+      color: @n-dlg-wizard-footer-disable-text;
+      #gradient.vertical(@n-dlg-wizard-footer-gradient-start, @n-dlg-wizard-footer-gradient-end);
+      border: 1px solid @n-dlg-wizard-footer-border;
+      box-shadow: none;
+      text-shadow: none;
+    }
+  }
+}

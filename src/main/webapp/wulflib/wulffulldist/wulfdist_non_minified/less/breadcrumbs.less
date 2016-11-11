@@ -1,0 +1,68 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "@{less-path-of-bootstrap}breadcrumbs.less";
+@import "./mixins/vendor-prefixes.less";
+@import "variables.less";
+
+.n-breadcrumb-link {
+  &, &:visited{
+    font-size: 11px;
+    color: @gray-nav;
+    font-weight: lighter;
+  }
+  &:hover {
+    font-weight: lighter;
+    color: @black-hover;
+    border-bottom: 1px solid @blue-underline;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+    .box-shadow(none);
+    font-weight: lighter;
+    color: @black-hover;
+    border-bottom: 1px solid @blue-underline;
+    text-decoration: none;
+  }
+  &:active {
+    font-weight: bold;
+    font-size: 11px;
+    color: @gray-nav;
+    border-bottom: none;
+  }
+}
+
+.n-breadcrumb-link-active {
+  &, &:active, &:hover {
+    font-weight: bold;
+    font-size: 11px;
+    color: @gray-nav;
+    border-bottom: none;
+  }
+  &:visited {
+    font-weight: bold;
+    color: @gray-nav;
+    border-bottom: none;
+  }
+}
+
+.n-breadcrumb-icon {
+  font-family: @font-family-icons;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  border-bottom: none;
+  width: 1em;
+  aria-hidden: "true";
+  speak: none;
+
+  &:after{
+    content: "\e61f";
+    margin-left: 1px;
+    margin-right: 1px;
+    color: @gray-medium;
+    vertical-align: middle;
+  }
+}

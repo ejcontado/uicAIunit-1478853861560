@@ -1,0 +1,93 @@
+/*!
+   * WULF_toggle v0.0.1 (http://networks.nokia.com/)
+   * Copyright 2015 Nokia Solutions and Networks. All rights Reserved.
+*/
+@import "./mixins/opacity.less";
+@import "./mixins/vendor-prefixes.less";
+@import "./mixins/gradients.less";
+@import "@{less-path-of-bootstrap}mixins/tab-focus.less";
+@import "@{less-path-of-bootstrap}variables.less";
+@import "variables.less";
+
+.n-toggle-button {
+
+  &.active {
+
+    #gradient.vertical(@n-toggle-button-active-bg-grey-top, @n-toggle-button-active-bg-grey-bottom);
+    color: @gray-global;
+    border:@button-default-border;
+    border-color: @gray-light;
+    text-shadow: none;
+
+    .icon:before {
+      color: @gray-global;
+    }
+
+    &:focus {
+      border:@button-default-border;
+      border-color: @gray-nav;
+    }
+
+    &:hover {
+      #gradient.vertical(@n-toggle-button-active-color-start, @n-toggle-button-active-color-end) ;
+      color:@gray-white;
+      border-left:@n-toggle-button-default-dotted-border;
+      border-right:@n-toggle-button-default-dotted-border;
+      border-color:@n-toggle-button-hover-border-color;
+      box-shadow:none;
+      .icon:before {
+        color: @gray-white;
+      }
+    }
+
+    &:active {
+      #gradient.vertical(@n-toggle-button-active-bg-grey-top, @n-toggle-button-active-bg-grey-bottom);
+      color: @gray-global;
+      border:@button-default-border;
+      border-color: @gray-light;
+      text-shadow: none;
+      box-shadow: @n-toggle-button-toggle-on-shadow;
+      .icon:before {
+        color: @gray-global;
+      }
+    }
+  }
+  &:active {
+    #gradient.vertical(@n-toggle-button-active-bg-grey-top, @n-toggle-button-active-bg-grey-bottom);
+    color: @gray-global;
+    border-color: @gray-light;
+    text-shadow: none;
+    box-shadow: @n-toggle-button-toggle-on-shadow;
+    .icon:before {
+      color: @gray-global;
+    }
+  }
+
+
+  &-small {
+    height: 26px;
+    padding-top: 2px;
+  }
+
+  &-dark.active {
+    #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+    color: @gray-white;
+    .icon:before {
+      color: @gray-white;
+    }
+  }
+
+  &-color.active {
+    #gradient.vertical(@n-toggle-button-active-bg-green-top, @n-toggle-button-active-bg-green-bottom);
+    color: @gray-white;
+    .icon:before {
+      color: @gray-white;
+    }
+    &,
+    &:focus,
+    &:hover {
+      box-shadow: @n-toggle-button-active-shadow-dark;
+    }
+  }
+
+}

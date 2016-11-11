@@ -1,0 +1,272 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.balloon.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_balloon">Balloon<a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30"
+         src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-4" id="TA-balloon-bodyballoon">
+        <p>
+            Click the links / buttons below to get the balloons visible (another click will hide it):
+        </p>
+
+        <div>
+            This is for demonstrating default
+            <button type="button" class="btn btn-default" data-toggle="balloon" data-placement="bottom"
+                    data-content="Balloon is a small popup area with title, instruction text and possibly icons." id="TA-balloon-defaultballoon">
+                balloon
+            </button>
+            behavior.
+        </div>
+        <div>
+            This is for demonstrating forced direction balloon behavior in button:
+            <button type="button" class="btn btn-default" id="TA-balloon-bottomballoon" data-container="body" data-placement="bottom auto"
+                    data-toggle="balloon"
+                    data-content="Balloon is a small popup area with title, instruction text and possibly icons">
+                Bottom Balloon
+            </button>
+        </div>
+        <div>
+            Demonstrating forced
+            <a class="link" data-placement="top" id="TA-balloon-topballoon" data-toggle="balloon" title="Don't use balloon title"
+               href="javascript:void(0)"
+               data-content="Balloon is a small popup area with title, instruction text and possibly icons">
+                top balloon
+            </a> behavior.
+        </div>
+        <p></p>
+
+        <div>
+            Demonstrating
+            <a class="link fadeout" data-placement="bottom" data-toggle="balloon" href="javascript:void(0)"
+               data-content="Balloon is a small popup area with title, instruction text and possibly icons">
+                balloon
+            </a> with fadeout in certain time behavior.
+        </div>
+        <p></p>
+
+        <div>
+            Example of long text and close icon inside the
+            <a id="mypop1" data-toggle="balloon" data-placement="bottom"
+               data-target-selector="#mypop1_text_for_icon_balloon" href="javascript:void(0)" class="balloon-icon">balloon</a>.
+            <div id="mypop1_text_for_icon_balloon" class="hidden">
+                <div class="icon-popover-text">Example of a really long long long long long long long long explanation
+                    <a href="javascript:void(0)" class="n-close">
+                        <span class="icon icon-close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p></p>
+
+        <div>
+            Testing <a id="mypop2"
+                       data-placement="bottom" data-toggle="balloon"
+                       data-target-selector="#mypop2_text"
+                       href="javascript:;"
+                       class="balloon-icon">balloon</a> with info button (short text).
+            <div id="mypop2_text" class="hidden">
+                <div class="icon-popover-text">Short text
+                    <a href="javascript:void(0)" class="n-close"><span class="icon icon-close" data-dismiss="modal"
+                                                                       aria-label="Close"><span
+                            aria-hidden="true"></span></span></a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            Testing info button
+            <a class="link" id="TA-balloon-tooltip1" data-toggle="tooltip" data-placement="bottom" title="Displays file information">
+                <button type="button" class="btn btn-info" data-container="body" data-placement="bottom auto"
+                        data-toggle="balloon" href data-html="true" data-content="
+                    <dl>
+                    <dt style='clear:left;float:left;width:5em;font-weight:normal;'>File name:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot; >BTS profile_file.file</dd>
+                    <dt style=&quot;clear:left;height:0.5em;&quot;>&nbsp;</dt>
+                    <dt style=&quot;clear:left;&quot;>Technologies</dt>
+                    <dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot; data-reactid=&quot;.r.4&quot;>GSM:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot;><span>0</span>
+                    <span> TRXs</span></dd><dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot;>LTE:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot;><span>1</span><span> Cells</span></dd>
+                    <dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot; >WCDMA:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot;><span >1</span><span> Cells</span></dd>
+                    <dt style=&quot;clear:left;height:0.5em;&quot; data-reactid=&quot;.r.a&quot;>&nbsp;</dt>
+                    <dt style=&quot;clear:left;&quot; data-reactid=&quot;.r.b&quot;>System modules</dt>
+                    <dd>FSMF</dd><dt style=&quot;clear:left;height:0.5em;&quot;>&nbsp;</dt>
+                    <dt>Radio modules</dt>
+                    <dd>FRGP, FRGS, FXEB</dd><dt style=&quot;clear:left;height:0.5em;&quot; >&nbsp;</dt>
+                    <dt>Extension modules</dt>
+                    <dd>FBBC</dd></dl>" title="">
+                </button>
+            </a> with icon a bit more (short text).
+        </div>
+
+
+        <div>
+            Testing info button
+            <button type="button" class="btn btn-info n-hover-balloon" id="TA-balloon-tooltip2" data-container="body"
+                    data-placement="bottom auto" data-toggle="balloon" href="javascript:void(0)" data-html="true"
+                    data-content="
+                    <dl>
+                    <dt style='clear:left;float:left;width:5em;font-weight:normal;'>File name:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot; >BTS profile_file.file</dd>
+                    <dt style=&quot;clear:left;height:0.5em;&quot;>&nbsp;</dt>
+                    <dt style=&quot;clear:left;&quot;>Technologies</dt>
+                    <dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot; data-reactid=&quot;.r.4&quot;>GSM:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot;><span>0</span>
+                    <span> TRXs</span></dd><dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot;>LTE:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot;><span>1</span><span> Cells</span></dd>
+                    <dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot; >WCDMA:</dt>
+                    <dd style=&quot;float:left;font-weight:normal;&quot;><span >1</span><span> Cells</span></dd>
+                    <dt style=&quot;clear:left;height:0.5em;&quot; data-reactid=&quot;.r.a&quot;>&nbsp;</dt>
+                    <dt style=&quot;clear:left;&quot; data-reactid=&quot;.r.b&quot;>System modules</dt>
+                    <dd>FSMF</dd><dt style=&quot;clear:left;height:0.5em;&quot;>&nbsp;</dt>
+                    <dt>Radio modules</dt>
+                    <dd>FRGP, FRGS, FXEB</dd><dt style=&quot;clear:left;height:0.5em;&quot; >&nbsp;</dt>
+                    <dt>Extension modules</dt>
+                    <dd>FBBC</dd></dl>" title="">
+            </button>
+            support hover operation with icon a bit more (short text).
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+<pre>
+For balloon components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/wulf.tooltip.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/wulf.balloon.min.css" rel="stylesheet"/&gt;
+</pre>
+        <p class="demo-pre-title">Invoke Balloon.js by Required JS</p>
+        <pre>
+    <code>
+    &lt;script src="../assets/js/require.js"&gt;&lt;/script&gt;
+    &lt;script src="../assets/js/require-config.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        require(['jquery', <span class="demo-highlight-color">'wulf/balloon'</span>]);
+    &lt;/script&gt;
+    </code>
+        </pre>
+        <p class="demo-pre-title">Via Javascript</p>
+        <p class="demo-pre-description">Call the balloon control via JavaScript:</p>
+        <pre>
+    <code>
+    $('[data-toggle="balloon"]').nBalloon();
+    </code>
+        </pre>
+        <p class="demo-pre-title">Example</p>
+        <p class="demo-pre-description">Basic balloon message:</p>
+	    <pre>
+    <code>
+    &lt;a class="link" href <span class="demo-highlight-color">data-toggle="balloon" data-placement="bottom auto" data-content="explanation text"</span>&gt;text&lt;/a&gt;
+    </code>
+        </pre>
+        <p class="demo-pre-description">Balloon with close icon:</p>
+        <pre>
+    <code>
+    &lt;div&gt;
+        &lt;a id="myballoon" data-toggle="balloon" data-placement="bottom" <span class="demo-highlight-color">data-target-selector="#myballoon_text"</span>
+            href="javascript:void(0);" class="<span class="demo-highlight-color">balloon-icon</span>"&gt;balloon&lt;/a&gt;.
+            &lt;div id="<span class="demo-highlight-color">myballoon_text</span>" class="hidden"&gt;
+                &lt;div class="icon-popover-text"&gt;Short text
+                    &lt;a href="javascript:void(0)" class="n-close"&gt;
+                        &lt;span class="icon icon-close" data-dismiss="modal" aria-label="Close"&gt;
+                            &lt;span aria-hidden="true"&gt;&lt;/span&gt;
+                        &lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+    &lt;/div&gt;
+    </code>
+        </pre>
+        <p class="demo-pre-description">Info icon with tooltip and balloon:</p>
+        <pre>
+    <code>
+    &lt;div&gt;
+        Testing info button
+        &lt;a class="link" data-toggle="tooltip" data-placement="bottom" <span class="demo-highlight-color">title="Displays file information"</span>&gt;
+            &lt;button type="button" class="btn btn-info" <span class="demo-highlight-color">data-container="body"</span> data-placement="bottom auto"
+            data-toggle="balloon" href="javascript:void(0)" <span class="demo-highlight-color">data-html="true"</span>
+            <span class="demo-highlight-color">data-content</span>="
+                &lt;dl&gt;
+                &lt;dt style='clear:left;float:left;width:5em;font-weight:normal;'&gt;File name:&lt;/dt&gt;
+                &lt;dd style=&quot;float:left;font-weight:normal;&quot; &gt;BTS profile_file.file&lt;/dd&gt;
+                &lt;dt style=&quot;clear:left;height:0.5em;&quot;&gt;&nbsp;&lt;/dt&gt;
+                &lt;dt style=&quot;clear:left;&quot;&gt;Technologies&lt;/dt&gt;
+                &lt;dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot; data-reactid=&quot;.r.4&quot;&gt;GSM:&lt;/dt&gt;
+                &lt;dd style=&quot;float:left;font-weight:normal;&quot;&gt;&lt;span&gt;0&lt;/span&gt;
+                &lt;span&gt; TRXs&lt;/span&gt;&lt;/dd&gt;&lt;dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot;&gt;LTE:&lt;/dt&gt;
+                &lt;dd style=&quot;float:left;font-weight:normal;&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;span&gt; Cells&lt;/span&gt;&lt;/dd&gt;
+                &lt;dt style=&quot;clear:left;float:left;width:5em;font-weight:normal;&quot; &gt;WCDMA:&lt;/dt&gt;
+                &lt;dd style=&quot;float:left;font-weight:normal;&quot;&gt;&lt;span &gt;1&lt;/span&gt;&lt;span&gt; Cells&lt;/span&gt;&lt;/dd&gt;
+                &lt;dt style=&quot;clear:left;height:0.5em;&quot; data-reactid=&quot;.r.a&quot;&gt;&nbsp;&lt;/dt&gt;
+                &lt;dt style=&quot;clear:left;&quot; data-reactid=&quot;.r.b&quot;&gt;System modules&lt;/dt&gt;
+                &lt;dd&gt;FSMF&lt;/dd&gt;&lt;dt style=&quot;clear:left;height:0.5em;&quot;&gt;&nbsp;&lt;/dt&gt;
+                &lt;dt&gt;Radio modules&lt;/dt&gt;
+                &lt;dd&gt;FRGP, FRGS, FXEB&lt;/dd&gt;&lt;dt style=&quot;clear:left;height:0.5em;&quot; &gt;&nbsp;&lt;/dt&gt;
+                &lt;dt&gt;Extension modules&lt;/dt&gt;
+                &lt;dd&gt;FBBC&lt;/dd&gt;&lt;/dl&gt;
+            " title=""&gt;
+            &lt;/button&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JS-script needed --&gt;
+    &lt;script&gt;
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="balloon"]').nBalloon();
+        })
+    &lt;/script&gt;
+    </code>
+        </pre>
+        <p class="demo-pre-description">Balloon fadeout feature:</p>
+        <pre>
+    <code>
+    &lt;div&gt;
+        Demonstrating
+        &lt;a class="link <span class="demo-highlight-color">fadeout</span>" data-placement="bottom" data-toggle="balloon" href="javascript:void(0)"
+           data-content="Balloon is a small popup area with title, instruction text and possibly icons"&gt;
+            balloon
+        &lt;/a&gt; with fadeout in certain time behavior.
+    &lt;/div&gt;
+    </code>
+        </pre>
+        <p></p>
+        <p class="demo-pre-title">Tips</p>
+        <p>1. Data-placement can be: <code>top</code> | <code>bottom</code> | <code>left</code> | <code>right</code> + also
+            empty +
+            optionally also <code>auto</code> to allow automatic positioning on the opposite side near screen edges.</p>
+        <p>2. Please note that Nokia GUI rule is to limit the size of tooltip to ONLY 2 lines.</p>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/balloon'], function ($) {
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="balloon"]').nBalloon();
+        });
+    });
+</script>
+</body>
+</html>

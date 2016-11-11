@@ -1,0 +1,84 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+
+<!-- If you need some variable/class definitions to this, please request WULF team to add those
+ so that we have as much as possible common implementation across all products. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.login.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<div class="n-login-wrapper">
+    <h1 class="component-header" id="nokia_login">Login standard <a href="../demo-dev-react.html">
+        <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+    <hr>
+    <div class="n-login">
+        <div class="n-login-logo">
+            <img src="../wulfdist/img/logo.png" width="110" height="19" alt="Nokia logo"/>
+        </div>
+        <div class="panel panel-shadow panel-blue-cap">
+            <h1 class="n-login-title">BTS Site <span class="n-product-name-blue">Manager</span></h1>
+
+            <div class="panel-body">
+                <h2 class="n-login-title-version-light">Version 0.0.1 beta</h2>
+
+                <div class="n-login-panel-fields">
+                    <form class="form-horizontal" action="#" method="post">
+                        <!--
+                        above you need to replace "#" with valid action based on your system
+                        -->
+                        <div class="form-group n-login-textfields">
+                            <div class="col-sm-6 input-required">
+                                <input name="username" type="text" class="form-control n-inputfield"
+                                       id="applicationLoginUsername"
+                                       placeholder="Username">
+                                <a class="form-control-feedback">
+                                    <span class="icon icon-mandatory"></span></a>
+                            </div>
+                            <div class="col-sm-6 input-required">
+                                <input name="password" type="password"  class="form-control n-inputfield"
+                                       id="applicationLoginPassword"
+                                       placeholder="Password">
+                                <a class="form-control-feedback form-control-feedback">
+                                    <span class="icon icon-mandatory"></span></a>
+                            </div>
+                        </div>
+                        <div class="n-login-action">
+                            <div class="n-login-forget-password">
+                                <a id='TA_login_forgetpassword' href="#">Forgot password</a><span class="icon icon-breadcrumb"></span>
+                            </div>
+                            <button type="submit" class="btn btn-defaultBlue btn-standard n-login-button"
+                                    id="applicationLoginButton"
+                                    disabled="true">Log In
+                            </button>
+                        </div>
+                        <!-- you could use also this kind of input statement instead of the button statement above
+                        <input class="btn btn-action btn-standard n-login-button" type="submit" value="Log In">
+                        -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="small n-login-copyright">
+    &copy; 2016 Nokia. All rights reserved.
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/inputfield']);
+</script>
+</body>
+</html>

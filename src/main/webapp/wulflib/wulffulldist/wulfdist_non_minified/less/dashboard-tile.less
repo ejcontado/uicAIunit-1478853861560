@@ -1,0 +1,149 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+
+.n-tile{
+  width: 260px;
+  height: 130px;
+  margin: 0 7px 5px 0;
+  display: inline-block;
+  background-color: @gray-white;
+  border-radius: 6px;
+  border: 1px solid @n-tile-border;
+  border-left: 4px solid @n-tile-border;
+
+  &.normal {
+    border-left: 4px solid @n-tile-normal-border;
+  }
+
+  &.warn {
+    border-left: 4px solid @n-tile-warn-border;
+    background: @n-tile-warn-background;
+  }
+
+  &.blocked {
+    border: 1px solid @n-tile-blocked-border;
+    border-left: 4px solid @n-tile-blocked-border;
+
+    .n-tile-state {
+      font-weight: bold;
+    }
+
+  }
+
+  .n-tile-left {
+    float: left;
+    padding: 10px 0 5px 14px;
+    width: 130px;
+
+    .n-tile-title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: @black-hover;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .n-tile-content{
+      p {
+        margin-bottom: 5px;
+        color: @gray-dark;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+  }
+
+  .n-tile-right {
+    float: right;
+    display: inline-block;
+    padding: 15px 30px 0 0;
+
+    .progress-pie-chart {
+      width: @tile-circle-size;
+      height: @tile-circle-size;
+      border-radius: 50%;
+      background-color: @n-tile-normal-border;
+      position: relative;
+
+      &.gt-50 {
+        background-color: @n-tile-warn-border;
+
+        .ppc-progress {
+          clip: rect(0, @tile-circle-clip-size, @tile-circle-size, 0);
+
+          .ppc-progress-fill {
+            clip: rect(0, @tile-circle-size, @tile-circle-size, @tile-circle-clip-size);
+            background: @n-tile-normal-border;
+          }
+        }
+
+      }
+
+      &.off {
+        background-color: @n-tile-border;
+      }
+
+      .ppc-progress {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        left: calc(~"50% - @{tile-circle-clip-size}");
+        top: calc(~"50% - @{tile-circle-clip-size}");
+        width: @tile-circle-size;
+        height: @tile-circle-size;
+        clip: rect(0, @tile-circle-size, @tile-circle-size, @tile-circle-clip-size);
+
+        .ppc-progress-fill {
+          content: "";
+          position: absolute;
+          border-radius: 50%;
+          left: calc(~"50% - @{tile-circle-clip-size}");
+          top: calc(~"50% - @{tile-circle-clip-size}");
+          width: @tile-circle-size;
+          height: @tile-circle-size;
+          clip: rect(0, @tile-circle-clip-size, @tile-circle-size, 0);
+          background: @n-tile-warn-border;
+        }
+      }
+
+      .ppc-percents {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        left: calc(~"50% - @{tile-circle-inner-size}/2");
+        top: calc(~"50% - @{tile-circle-inner-size}/2");
+        width: @tile-circle-inner-size;
+        height: @tile-circle-inner-size;
+        background: #fff;
+        text-align: center;
+        display: table;
+
+        span {
+          display: block;
+          font-size: 20px;
+          font-weight: bold;
+          color: #1b1b1b;
+        }
+      }
+
+      .pcc-percents-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    .pie-title {
+      text-align: center;
+      margin-top: 3px;
+      color: @gray-dark;
+    }
+  }
+}
+
+

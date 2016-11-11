@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Tree</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Tree</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-5" id="ng-tree">
+        <div ng-controller="TreeController as demo">
+            <div class="checkbox">
+                <input id="check1" type="checkbox" ng-model="demo.hasCheckbox">
+                <label for="check1">Checkbox</label>
+            </div>
+            <div class="checkbox">
+                <input id="check2" type="checkbox" ng-model="demo.disable">
+                <label for="check2">Disable</label>
+            </div>
+            <wf-tree id="TA-Angular-Tree" tree-data="demo.nodes"
+                     has-checkbox="demo.hasCheckbox"
+                     disable="demo.disable">
+                <wf-tree-node id="TA-Angular-Tree-Components" ng-repeat="item in demo.nodes"
+                              label="item.title"
+                              children="item.children"
+                              node="item"
+                              disable="demo.disable"
+                              src="item.herf">
+                </wf-tree-node>
+            </wf-tree>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h2>Overview</h2>
+
+        <p>Angular version of tree component. It contains two components <code>wfTree</code> and <code>wfTreeNode</code>
+            which are implemented by using <code>.component()</code> method introduced since Angular1.5. This component
+            can be used to generate tree from both static and dynamic
+            model data (using <code>ng-repeat</code> directive for <code>wf-tree-node</code>).</p>
+
+        <h2>wf-tree settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Default/Arguments</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>treeData:=</code></td>
+                <td>
+                    the content of tree
+                </td>
+                <td>
+                    The data for tree to load.like:[
+                    {
+                    "title": 'Content',
+                    "children":[{}]
+                    },
+                    {
+                    "title": 'Content',
+                    "children":[{}]
+                    }]
+                </td>
+            </tr>
+            <tr>
+                <td><code>hasCheckbox: &lt;?</code></td>
+                <td>
+                    Default: <code>false</code>
+                </td>
+                <td>
+                    if true,there will have be a checkbox in every tree node for check;if false,tree node without
+                    checkbox.
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable: &lt;?</code></td>
+                <td>
+                    Default: <code>false</code>
+                </td>
+                <td>
+                    if true,current tree can do operate;if false,tree can not operate.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>wf-tree-node settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Default / Arguments</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>label: &lt;</code></td>
+                <td>
+                    String
+                </td>
+                <td>
+                    Label/title of tree node
+                </td>
+            </tr>
+            <tr>
+                <td><code>isSelected: &lt;</code></td>
+                <td>
+                    Default: <code>false</code>
+                </td>
+                <td>
+                    Whether tree node is selected when tree node with checkbox.
+                </td>
+            </tr>
+            <tr>
+                <td><code>children: &lt;</code></td>
+                <td>
+                    the children of current tree node.
+                </td>
+                <td>
+                    if current tree node has children,it can be expand and with expand icon.
+                </td>
+            </tr>
+            <tr>
+                <td><code>hasCheckbox: &lt;</code></td>
+                <td>
+                    Default:false
+                </td>
+                <td>
+                    Whether current node is have checkbox.
+                </td>
+            </tr>
+            <tr>
+                <td><code>node: &lt;</code></td>
+                <td>
+                    the current tree node.
+                </td>
+                <td>
+                    this is data of current node.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Keyboard accessibility</h2>
+        Besides the basic keyboard support, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+        <kbd>Tab</kbd></kbd> and <kbd>Enter</kbd>. This component also supports the following
+        keystrokes for the interaction.
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Move focus to next/previous tree node</td>
+                <td>
+                    <kbd>→</kbd>/<kbd>↓</kbd>
+                    or <kbd>←</kbd>/<kbd>↑</kbd>
+                    - next/previous tree node
+                </td>
+                <td>
+                    <ul>
+                        <li>Using <kbd>→</kbd> or <kbd>←</kbd> can expand/collapse the tree node if it has children.
+                        </li>
+                        <li>Using <kbd>↓</kbd> or <kbd>↑</kbd> can choice the next/previous tree node.
+                        </li>
+                        <li>Using <kbd>Tab</kbd> or <kbd><kbd>Shift</kbd> + <kbd>Tab</kbd></kbd> can navigate the next
+                            tree node
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Select tree node</td>
+                <td>
+                    <kbd>Enter</kbd> - Select current
+                    focused tree node
+                </td>
+                <td>
+                    <ul>
+
+                        <li>The associated tree node content would be also shown</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<div ng-controller="TreeController as demo">
+    <wf-tree tree-data="demo.nodes"
+              has-checkbox="demo.hasCheckbox"
+              disable="demo.disable">
+        <wf-tree-node ng-repeat="item in demo.nodes"
+                      label="item.title"
+                      children="item.children"
+                      node="item"
+                      disable="demo.disable"
+                      src="item.herf">
+        </wf-tree-node>
+    </wf-tree>
+</div>
+                    </code></pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable><code data-language="javascript">
+angular.module('wf.ng.demo',['wf.angular.tree']).controller('TreeController', TreeController);
+function TreeController() {
+    this.hasCheckbox = true,
+    this.nodes = [
+        {
+            "title": 'Content',
+            "isExpend":true,
+            "children":[
+                {
+                    "title":"item1",
+                    "isExpend":true,
+                    "children":[
+                        {
+                        "title":"item11",
+                        "children": []
+                        },
+                        {
+                        "title":"item12",
+                        "children": []
+                    }]
+                }]
+        }];
+    }
+                </code></pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/tree/tree.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.tree', 'wf.angular.tabs'])
+                .controller('TreeController', TreeController);
+        function TreeController() {
+            this.hasCheckbox = false;
+            this.disable = false;
+            this.nodes = [
+                {
+                    "title": 'Components',
+                    "isExpend": true,
+                    "children": [
+                        {
+                            "title": "Alert",
+                            "isExpend": false,
+                            "children": [
+                                {
+                                    "title": "item11",
+                                    "children": []
+                                },
+                                {
+                                    "title": "item12",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Combobox",
+                            "isExpend": false,
+                            "children": [
+                                {
+                                    "title": "item21",
+                                    "children": []
+                                },
+                                {
+                                    "title": "item22",
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Dialog"
+                        },
+                        {
+                            "title": "Progress"
+                        },
+                        {
+                            "title": "Tpggle Button"
+                        }
+
+                    ]
+                },
+                {
+                    "title": 'Data Binding',
+                    "isExpend": true,
+                    "children": [
+                        {
+                            "title": "item41",
+                            "children": []
+                        },
+                        {
+                            "title": "item42",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "title": 'Binding',
+                    "isExpend": true,
+                    "children": [
+                        {
+                            "title": "item51",
+                            "children": []
+                        },
+                        {
+                            "title": "item52",
+                            "children": []
+                        }
+                    ]
+                }, {
+                    "title": 'Spinner',
+                    "children": []
+                }
+            ];
+
+
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

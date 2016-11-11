@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs" role="tabs">
+    <li ng-repeat="pane in $ctrl.panes" ng-class="{active:pane.selected, disabled: pane.disable}"
+        role="presentation">
+        <a href ng-click="$ctrl.select($index, $event)" aria-expanded="{{pane.selected}}" role="tab"
+           ng-disabled="pane.disable"
+           ng-keydown="$ctrl.selectKeydown(pane, $event);">{{pane.label}}</a>
+        <a href class="n-close" role="button" aria-label="Close" ng-if="pane.closeable"
+           ng-click="$ctrl.closePane($index, $event)" ng-keydown="$ctrl.closeKeydown($index, $event)"
+           ng-disabled="pane.disable">
+            <span class="icon icon-close" aria-hidden="true"></span>
+        </a>
+    </li>
+</ul>
+<div class="tab-content" ng-transclude></div>

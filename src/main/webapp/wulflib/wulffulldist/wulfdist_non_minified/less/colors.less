@@ -1,0 +1,601 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+
+//Brand color palette
+.nokiaBlueBg {
+  background-color: #124191;
+}
+.nokiaBlueBorder {
+  border-color: #124191;
+}
+.nokiaBlueTxt {
+  color: #124191;
+}
+.nokiaLightBlueBg {
+  background-color: #00C9FF;
+}
+.nokiaLightBlueBorder {
+  border-color: #00C9FF;
+}
+.nokiaLightBlueTxt {
+  color: #00C9FF;
+}
+.nokiaDarkGrayBg {
+  background-color: #68717A;
+}
+.nokiaDarkGrayBorder {
+  border-color: #68717A;
+}
+.nokiaDarkGrayTxt {
+  color: #68717A;
+}
+.nokiaMediumGrayBg {
+  background-color: #A8BBC0;
+}
+.nokiaMediumGrayBorder {
+  border-color: #A8BBC0;
+}
+.nokiaMediumGrayTxt {
+  color: #A8BBC0;
+}
+.nokiaLightGrayBg {
+  background-color: #D8D9DA;
+}
+.nokiaLightGrayBorder {
+  border-color: #D8D9DA;
+}
+.nokiaLightGrayTxt {
+  color: #D8D9DA;
+}
+.lightBlueGradient {
+  background: linear-gradient(#00C9FF, #00A1CC);
+}
+.darkGrayGradient {
+  background: linear-gradient(#68717A, #535A62);
+}
+.mediumGrayGradient {
+  background: linear-gradient(#A8BBC0, #86969A);
+}
+.lightGrayGradient {
+  background: linear-gradient(#D8D9DA, #ADAEAE);
+}
+
+//User interface color palette
+.UIGlobalGrayBg {
+  background-color: #474747;
+}
+.UIGlobalGrayBorder {
+  border-color: #474747;
+}
+.UIGlobalGrayTxt {
+   color: #474747;
+ }
+.UINavGrayBg {
+  background-color: #333;
+}
+.UINavGrayBorder {
+  border-color: #333;
+}
+.UINavGrayTxt {
+  color: #333;
+}
+.UIDarkGrayBg {
+  background-color: #1B1B1B;
+}
+.UIDarkGrayBorder {
+  border-color: #1B1B1B;
+}
+.UIDarkGrayTxt {
+  color: #1B1B1B;
+}
+.UIMediumGrayBg {
+  background-color: #666;
+}
+.UIMediumGrayBorder {
+  border-color: #666;
+}
+.UIMediumGrayTxt {
+  color: #666;
+}
+.UILightGrayBg {
+  background-color: #aaa;
+}
+.UILightGrayBorder {
+  border-color: #aaa;
+}
+.UILightGrayTxt {
+  color: #aaa;
+}
+.whiteBg {
+  background-color: #fff;
+}
+.whiteBorder {
+  border-color: #fff;
+}
+.whiteTxt {
+  color: #fff;
+}
+.blackBg {
+  background-color: #000;
+}
+.blackBorder {
+  border-color: #000;
+}
+.blackTxt {
+  color: #000;
+}
+.backgroundDarkGrayBg {
+  background-color: #D8DAE0;
+}
+.backgroundDarkGrayBorder {
+  border-color: #D8DAE0;
+}
+.backgroundDarkGrayTxt {
+  color: #D8DAE0;
+}
+.backgroundLightGrayBg {
+  background-color: #EFEFEF;
+}
+.backgroundLightGrayBorder {
+  border-color: #EFEFEF;
+}
+.backgroundLightGrayTxt {
+  color: #EFEFEF;
+}
+.backgroundGradient {
+  background: linear-gradient(#D8DAE0, #EFEFEF);
+}
+.backgroundInsightLightBg {
+  background-color: #CFD0D9;
+}
+.backgroundInsightLightBorder {
+  border-color: #CFD0D9;
+}
+.backgroundInsightLightTxt {
+  color: #CFD0D9;
+}
+.backgroundInsightDarkBg {
+  background-color: #B8B8BE;
+}
+.backgroundInsightDarkBorder {
+  border-color: #B8B8BE;
+}
+.backgroundInsightDarkTxt {
+  color: #B8B8BE;
+}
+.backgroundInsightGradient {
+  background: linear-gradient(#CFD0D9, #B8B8BE);
+}
+
+//supplementary colors
+.UIUnderlineBg {
+  background-color: #124191;
+}
+.UIUnderlineBorder {
+  border-color: #124191;
+}
+.UIUnderlineTxt {
+  color: #124191;
+}
+.UISelectionBlueBg {
+  background-color: #0B6DAF;
+}
+.UISelectionBlueBorder {
+  border-color: #0B6DAF;
+}
+.UISelectionBlueTxt {
+  color: #0B6DAF;
+}
+.UIHoverBlueBg {
+  background-color: #00A1CC;
+}
+.UIHoverBlueBorder {
+  border-color: #00A1CC;
+}
+.UIHoverBlueTxt {
+  color: #00A1CC;
+}
+.UILightBlueBg {
+  background-color: #CCF4FF;
+}
+.UILightBlueBorder {
+  border-color: #CCF4FF;
+}
+.UILightBlueTxt {
+  color: #CCF4FF;
+}
+.alertRedBg {
+  background-color: #BE0006;
+}
+.alertRedBorder {
+  border-color: #BE0006;
+}
+.alertRedTxt {
+  color: #BE0006;
+}
+.warningYellowBg {
+  background-color: #FFCC00;
+}
+.warningYellowBorder {
+  border-color: #FFCC00;
+}
+.warningYellowTxt {
+  color: #FFCC00;
+}
+.okayGreenBg {
+  background-color: #3DAA00;
+}
+.okayGreenBorder {
+  border-color: #3DAA00;
+}
+.okayGreenTxt {
+  color: #3DAA00;
+}
+
+//standard color palette for charts
+.stardardCharts1Bg {
+  background-color: #0B6DAF;
+}
+.stardardCharts1Border {
+  border-color: #0B6DAF;
+}
+.stardardCharts1Txt {
+  color: #0B6DAF;
+}
+.stardardCharts2Bg {
+  background-color: #B3B8BC;
+}
+.stardardCharts2Border {
+  border-color: #B3B8BC;
+}
+.stardardCharts2Txt {
+  color: #B3B8BC;
+}
+.stardardCharts3Bg {
+  background-color: #124191;
+}
+.stardardCharts3Border {
+  border-color: #124191;
+}
+.stardardCharts3Txt {
+  color: #124191;
+}
+.stardardCharts4Bg {
+  background-color: #00C9FF;
+}
+.stardardCharts4Border {
+  border-color: #00C9FF;
+}
+.stardardCharts4Txt {
+  color: #00C9FF;
+}
+.stardardCharts5Bg {
+  background-color: #474747;
+}
+.stardardCharts5Border {
+  border-color: #474747;
+}
+.stardardCharts5Txt {
+  color: #474747;
+}
+.stardardCharts6Bg {
+  background-color: #FFCC00;
+}
+.stardardCharts6Border {
+  border-color: #FFCC00;
+}
+.stardardCharts6Txt {
+  color: #FFCC00;
+}
+.stardardCharts7Bg {
+  background-color: #68717A;
+}
+.stardardCharts7Border {
+  border-color: #68717A;
+}
+.stardardCharts7Txt {
+  color: #68717A;
+}
+.stardardCharts8Bg {
+  background-color: #D8D9DA;
+}
+.stardardCharts8Border {
+  border-color: #D8D9DA;
+}
+.stardardCharts8Txt {
+  color: #D8D9DA;
+}
+.stardardCharts9Bg {
+  background-color: #DB6D00;
+}
+.stardardCharts9Border {
+  border-color: #DB6D00;
+}
+.stardardCharts9Txt {
+  color: #DB6D00;
+}
+.stardardCharts10Bg {
+  background-color: #00F04D;
+}
+.stardardCharts10Border {
+  border-color: #00F04D;
+}
+.stardardCharts10Txt {
+  color: #00F04D;
+}
+.stardardCharts11Bg {
+  background-color: #00A1CC;
+}
+.stardardCharts11Border {
+  border-color: #00A1CC;
+}
+.stardardCharts11Txt {
+  color: #00A1CC;
+}
+.stardardCharts12Bg {
+  background-color: #DA1914;
+}
+.stardardCharts12Border {
+  border-color: #DA1914;
+}
+.stardardCharts12Txt {
+  color: #DA1914;
+}
+
+//bar charts
+.barCharts1Bg {
+  background-color: #09578C;
+}
+.barCharts1Border {
+  border-color: #09578C;
+}
+.barCharts1Txt {
+  color: #09578C;
+}
+.barCharts2Bg {
+  background-color: #868A8D;
+}
+.barCharts2Border {
+  border-color: #868A8D;
+}
+.barCharts2Txt {
+  color: #868A8D;
+}
+.barCharts3Bg {
+  background-color: #0D2D65;
+}
+.barCharts3Border {
+  border-color: #0D2D65;
+}
+.barCharts3Txt {
+  color: #0D2D65;
+}
+.barCharts4Bg {
+  background-color: #00A1CC;
+}
+.barCharts4Border {
+  border-color: #00A1CC;
+}
+.barCharts4Txt {
+  color: #00A1CC;
+}
+.barCharts5Bg {
+  background-color: #333333;
+}
+.barCharts5Border {
+  border-color: #333333;
+}
+.barCharts5Txt {
+  color: #333333;
+}
+.barCharts6Bg {
+  background-color: #FFB70C;
+}
+.barCharts6Border {
+  border-color: #FFB70C;
+}
+.barCharts6Txt {
+  color: #FFB70C;
+}
+.barCharts7Bg {
+  background-color: #535A62;
+}
+.barCharts7Border {
+  border-color: #535A62;
+}
+.barCharts7Txt {
+  color: #535A62;
+}
+.barCharts8Bg {
+  background-color: #ADAEAE;
+}
+.barCharts8Border {
+  border-color: #ADAEAE;
+}
+.barCharts8Txt {
+  color: #ADAEAE;
+}
+.barCharts9Bg {
+  background-color: #B35900;
+}
+.barCharts9Border {
+  border-color: #B35900;
+}
+.barCharts9Txt {
+  color: #B35900;
+}
+.barCharts10Bg {
+  background-color: #28C94C;
+}
+.barCharts10Border {
+  border-color: #28C94C;
+}
+.barCharts10Txt {
+  color: #28C94C;
+}
+.barCharts11Bg {
+  background-color: #0084A9;
+}
+.barCharts11Border {
+  border-color: #0084A9;
+}
+.barCharts11Txt {
+  color: #0084A9;
+}
+.barCharts12Bg {
+  background-color: #BE0006;
+}
+.barCharts12Border {
+  border-color: #BE0006;
+}
+.barCharts12Txt {
+  color: #BE0006;
+}
+
+//Data visualization color priorities
+.solidColor1Bg {
+  background-color: #0B6DAF;
+}
+.solidColor1Border {
+  border-color: #0B6DAF;
+}
+.solidColor1Txt {
+  color: #0B6DAF;
+}
+.solidColor2Bg {
+  background-color: #B3B8BC;
+}
+.solidColor2Border {
+  border-color: #B3B8BC;
+}
+.solidColor2Txt {
+  color: #B3B8BC;
+}
+.solidColor3Bg {
+  background-color: #124191;
+}
+.solidColor3Border {
+  border-color: #124191;
+}
+.solidColor3Txt {
+  color: #124191;
+}
+.solidColor4Bg {
+  background-color: #00C9FF;
+}
+.solidColor4Border {
+  border-color: #00C9FF;
+}
+.solidColor4Txt {
+  color: #00C9FF;
+}
+.solidColor5Bg {
+  background-color: #474747;
+}
+.solidColor5Border {
+  border-color: #474747;
+}
+.solidColor5Txt {
+  color: #474747;
+}
+.solidColor6Bg {
+  background-color: #FFCC00;
+}
+.solidColor6Border {
+  border-color: #FFCC00;
+}
+.solidColor6Txt {
+  color: #FFCC00;
+}
+.solidColor7Bg {
+  background-color: #68717A;
+}
+.solidColor7Border {
+  border-color: #68717A;
+}
+.solidColor7Txt {
+  color: #68717A;
+}
+.solidColor8Bg {
+  background-color: #D8D9DA;
+}
+.solidColor8Border {
+  border-color: #D8D9DA;
+}
+.solidColor8Txt {
+  color: #D8D9DA;
+}
+.solidColor9Bg {
+  background-color: #DB6D00;
+}
+.solidColor9Border {
+  border-color: #DB6D00;
+}
+.solidColor9Txt {
+  color: #DB6D00;
+}
+.solidColor10Bg {
+  background-color: #00F04D;
+}
+.solidColor10Border {
+  border-color: #00F04D;
+}
+.solidColor10Txt {
+  color: #00F04D;
+}
+.solidColor11Bg {
+  background-color: #00A1CC;
+}
+.solidColor11Border {
+  border-color: #00A1CC;
+}
+.solidColor11Txt {
+  color: #00A1CC;
+}
+.solidColor12Bg {
+  background-color: #DA1914;
+}
+.solidColor12Border {
+  border-color: #DA1914;
+}
+.solidColor12Txt {
+  color: #DA1914;
+}
+.gradientColor1 {
+  background: linear-gradient(to right, #0B6DAF, #09578C);
+}
+.gradientColor2 {
+  background: linear-gradient(to right, #B3B8BC, #868A8D);
+}
+.gradientColor3 {
+  background: linear-gradient(to right, #124191, #0D2D65);
+}
+.gradientColor4 {
+  background: linear-gradient(to right, #00C9FF, #00A1CC);
+}
+.gradientColor5 {
+  background: linear-gradient(to right, #474747, #333333);
+}
+.gradientColor6 {
+  background: linear-gradient(to right, #FFCC00, #FFB70C);
+}
+.gradientColor7 {
+  background: linear-gradient(to right, #68717A, #535A62);
+}
+.gradientColor8 {
+  background: linear-gradient(to right, #D8D9DA, #ADAEAE);
+}
+.gradientColor9 {
+  background: linear-gradient(to right, #DB6D00, #B35900);
+}
+.gradientColor10 {
+  background: linear-gradient(to right, #00F04D, #28C94C);
+}
+.gradientColor11 {
+  background: linear-gradient(to right, #00A1CC, #0084A9);
+}
+.gradientColor12 {
+  background: linear-gradient(to right, #DA1914, #BE0006);
+}

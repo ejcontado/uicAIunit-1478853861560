@@ -1,0 +1,417 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_comboboxes">Combo box</h1>
+<hr>
+<div class="row">
+    <div class="col-md-3">
+        <h4>Combo box textfield</h4>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 120px">Standard:</label>
+                <div class="col-sm-8">
+                    <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
+                        <input type="text" class="form-control n-inputfield" id="TA-combobox-standardtextfield"/>
+                        <div class="input-group-btn" id="TA-combobox-standard">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu" id="TA-combobox-standardDropdownMenu">
+                                <li data-value="1" id="TA-combobox-standardtextfield1"><a href="#"><span>One</span></a></li>
+                                <li data-value="2" id="TA-combobox-standardtextfield2"><a href="#"><span>Two</span></a></li>
+                                <li data-value="3" id="TA-combobox-standardtextfield3"><a href="#"><span>Three</span></a></li>
+                                <li data-value="4" id="TA-combobox-standardtextfield4"><a href="#"><span>One Thousand Two Hundred Thirty</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label label-disabled" style="width: 120px">Disabled:</label>
+                <div class="col-sm-8">
+                    <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox2">
+                        <input type="text" class="form-control n-inputfield" disabled/>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle disabled"
+                                    data-toggle="dropdown"
+                                    disabled><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                <li data-value="1"><a href="#"><span>One</span></a></li>
+                                <li data-value="2"><a href="#"><span>Two</span></a></li>
+                                <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 120px">With disabled items:</label>
+                <div class="col-sm-8">
+                    <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox_disabled_item">
+                        <input type="text" class="form-control n-inputfield" id="TA-combobox-withdisabledfield"/>
+                        <div class="input-group-btn" id="TA-combobox-withdisabledbutton">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu" id="TA-combobox-withdisableditems">
+                                <li data-value="1" id="TA-combobox-withdisableditems1"><a href="#"><span>One</span></a></li>
+                                <li data-value="2" class="disabled" id="TA-combobox-withdisableditems2" ><a href="#" tabindex="-1" ><span>Two</span></a></li>
+                                <li data-value="3" id="TA-combobox-withdisableditems3"><a href="#"><span>Three</span></a></li>
+                                <li data-value="4" class="disabled"><a href="#" tabindex="-1" ><span>One Thousand Two Hundred Thirty</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label" style="width: 120px">Clear button:</label>
+                <div class="col-sm-8">
+                    <div class="input-group input-append dropdown combobox n-cancel-button" data-initialize="combobox">
+                        <input type="text" class="form-control n-inputfield" placeholder="Text" id="TA-combobox-clearbuttonfield">
+                        <a class="n-clear-button-icon hide-element" href="javascript:void(0)">
+                            <span role="button" aria-label="clear content" class="icon icon-close" id="TA-combobox-closeicon"></span>
+                        </a>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="TA-combobox-withcleariconbutton">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                <li data-value="1"><a href="#" id="TA-combobox-withclearicon1"><span>One</span></a></li>
+                                <li data-value="2"><a href="#" id="TA-combobox-withclearicon2"><span>Two</span></a></li>
+                                <li data-value="3"><a href="#" id="TA-combobox-withclearicon3"><span>Three</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+        </form>
+
+        <h4>Combo box menu</h4>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 120px">Standard:</label>
+                <div class="col-sm-8">
+                    <div class="btn-group n-combobutton" data-initialize="selectlist"
+                         id="mySelectlist1">
+                        <button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" aria-expanded="false"><span
+                                class="selected-label"></span></button>
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="TA-combobox-standardmenubutton">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="TA-combobox-standardmenu1"><span>Action</span></a></li>
+                            <li><a href="#" id="TA-combobox-standardmenu2"><span>Another action</span></a></li>
+                            <li><a href="#" id="TA-combobox-standardmenu3"><span>Something else here</span></a></li>
+                            <li><a href="#" id="TA-combobox-standardmenu4"><span>Separated link</span></a></li>
+                            <li><a href="#"><span>Separated link for long menu content</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label label-disabled" style="width: 120px">Disabled:</label>
+                <div class="col-sm-8">
+                    <div class="btn-group n-combobutton" data-initialize="selectlist"
+                         id="mySelectlist2">
+                        <button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" disabled><span
+                                class="selected-label"></span>
+                        </button>
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
+                                disabled>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><span>Action</span></a></li>
+                            <li><a href="#"><span>Another action</span></a></li>
+                            <li><a href="#"><span>Something else here</span></a></li>
+                            <li><a href="#"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 120px">With disabled items:</label>
+                <div class="col-sm-8">
+                    <div class="btn-group n-combobutton" data-initialize="selectlist"
+                         id="mySelectlist_disabled_item">
+                        <button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" aria-expanded="false"><span
+                                class="selected-label"></span></button>
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="TA-combobox-withdisableditemsbutton">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="TA-combobox-withdisableditemsmenu1"><span>Action</span></a></li>
+                            <li class="disabled"><a href="#" tabindex="-1" id="TA-combobox-withdisableditemsmenu2"><span>Another action</span></a></li>
+                            <li class="disabled"><a href="#" tabindex="-1" id="TA-combobox-withdisableditemsmenu3"><span>Something else here</span></a></li>
+                            <li><a href="#" id="TA-combobox-withdisableditemsmenu4"><span>Separated link</span></a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label-sm" style="width: 120px">Small:</label>
+                <div class="col-sm-8">
+                    <div class="btn-group n-combobutton n-combobutton-small" data-initialize="selectlist"
+                         id="mySelectlist3">
+                        <button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" ><span class="selected-label"></span>
+                        </button>
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="TA-combobox-smallmenubutton">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="TA-combobox-smallmenu1"><span>Action</span></a></li>
+                            <li><a href="#" id="TA-combobox-smallmenu2"><span>Another action</span></a></li>
+                            <li><a href="#" id="TA-combobox-smallmenu3"><span>Something else here</span></a></li>
+                            <li><a href="#" id="TA-combobox-smallmenu4"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 120px">Contextual Menu:</label>
+                <div class="col-sm-8">
+                    <div class="btn-group n-combobutton" data-initialize="selectlist"
+                         id="mySelectlist4">
+                        <button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" ><span class="contextual-menu-label">Contextual Menu</span>
+                        </button>
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="TA-combobox-contextualmenubutton">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="TA-combobox-contextualmenu1"><span>Action</span></a></li>
+                            <li><a href="#" id="TA-combobox-contextualmenu2"><span>Another action</span></a></li>
+                            <li><a href="#" id="TA-combobox-contextualmenu3"><span>Something else here</span></a></li>
+                            <li><a href="#" id="TA-combobox-contextualmenu4"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="col-md-9">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For Combo box components, it will be ok to import following css file :
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/&gt;</pre>
+        <p>
+            For getting the disable combo textfield, add <code>disabled</code> at the end of both input and button
+            elements.
+        </p>
+
+        <p>
+            <!-- For getting the dark version, add <code>n-dropdown-dark</code> as a class into the top div.
+             For getting the small version, add <code>n-dropdown-small</code> as a class into the top div.-->
+            For more information about this component, see FuelUX documentation about <a
+                href="http://getfuelux.com/javascript.html#combobox">Combobox</a>.</p>
+
+        <p>If want to pre-select something, add class <code>selected</code> to that particular li item.</p>
+	<pre>
+<code>
+    &lt;!-- Combobox (textfield) --&gt;
+    &lt;label class="control-label"&gt;Standard:&lt;/label&gt;
+    &lt;div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox"&gt;
+        &lt;input type="text" class="form-control n-inputfield"&gt;
+        &lt;div class="input-group-btn"&gt;
+            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;ul class="dropdown-menu dropdown-menu-right"&gt;
+                &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Disabled combobox (textfield)--&gt;
+    &lt;label class="control-label <span class="demo-highlight-color">label-disabled</span>"&gt;Disabled:&lt;/label&gt;
+    &lt;div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox"&gt;
+        &lt;input type="text" class="form-control" <span class="demo-highlight-color">disabled</span>&gt;
+        &lt;div class="input-group-btn"&gt;
+            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" <span class="demo-highlight-color">disabled</span>&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;ul class="dropdown-menu dropdown-menu-right"&gt;
+                &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- With disabled items combobox (textfield) --&gt;
+    &lt;label class="control-label"&gt;With disabled items:&lt;/label&gt;
+    &lt;div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox"&gt;
+        &lt;input type="text" class="form-control n-inputfield"&gt;
+        &lt;div class="input-group-btn"&gt;
+            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;ul class="dropdown-menu dropdown-menu-right"&gt;
+                &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="2" <span class="demo-highlight-color">class="disabled"</span> &gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Clear button combobox (textfield)--&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label class="col-sm-5 control-label" style="width: 180px"&gt;Clear button:&lt;/label&gt;
+        &lt;div class="col-sm-8"&gt;
+            &lt;div class="input-group input-append dropdown combobox n-cancel-button" data-initialize="combobox"&gt;
+                &lt;input type="text" class="form-control n-inputfield" placeholder="Text"&gt;
+                &lt;a class="n-clear-button-icon hide-element" href="javascript:void(0)"&gt;
+                    &lt;span role="button" aria-label="clear content" class="icon icon-close"&gt;&lt;/span&gt;
+                &lt;/a&gt;
+                &lt;div class="input-group-btn"&gt;
+                    &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;
+                        &lt;span class="caret"&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;ul class="dropdown-menu dropdown-menu-right" role="menu"&gt;
+                        &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;li data-value="3"&gt;&lt;a href="#"&gt;&lt;span&gt;Three&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JS-script needed --&gt;
+    &lt;script src="./wulfdist/js/dependencies/fuelux.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $('#myCombobox').<span class="demo-highlight-color">combobox</span>();
+        $(document).ready(function () {
+            $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+                $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        });
+    &lt;/script&gt;
+</code>
+</pre>
+        <p>
+            For getting the small combo button version, add <code>n-combo-btn-small</code> as a class into the top
+            div and for the label use <code>control-label-sm</code>.
+            For getting the disabled combo button, add <code>disabled</code> at the end of button element and for
+            label add <code>label-disabled</code>.
+            For getting the contextual menu combo button, use <code>contextual-menu-label</code> instead of <code>selected-label</code>.
+            If want to pre-select something, add class <code>selected</code> to that particular <code>li</code> item.
+        </p>
+<pre>
+<code>
+    &lt;!-- Combobox (menu) --&gt;
+    &lt;label class="control-label"&gt;Standard:&lt;/label&gt;
+    &lt;div class="btn-group n-combobutton" data-initialize="selectlist" id="mySelectlist"&gt;
+        &lt;button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" aria-expanded="false"&gt;&lt;span class="selected-label"&gt;&lt;/span&gt;&lt;/button&gt;
+        &lt;button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;
+            &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu" role="menu"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Action&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Another action&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Something else here&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Separated link&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Disabled combobox (menu)--&gt;
+    &lt;div class="btn-group n-combobutton" data-initialize="selectlist" id="mySelectlist"&gt;
+        &lt;button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" <span class="demo-highlight-color">disabled</span>&gt;&lt;span class="selected-label"&gt;&lt;/span&gt;&lt;/button&gt;
+        &lt;button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false" <span class="demo-highlight-color">disabled</span>&gt;
+            &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu" role="menu"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Action&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Another action&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Something else here&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Separated link&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Contextual Menu combobox (menu)--&gt;
+    &lt;div class="btn-group n-combobutton" data-initialize="selectlist" id="mySelectlist"&gt;
+        &lt;button type="button" class="btn n-combobutton-btn" data-toggle="tooltip" &gt;&lt;span class="<span class="demo-highlight-color">contextual-menu-label</span>"&gt;Contextual Menu&lt;/span&gt;&lt;/button&gt;
+        &lt;button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false"&gt;
+            &lt;span class="caret"&gt;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu" role="menu"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Action&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Another action&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Something else here&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span&gt;Separated link&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!-- JS-script needed --&gt;
+    &lt;script src="../wulfdist/js/dependencies/fuelux.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script&gt;
+        $(document).ready(function () {
+            $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+                $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        });
+    &lt;/script&gt;
+</code>
+</pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['jquery', 'wulf/combobox'], function($) {
+        $('#myCombobox1').combobox();
+        $('#myCombobox2').combobox();
+        $('#myCombobox3').combobox();
+        $('#myCombobox4').combobox();
+        $('#myCombobox5').combobox();
+
+        $(document).ready(
+                function () {
+                    $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+                        $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+                        $(this).addClass('selected');
+                    });
+                });
+    });
+</script>
+</body>
+</html>

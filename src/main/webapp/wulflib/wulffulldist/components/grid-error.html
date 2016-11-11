@@ -1,0 +1,441 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-jqWidget.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_treeTable">Table (JQWidget)</h1>
+<hr>
+<div class="col-md-12">
+    <h4>Standard table with error header row</h4>
+    <div class="col-md-12">
+        <div id="table-error-head" class="grid-alternating-rows n-jqxgrid-table"></div>
+    </div>
+    <div class="col-md-12">
+        <br>
+        <p>JS &amp; CSS dependency:</p>
+        <pre>For table(JQWidget) with error components,you can use following css import code:
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-jqWidget.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-normal.min.css" rel="stylesheet"/&gt;
+        </pre>
+        <br>
+        <p>Before we add the error head row, we need to assign the error cells. To do that, we should define cellrender for column that may contain error data.</p>
+        <pre>
+<code>
+    &lt;script&gt;
+    $(document).ready( function() {
+        ...
+        var columns = [
+            ...
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align: "right",
+                <span class="demo-highlight-color">cellsrenderer: $.grid.nNumberCellRenderer, // For column type is number</span>
+                width: 150
+            },
+            {
+                text: 'Alarm text',
+                columntype: 'textbox',
+                datafield: 'alarmtext',
+                filtertype: 'input',
+                <span class="demo-highlight-color">cellsrenderer: $.grid.nStringCellRenderer, // For column type is string</span>
+                width: 180
+            },
+            {
+                text: 'Alarm time',
+                columntype: 'textbox',
+                datafield: 'alarmtime',
+                filtertype: 'input',
+                <span class="demo-highlight-color">cellsrenderer: $.grid.nStringCellRenderer,</span>
+                width: 150
+            },
+            ...
+        ]
+        ...
+    });
+    &lt;/script&gt;
+</code>
+        </pre>
+        <p>Then for the error data, we have special definition.</p>
+        <pre>
+<code>
+    &lt;script&gt;
+    $(document).ready( function() {
+        ...
+        data[0] = {
+        severity: 'icon-fault-critical',
+        name: 'Avatar',
+        <span class="demo-highlight-color">alarmnumber: '((113211))', // For number type data, we use double bracket to sign it as error data.</span>
+        <span class="demo-highlight-color">alarmtext: 'System module error#errordata#', // For string type data, we use suffix "#errordata#" to sign it as error data. (So the "#errordata#" should be kept as reserved word)</span>
+        alarmtime: "1985/03/26",
+        acknowledgment: "false",
+        server: 'nokia',
+        cancel: 'icon-fault-critical'
+        };
+        ...
+    });
+    &lt;/script&gt;
+</code>
+        </pre>
+        <p>After that, the only thing we need to do is adding the extra javascript statement as below:</p>
+        <pre>
+<code>
+    &lt;script&gt;
+        $(document).ready( function() {
+            $("#table-error-head").jqxGrid({
+                width: 1160,
+                height: 200,
+                source: dataAdapter,
+                editable: true,
+                editmode: 'click',
+                selectionmode: 'singlecell',
+                enableBrowserSelection: false,
+                autoshowcolumnsmenubutton: true,
+                altRows: true,
+                columns: columns,
+                scrollBarSize: 8,
+                rowsheight: 26,
+                columnsheight: 26,
+                handlekeyboardnavigation: function (e) {
+                    return $.grid.handlekeyboardnavigation(e);
+                }
+            });
+            <span class="demo-highlight-color">$.grid.enableErrorHeaderRow("table-error-head");</span>
+        });
+    &lt;/script&gt;
+</code>
+        </pre>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h4>Standard table with header error indicator</h4>
+    <div class="col-md-12">
+        <div id="table-header-error-indicator" class="grid-alternating-rows n-jqxgrid-table"></div>
+    </div>
+    <div class="col-md-12">
+        <br>
+        <p>To add error indicator in column header instead of the error header, the only different is to change the javascript statement as below:</p>
+        <pre>
+<code>
+    &lt;script&gt;
+        $(document).ready( function() {
+            $("#table-header-error-indicator").jqxGrid({
+            width: 1160,
+            height: 200,
+            source: dataAdapter,
+            editable: true,
+            editmode: 'click',
+            selectionmode: 'singlecell',
+            enableBrowserSelection: false,
+            autoshowcolumnsmenubutton: true,
+            altRows: true,
+            columns: columns,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+            });
+            <span class="demo-highlight-color">$.grid.enableHeadErrorIndicator("table-header-error-indicator");</span>
+        });
+    &lt;/script&gt;
+</code>
+        </pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/grid'], function ($) {
+        /*---------------- image render/editor ----------------*/
+        var imagerenderer = function (row, datafield, value) {
+            return '<div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon '+value+'"></span></div></div>';
+        };
+        /*---------------- test data ----------------*/
+        var data = new Array();
+        data[0] = {
+            severity: 'icon-fault-critical',
+            name: 'Avatar',
+            alarmnumber: '((113211))',
+            alarmtext: 'System module error#errordata#',
+            alarmtime: "1985/03/26",
+            acknowledgment: "false",
+            server: 'nokia',
+            cancel: 'icon-fault-critical'
+        };
+        data[1] = {
+            severity: 'icon-fault-major',
+            name: 'Robert',
+            alarmnumber: '113212',
+            alarmtext: 'System module error#errordata#',
+            alarmtime: "2001/10/26",
+            acknowledgment: "false",
+            server: 'huawei',
+            cancel: 'icon-fault-major'
+        };
+        data[2] = {
+            severity: 'icon-fault-minor',
+            name: 'Tom',
+            alarmnumber: '((113213))',
+            alarmtext: 'System module error#errordata#',
+            alarmtime: "2013/11/26",
+            acknowledgment: "false",
+            server: 'nokia',
+            cancel: 'icon-fault-minor'
+        };
+        data[3] = {
+            severity: 'icon-fault-warning',
+            name: 'Green',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error#errordata#',
+            alarmtime: "1999/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-warning'
+        };
+        data[4] = {
+            severity: 'icon-fault-cleared',
+            name: 'Abby',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error#errordata#',
+            alarmtime: "1985/12/26#errordata#",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-cleared'
+        };
+        data[5] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '((113216))',
+            alarmtext: 'Reset error#errordata#',
+            alarmtime: "2015/12/26#errordata#",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[6] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error#errordata#',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[7] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error#errordata#',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[8] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error#errordata#',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[9] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error#errordata#',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[10] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error#errordata#',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+
+        var source =
+        {
+            localdata: data,
+            datafields: [
+                {name: 'severity', type: 'Image'},
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'},
+                {name: 'acknowledgment', type: 'bool'},
+                {name: 'server', type: 'string'},
+                {name: 'cancel', type: 'Image'}
+            ],
+            datatype: "array"
+        };
+        var dataAdapter = new $.jqx.dataAdapter(source);
+        var columns = [
+            {
+                text: 'Severity',
+                columntype: 'textbox',
+                datafield: 'severity',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100
+            },
+            {
+                text: 'Distinguished name',
+                columntype: 'custom',
+                datafield: 'name',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nTextFieldCellRenderer,
+                createeditor: $.grid.nCreateTextFieldEditor,
+                initeditor: $.grid.nInitTextFieldEditor,
+                geteditorvalue: $.grid.nGetTextFieldEditorValue,
+                width: 200
+            },
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align: "right",
+                cellsrenderer: $.grid.nNumberCellRenderer,
+                width: 150
+            },
+            {
+                text: 'Alarm text',
+                columntype: 'textbox',
+                datafield: 'alarmtext',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nStringCellRenderer,
+                width: 180
+            },
+            {
+                text: 'Alarm time',
+                columntype: 'textbox',
+                datafield: 'alarmtime',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nStringCellRenderer,
+                width: 150
+            },
+            {
+                text: 'Acknowledgment',
+                columntype: 'custom',
+                datafield: 'acknowledgment',
+                filtertype: 'bool',
+                width: 160,
+                cellsrenderer: $.grid.nCheckboxCellsrenderer("Option"),
+                createeditor: $.grid.nCreateCheckboxEditor("Option"),
+                initeditor: $.grid.nInitCheckboxEditor,
+                geteditorvalue: $.grid.nGetCheckboxEditorValue
+            },
+            {
+                text: 'Server',
+                columntype: 'custom',
+                datafield: 'server',
+                filtertype: 'input',
+                width: 180,
+                cellsrenderer: $.grid.dropdownlistCellsrenderer,
+                createeditor: $.grid.dropdownlistEditor(['nokia', 'nsn', 'huawei', 'reebook', 'nike', 'dahua']),
+                initeditor: $.grid.dropdownlistInitEditor,
+                geteditorvalue: $.grid.dropdownlistEditorValue
+            },
+            {
+                text: 'Cancel',
+                columntype: 'textbox',
+                datafield: 'cancel',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100
+            }
+        ];
+        // initialize jqxGrid
+        var errorHead = $("#table-error-head");
+        errorHead.jqxGrid({
+            width: 1160,
+            height: 200,
+            source: dataAdapter,
+            editable: true,
+            editmode: 'click',
+            selectionmode: 'singlecell',
+            enableBrowserSelection: false,
+            autoshowcolumnsmenubutton: true,
+            altRows: true,
+            columns: columns,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+        });
+        $.grid.enableErrorHeaderRow("table-error-head");
+
+        errorHead.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        errorHead.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        errorHead.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        errorHead.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        errorHead.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        var errorIndicator = $("#table-header-error-indicator");
+
+        errorIndicator.jqxGrid({
+            width: 1160,
+            height: 200,
+            source: dataAdapter,
+            editable: true,
+            editmode: 'click',
+            selectionmode: 'singlecell',
+            enableBrowserSelection: false,
+            autoshowcolumnsmenubutton: true,
+            altRows: true,
+            columns: columns,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+        });
+        $.grid.enableHeadErrorIndicator("table-header-error-indicator");
+
+        errorIndicator.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        errorIndicator.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        errorIndicator.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        errorIndicator.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        errorIndicator.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+    })
+</script>
+</body>
+</html>

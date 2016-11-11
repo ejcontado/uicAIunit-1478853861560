@@ -1,0 +1,86 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ * Source : tree_composer.less
+ */
+@import "variables.less";
+.html-tree {
+    padding:10px 15px 0 15px;
+    background-color: @gray-white;
+    border:1px solid @n-dialog-mini-close-background;
+}
+
+.disabledAll {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.n-tree {
+    margin: 0;
+    background-color: transparent;
+    ul {
+        margin: 0;
+        padding: 0 0 0 18px;
+        &:first-child {
+            padding: 0 0 0 0;
+        }
+    }
+    li {
+        list-style-type: none;
+        &:last-child {
+            border-bottom: 1px dotted @n-tree-list-last-child-border-bottom;
+            border-radius:0;
+        }
+    }
+    a {
+        position: relative;
+        outline: none;
+        display: block;
+        line-height: 25px;
+        font-size: 14px;
+        font-weight: normal;
+        color: @gray-dark;
+        border: 1px solid transparent;
+        text-decoration: none;
+        text-shadow: none;
+        margin: 0;
+        padding: 0;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        cursor: pointer;
+    }
+
+    li.selected > a {
+        background-color: @blue-selection;
+        color: @n-tree-text-selected-color;
+        > span.treeContent:hover {
+            color: @n-tree-text-selected-color;
+            border-bottom-width: 0;
+        }
+    }
+
+    li > a {
+        font-size: 14px;
+        color: @gray-nav;
+        line-height: 25px;
+        padding-left:5px;
+        padding-right:0;
+        &:focus {
+            border: 1px solid @n-tree-border-focus-color;
+        }
+        > span.treeContent:hover {
+            color: @black-hover;
+            border-bottom: 1px solid @n-tree-hover-underline-color;
+        }
+        >span.icon {
+            width: 14px;
+            height: 14px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &:hover .treeContent{
+            border-bottom: 1px solid @n-tree-hover-underline-color;
+        }
+    }
+}

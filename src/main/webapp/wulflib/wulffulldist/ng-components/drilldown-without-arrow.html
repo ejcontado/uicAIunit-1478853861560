@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Drilldown without arrow</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Drilldown without arrow</h1>
+<hr>
+<div id="angular_section" class="row">
+    <div class="col-md-6" ng-controller="DrilldownDemoController as demo">
+        <table class="n-table n-table-standard n-table-striped n-table-hover n-drilldown-table">
+            <thead>
+            <tr>
+                <th class="n-sortable">With icon</span>
+                    <span class="icon icon-arrow"></span>
+                </th>
+                <th class="n-sortable">With text</span>
+                    <span class="icon icon-arrow"></span>
+                </th>
+                <th class="text-right n-sortable">With error/alert
+                    <span class="icon icon-arrow"></span></th>
+                <th class="text-right n-sortable">With number<span class="icon icon-arrow"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="n-drillDown-row" data-target-selector="#row1">
+                <td class="text-center" id="TA-drilldownWithoutArrow-td0">
+                    <div class="n-cell-icon-container">
+                        <div class="n-cell-icon">
+                            <span class="icon icon-fault-critical"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>Critical fault</td>
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <wf-drilldown identity="row1" content="demo.content1"></wf-drilldown>
+                </td>
+            </tr>
+            <tr class="n-drillDown-row" data-target-selector="#row2">
+                <td class="text-center">
+                    <div class="n-cell-icon-container">
+                        <div class="n-cell-icon">
+                            <span class="icon icon-fault-major"></span>
+                        </div>
+                    </div>
+                </td>
+                <td  id="TA-drilldownWithoutArrow-td1">Major fault</td>
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <wf-drilldown identity="row2" content="demo.content2"></wf-drilldown>
+                </td>
+            </tr>
+            <tr class="n-drillDown-row" data-target-selector="#row3">
+                <td class="text-center">
+                    <div class="n-cell-icon-container">
+                        <div class="n-cell-icon">
+                            <span class="icon icon-fault-minor"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>Minor fault</td>
+
+                <td class="n-cell-error text-right" id="TA-drilldownWithoutArrow-td2">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <wf-drilldown identity="row3" content="demo.content3"></wf-drilldown>
+                </td>
+            </tr>
+            <tr class="n-drillDown-row" data-target-selector="#row4">
+                <td class="text-center">
+                    <div class="n-cell-icon-container">
+                        <div class="n-cell-icon">
+                            <span class="icon icon-fault-warning"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>Warning</td>
+
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right" id="TA-drilldownWithoutArrow-td3">910</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <wf-drilldown identity="row4" content="demo.content4"></wf-drilldown>
+                </td>
+            </tr>
+            <tr class="n-drillDown-row" data-target-selector="#row5">
+                <td class="text-center">
+                    <div class="n-cell-icon-container">
+                        <div class="n-cell-icon">
+                            <span class="icon icon-fault-cleared"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>Fault cleared</td>
+
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <wf-drilldown identity="row5" content="demo.content5"></wf-drilldown>
+                </td>
+            </tr>
+            <tr class="n-drillDown-row" data-target-selector="#row6">
+                <td class="text-center">
+                    <div class="n-cell-icon-container">
+                        <div class="n-cell-icon">
+                            <span class="icon icon-fault-unknown"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>Unknown situation</td>
+
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <wf-drilldown identity="row6" content="demo.content6" height="350px"></wf-drilldown>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h2>Overview</h2>
+        <p>
+            Angular version of Drilldown component which is implemented by using .component() method introduced since Angular1.5.
+
+            Involve JS <code>'wulf-ng/drilldown/drilldown'</code> and add the module <code>angular.module('myApp',['wf.angular.drilldown']</code> to your angular application.
+            Add class <code>n-drillDown-row</code> and set data-target-selector="<code>#drilldown component identity</code>" in <code>tr</code>. Put <code>wf-drilldown</code> in next <code>tr</code> which will drill down as click.
+            Now drill down component can be worked.
+        </p>
+
+        <h1>wf-drilldown settings</h1>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>identity: @</code></td>
+                <td>
+                    text
+                </td>
+                <td>
+                    The identity text which unique define the component
+                </td>
+            </tr>
+            <tr>
+                <td><code>content: &</code></td>
+                <td>
+                   function()
+                </td>
+                <td>
+                    Function should return the drilldown content, the content can be text or other html component.
+                </td>
+            </tr>
+            <tr>
+                <td><code>arrow: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    Indicate whether arrow show or not when content expanded.
+                </td>
+            </tr>
+            <tr>
+                <td><code>height: @</code></td>
+                <td>
+                    String(Optional, default is 100px).
+                </td>
+                <td>
+                    The content height which will drill down. e.g 200px
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Keyboard accessibility</h2>
+        Besides the basic keyboard support, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+        <kbd>Tab</kbd></kbd> and <kbd>Enter</kbd>. This component also supports the following
+        keystrokes for the interaction.
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Expand/Collapse</td>
+                <td>
+                    <kbd>Spacebar</kbd>/<kbd>Enter</kbd> - Expand or Collapse the content
+                </td>
+                <td>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+&lt;div class="col-md-5" ng-controller="DrilldownDemoController as demo"&gt;
+    &lt;table class="n-table n-table-standard n-table-striped n-table-cell-hover n-drilldown-table"&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th class="n-sortable"&gt;With icon&lt;/span&gt;
+                &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;th class="n-sortable"&gt;With text&lt;/span&gt;
+                &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+            &lt;/th&gt;
+            &lt;th class="text-right n-sortable"&gt;With error/alert
+                &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+            &lt;th class="text-right n-sortable"&gt;With number&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+        &lt;tr class="n-drillDown-row" data-target-selector="#row1"&gt;
+            &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-critical"&gt;&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;Critical fault&lt;/td&gt;
+            &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+            &lt;td class="text-right"&gt;910&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;
+                &lt;wf-drilldown identity="row1" content="demo.content1"&gt;&lt;/wf-drilldown&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="n-drillDown-row" data-target-selector="#row2"&gt;
+            &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-major"&gt;&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;Major fault&lt;/td&gt;
+            &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+            &lt;td class="text-right"&gt;910&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;
+                &lt;wf-drilldown identity="row2" content="demo.content2"&gt;&lt;/wf-drilldown&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="n-drillDown-row" data-target-selector="#row3"&gt;
+            &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-minor"&gt;&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;Minor fault&lt;/td&gt;
+
+            &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+            &lt;td class="text-right"&gt;910&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;
+                &lt;wf-drilldown identity="row3" content="demo.content3"&gt;&lt;/wf-drilldown&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="n-drillDown-row" data-target-selector="#row4"&gt;
+            &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-warning"&gt;&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;Warning&lt;/td&gt;
+
+            &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+            &lt;td class="text-right"&gt;910&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;
+                &lt;wf-drilldown identity="row4" content="demo.content4"&gt;&lt;/wf-drilldown&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="n-drillDown-row" data-target-selector="#row5"&gt;
+            &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-cleared"&gt;&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;Fault cleared&lt;/td&gt;
+
+            &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+            &lt;td class="text-right"&gt;910&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;
+                &lt;wf-drilldown identity="row5" content="demo.content5"&gt;&lt;/wf-drilldown&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="n-drillDown-row" data-target-selector="#row6"&gt;
+            &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-unknown"&gt;&lt;/span&gt;&lt;/td&gt;
+            &lt;td&gt;Unknown situation&lt;/td&gt;
+
+            &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+            &lt;td class="text-right"&gt;910&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td colspan="4"&gt;
+                &lt;wf-drilldown identity="row6" content="demo.content6"&gt;&lt;/wf-drilldown&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.drilldown', 'wf.angular.tabs']).controller('DrilldownDemoController', DrilldownDemoController);
+
+    function DrilldownDemoController() {
+        this.content1 = function () {
+            return "Row1 content";
+        };
+        this.content2 = function () {
+            return "Row2 content";
+        };
+        this.content3 = function () {
+            return 'Row3 content';
+        };
+        this.content4 = function () {
+            return "Row4 content";
+        };
+        this.content5 = function () {
+            return "Row5 content";
+        };
+        this.content6 = function () {
+            return 'Row6 content';
+        };
+    }
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['angular', 'angularAnimate', 'wulf-ng/drilldown/drilldown.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.drilldown', 'wf.angular.tabs']).controller('DrilldownDemoController', DrilldownDemoController);
+
+        function DrilldownDemoController() {
+            this.content1 = function () {
+                return "Row1 content";
+            };
+            this.content2 = function () {
+                return "Row2 content";
+            };
+            this.content3 = function () {
+                return 'Row3 content';
+            };
+            this.content4 = function () {
+                return "Row4 content";
+            };
+            this.content5 = function () {
+                return "Row5 content";
+            };
+            this.content6 = function () {
+                return 'Row6 content';
+            };
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

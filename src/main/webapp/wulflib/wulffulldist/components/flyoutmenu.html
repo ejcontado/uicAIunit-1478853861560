@@ -1,0 +1,82 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.flyout.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_flyout_menu">Flyout menu</h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4 flyout-demo">
+            <div class="n-flyout" id="myFlyout">
+                <div class="n-flyout-container">
+                    <ul class="n-flyout-menu">
+                        <li id="TA-flyoutmenu-li1"><a href="javascript:void(0)"><span>Customer Care Automation</span></a></li>
+                        <li id="TA-flyoutmenu-li2"><a href="javascript:void(0)"><span>Troubleticket System</span></a></li>
+                        <li id="TA-flyoutmenu-li3"><a href="javascript:void(0)"><span>Map Tool</span></a></li>
+                        <li id="TA-flyoutmenu-li4"><a href="javascript:void(0)"><span>Intranet</span></a></li>
+                        <li id="TA-flyoutmenu-li5"><a href="javascript:void(0)"><span>Knowledge Database</span></a></li>
+                    </ul>
+                </div>
+                <a class="n-flyout-open" href="javascript:void(0)" id="TA-flyoutmenu-open">
+                    <span class="middle"><i class="icon icon-list"></i></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <p>When available, the flyout menu is indicated by a vertical tab positioned along the left edge of the interface. It expands to the right.</p>
+            <p>JS & CSS dependency:</p>
+        <pre>
+For flyoutmenu components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.flyout.min.css" rel="stylesheet"&gt;</pre>
+            <pre>
+<code>
+    &lt;div class="n-flyout" id="myFlyout"&gt;
+    &lt;div class="n-flyout-container"&gt;
+        &lt;ul class="n-flyout-menu"&gt;
+            &lt;li&gt;&lt;a href="javascript:void(0)"&gt;&lt;span&gt;Customer Care Automation&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:void(0)"&gt;&lt;span&gt;Troubleticket System&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:void(0)"&gt;&lt;span&gt;Map Tool&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:void(0)"&gt;&lt;span&gt;Intranet&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="javascript:void(0)"&gt;&lt;span&gt;Knowledge Database&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;a class="n-flyout-open" href="javascript:void(0)"&gt;
+        &lt;span class="middle"&gt;&lt;i class="icon icon-list"&gt;&lt;/i&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;/div&gt;</code>
+            </pre>
+            <p>To pre-select a list item, add the class "selected". Otherwise, the top-most item will be selected.
+            </p>
+            <pre>
+<code>
+    &lt;li class="selected"&gt;&lt;a href="javascript:void(0)"&gt;&lt;span&gt;Map Tool&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+</code>
+            </pre>
+            <p>For AJAX generated scripts, the tooltip can be initialized via Javascript:
+            </p>
+            <pre>
+<code>
+    $("#myNewFlyout").nFlyout();</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/flyout']);
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tabpane.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_tabs">Tabbed pane</h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <ul id="myTab" class="nav nav-tabs">
+
+                <li role="presentation" class="active" id="TA-tabbedpane-dataAone"><a href="#A" data-toggle="tab">Data A</a></li>
+                <li role="presentation" id="TA-tabbedpane-dataBone"><a href="#B" data-toggle="tab">Data B</a></li>
+                <li role="presentation" id="TA-tabbedpane-dataCone"><a href="#C" data-toggle="tab">Data C</a></li>
+                <li role="presentation" class="disabled" id="TA-tabbedpane-dataDone"><a data-toggle="tab" class="n-link-disabled">Data D</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="A">Content inside tab A</div>
+                <div class="tab-pane" id="B">Content inside tab B</div>
+                <div class="tab-pane" id="C">Content inside tab C</div>
+                <div class="tab-pane" id="D"><p>Content inside tab D</p>Note: you need to make the real disabling of this tab via js</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        JS & CSS dependency:
+        <pre>
+For Tabbed pane components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.tabpane.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"&gt;
+        </pre>
+
+        If you want to have other than the first tab initially shown, you define: <code>class="active"</code> for the li and div.tab-pane and also a js script to pick it at document loading.
+	<pre>
+<code>
+    &lt;!-- Basic tabs (navs) --&gt;
+    &lt;ul class="nav nav-tabs"&gt;
+    &lt;li role="presentation" class="active"&gt;&lt;a href="#A" data-toggle="tab"&gt;Data A&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="presentation"&gt;&lt;a href="#B" data-toggle="tab"&gt;Data B&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="presentation"&gt;&lt;a href="#C" data-toggle="tab"&gt;Data C&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="presentation" class="disabled"&gt;&lt;a data-toggle="tab" disabled="disabled"&gt;Data D&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content"&gt;
+    &lt;div class="tab-pane active" id="A"&gt;Content inside tab A&lt;/div&gt;
+    &lt;div class="tab-pane" id="B"&gt;Content inside tab B&lt;/div&gt;
+    &lt;div class="tab-pane" id="C"&gt;Content inside tab C&lt;/div&gt;
+    &lt;div class="tab-pane active" id="D"&gt;Content inside tab D&lt;/div&gt;
+    &lt;/div&gt;
+</code>
+</pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <ul id="modifiableTab" class="nav nav-tabs">
+                <li role="presentation" class="active" id="TA-tabbedpane-tabA"><a href="#dataA" data-toggle="tab">Data A</a><a href="javascript:void(0)" class="n-close"><span class="icon icon-close" id="TA-tabbedpane-iconA"></span></a></li>
+                <li role="presentation" id="TA-tabbedpane-tabB"><a href="#dataB" data-toggle="tab">Data B</a><a href="javascript:void(0)" class="n-close"><span class="icon icon-close" id="TA-tabbedpane-iconB"></span></a></li>
+                <li role="presentation" id="TA-tabbedpane-tabC"><a href="#dataC" data-toggle="tab">Data C</a><a href="javascript:void(0)" class="n-close"><span class="icon icon-close" id="TA-tabbedpane-iconC"></span></a></li>
+                <li role="presentation" class="disabled" id="TA-tabbedpane-tabD"><a data-toggle="tab" disabled="disabled">Data D</a><a class="n-close"><span class="icon icon-close" id="TA-tabbedpane-iconD"></span></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="dataA">Content inside tab A</div>
+                <div class="tab-pane" id="dataB">Content inside tab B</div>
+                <div class="tab-pane" id="dataC">Content inside tab C</div>
+                <div class="tab-pane" id="dataD"><p>Content inside tab D</p>Note: you need to make the real disabling of this tab via js</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        To add close icon on each tab, add <code>&lt;a href="javascript:void(0)" class="n-close"&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/a&gt;</code><div>
+	<pre>
+         <code>
+    &lt;!-- Basic tabs (navs) --&gt;
+    &lt;ul class="nav nav-tabs"&gt;
+    &lt;li role="presentation" class="active"&gt;&lt;a href="#dataA" data-toggle="tab"&gt;Data A&lt;/a&gt;&lt;a href="javascript:void(0)" class="n-close"&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="presentation"&gt;&lt;a href="#dataB" data-toggle="tab"&gt;Data B&lt;/a&gt;&lt;a href="javascript:void(0)" class="n-close"&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="presentation"&gt;&lt;a href="#dataC" data-toggle="tab"&gt;Data C&lt;/a&gt;&lt;a href="javascript:void(0)" class="n-close"&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li role="presentation" class="disabled"&gt;&lt;a data-toggle="tab" disabled="disabled"&gt;Data D&lt;/a&gt;&lt;a href class="n-close"&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content"&gt;
+    &lt;div class="tab-pane active" id="dataA"&gt;Content inside tab A&lt;/div&gt;
+    &lt;div class="tab-pane" id="dataA"&gt;Content inside tab B&lt;/div&gt;
+    &lt;div class="tab-pane" id="dataA"&gt;Content inside tab C&lt;/div&gt;
+    &lt;div class="tab-pane active"&gt;Content inside tab D&lt;/div&gt;
+    &lt;/div&gt;
+</code>
+    </pre>
+    </div>
+</div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'bootstrap', 'wulf/tab']);
+</script>
+</body>
+</html>

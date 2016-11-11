@@ -1,0 +1,276 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Timezone</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_button">Timezone</h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <div id="timezone-demo-container" ng-controller="timezoneDemoController as demo">
+            <form class="form-horizontal">
+                <div class="form-group" id="TA-tabbutton-group1">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.timezoneData1.disable}]" style="width: 120px">Normal:</label>
+                    <wf-timezone class="col-sm-8" default-zone="demo.timezoneData1.defaultZone" disable="demo.timezoneData1.disable" on-item-selected="demo.timezoneData1.itemSelectedCallback"></wf-timezone>
+                </div>
+            </form>
+            <form class="form-horizontal">
+                <div class="form-group" id="TA-tabbutton-group2">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.timezoneData2.disable}]" style="width: 120px">Custom data:</label>
+                    <wf-timezone class="col-sm-8" zone-data-bundle="demo.timezoneData2.dataBundle" default-zone="demo.timezoneData2.defaultZone" disable="demo.timezoneData2.disable"
+                                 on-item-selected="demo.timezoneData2.itemSelectedCallback"></wf-timezone>
+                </div>
+                <div class="form-group">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.timezoneData2.disable}]" style="width: 120px"></label>
+                    <div class="col-sm-8">
+                        <button class="btn btn-small" ng-click="demo.timezoneData2.disable = !demo.timezoneData2.disable;demo.timezoneData1.disable = !demo.timezoneData1.disable" style="width: 135px;">
+                            {{demo.timezoneData2.disable?"Enable ":"Disable"}} timezone
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label ng-class="['col-sm-4 control-label', {'label-disabled' : demo.timezoneData2.disable}]" style="width: 120px"></label>
+                    <div class="col-sm-8">
+                        <button id="TA-toggle-disableAction" class="btn btn-small" ng-click="demo.enableDisableAction()" ng-cloak>
+                            {{demo.actionState?"Disable":"Enable"}} callback actions
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h2>Overview</h2>
+        <p>Angular version of timezone component. It contains a component <code>wfTimezone</code>
+            which are implemented by using <code>.component()</code> method introduced since Angular1.5.
+            This component can be used to generate timezone from dynamic model data.</p>
+        <h2>wf-timezone settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Default/Arguments</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>default-zone: &lt;</code></td>
+                <td>
+                    string
+                </td>
+                <td>
+                    The default selected timezone to show. Example: <code>'Europe/Helsinki'</code>
+                </td>
+            </tr>
+            <tr>
+                <td><code>zone-data-bundle: &lt;</code></td>
+                <td>
+                    array (Optional)
+                </td>
+                <td>
+                    Load a custom data bundle of timezones. These properties are currently needed:
+                    <ul>
+                        <li><code>name</code> Timezone name.</li>
+                        <li><code>offset</code> Timezone offset.</li>
+                    </ul>
+                    Example: <code> [{name: "Africa/Abidjan", offset: "+00:00"}, {name: "Africa/Accra", offset: "+00:00"}]</code>.<br>
+                    If there is no parameter transferred, this component will display as "Normal" in left.
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    Whether timezone is clickable and able to be activated
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-item-selected: &</code></td>
+                <td>
+                    function (event)
+                </td>
+                <td>
+                    Callback function for item click event. It will be called after you clicked the item in pulldown options.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Keyboard accessibility</h2>
+        Besides the basic keyboard support, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+        <kbd>Tab</kbd></kbd> and <kbd>Enter</kbd>. This component also supports the following
+        keystrokes for the interaction.
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Move focus to next/previous item</td>
+                <td>
+                    <kbd>↑</kbd> or <kbd>↓</kbd>
+                    - previous/next item
+                </td>
+                <td>
+                    <ul>
+                        <li>The disabled item would be skipped</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Select item</td>
+                <td>
+                    <kbd>Spacebar</kbd>/<kbd>Enter</kbd> - Select current
+                    focused item
+                </td>
+                <td>
+                    <ul>
+                        <li>The disabled item cannot be selected</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!-- sample code -->
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<div class="col-md-11" ng-controller="timezoneDemoController as demo">
+
+    <!-- Normal -->
+    <wf-timezone class="col-sm-8" default-zone="demo.timezoneData1.defaultZone" disable="demo.timezoneData1.disable" on-item-selected="demo.timezoneData1.itemSelectedCallback"></wf-timezone>
+
+    <!-- Custom data -->
+    <wf-timezone class="col-sm-8" zone-data-bundle="demo.timezoneData2.dataBundle" default-zone="demo.timezoneData2.defaultZone" disable="demo.timezoneData2.disable" on-item-selected="demo.timezoneData2.itemSelectedCallback"></wf-timezone>
+
+</div>
+                    </code></pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable><code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.timezone','wf.angular.tabs']).controller('timezoneDemoController', timezoneDemoController);
+function timezoneDemoController(){
+    var newInstance = function (dataBundle, defaultZone, disable) {
+        return {
+            dataBundle: dataBundle,
+            defaultZone: defaultZone,
+            disable: disable
+        }
+    };
+    var self = this;
+    var dataBundle = [
+        {name: "Africa/Abidjan", offset: "+00:00"},
+        {name: "Africa/Accra", offset: "+00:00"},
+        {name: "Africa/Addis_Ababa", offset: "+03:00"},
+        {name: "Pacific/Niue", offset: "-11:00"},
+        {name: "Pacific/Pago_Pago", offset: "-11:00"},
+        {name: "Africa/Asmera", offset: "+03:00"},
+        {name: "Africa/Bamako", offset: "+00:00"},
+        {name: "Africa/Bangui", offset: "+01:00"},
+        {name: "Africa/Banjul", offset: "+00:00"},
+        {name: "Africa/Bissau", offset: "+00:00"}
+    ];
+    self.timezoneData1 = newInstance(undefined, 'Europe/Helsinki', false);
+    self.timezoneData1.itemSelectedCallback = function (event) {
+        alert(event.currentTarget.innerText);
+    };
+    self.timezoneData2 = newInstance(dataBundle, 'Africa/Asmera', false);
+    self.timezoneData2.itemSelectedCallback = function (event) {
+        alert(event.currentTarget.innerText);
+    };
+};
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+        strictDi: true
+    });
+});
+                </code></pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/timezone/timezone.tlp.min','wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.timezone','wf.angular.tabs']).controller('timezoneDemoController', timezoneDemoController);
+        function timezoneDemoController(){
+            var newInstance = function (dataBundle, defaultZone, disable) {
+                return {
+                    dataBundle: dataBundle,
+                    defaultZone: defaultZone,
+                    disable: disable
+                }
+            };
+            var self = this;
+            var dataBundle = [
+                {name: "Africa/Abidjan", offset: "+00:00"},
+                {name: "Africa/Accra", offset: "+00:00"},
+                {name: "Africa/Addis_Ababa", offset: "+03:00"},
+                {name: "Pacific/Niue", offset: "-11:00"},
+                {name: "Pacific/Pago_Pago", offset: "-11:00"},
+                {name: "Africa/Asmera", offset: "+03:00"},
+                {name: "Africa/Bamako", offset: "+00:00"},
+                {name: "Africa/Bangui", offset: "+01:00"},
+                {name: "Africa/Banjul", offset: "+00:00"},
+                {name: "Africa/Bissau", offset: "+00:00"}
+            ];
+            self.timezoneData1 = newInstance(undefined, 'Europe/Helsinki', false);
+            self.timezoneData1.itemSelectedCallback = function (event) {
+                if(self.actionState){
+                    alert(event.currentTarget.innerText);
+                }
+            };
+            self.timezoneData2 = newInstance(dataBundle, 'Africa/Asmera', false);
+            self.timezoneData2.itemSelectedCallback = function (event) {
+                if(self.actionState){
+                    alert(event.currentTarget.innerText);
+                }
+            };
+
+            self.actionState = false;
+            self.enableDisableAction = function () {
+                self.actionState = !self.actionState;
+            };
+        }
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+@import "glyphicons.less";
+@import "mixins/vendor-prefixes.less";
+
+.n-inputfield {
+	background: @input-bg;
+	font-weight: normal;
+	height: @input-height-base;
+	padding: @padding-base-vertical 6px @padding-base-vertical 11px;
+	border: 1px solid @input-border;
+	color: @gray-dark;
+	border-radius: 7px;
+	//SPEC 4px margin
+	//margin: 4px;
+	.placeholder (@gray-global);
+	.box-shadow(none);
+	.transition(none); //prevents black content in printing together with form-control class
+	-webkit-tap-highlight-color: @blue-selection;
+
+  	&::-ms-clear {
+		display: none;
+		width: 0;
+		height: 0;
+	}
+
+	&:hover {
+		border-color: @blue-hover;
+		box-shadow: @button-drop-shadow-hover;
+    }
+
+	&::-moz-selection {
+		color: @text-input-color-selected-font;
+		background: @blue-selection;
+		border: 1px solid @input-border;
+	}
+	&::selection {
+		color: @text-input-color-selected-font;
+		background: @blue-selection;
+		border: 1px solid @input-border;
+	}
+	&:focus {
+		border: 1px solid @input-border-focus;
+		outline: none;
+		.box-shadow(none);
+	}
+
+	&:disabled, &[disabled] {
+		background: @input-bg-disabled;
+		color: @input-color-disabled;
+		font-weight: normal; //for error feedback font change
+		border: 1px solid @input-border-disabled;
+		.box-shadow(none);
+		.placeholder(@input-color-disabled);
+	}
+
+	&:read-only {
+		color: @text-color;
+		border: transparent;
+		background: transparent;
+		.box-shadow(none);
+	}
+
+	&[readonly] {
+		color: @text-color;
+		border: transparent;
+		background: transparent;
+		.box-shadow(none);
+	}
+
+	&:-moz-read-only {
+		color: @text-color;
+		border: transparent;
+		background: transparent;
+		.box-shadow(none);
+	}
+
+	&-small {
+		height: @input-height-small;
+		padding-top: @padding-small-vertical;
+		padding-bottom: @padding-small-vertical;
+		padding-right: 6px;
+	}
+
+	&-uneditable[readonly] {
+		background: @input-bg-disabled;
+		border: 1px solid @input-border-disabled;
+		box-shadow: none;
+		&:hover {
+		  border: 1px solid #cccccc;
+		  box-shadow: none;
+		}
+		&:focus {
+		  border-radius: 7px;
+		  border: 1px solid @input-border-focus;
+		  box-shadow: none;
+		}
+	}
+
+	&-control-icon {
+        border: 1px solid transparent;
+        cursor: pointer;
+        margin: 0;
+        padding: 0 10px 0 9px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 0 7px 7px 0;
+        line-height: @input-height-base;
+        height: @input-height-base;
+        width: @input-height-base;
+
+        &:focus {
+          outline: none;
+        }
+
+        &-small {
+          line-height: @input-height-small;
+          height: @input-height-small;
+          width: @input-height-small;
+          padding-left: 6px;
+        }
+    }
+}
+// Feedback states
+.has-error,.n-inputfield-validation {
+	color: @brand-danger;
+	font-weight: bold;
+	padding-right: 6px;
+}
+.has-feedback {
+	// Enable absolute positioning
+	position: relative;
+}
+
+.form-control-feedback {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2; // Ensure icon is above input groups
+	display: block;
+	height: @input-height-base;
+	line-height: @input-height-base;
+	text-align: left;
+	pointer-events: none;
+
+	> .icon-input-error, .icon-input-error-disabled {
+		font-size: @input-height-base;
+	}
+	&-small {
+		height: @input-height-small;
+		line-height: @input-height-small;
+		> .icon-input-error, .icon-input-error-disabled {
+			font-size: @input-height-small;
+		}
+	}
+	> .icon-spinner {
+		// Need to raise the icon a bit higher, any better way to do it?
+		font-size: @input-height-small - 1px;
+	}
+}
+
+// Ensure icons don't overlap text
+.entry-changed, .valid {
+	.n-inputfield, .n-inputfield-small {
+		padding-right: 25px;
+	}
+	.form-control-feedback, .form-control-feedback-small {
+		width: 22px;
+		//SPEC 4px margin
+		//margin-top: 4px;
+		margin-right: 4px;
+		padding-left: 4px;
+	}
+}
+
+.input-required {
+	.n-inputfield, .n-inputfield-small {
+		padding-right: 6px;
+	}
+	.form-control-feedback, .form-control-feedback-small {
+		//SPEC 4px margin
+		//margin-top: 4px;
+		margin-right: 1px;
+		padding-left: 4px;
+		width: 24px;
+	}
+}
+
+.input-error {
+	.n-inputfield {
+		padding-right: 38px;
+	}
+	.n-inputfield-small {
+		padding-right: 32px;
+	}
+	.form-control-feedback {
+		width: 32px;
+		//SPEC 4px margin
+		//margin-top: 4px;
+		padding-left: 4px;
+		right: 20px !important;
+	}
+	.form-control-feedback-small {
+		width: 28px;
+		right: 18px !important;
+	}
+}
+.no-feedback {
+	.n-inputfield, 	.n-inputfield-small {
+		padding-right: 6px;
+	}
+	.form-control-feedback, .form-control-feedback-small {
+		width: 0;
+	}
+}
+
+.input-working {
+	.n-inputfield {
+		padding-right: 27px;
+	}
+	.form-control-feedback {
+		//SPEC 4px margin
+		//margin-top: 4px;
+		margin-right: 1px;
+		padding-top: 3px;
+		padding-left: 4px;
+		width: 27px;
+	}
+}
+
+.n-inputfield-filter{
+  position: relative;
+  .n-inputfield {
+	padding-left: 25px;
+  }
+  .n-inputfield-filter-icon{
+	position: absolute;
+	padding:8px;
+	top: 0;
+	left: 0;
+  }
+  .n-inputfield-filter-icon-small{
+	position: absolute;
+	padding-left:8px;
+	padding-top:5px;
+	top: 0;
+	left: 0;
+  }
+}
+
+.n-inputfield-clearable .n-inputfield {
+  padding-right: 28px;
+}
+//no radius of left bottom corner
+.n-inputfield-nonradius-lb {
+	border-bottom-left-radius: 0;
+}
+
+.n-inputfield-clearable {
+  position: relative;
+  //display: inline-block;
+
+  .n-inputfield-control-icon{
+	.icon-close{
+	  border: 1px solid transparent;
+	  border-radius: 5px;
+	}
+
+	&:focus > .icon-close {
+	  border-color: @focus-border-style;
+	}
+
+	&:hover > .icon-close {
+	  border-color: @input-border-hover;
+	}
+  }
+}
+
+.n-inputfield-indicated{
+	position: relative;
+	padding: 0;
+	> .n-inputfield {
+		width: 100%;
+		height: @n-table-cell-content-height;
+		padding: 0 25px 0 @table-cell-padding;
+		border-radius: 5px;
+
+		&:focus {
+			border: 1px solid @n-table-border-color;
+			box-shadow: none;
+		}
+	}
+	> .form-control-feedback{
+		line-height: 28px;
+		height: 28px;
+		right: 8px;
+		text-align: right;
+	}
+}
+
+.n-fieldset {
+	margin-left: 8px;
+
+
+	legend {
+		font-size: @font-size-medium;
+		margin-bottom: 14px;
+		border-bottom: 0;
+		color: @gray-global;
+	}
+
+	label {
+		float: left;
+		clear: left;
+		width: 25%;
+		text-align: left;
+		padding-bottom: 8px;
+		color: @gray-global;
+	}
+
+	input {
+		float: left;
+		width: 60%;
+		display: inline;
+
+		&:hover {
+			border: 1px solid @input-border-hover;
+		}
+
+		&:focus {
+			border: 1px solid @input-border-focus;
+			outline: none;
+			.box-shadow(none);
+		}
+	}
+
+	> .range{
+		padding-left: 10px;
+	}
+
+	> .unit{
+		padding-left: 8px;
+	}
+}
+
+.icon-transform-upside-down {
+	transform: rotateX(180deg);
+}

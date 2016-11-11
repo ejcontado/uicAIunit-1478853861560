@@ -1,0 +1,242 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Splitter</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_search">Splitter</h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <div ng-controller="splitterDemoController as demo">
+            <h2>Vertical splitter</h2>
+            <wf-splitter id="TA-splitter-vertical" splitter-style="demo.style" orientation="vertical" on-drag="demo.onVerticalDrag">
+                <wf-split init-size="100" min-size="50">
+                    <p style="padding: 5px">Area 1</p>
+                </wf-split>
+                <wf-split init-size="200">
+                    <p style="padding: 5px">Area 2</p>
+                </wf-split>
+            </wf-splitter>
+            <h2>Horizontal splitter</h2>
+            <wf-splitter id="TA-splitter-horizontal" splitter-style="demo.style" orientation="horizontal"  on-drag="demo.onHorizontalDrag">
+                <wf-split init-size="50%">
+                    <p style="padding: 5px">Area 1</p>
+                </wf-split>
+                <wf-split init-size="50%">
+                    <p style="padding: 5px">Area 2</p>
+                </wf-split>
+            </wf-splitter>
+            <br>
+            <button id="TA-splitter-disableAction" class="btn btn-small" ng-click="demo.enableDisableAction()" ng-cloak>
+                {{demo.actionState?"Disable":"Enable"}} callback actions
+            </button>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h2>Overview</h2>
+        <p>Angular version of splitter component. It is implemented by using <code>.component()</code> method introduced since Angular1.5. This component consisting of a moveable split bar(s) that divides a container's display area into two or more resizable panels.</p>
+
+        <h2>wf-splitter settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>splitter-style: &lt;</code></td>
+                <td>
+                    Object (Default: {width: '100%',height: '100%',background: '#ffffff'})
+                </td>
+                <td>
+                    The style of the splitter container.
+                </td>
+            </tr>
+            <tr>
+                <td><code>orientation: @</code></td>
+                <td>
+                    <ul>
+                        <li>vertical(Default)</li>
+                        <li>horizontal</li>
+                    </ul>
+                </td>
+                <td>
+                    The split orientation of the splitter.
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-drag: &</code></td>
+                <td>
+                    Function(pane, nextPane, event)
+                </td>
+                <td>
+                    Callback function when splitter bar was moved.
+                    <ul>
+                        <li>pane - html element object of first pane</li>
+                        <li>nextPane - html element object of next pane</li>
+                        <li>event - mouseevent when handler bar was moved</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>wf-split settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>init-size: @</code></td>
+                <td>
+                    Number/Number with 'px' unit/Percentage<br/>
+                    (eg. 50/50px/50%)
+                </td>
+                <td>
+                    The initial size of the spit pane. For vertical orientation is width, for horizontal orientation is height. The default unit is 'px' when pass number value.
+                </td>
+            </tr>
+            <tr>
+                <td><code>min-size: @</code></td>
+                <td>
+                    Number/Number with 'px' unit/Percentage<br/>
+                    (eg. 50/50px/50%)
+                </td>
+                <td>
+                    The minimum size of the spit pane. For vertical orientation is width, for horizontal orientation is height. The default unit is 'px' when pass number value.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<br>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<div ng-controller="splitterDemoController as demo">
+    <h4>Vertical splitter</h4>
+    <wf-splitter splitter-style="demo.style" orientation="vertical" on-drag="demo.onVerticalDrag">
+        <wf-split init-size="100" min-size="50">
+            <p>Area 1</p>
+        </wf-split>
+        <wf-split init-size="200">
+            <p>Area 2</p>
+        </wf-split>
+    </wf-splitter>
+    <h4>Horizontal splitter</h4>
+    <wf-splitter splitter-style="demo.style" orientation="horizontal" on-drag="demo.onHorizontalDrag">
+        <wf-split init-size="50%">
+            <p>Area 1</p>
+        </wf-split>
+        <wf-split init-size="50%">
+            <p>Area 2</p>
+        </wf-split>
+    </wf-splitter>
+</div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+    <code data-language="javascript">
+    angular.module('wf.ng.demo', ['wf.angular.splitter']).controller('splitterDemoController', splitterDemoController);
+    function splitterDemoController() {
+        var self = this;
+        self.style = {
+            width: '300px',
+            height: '200px',
+            background: '#ffffff',
+            borderRadius: '6px',
+            border: '1px solid #d8d8d8'
+        };
+        self.onVerticalDrag = function (pane1, pane2) {
+            alert('pane offset will be changed to ' + pane1.style.width + '\nsibling pane offset will be changed to ' + pane2.style.width);
+        };
+        self.onHorizontalDrag = function (pane1, pane2) {
+            alert('pane offset will be changed to ' + pane1.style.height + '\nsibling pane offset will be changed to ' + pane2.style.height);
+        };
+    }
+    angular.element(document).ready(function () {
+        angular.bootstrap(document, ['wf.ng.demo'], {
+            strictDi: true
+        });
+    });
+    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+</body>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+
+<script src="../assets/js/require.js" type="text/javascript"> </script>
+<script src="../assets/js/require-config.js"  type="text/javascript"></script>
+<script type="text/javascript">
+    require(['angular', 'wulf-ng/splitter/splitter.tlp.min','wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.splitter','wf.angular.tabs']).controller('splitterDemoController', splitterDemoController);
+        function splitterDemoController() {
+            var self = this;
+            self.style = {
+                width: '300px',
+                height: '200px',
+                background: '#ffffff',
+                borderRadius: '6px',
+                border: '1px solid #d8d8d8'
+            };
+            self.onVerticalDrag = function (pane1, pane2) {
+                if(self.actionState) {
+                    alert('pane offset will be changed to ' + pane1.style.width + '\nsibling pane offset will be changed to ' + pane2.style.width);
+                }
+            };
+            self.onHorizontalDrag = function (pane1, pane2) {
+                if(self.actionState) {
+                    alert('pane offset will be changed to ' + pane1.style.height + '\nsibling pane offset will be changed to ' + pane2.style.height);
+                }
+            };
+            self.actionState = false;
+            self.enableDisableAction = function () {
+                self.actionState = !self.actionState;
+            };
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</html>

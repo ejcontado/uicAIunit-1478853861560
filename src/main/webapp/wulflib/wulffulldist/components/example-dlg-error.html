@@ -1,0 +1,81 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dlg_error">Error dialog <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="col-md-5">
+    <p>
+        Here are example of the error dialog:
+    </p>
+    <div>
+        <p>
+            <a href="#ErrorDialog" data-backdrop="false" data-toggle="modal" data-keyboard="true" id="TA-dialog-error"> Error dialog (plain)</a>
+        </p>
+    </div>
+
+    <!--<div class="modal" id="ErrorDialog" role="dialog" aria-labelledby="myModalDlgLabel-error" aria-hidden="true" tabindex='-1'>-->
+    <div class="modal" id="ErrorDialog" role="dialog" aria-labelledby="myModalDlgLabel-error" aria-hidden="true" tabindex='1'>
+        <div class="modal-dialog n-dialog-critical">
+            <div class="modal-content" id="TA-dialog-error-content">
+                <div class="modal-header" id="TA-dialog-error-content-header">
+                    <div class="n-dialog-header-fg-filler">
+                        <h1 class="modal-title" id="myModalLabel"><span class="icon icon-error"></span>Connection lost</h1>
+                    </div>
+                    <div class="n-dialog-header-bg-filler"></div>
+                    <!-- -->
+                    <div class="n-dialog-header-curve">
+                        <div class="fg-mask"></div>
+                        <div class="bg-mask"></div>
+                        <div class="fg-corner"></div>
+                        <div class="bg-corner"></div>
+                    </div>
+                    <i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close" tabindex="4" id="TA-dialog-error-content-close"></i>
+                    <div style="clear: both"></div>
+                    <div class="modal-title-error-warning" id="myModalLabelInstruction">Check cable connections and try to reconnect</div>
+                </div>
+                <div class="modal-footer" id="TA-dialog-error-footer">
+                    <button class="btn btn-standard btn-defaultBlue" data-dismiss="modal" tabindex="2" id="TA-dialog-error-buttons-reconnect">Reconnect</button>
+                    <button class="btn btn-standard" data-dismiss="modal" tabindex="3" id="TA-dialog-error-buttons-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-7">
+    <p>JS & CSS dependency:</p>
+        <pre>
+For error dialog components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/&gt;</pre>
+    <p>
+        To use the dialogs, see the examples below.
+    </p>
+<pre>
+<code>
+&lt;!-- Standard dialog --&gt;
+&lt;a href="#PlainDialog" data-backdrop="false" data-toggle="modal"&gt;Plain dialog&lt;/a&gt;
+</code>
+</pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['bootstrap', 'wulf/keyboard/keyboard-core']);
+</script>
+</body>
+</html>

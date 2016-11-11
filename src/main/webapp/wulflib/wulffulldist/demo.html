@@ -1,0 +1,392 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Nokia Web UI Look & Feel</title>
+    <link rel="shortcut icon" type="image/png" href="assets/images/wulf.png"/>
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet"/>
+
+</head>
+<body>
+<span id="top"></span>
+
+<div class="fluid-container">
+
+    <div class="row demo-header">
+        <div class="col-md-6 demo-icon-title">
+            <img class="wulf-icon pull-left" src="assets/images/wulf.png">
+
+            <h1 class="component-header pull-left">Nokia Web UI Look & Feel (WULF)</h1>
+        </div>
+        <div class="col-md-6 demo-version">
+            <span>Version: WULF_OT31_1_2_16</span>
+        </div>
+        <div class="col-md-6 demo-version-time">
+            <span id="build-time">{% buildtime %}</span>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Content</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <ul>
+            <li><a href="#nokia_panel">Panels</a></li>
+            <li><a href="#nokia_typo">Typography</a></li>
+            <li><a href="#nokia_button">Buttons</a></li>
+            <li><a href="#nokia_toggle_button">Toggles</a></li>
+            <li><a href="#nokia_breadcrumb">Breadcrumb</a></li>
+        </ul>
+    </div>
+    <div class="col-md-2">
+        <ul>
+            <li><a href="#nokia_checkbox">Checkbox</a></li>
+            <li><a href="#nokia_input_field">Text field</a></li>
+            <li><a href="#nokia_link">Links</a></li>
+            <li><a href="#nokia_info_alert">Alerts</a></li>
+            <li><a href="#nokia_spinner">Spinner</a></li>
+        </ul>
+    </div>
+    <div class="col-md-2">
+        <ul>
+            <li><a href="#nokia_table">Tables</a></li>
+            <li><a href="#nokia_list">Lists</a></li>
+            <li><a href="#nokia_icons">Icons</a> <span class="draft">DRAFT</span></li>
+            <li><a href="#nokia_file_upload">File upload</a></li>
+        </ul>
+    </div>
+    <div class="col-md-2">
+        <ul>
+            <li><a href="#nokia_radiobutton">Radiobutton</a></li>
+            <li><a href="#nokia_progress">Progress</a></li>
+            <li><a href="#nokia_tooltip">Tooltip</a></li>
+            <li><a href="#nokia_popover">Balloon (popover)</a></li>
+        </ul>
+    </div>
+    <div class="col-md-2">
+        <ul>
+            <li><a href="#nokia_tabs">Tabs (navs)</a></li>
+            <li><a href="#nokia_slider">Slider</a></li>
+            <li><a href="#nokia_dropdowns">Dropdown</a></li>
+            <li><a href="#nokia_drilldown">Drilldown</a></li>
+            <li><a href="#nokia_comboboxes">Combobox</a></li>
+        </ul>
+    </div>
+    <div class="col-md-2">
+        Examples<br>
+        <ul>
+            <li><a href="#nokia_about">About</a></li>
+            <li><a href="#nokia_login">Login</a></li>
+            <li><a href="#nokia_form">Forms</a></li>
+            <li><a href="#nokia_banner">Banner</a> <span class="draft">DRAFT</span></li>
+            <li><a href="#nokia_dlg">Dialogs</a></li>
+            <li><a href="#nokia_chart">Charts</a> <span class="draft">DRAFT</span></li>
+            <li><a href="#nokia_validation">Validations</a> <span class="draft">DRAFT</span></li>
+            <li><a href="#nokia_calendar">Calendar</a></li>
+            <li><a href="#nokia_timezone">TimeZone</a> <span class="draft">DRAFT</span></li>
+            <li><a href="#nokia_tree">Tree</a> </li>
+            <li><a href="#nokia_flyout_menu">Flyout menu</a> </li>
+            <li><a href="#nokia_dialog_wizard">Dialog wizard</a></li>
+        </ul>
+        <a href="demo-frame.html">Demo based on frames</a></li>
+    </div>
+</div>
+<br>
+
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include panels.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include typography.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include buttons.html %}
+    </div>
+</div>
+<br>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include toggle_buttons.html %}
+    </div>
+</div>
+<br>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        Notice: full demo page loading takes quite much time and therefore this slider turns into correct one after
+        considerable delay.
+        {% include slider.html %}
+    </div>
+</div>
+<br>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include checkbox.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include radiobutton.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include inputfield.html %}
+    </div>
+</div>
+<br>
+
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include links.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include breadcrumb.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include alerts.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include tables.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include example-about.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include login.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include icons.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include file-upload.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include lists.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include form.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include progress.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include example-banner.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include tooltip.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% include popover.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include navs.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<a name="nokia_dropdowns"></a>
+    <iframe id="dropdownsIFrame" class="demo-dropdowns" src="dropdowns.html" scrolling="no"></iframe>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top" aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include drilldown.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include combobox.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include example-chart.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<a name="nokia_calendar"></a>
+<iframe id="calendarIFrame" class="demo-calendar" src="example-calendar.html" scrolling="no"></iframe>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<a name="nokia_timezone"></a>
+<iframe id="timezoneIFrame" class="demo-calendar" src="example-timezone.html" scrolling="no"></iframe>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        {% include example-tree.html %}
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top"
+           aria-hidden="true"></span> <a href="#top">Back to top</a>
+</div>
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        var iframe = document.getElementById("calendarIFrame").contentWindow;
+        if (iframe) {
+            iframe.document.body.style.backgroundImage = "none";
+            iframe.document.body.style.backgroundColor = "#efefef";
+            iframe.document.body.style.paddingLeft = "0px";
+        }
+        iframe = document.getElementById("dropdownsIFrame").contentWindow;
+        if (iframe) {
+            iframe.document.body.style.backgroundImage = "none";
+            iframe.document.body.style.backgroundColor = "#efefef";
+            iframe.document.body.style.paddingLeft = "0px";
+        }
+    }
+</script>
+</body>
+</html>

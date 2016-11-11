@@ -1,0 +1,121 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_about">About dialog <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="col-md-5">
+    <p>
+        About dialog can be used to display common information about the Web pages.
+    </p>
+    <div>
+        <a id='TA_about-dialog_link' href="#AboutDialog" data-backdrop="false" data-toggle="modal">About dialog</a>
+    </div>
+</div>
+<div class="modal" id="AboutDialog" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog n-dialog-about">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler hidden-xs">
+                    <h1 class="modal-title" id="myModalLabelTitle">About WULF</h1>
+                </div>
+                <div class="n-dialog-header-bg-filler hidden-xs"></div>
+                <div class="n-dialog-header-curve hidden-xs">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close"></i>
+                <div style="clear: both"></div>
+                <h2 class="modal-title-subheading" id="myModalLabelVersion">FB15.03.0007</h2>
+            </div>
+            <div class="modal-body">
+                <div class="n-about-logo">
+                    <img src="../wulfdist/img/logo-large.png" width="265" height="45" alt="Nokia logo"/>
+                </div>
+                <table class="n-about-table">
+                    <thead>
+                    <tr class="n-about-table-hrline">
+                        <th colspan="3">System Information</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="n-about-table-hrline">
+                        <td>LTE BTS Site Manager:</td>
+                        <td>5.0.1</td>
+                    </tr>
+                    <tr class="n-about-table-hrline">
+                        <td>Multimedia Manager:</td>
+                        <td>8.0.1.283</td>
+                    </tr>
+                    <tr class="n-about-table-hrline">
+                        <td>NetAct&trade; Realtime Performance Monitoring:</td>
+                        <td>6.0.0.188</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <table>
+                    <tr>
+                        <td class="small text-left about-copyright">&copy; 2016 Nokia. All rights reserved.</td>
+                        <td><button id='TA_aboutdialog_closebutton' class="btn btn-action btn-standard about-close" data-dismiss="modal">Close</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-7">
+    <p>JS & CSS dependency:</p>
+<pre>
+For about dialog components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/&gt;</pre>
+    <pre>
+<code>
+    &lt;!-- Standard about dialog --&gt;
+    &lt;a href="#AboutDialog" data-backdrop="false" data-toggle="modal"&gt;About dialog&lt;/a&gt;</code>
+    </pre>
+    Modify the size of the title banner area (curve location) in CSS:
+    <pre>
+<code>
+    .n-dialog-about > div.modal-content > div.modal-header {
+        .n-dialog-header-curve {
+            left: <span class="demo-highlight-color">140px</span>;
+        }
+        .n-dialog-header-fg-filler {
+            width: <span class="demo-highlight-color">140px</span>;
+        }
+    }</code>
+    </pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery','bootstrap'], function($){
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) {
+                $('#AboutDialog').modal('hide');
+            }
+        });
+    });
+</script>
+</body>
+</html>

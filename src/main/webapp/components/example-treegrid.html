@@ -1,0 +1,287 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-jqWidget.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_treeTable">Tree table</h1>
+<hr>
+<div class="col-md-12">
+    <h4> Grid tree table</h4>
+    <p>Feature: no alternating rows; single selection</p>
+    <div id="treeTable-grid"></div>
+    <br>
+    <p>The first step is to add links to the javascript files and css dependencies to your project. Tree table widget
+        requires the following files:</p>
+    <pre>
+<code>
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-jqWidget.min.css" rel="stylesheet"/&gt;
+
+    &lt;script src="./js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcore.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdata.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxbuttons.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxscrollbar.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdatatable.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxtreegrid.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="./js/wulf.min.js"&gt;&lt;/script&gt;</code>
+    </pre>
+    <p>The next step is to create a DIV element within the body of the html document.</p>
+    <pre>
+<code>
+    &lt;div id="treeTable-grid"&gt;&lt;/div&gt;</code>
+    </pre>
+    <p>The last step is to initialize the widget. </p>
+    <pre>
+<code>
+    &lt;script&gt;
+    $(document).ready( function() {
+    var employees = [
+    { "ID": 1, "parent": 2, "FirstName": "Nancy", "LastName": "Davolio", "Country": "China", "BirthDate": "1948-12-08
+    00:00:00", "City": "Seattle", "Address": "507 - 20th Ave. E.Apt. 2A" },
+    { "ID": 2, "parent": null, "FirstName": "Andrew", "LastName": "Fuller", "Country": "USA", "BirthDate": "1952-02-19
+    00:00:00", "City": "Tacoma", "Address": "908 W. Capital Way" },
+    { "ID": 3, "parent": 2, "FirstName": "Janet", "LastName": "Leverling", "Country": "USA", "BirthDate": "1963-08-30
+    00:00:00", "City": "Kirkland", "Address": "722 Moss Bay Blvd." }, ... ];
+
+    // prepare the data
+    var source =
+    {
+    dataType: "json",
+    dataFields: [{ name: 'ID', type: 'number' }, { name: 'parent', type: 'number' }, { name: 'FirstName', type: 'string'
+    },...],
+    hierarchy: { keyDataField: { name: 'ID' }, parentDataField: { name: 'parent' } },
+    id: 'ID',
+    localData: employees
+    };
+
+    var columns = [
+    { text: 'FirstName', dataField: 'FirstName', minWidth: 110},
+    { text: 'LastName', dataField: 'LastName', minWidth: 85},
+    { text: 'Birth Date', dataField: 'BirthDate', cellsFormat: 'd', minWidth: 85},
+    { text: 'Address', dataField: 'Address', width:250, minWidth: 210},
+    { text: 'City', dataField: 'City' , minWidth: 75},
+    { text: 'Country', dataField: 'Country', minWidth: 70}
+    ];
+    var dataAdapter = new $.jqx.dataAdapter(source);
+    // create Tree Grid
+    $("#treeTable-grid").jqxTreeGrid(
+    {
+    width: '100%',
+    height: 200,
+    source: dataAdapter,
+    selectionMode:'singleRow',
+    scrollBarSize: 8,
+    columnsResize: true,
+    columns: columns
+    });
+    &lt;/script&gt;</code>
+	</pre>
+    <h4> No-grid tree table</h4>
+    <p>Feature: alternating rows; multi selection; resizable column</p>
+
+    <div id="treeTable-no-grid" class="no-grid-line"></div>
+    <br>
+	<pre>
+<code>
+    &lt;div id="treeTable-no-grid" class="no-grid-line"&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+    var newDataAdapter = new $.jqx.dataAdapter(source);
+    $("#treeTable-no-grid").jqxTreeGrid({
+    altRows: true, //alternating rows
+    width: '100%',
+    height: 200,
+    source: newDataAdapter,
+    pageable:false,
+    sortable:false,
+    selectionMode:'multiRow', //multi selection
+    enableBrowserSelection: false,
+    columnsResize:true, //resizable column
+    scrollBarSize: 8,
+    columns: columns
+    });
+    &lt;/script&gt;</code>
+	</pre>
+    <p>For more information about this component, see jqwidget documentation about
+        <a href="http://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxtreegrid/jquery-treegrid-getting-started.htm">jqxTreeGrid</a>
+        and
+        <a href="http://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxtreegrid/jquery-treegrid-api.htm">API</a>.
+    </p>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'jqxcore', 'jqxdata', 'jqxbuttons',
+        'jqxscrollbar', 'jqxdatatable', 'jqxtreegrid']);
+    require(['jquery', 'wulf/tree-table'], function ($) {
+        $(document).ready(function () {
+            var employees = [
+                {
+                    "ID": 1,
+                    "parent": 2,
+                    "FirstName": "Nancy",
+                    "LastName": "Davolio",
+                    "Country": "China",
+                    "BirthDate": "1948-12-08 00:00:00",
+                    "City": "Seattle",
+                    "Address": "507 - 20th Ave. E.Apt. 2A"
+                },
+                {
+                    "ID": 2,
+                    "parent": null,
+                    "FirstName": "Andrew",
+                    "LastName": "Fuller",
+                    "Country": "USA",
+                    "BirthDate": "1952-02-19 00:00:00",
+                    "City": "Tacoma",
+                    "Address": "908 W. Capital Way"
+                },
+                {
+                    "ID": 3,
+                    "parent": 2,
+                    "FirstName": "Janet",
+                    "LastName": "Leverling",
+                    "Country": "USA",
+                    "BirthDate": "1963-08-30 00:00:00",
+                    "City": "Kirkland",
+                    "Address": "722 Moss Bay Blvd."
+                },
+                {
+                    "ID": 4,
+                    "parent": 2,
+                    "FirstName": "Margaret",
+                    "LastName": "Peacock",
+                    "Country": "China",
+                    "BirthDate": "1937-09-19 00:00:00",
+                    "City": "Redmond",
+                    "Address": "4110 Old Redmond Rd."
+                },
+                {
+                    "ID": 5,
+                    "parent": 2,
+                    "FirstName": "Steven",
+                    "LastName": "Buchanan",
+                    "Country": "UK",
+                    "BirthDate": "1955-03-04 00:00:00",
+                    "City": "London",
+                    "Address": "14 Garrett Hill"
+                },
+                {
+                    "ID": 6,
+                    "parent": 5,
+                    "FirstName": "Michael",
+                    "LastName": "Suyama",
+                    "Country": "UK",
+                    "BirthDate": "1963-07-02 00:00:00",
+                    "City": "London",
+                    "Address": "Coventry House Miner Rd."
+                },
+                {
+                    "ID": 7,
+                    "parent": 5,
+                    "FirstName": "Robert",
+                    "LastName": "King",
+                    "Country": "UK",
+                    "BirthDate": "1960-05-29 00:00:00",
+                    "City": "London",
+                    "Address": "Edgeham Hollow Winchester Way"
+                },
+                {
+                    "ID": 8,
+                    "parent": 2,
+                    "FirstName": "Laura",
+                    "LastName": "Callahan",
+                    "Country": "USA",
+                    "BirthDate": "1958-01-09 00:00:00",
+                    "City": "Seattle",
+                    "Address": "4726 - 11th Ave. N.E."
+                },
+                {
+                    "ID": 9,
+                    "parent": 5,
+                    "FirstName": "Anne",
+                    "LastName": "Dodsworth",
+                    "Country": "UK",
+                    "BirthDate": "1966-01-27 00:00:00",
+                    "City": "London",
+                    "Address": "7 Houndstooth Rd."
+                }
+            ];
+
+            // prepare the data
+            var source =
+            {
+                dataType: "json",
+                dataFields: [
+                    {name: 'ID', type: 'number'},
+                    {name: 'parent', type: 'number'},
+                    {name: 'FirstName', type: 'string'},
+                    {name: 'LastName', type: 'string'},
+                    {name: 'Country', type: 'string'},
+                    {name: 'City', type: 'string'},
+                    {name: 'Address', type: 'string'},
+                    {name: 'BirthDate', type: 'date'}
+                ],
+                hierarchy: {
+                    keyDataField: {name: 'ID'},
+                    parentDataField: {name: 'parent'}
+                },
+                id: 'ID',
+                localData: employees
+            };
+            var columns = [
+                {text: 'FirstName', dataField: 'FirstName', minWidth: 110},
+                {text: 'LastName', dataField: 'LastName', minWidth: 85},
+                {text: 'Birth Date', dataField: 'BirthDate', cellsFormat: 'd', minWidth: 85},
+                {text: 'Address', dataField: 'Address', width: 250, minWidth: 210},
+                {text: 'City', dataField: 'City', minWidth: 75},
+                {text: 'Country', dataField: 'Country', minWidth: 70}
+            ];
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            $("#treeTable-grid").jqxTreeGrid(
+                    {
+                        width: '100%',
+                        height: 200,
+                        source: dataAdapter,
+                        selectionMode: 'singleRow',
+                        columnsResize: true,
+                        columns: columns,
+                        scrollBarSize: 8
+                    });
+            $("#verticalScrollBartreeTable-grid").jqxScrollBar({width: 8, height: 200, vertical: true});
+            var newDataAdapter = new $.jqx.dataAdapter(source);
+            $("#treeTable-no-grid").jqxTreeGrid(
+                    {
+                        altRows: true,
+                        width: '100%',
+                        height: 200,
+                        source: newDataAdapter,
+                        pageable: false,
+                        sortable: false,
+                        selectionMode: 'multiRow',
+                        enableBrowserSelection: false,
+                        columnsResize: true,
+                        columns: columns,
+                        scrollBarSize: 8
+                    });
+        });
+    });
+</script>
+</body>
+</html>

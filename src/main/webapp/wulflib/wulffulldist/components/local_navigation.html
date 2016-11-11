@@ -1,0 +1,240 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content scrollable">
+<h1 class="component-header" id="nokia_horizontal_navigation">Local Navigation <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <nav class="n-banner">
+            <div class="n-banner-1st-filler-white"></div>
+            <div class="n-banner-1st-filler-blue"></div>
+            <div class="n-banner-2nd-filler-blue hidden-xs hidden-on-blue-detached"></div>
+            <div class="n-banner-2nd-filler-gray hidden-xs"></div>
+            <div class="n-banner-3rd-filler-gray hidden-xs"></div>
+
+            <div class="container-fluid">
+                <div class="n-banner-header">
+                    <button class="n-banner-toggle collapsed" data-target="#n-banner-collapse" data-toggle="collapse"
+                            type="button">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="n-banner-brand" href="#">
+                        WebUI Look &amp; Feel <span>(WULF)</span>
+                    </a>
+                </div>
+
+                <div class="collapse n-banner-collapse" id="n-banner-collapse">
+
+                    <div class="row n-banner-1st" id="TA-localnavigation-1st">
+
+                        <div class="n-banner-right n-banner-logo-img hidden-xs">
+                            <img alt="Nokia" src="../wulfdist/img/logo.png">
+                        </div>
+
+                        <div class="n-banner-right n-banner-1st-gray-to-white hidden-xs">
+                            <div class="gray-mask"></div>
+                            <div class="white-mask"></div>
+                            <div class="gray-corner"></div>
+                            <div class="white-corner"></div>
+                        </div>
+
+                        <ul class="nav n-banner-right n-banner-nav n-banner-controls">
+                            <li>
+                                <a href="#" id="TA-localnavigation-nemuadmin">
+                                    <i class="icon icon-profile"></i>
+                                    Nemuadmin
+                                </a>
+                            </li>
+                            <li class="hidden-xs">
+                                <p>
+                                    |
+                                </p>
+                            </li>
+                            <li>
+                                <a href="#" id="TA-localnavigation-logout">
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="n-banner-right n-banner-1st-blue-to-gray hidden-xs">
+                            <div class="blue-mask"></div>
+                            <div class="gray-mask"></div>
+                            <div class="blue-corner"></div>
+                            <div class="gray-corner"></div>
+                        </div>
+
+                        <div class="n-banner-right n-search">
+                            <a class="n-search-icon" href="javascript:void(0)">
+                                <span class="icon icon-search"></span>
+                            </a>
+                            <input type="text" class="n-inputfield n-search-input" id="TA-localnavigation-input">
+                    </div>
+                    </div>
+                    <div class="row n-banner-2nd">
+                        <ul class="nav n-banner-nav n-banner-tabs high-value-tab">
+                            <span class="high-value-tab-text">HIGH VALUE CUSTOMER INSIGHTS</span>
+                        </ul>
+
+                        <div class="n-banner-2nd-gray-to-blue hidden-xs hidden-on-blue-detached">
+                            <div class="gray-mask"></div>
+                            <div class="blue-mask"></div>
+                            <div class="gray-corner"></div>
+                            <div class="blue-corner"></div>
+                        </div>
+                    </div>
+                    <div class="row local-navigation" id="TA-localnavigation-Pic">
+                        <div class="nav-secondary-horizontal-backgroud"></div>
+                        <ul class="nav nav-secondary-horizontal">
+                            <li>
+                                <a href="#">
+                                    <div class="policy-control-percentage">
+                                        <span class="n-percentage">16%</span>
+                                        <span class="n-text">Policy Control</span>
+                                    </div>
+                                    <div class="local-navigation-normal local-nav-percentage-icon" id="TA-localnavigation-normal">
+                                        <span class="icon icon-data"></span>
+                                    </div>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="policy-control-percentage">
+                                        <span class="n-percentage">16%</span>
+                                        <span class="n-text">Policy Control</span>
+                                    </div>
+                                    <div class="local-navigation-warning local-nav-percentage-icon" id="TA-localnavigation-warning">
+                                        <span class="icon icon-data"></span>
+                                    </div>
+                                </a>
+                                <div class="underline-warning"></div>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="policy-control-percentage">
+                                        <span class="n-percentage">16%</span>
+                                        <span class="n-text">Policy Control</span>
+                                    </div>
+                                    <div class="local-navigation-critical local-nav-percentage-icon" id="TA-localnavigation-critical">
+                                        <span class="icon icon-data"></span>
+                                    </div>
+                                </a>
+                                <div class="underline-critical"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>JS & CSS dependency:</p>
+<pre>
+For local navigation components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/wulf.search.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+</pre>
+        <p>
+            This local navigation is designed to provide rich visual modeless feedback for each section, helping to
+            direct the user to the most important information first. This is not an area for general information.<br>
+            To use the this, refer to the demo codes:
+        </p>
+	<pre>
+<code>
+&lt;div class="row local-navigation"&gt;
+    &lt;div class="nav-secondary-horizontal-backgroud"&gt;&lt;/div&gt;
+    &lt;ul class="nav nav-secondary-horizontal"&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;
+                &lt;div class="policy-control-percentage"&gt;
+                    &lt;span class="n-percentage"&gt;16%&lt;/span&gt;
+                    &lt;span class="n-text"&gt;Policy Control&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="local-navigation-normal local-nav-percentage-icon"&gt;
+                    &lt;span class="icon icon-data"&gt;&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;
+                &lt;div class="policy-control-percentage"&gt;
+                    &lt;span class="n-percentage"&gt;16%&lt;/span&gt;
+                    &lt;span class="n-text"&gt;Policy Control&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="local-navigation-warning local-nav-percentage-icon" &gt;
+                    &lt;span class="icon icon-data"&gt;&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+            &lt;div class="underline-warning"&gt;&lt;/div&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;
+                &lt;div class="policy-control-percentage"&gt;
+                    &lt;span class="n-percentage"&gt;16%&lt;/span&gt;
+                    &lt;span class="n-text"&gt;Policy Control&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="local-navigation-critical local-nav-percentage-icon" &gt;
+                    &lt;span class="icon icon-data"&gt;&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/a&gt;
+            &lt;div class="underline-critical"&gt;&lt;/div&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code>
+
+        </pre>
+
+        <p>
+            Please involve navbar.js when you use this component.<br>
+            To enable, just require the navbar.js.
+        </p>
+        <pre>
+<code>
+    &lt;script&gt;
+    require(['jquery', 'wulf/navbar'], function($){
+    });
+    &lt;/script&gt;
+</code>
+        </pre>
+
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/navbar'], function($){
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/**
+ * Created by x2wen on 2016/7/1.
+ */
+@import "variables.less";
+
+.n-flyout {
+  position: absolute;
+
+  &[data-expand="true"] {
+    ul.n-flyout-open.n-flyout-activity-area-tabs {
+      background: none;
+      &:focus, &:active {
+        background: none;
+      }
+    }
+  }
+
+  .n-flyout-container.n-flyout-activity-area{
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 3px 0 10px @n-flyout-activity-area-shadow;
+
+    .n-flyout-activity {
+       height: 100%;
+       width: 100%;
+    }
+    .mCustomScrollBox{
+      border-radius: 0;
+      .mCSB_container{
+        //width: 100%;
+      }
+    }
+
+    .n-flyout-foot {
+      height: 51px;
+      border-bottom-right-radius: @list-group-border-radius;
+      border-bottom-left-radius: @list-group-border-radius;
+      border-top-right-radius: 0;
+      padding: 10px;
+      background: linear-gradient(to bottom, @n-flyout-activity-area-foot-bg-gradient-start 0%, @n-flyout-activity-area-foot-bg-gradient-end 100%) repeat-x;
+      border-bottom: 1px solid @n-flyout-activity-area-foot-border;
+      border-top: 1px solid @n-flyout-activity-area-foot-border;
+      .n-inputfield {
+        height: 32px;
+        padding: 6px 7px;
+      }
+      .form-control{
+        color: @gray-global;
+        &:hover {
+          color: @gray-dark;
+          border-color: @blue-hover;
+          box-shadow: @button-drop-shadow-hover;
+        }
+      }
+    }
+
+    .panel {
+      margin-bottom: 0;
+      .panel-heading {
+        border-top-left-radius: 0;
+        .icon-settings:before {
+          position: relative;
+          color: @gray-global;
+          content: "\e618";
+          font-size: 15px;
+        }
+
+        a{
+          span{
+            top: -16px;
+            left: 383px;
+            width: 0;
+          }
+        }
+      }
+    }
+
+    .n-flyout-message-right, .n-flyout-message-left{
+      margin: 20px 0 20px 21px;
+      overflow: hidden;
+
+      .n-flyout-content{
+        height: 400px;
+      }
+
+      .content {
+        position: relative;
+        padding: 10px 12px;
+        border-radius: @list-group-border-radius;
+        background-color: @n-flyout-message-content-background;
+        height: auto;
+        display: inline-block;
+        width: 340px;
+        .time {
+          position: absolute;
+          left: 307px;
+          font-family: 'Nokia Pure';
+          font-weight: normal;
+          color: @gray-global;
+        }
+        .n-link{
+          position: relative;
+          left: -4px;
+          top: 0;
+          line-height: 17px;
+        }
+
+        p {
+          line-height: 17px;
+          margin: 0;
+          font-family: 'Nokia Pure';
+          font-weight: 300;
+          color: @gray-nav;
+        }
+      }
+    }
+
+    .n-flyout-message-left {
+      .content{
+        margin-left: 31px;
+      }
+      .icon-profile:before {
+        color: @gray-medium;
+        content: "\e632";
+        position: absolute;
+        top: -19px;
+        left: -41px;
+        font-size: 16px;
+      }
+      .content::after {
+        position: absolute;
+        left: -7px;
+        top: 13px;
+        content: '';
+        border-top: 7px solid transparent;
+        border-right: 10px solid @n-flyout-message-left-content-border-right;
+        border-bottom: 7px solid transparent;
+      }
+    }
+
+    .n-flyout-message-right {
+      .content{
+        margin-right: 31px;
+      }
+      .icon-profile:before {
+        color: @gray-medium;
+        content: "\e632";
+        position: absolute;
+        font-size: 16px;
+        top: -19px;
+        left: 341px;
+      }
+      .content::after {
+        position: absolute;
+        left: 337px;
+        top: 13px;
+        content: '';
+        border-top: 7px solid transparent;
+        border-left: 10px solid @n-flyout-message-right-content-border-left;
+        border-bottom: 7px solid transparent;
+      }
+    }
+  }
+
+
+
+  .n-flyout-container.n-flyout-activity-area.left{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 0px;
+    box-shadow: -3px 0 10px @n-flyout-activity-area-shadow;
+  }
+
+  ul.n-flyout-open.n-flyout-activity-area-tabs {
+    position: absolute;
+    outline: none;
+    width: 43px;
+    height: 108px;
+    line-height: 108px;
+    padding: 0 0 0 8px;
+    background:none;
+    &:active {
+      background: none !important;
+    }
+  }
+
+  ul.n-flyout-activity-area-tabs {
+    z-index: 1;
+    li {
+      padding: 0;
+      margin: 0 -4px;
+      display: inline-block;
+      position: absolute;
+      list-style-type:none;
+
+      .icon-bubble {
+        font-size: 18px;
+        left: -32px;
+      }
+
+      .icon-list {
+         font-size: 16px;
+         left: -34px;
+      }
+
+      span.border-container {
+        margin: 0 2px 0 40px;
+        height: 34px;
+        width: 100%;
+      }
+
+      span.border-container.left{
+        margin: 0 2px 0 52px;
+        height: 34px;
+        width: 100%;
+      }
+
+      a {
+        width: 43px;
+        color: @n-flyout-activity-area-tabs-item-text;
+        display: inline-block;
+        font-weight: normal;
+        text-decoration: none;
+        background: url("../img/flyout-anchor.png") no-repeat -2px 0;
+        &:active {
+          outline: none;
+        }
+        &:hover {
+          outline: none;
+          span.border-container {
+          }
+        }
+        &:focus {
+          outline: none;
+          background: url("../img/flyout-anchor_focused.png") no-repeat -2px 0;
+          span.border-container {
+          }
+        }
+      }
+
+      a.left{
+        width: 43px;
+        color: @n-flyout-activity-area-tabs-item-text;
+        display: inline-block;
+        font-weight: normal;
+        text-decoration: none;
+        background: url("../img/flyout-anchor-left.png") no-repeat -1px 0;
+        &:active {
+          outline: none;
+        }
+        &:hover {
+          outline: none;
+          span.border-container {
+          }
+        }
+        &:focus {
+          outline:@blue-selection;
+          background: url("../img/flyout-anchor-left_focused.png") no-repeat -1px 0;
+          span.border-container {
+          }
+        }
+
+
+      }
+    }
+  }
+}
+
+

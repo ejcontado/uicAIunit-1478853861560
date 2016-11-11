@@ -1,0 +1,20 @@
+<div class="panel panel-shadow">
+    <div class="panel-heading">
+        <h1>{{$ctrl.navTitle}}</h1>
+    </div>
+    <ul class="nav-local nav-local-menu nav-local" ng-class="$ctrl.ulClass" >
+        <li class="nav-local-menu-item" ng-class="tab.selected" ng-repeat="tab in $ctrl.tabs">
+            <a href ng-click="$ctrl.select($index)">
+                <span ng-if="tab.icon" class="icon {{tab.icon}}"></span>
+                <span >{{tab.tabName}}</span>
+                <span ng-class="$ctrl.caretClass" ng-if="tab.selected"></span>
+            </a>
+        </li>
+    </ul>
+    <div class="panel-body"  >
+        <div class="panel-section text-center" ng-repeat="content in $ctrl.tabs" ng-if="content.selectedContent">
+            {{content.tabContent}}
+        </div>
+    </div>
+</div>
+

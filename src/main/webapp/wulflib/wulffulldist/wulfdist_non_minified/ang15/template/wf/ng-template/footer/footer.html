@@ -1,0 +1,17 @@
+<div  class="n-footer-bordered">
+    <div class="n-footer-left" ng-if="$ctrl.links !== undefined">
+        <ul>
+            <li ng-repeat="link in $ctrl.links"><a ng-href="{{link.href}}" class="n-footer-links">{{link.name}}</a></li>
+        </ul>
+    </div>
+    <div class="n-footer-right">
+        <div class="n-footer-copyright" ng-if="$ctrl.copyright !== undefined">
+            &copy;{{$ctrl.copyright}}
+        </div>
+        <div class="n-footer-icons" ng-if="$ctrl.icons !== undefined">
+            <a  ng-repeat="item in $ctrl.icons" ng-href="{{item.href}}" class="item-icon">
+                <img ng-src="{{item.src}}">
+            </a>
+        </div>
+    </div>
+</div>

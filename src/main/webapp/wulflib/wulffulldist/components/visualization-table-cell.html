@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.visualizationtablecell.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Visualization table cell</title>
+</head>
+<body>
+<table class="visualizationtablecell">
+    <thead>
+    <tr>
+        <th>ghi</th>
+        <th>abc</th>
+        <th>def</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>ACME</th>
+        <td class="normal"><a href="#">1000</a></td>
+        <td class="normal">1947</td>
+    </tr>
+    <tr>
+        <th>XYZ</th>
+        <td class="normal"><a href="#">1000</a></td>
+        <td class="error"><a href="#">1973</a></td>
+    </tr>
+    </tbody>
+</table>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/visualizationtablecell']);
+</script>
+</body>
+</html>

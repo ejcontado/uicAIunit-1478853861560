@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Form</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_input_field">Form</h1>
+<hr>
+<div class="row">
+<div class="col-md-12">
+    <div class="col-md-5">
+        <div id="angular_form" class="row" ng-controller="formDemoController as demo">
+            <wf-panels header="Normal horizontal form" id="TA-form-normal">
+                <wf-panel-section id="TA-form-normal-section">
+                    <form class="form-horizontal" id="form" name="wfForm" novalidate>
+                        <div class="form-group" id="TA-form-normal-group0">
+                            <label class="col-sm-4 control-label">Gender:</label>
+
+                            <div class="col-sm-4">
+                                <wf-dropdown pattern="demo.standardPullDownInstance.type"
+                                             disable="demo.standardPullDownInstance.disable" id="TA-form-normal-group0-dropdown">
+                                    <wf-dropdown-item value="" label="demo.items[0].label"
+                                                      disable="demo.items[0].disable"
+                                                      select="demo.items[0].select"
+                                                      id="TA-form-normal-group0-dropdownItem0"></wf-dropdown-item>
+                                    <wf-dropdown-item value="demo.items[1].value" label="demo.items[1].label"
+                                                      disable="demo.items[1].disable"
+                                                      select="demo.items[1].select"
+                                                      id="TA-form-normal-group0-dropdownItem1"></wf-dropdown-item>
+                                </wf-dropdown>
+                            </div>
+                        </div>
+                        <div class="form-group"
+                             ng-class="{'input-error' : wfForm.email.$invalid && !wfForm.email.$pristine}" id="TA-form-normal-group1">
+                            <label class="col-sm-4 control-label">Email address:</label>
+
+                            <div class="col-sm-8">
+                                <input type="email" name="email" class="form-control n-inputfield"
+                                       ng-disabled="false"
+                                       ng-model="emailaddress" placeholder="<Enter email>" id="TA-form-normal-group1-input">
+                                <a ng-if="wfForm.email.$invalid && !wfForm.email.$pristine"
+                                   class="form-control-feedback"><span class="icon icon-input-error"></span></a>
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-normal-group2">
+                            <label class="col-sm-4 control-label">Password:</label>
+
+                            <div class="col-sm-8">
+                                <input type="password" name="password" class="form-control n-inputfield"
+                                       ng-disabled="false"
+                                       ng-model="password" placeholder="<Password>" required id="TA-form-normal-group2-input">
+                                <a ng-if="wfForm.password.$invalid" class="form-control-feedback"><span class="icon icon-mandatory"></span></a>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="TA-form-normal-group3">
+                            <label id="exampleInputDomain1" class="col-sm-4 control-label control-label-disabled">Domain:</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control n-inputfield" ng-disabled="true"
+                                       ng-model="domain" placeholder="Domain" id="TA-form-normal-group3-input">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-normal-group4">
+                            <label class="col-sm-4 control-label">Existing value:</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control n-inputfield" ng-readonly="true"
+                                       tabindex="-1"
+                                       id="existingValue" value="You have already a password">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-normal-group5">
+                            <label class="col-sm-4 control-label">Selectable values:</label>
+
+                            <div class="col-sm-4">
+                                <div class="checkbox" id="TA-form-normal-group5-checkbox0">
+                                    <input id="val1" type="checkbox" checked="">
+                                    <label id="TA_form_Selectablevalue1" for="val1">Value 1</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="checkbox" id="TA-form-normal-group5-checkbox1">
+                                    <input id="val2" type="checkbox">
+                                    <label id="TA_form_Selectablevalue2" for="val2">Value 2</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-normal-group6">
+                            <label class="col-sm-4 control-label">Option selection:</label>
+
+                            <div class="col-sm-4">
+                                <div class="radio" id="TA-form-normal-group6-radio0">
+                                    <input id="option1" name="colorOptionGroup" class="n-radio-btn" type="radio">
+                                    <label id="TA_form_Optionselection1" for="option1">Red</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="radio" id="TA-form-normal-group6-radio1">
+                                    <input id="optionGreen" name="colorOptionGroup" class="n-radio-btn" type="radio"
+                                           checked="">
+                                    <label id="TA_form_Optionselection2" for="optionGreen">Green</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="TA_form_button1" type="submit" class="btn" ng-disabled="wfForm.$invalid">
+                            Submit
+                        </button>
+                    </form>
+                </wf-panel-section>
+            </wf-panels>
+        </div>
+
+        <div id="angular_form_small" class="row">
+            <wf-panels header="Small horizontal form" id="TA-form-small">
+                <wf-panel-section id="TA-form-small-section">
+                    <form class="form-horizontal" id="smallForm">
+                        <div class="form-group" id="TA-form-small-group0">
+                            <label class="col-sm-4 control-label">Password:</label>
+
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control n-inputfield n-inputfield-small"
+                                       ng-disabled="false"
+                                       ng-model="password" placeholder="<Password>" id="TA-form-small-group0-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="TA-form-small-group1">
+                            <label class="col-sm-4 control-label control-label-disabled">Domain:</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small"
+                                       ng-disabled="true"
+                                       ng-model="domain" placeholder="Domain" id="TA-form-small-group1-input">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-small-group2">
+                            <label class="col-sm-4 control-label">Existing value:</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small"
+                                       ng-readonly="true" tabindex="-1"
+                                       value="You have already a password" id="TA-form-small-group2-input">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-small-group3">
+                            <label class="col-sm-4 control-label">Small selectable:</label>
+
+                            <div class="col-sm-4">
+                                <div class="checkbox checkbox-small" id="TA-form-small-group3-checkbox0">
+                                    <input id="smallChkbox1" type="checkbox" checked="">
+                                    <label id="smallChkboxValue1" for="smallChkbox1">Value 1</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="checkbox checkbox-small" id="TA-form-small-group3-checkbox1">
+                                    <input id="smallChkbox2" type="checkbox">
+                                    <label id="smallChkboxValue2" for="smallChkbox2">Value 2</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-small-group4">
+                            <label class="col-sm-4 control-label">Small option:</label>
+
+                            <div class="col-sm-4">
+                                <div class="radio radio-small" id="TA-form-small-group4-radio0">
+                                    <input id="smallVal2" name="colorsmallOptionGroup" class="n-radio-btn"
+                                           type="radio">
+                                    <label id="smallValOption" for="smallVal2">Red</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="radio radio-small" id="TA-form-small-group4-radio1">
+                                    <input id="smallOptionGroup" name="colorsmallOptionGroup" class="n-radio-btn"
+                                           type="radio" checked="">
+                                    <label id="smallOption" for="smallOptionGroup">Green</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-small">Submit</button>
+                    </form>
+                </wf-panel-section>
+            </wf-panels>
+        </div>
+
+        <div id="angular_form_labels_above_the_control" class="row" ng-controller="formDemoController as demo">
+            <wf-panels header="Form with labels above the control" id="TA-form-label">
+                <wf-panel-section id="TA-form-label-section">
+                    <form class="form-horizontal" id="labelsAboveTheControl">
+                        <div class="form-group" id="TA-form-label-group0">
+                            <label class="col-sm-12 control-label">Gender:</label>
+
+                            <div class="col-sm-4">
+                                <wf-dropdown pattern="demo.standardPullDownInstance.type"
+                                             disable="demo.standardPullDownInstance.disable" id="TA-form-label-group0-dropdown">
+                                    <wf-dropdown-item value="" label="demo.items[0].label"
+                                                      disable="demo.items[0].disable"
+                                                      select="demo.items[0].select"
+                                                      id="TA-form-label-group0-dropdownItem0"></wf-dropdown-item>
+                                    <wf-dropdown-item value="demo.items[1].value" label="demo.items[1].label"
+                                                      disable="demo.items[1].disable"
+                                                      select="demo.items[1].select"
+                                                      id="TA-form-label-group0-dropdownItem1"></wf-dropdown-item>
+                                </wf-dropdown>
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-label-group1">
+                            <label class="col-sm-12 control-label">Email address:</label>
+
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control n-inputfield" ng-disabled="false"
+                                       ng-model="emailaddress" placeholder="<Enter email>" id="TA-form-label-group1-input">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-label-group2">
+                            <label class="col-sm-12 control-label">Password:</label>
+
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control n-inputfield" ng-disabled="false"
+                                       ng-model="password" placeholder="<Password>" id="TA-form-label-group2-input">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-label-group3">
+                            <label class="col-sm-12 control-label control-label-disabled">Domain:</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control n-inputfield" ng-disabled="true"
+                                       ng-model="domain" placeholder="Domain" id="TA-form-label-group3-input">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-label-group4">
+                            <label class="col-sm-12 control-label">Existing value:</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control n-inputfield" ng-readonly="true"
+                                       tabindex="-1"
+                                       value="You have already a password" id="TA-form-label-group4-input">
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-label-group5">
+                            <label class="col-sm-12 control-label">Selectable values:</label>
+
+                            <div class="col-sm-12">
+                                <div class="checkbox" id="TA-form-label-group5-checkbox0">
+                                    <input id="labelsAboveVal1" type="checkbox" checked="">
+                                    <label for="labelsAboveVal1">Value 1</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="checkbox" id="TA-form-label-group5-checkbox1">
+                                    <input id="labelsAboveVal2" type="checkbox">
+                                    <label for="labelsAboveVal2">Value 2</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="TA-form-label-group7">
+                            <label class="col-sm-12 control-label">Option selection:</label>
+                            <div class="col-sm-12">
+                                <div class="radio" id="TA-form-label-group7-radio0">
+                                    <input id="labelsAboveColor1" name="labelAboveColorOptionGroup"
+                                           class="n-radio-btn" type="radio">
+                                    <label for="labelsAboveColor1">Red</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="radio" id="TA-form-label-group7-radio1">
+                                    <input id="labelsAboveColor2" name="labelAboveColorOptionGroup"
+                                           class="n-radio-btn" type="radio"
+                                           checked="">
+                                    <label for="labelsAboveColor2">Green</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" id="TA_form_button3" class="btn pull-right">Submit</button>
+                        </div>
+                    </form>
+                </wf-panel-section>
+            </wf-panels>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h2>Overview</h2>
+
+        <p>We did not capsulate form but just show how to use directive to update component status. Detail angular input
+            text information please refer to <a href="#"
+                                                onclick="javascript:window.open('https://docs.angularjs.org/api/ng/directive/form');">https://docs.angularjs.org/api/ng/directive/form</a>.
+            <br/>
+            Angular provides properties on forms that help us validate them. They give us various information about a
+            form or its inputs and are applied to a form and inputs.
+            <br/>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Property</th>
+                <th>Class</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>$valid</td>
+                <td>
+                    <code>ng-valid</code>
+                </td>
+                <td>
+                    Boolean Tells whether an item is currently valid based on the rules you placed
+                </td>
+            </tr>
+            <tr>
+                <td>$invalid</td>
+                <td>
+                    <code>ng-invalid</code>
+                </td>
+                <td>
+                    Boolean Tells whether an item is currently invalid based on the rules you placed.
+                </td>
+            </tr>
+            <tr>
+                <td>$invalid</td>
+                <td>
+                    <code>ng-invalid</code>
+                </td>
+                <td>
+                    Boolean Tells whether an item is currently invalid based on the rules you placed.
+                </td>
+            </tr>
+            <tr>
+                <td>$pristine</td>
+                <td>
+                    <code>ng-pristine</code>
+                </td>
+                <td>
+                    Boolean True if the form/input has not been used yet.
+                </td>
+            </tr>
+            <tr>
+                <td>$dirty</td>
+                <td><code>ng-dirty</code></td>
+                <td>Boolean True if the form/input has been used.</td>
+            </tr>
+            </tbody>
+        </table>
+        <br/>
+        Angular also provides classes on the form and its inputs so that you can style each state accordingly.
+        </p>
+        <strong>A few key points to note here: </strong>
+        <br/>
+        <tr>
+            <td><code>novalidate</code>:</td>
+            <td>This will prevent the default HTML5 validations</td>
+        </tr>
+        <br/>
+        We have applied <code>ng-model</code> to our inputs so that we have data from our forms bound to Angular
+        variables.
+        <br/>
+        If password is require, add <code>required</code> to the input element. The email input is
+        <code>type="email"</code>
+        <br/>
+        <br/>
+        Validation Rules
+        Angular provides many validation rules that we can use in addition to <code>ng-minlength</code> and <code>ng-maxlength</code>.
+        <br/>
+        These are the available parameters for an Angular input to create validation rules. <a href="#"
+                                                                                               onclick="javascript:window.open('https://docs.angularjs.org/api/ng/directive/input');">Read the Angular input</a>
+        directive for more information.
+        <br/>
+        <code>&lt;input ng-model="{string}" name="{string}" required ng-required="{boolean}" ng-minlength="{number}" ng-maxlength="{number}" ng-pattern="{string}" ng-change="{string}"&gt;&lt;/input&gt;</code>
+        <br/>
+        <br/>
+        <strong>Disabling the Submit Button ng-disabled:</strong>
+            <code>
+                <br/>
+                <!-- SUBMIT BUTTON -->
+                &lt;button type="submit" class="btn" ng-disabled="wfForm.$invalid"&gt;Submit&lt;/button&gt;
+                <br/>
+            </code>
+        <br/>
+        With just that little code (<code>ng-disabled</code>), our form button will be disabled if the form is <code>$invalid</code>. This means that our password input field is required and our email input field requires a valid email.
+        <br/>
+        <br/>
+        <strong>Showing an Error Message ng-if:</strong>
+        <br/>
+        <code>ng-valid</code> and <code>ng-invalid</code> will automatically determine if an input is good based on the rules placed on it in your form.
+        <br/>
+        Angular will automatically determine if we should show an error based on an inputs $invalid and $pristine properties.
+        <br/>
+        <code>ng-class</code> allows us to add classes based on an expression. In this case, we want to add a input-error class to our form-group if an input is $invalid and not pristine.
+        <br/>
+        The way it works is ng-class="{ &lt;class-you-want&gt; : &lt;expression to be evaluated &gt; }". For more information, read the <a href="#" onclick="javascript:window.open('https://docs.angularjs.org/api/ng/directive/ngClass');">Angular ngClass docs</a>.
+        <br/>
+        <pre ng-non-bindable>
+<code data-language="html">
+<div class="form-group"
+     ng-class="{'input-error' : wfForm.email.$invalid && !wfForm.email.$pristine}">
+    <label class="col-sm-4 control-label">Email address:</label>
+    <div class="col-sm-8">
+        <input type="email" name="email" class="form-control n-inputfield"
+               ng-disabled="false"
+               ng-model="emailaddress" placeholder="<Enter email>">
+        <a ng-if="wfForm.email.$invalid && !wfForm.email.$pristine" class="form-control-feedback"><span class="icon icon-input-error"></span></a>
+    </div>
+</div>
+</code>
+        </pre>
+        <br/>
+        <strong>Submitting a form:</strong>
+        <br/>
+        You can use one of the following two ways to specify what javascript method should be called when a form is submitted:
+        <br/>
+        <code>ngSubmit</code> directive on the form element
+        <br/>
+        <code>ngClick</code> directive on the first button or input field of type submit (input[type=submit])
+        <br/>
+        To prevent double execution of the handler, use only one of the ngSubmit or ngClick directives. This is because of the following form submission rules in the HTML specification:
+    </div>
+</div>
+</div>
+
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+&lt;div id="angular_form" class="row" ng-controller="formDemoController as demo"&gt;
+    &lt;wf-panels header="Normal horizontal form"&gt;
+        &lt;wf-panel-section&gt;
+            &lt;form class="form-horizontal" id="form" name="wfForm"
+                  novalidate&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label class="col-sm-4 control-label"&gt;Gender:&lt;/label&gt;
+
+                    &lt;div class="col-sm-4"&gt;
+                        &lt;wf-dropdown pattern="demo.standardPullDownInstance.type"
+                                     disable="demo.standardPullDownInstance.disable"&gt;
+                            &lt;wf-dropdown-item value="" label="demo.items[0].label"
+                                              disable="demo.items[0].disable"
+                                              select="demo.items[0].select"&gt;&lt;/wf-dropdown-item&gt;
+                            &lt;wf-dropdown-item value="demo.items[1].value" label="demo.items[1].label"
+                                              disable="demo.items[1].disable"
+                                              select="demo.items[1].select"&gt;&lt;/wf-dropdown-item&gt;
+                        &lt;/wf-dropdown&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"
+                     ng-class="{'input-error' : wfForm.email.$invalid && !wfForm.email.$pristine}"&gt;
+                    &lt;label class="col-sm-4 control-label"&gt;Email address:&lt;/label&gt;
+
+                    &lt;div class="col-sm-8"&gt;
+                        &lt;input type="email" name="email" class="form-control n-inputfield"
+                               ng-disabled="false"
+                               ng-model="emailaddress" placeholder="&lt;Enter email&gt;"&gt;
+                        &lt;a ng-if="wfForm.email.$invalid && !wfForm.email.$pristine"
+                           class="form-control-feedback"&gt;&lt;span class="icon icon-input-error"&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label class="col-sm-4 control-label"&gt;password:&lt;/label&gt;
+
+                    &lt;div class="col-sm-8"&gt;
+                        &lt;input type="text" name="password" class="form-control n-inputfield"
+                               ng-disabled="false"
+                               ng-model="password" placeholder="&lt;Password&gt;" required&gt;
+                        &lt;a ng-if="wfForm.password.$invalid" class="form-control-feedback"&gt;&lt;span class="icon icon-mandatory"&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="form-group"&gt;
+                    &lt;label id="exampleInputDomain1" class="col-sm-4 control-label control-label-disabled"&gt;Domain:&lt;/label&gt;
+
+                    &lt;div class="col-sm-8"&gt;
+                        &lt;input type="text" class="form-control n-inputfield" ng-disabled="true"
+                               ng-model="domain" placeholder="Domain"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label class="col-sm-4 control-label"&gt;Existing value:&lt;/label&gt;
+
+                    &lt;div class="col-sm-8"&gt;
+                        &lt;input type="text" class="form-control n-inputfield" ng-readonly="true"
+                               tabindex="-1"
+                               id="existingValue" value="You have already a password"&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label class="col-sm-4 control-label"&gt;Selectable values:&lt;/label&gt;
+
+                    &lt;div class="col-sm-4"&gt;
+                        &lt;div class="checkbox"&gt;
+                            &lt;input id="val1" type="checkbox" checked=""&gt;
+                            &lt;label id="TA_form_Selectablevalue1" for="val1"&gt;Value 1&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="col-sm-4"&gt;
+                        &lt;div class="checkbox"&gt;
+                            &lt;input id="val2" type="checkbox"&gt;
+                            &lt;label id="TA_form_Selectablevalue2" for="val2"&gt;Value 2&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="form-group"&gt;
+                    &lt;label class="col-sm-4 control-label"&gt;Option selection:&lt;/label&gt;
+
+                    &lt;div class="col-sm-4"&gt;
+                        &lt;div class="radio"&gt;
+                            &lt;input id="option1" name="colorOptionGroup" class="n-radio-btn" type="radio"&gt;
+                            &lt;label id="TA_form_Optionselection1" for="option1"&gt;Red&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="col-sm-4"&gt;
+                        &lt;div class="radio"&gt;
+                            &lt;input id="optionGreen" name="colorOptionGroup" class="n-radio-btn" type="radio"
+                                   checked=""&gt;
+                            &lt;label id="TA_form_Optionselection2" for="optionGreen"&gt;Green&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button id="TA_form_button1" type="submit" class="btn" ng-disabled="wfForm.$invalid"&gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/wf-panel-section&gt;
+    &lt;/wf-panels&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable><code data-language="javascript">
+require(['angular', 'angularAnimate', 'wulf-ng/panels/panels', 'wulf-ng/dropdowns/dropdowns',
+'wulf-ng/form/form','wulf-ng/tabs/tabs'], function(angular) {
+    angular.module('wf.ng.demo', ['wf.angular.panels', 'wf.angular.dropdowns',
+    'wf.angular.form','wf.angular.tabs']).controller('formDemoController', formDemoController);
+
+    function formDemoController() {
+        var makeSection = function(title, divClass, content) {
+            return {
+                title: title,
+                divClass: divClass,
+                content: content
+            }
+    };
+
+    this.disable = false;
+
+    var newPullDownInstance = function(type, disable) {
+        return {
+            type: type,
+            disable: disable
+        }
+    };
+
+    var newPullDownItemInstance = function(value, label, disable, select) {
+        return {
+            value: value,
+            label: label,
+            disable: disable,
+            select: select
+        }
+    };
+
+    this.standardPullDownInstance = newPullDownInstance("standard", false);
+    this.items = [newPullDownItemInstance('female', 'female', false, true),
+    newPullDownItemInstance('male', 'male', false, false)];}
+
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, ['wf.ng.demo'], {
+            strictDi: true
+        });
+    });
+});
+                </code></pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'angularAnimate', 'wulf-ng/panels/panels.tlp.min', 'wulf-ng/dropdowns/dropdowns.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function(angular) {
+        angular.module('wf.ng.demo', ['wf.angular.panels', 'wf.angular.dropdowns','wf.angular.tabs']).controller('formDemoController', formDemoController);
+
+        function formDemoController() {
+            var makeSection = function(title, divClass, content) {
+                return {
+                    title: title,
+                    divClass: divClass,
+                    content: content
+                }
+            };
+
+            this.disable = false;
+
+            var newPullDownInstance = function(type, disable) {
+                return {
+                    type: type,
+                    disable: disable
+                }
+            };
+
+            var newPullDownItemInstance = function(value, label, disable, select) {
+                return {
+                    value: value,
+                    label: label,
+                    disable: disable,
+                    select: select
+                }
+            };
+            this.standardPullDownInstance = newPullDownInstance("standard", false);
+            this.items = [newPullDownItemInstance('Female', 'Female', false, true), newPullDownItemInstance('Male', 'Male', false, false)];
+        }
+
+        angular.element(document).ready(function() {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+        setTimeout(Rainbow.color, 1000);
+    });
+</script>
+</body>
+</html>

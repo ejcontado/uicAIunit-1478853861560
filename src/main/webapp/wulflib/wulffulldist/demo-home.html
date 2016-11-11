@@ -1,0 +1,112 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content">
+
+<div class="row">
+    <div class="col-md-8">
+        <h1>Nokia WULF is a HTML, CSS and JS framework for developing web applications</h1>
+        <ul>
+            <li>
+                Follows <strong>Nokia Look & Feel</strong> Guidelines - <a
+                href="https://sharenet-ims.inside.nokiasiemensnetworks.com/Download/D521667724" class="n-link"
+                target="_blank"
+                >Ocean Touch 3.0
+                (OT3.0)</a> and <a
+                href="https://sharenet-ims.int.net.nokia.com/Download/D541492841" class="n-link"
+                target="_blank"
+                >Ocean Touch 3.1
+                (OT3.1)</a>
+            </li>
+            <li>
+                <strong>Easy to update</strong> for future L&F rules, easily upgradeable platform solutions
+            </li>
+            <li>
+                <strong>Responsive</strong>, scaling to different screen sizes from phones to big PC screens
+            </li>
+            <li>
+                <strong>Light-weight</strong> and small, not using pictures
+            </li>
+            <li>
+                <strong>Accessibility</strong> taken into account
+            </li>
+            <li>
+                <strong>Cross-browser</strong> support
+            </li>
+            <li>
+                <strong>Multiple variants</strong> for different technologies
+            </li>
+        </ul>
+        <div class="col-sm-3">
+            <a class="btn btn-standard" type="button" href="demo-download.html" id="downloadButton">Download
+                WULF</a>
+        </div>
+        <div class="col-sm-3">
+            <a class="btn btn-standard" type="button"
+               href="demo-get-started.html" id="gettingStartedButton">Getting Started</a>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <!-- Placeholder for video clip-->
+    </div>
+</div>
+<br>
+<hr>
+<br>
+
+<div class="row">
+    <div class="col-md-12">
+        <p><b>News</b></p>
+        <p>
+            - We have work ongoing for <a href="http://wulf-demo.dynamic.nsn-net.net/OT4.0/demo-frame.html" target="_blank" class="n-link">the next generation WULF</a>. That we have labeled as OT4.0 and it introduces the approved OT2016 style changes.<br>
+            <br>
+            - Work is starting for Angular 2 support in November.<br>
+        </p>
+        <br>
+        <hr>
+        <p>
+            <span class="draft">DRAFT</span> statement in component means that it is not yet ready (under
+            construction
+            still). It is possible for you to use such component, but please note that it can change still - a lot
+            even.<br>
+            If the draft statement appears in the component header, that whole component is draft. If there are
+            draft
+            statements inside the component, then only those sub-parts are draft.
+        </p>
+
+        <p>
+            Contact the developers by sending e-mail to: <a href="mailto:I_EXT_WULF@internal.nsn.com" class="n-link">WULF
+            development team</a>
+            (I_EXT_WULF@internal.nsn.com) or
+            <a href="mailto:nokia-wulf-user@mlist.emea.nsn-intra.net" class="n-link">WULF user mail list</a>
+            (nokia-wulf-user@mlist.emea.nsn-intra.net). <br>
+        </p>
+    </div>
+</div>
+
+<script src="assets/js/require.js"></script>
+<script src="assets/js/require-config.js"></script>
+<script>
+    require (['jquery'], function ($) {
+        // For switching the banner tab activation when jumping to other pages
+        $ (document).ready (function () {
+            // TODO use something else than * below ?
+            $ ('#downloadButton').click (function () {
+                window.parent.postMessage ('nav_download', '*');
+            });
+            $ ('#gettingStartedButton').click (function () {
+                window.parent.postMessage ('nav_get_started', '*');
+            });
+        });
+    });
+</script>
+</body>
+</html>

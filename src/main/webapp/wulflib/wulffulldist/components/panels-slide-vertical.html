@@ -1,0 +1,95 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Panel slide vertical</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_flyout_menu">Panel slide Vertical</h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4 flyout-demo">
+            <div class="panel panel-slide-vertical panel-shadow panel-blue-cap" id="TA-panelSlideVertical">
+                <div class="panel-heading" role="button" tabindex="0" id="TA-panelSlideVertical-head">
+                    <h1>
+                        <div class="panel-arrow">
+                            <span class="icon"></span>
+                            <label>Commissioning settings</label >
+                        </div>
+                    </h1>
+                </div>
+                <div class="panel-body" id="commissionSettings" style="display: none;" >
+                    <div class="panel-section">
+                        <h2>Title of section</h2>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="panel-section">
+                        <h2>Title of section</h2>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            JS & CSS dependency:
+        <pre>
+For Panel slide Vertical components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"&gt;
+        </pre>
+
+            <p>panel slide Toggle with Vertical</p>
+            <pre>
+<code>
+    &lt;div class="panel <span class="demo-highlight-color">panel-slide-vertical</span> panel-shadow panel-blue-cap"&gt;
+    &lt;div class="panel-heading" role="button" tabindex="0"&gt;
+    &lt;h1&gt;
+    &lt;div&gt;
+    &lt;span class="icon"&gt;&lt;/span&gt;
+    &lt;label &gt;Commissioning settings&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div class="panel-body" id="commissionSettings" style="display: none;" &gt;
+    ...
+    &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+    // isOpen if true body is block
+    // speed is 500
+    $(".panel-heading").slideToggleVertical({
+    isOpen:true,
+    speed:500
+    });
+    &lt;/script&gt;
+
+</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/panels'], function ($) {
+        $(".panel-heading").slideToggleVertical({
+            isOpen:true,
+            speed:500
+        });
+    });
+</script>
+</body>
+</html>

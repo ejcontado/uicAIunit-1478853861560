@@ -1,0 +1,58 @@
+/*!
+   * WULF_toggle v0.0.1 (http://networks.nokia.com/)
+   * Copyright 2015 Nokia Solutions and Networks. All rights Reserved.
+*/
+@import "variables.less";
+
+.n-drillDown-content-row{
+  //border: 1px solid rgba(255,255,255,.65);
+  border-top: 1px solid @n-drilldown-content-border;
+  border-bottom: 1px solid @n-drilldown-content-border;
+  border-top: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.n-drillDown-collapsed-row{
+  display: none;
+  position: relative;
+  width: 100%;
+}
+
+.n-drillDown-content-row{
+  .n-drillDown-inner:before{
+    content:'';
+    background: -webkit-linear-gradient(@n-drillDown-inner-before-bg-gradient-start ,@n-drillDown-inner-before-bg-gradient-end);
+    background: -o-linear-gradient(@n-drillDown-inner-before-bg-gradient-start, @n-drillDown-inner-before-bg-gradient-end);
+    background: -moz-linear-gradient(@n-drillDown-inner-before-bg-gradient-start, @n-drillDown-inner-before-bg-gradient-end);
+    background: linear-gradient(@n-drillDown-inner-before-bg-gradient-start, @n-drillDown-inner-before-bg-gradient-end);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width:100%;
+  }
+
+  .n-drillDown-inner{
+    padding:30px;
+    background: #D8D9DA;
+    height: 100%;
+    width:100%;
+    box-shadow: 12px 0 7px -12px @n-drillDown-inner-shadow-inset-left inset,-12px 0 7px -12px @n-drillDown-inner-shadow-inset-top inset,0 12px 30px -12px @n-drillDown-inner-shadow-inset-right inset,0 -12px 30px -12px @n-drillDown-inner-shadow-inset-bottom inset;
+  }
+
+  .n-drillDown-inner:after{
+    content:'';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    width:100%;
+  }
+}
+
+
+
+
+

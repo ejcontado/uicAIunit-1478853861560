@@ -1,0 +1,112 @@
+@import "variables.less";
+.n-flyout {
+  position: absolute;
+
+  .n-flyout-container {
+    position: relative;
+    display: inline-block;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 3px 0 10px @n-flyout-container-shadow;
+
+    .n-flyout-menu {
+      margin: 0;
+      padding: 0;
+      text-shadow: none;
+
+      li {
+        display: block;
+        height: 33px;
+        padding: 0;
+        border: none;
+        &.selected a {
+            color:@gray-white !important;
+            background-color:@blue-selection;
+        }
+        &:nth-child(odd) {
+          color: @n-flyout-menu-list-row-odd-text;
+          background-color: @n-flyout-menu-list-row-odd-background;
+        }
+
+        &:nth-child(even) {
+          color: @n-flyout-menu-list-row-even-text;
+          background-color: @n-flyout-menu-list-row-even-background;
+        }
+
+        &:first-child, &:last-child {
+          height: 37px;
+          a {
+            line-height: 37px;
+          }
+        }
+
+        &:first-child {
+          border-top-right-radius: 5px;
+        }
+
+        &:last-child {
+          border-bottom-right-radius: 5px;
+        }
+
+        a {
+          display: inline-block;
+          font-weight: normal;
+          font-size: 16px;
+          padding: 0 22px;
+          color: @n-flyout-menu-list-item-text;
+          line-height: 33px;
+          width: 100%;
+
+          span {
+            display: inline-block;
+            line-height: 1em;
+            vertical-align: middle;
+            border-bottom: 1px solid transparent;
+            padding: 2px 0;
+          }
+
+          &:focus, &:active {
+            outline: none;
+            span {
+              border-color: @blue-underline;
+            }
+          }
+
+          &:hover{
+            outline: none;
+            color: @n-flyout-menu-list-item-hover-text;
+            span {
+              border-color: @blue-underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .n-flyout-open {
+    position: absolute;
+    outline: none;
+    width: 43px;
+    height: 108px;
+    line-height: 108px;
+    padding: 0 0 0 8px;
+    background: url("../img/flyout-anchor.png") no-repeat -1px 0;
+
+    &:focus, &:active {
+      background: url("../img/flyout-anchor_focused.png") no-repeat -1px 0;
+    }
+  }
+
+  &[data-expand="true"]{
+    .n-flyout-open{
+      background: url("../img/flyout-anchor.png") no-repeat 0 0;
+
+      &:focus, &:active{
+        background: url("../img/flyout-anchor_focused.png") no-repeat 0 0;
+      }
+    }
+  }
+}
+
+

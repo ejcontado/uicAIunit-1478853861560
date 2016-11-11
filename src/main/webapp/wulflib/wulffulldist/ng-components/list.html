@@ -1,0 +1,313 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_list">List</h1>
+<hr>
+<div id="angular_content" ng-controller="DemoController as demo" ng-cloak >
+    <div class="row">
+        <div class="col-md-5">
+            <wf-list type="selection" heading="Statically defined list" id="TA-list-statically" disable="demo.listDisabled" on-item-selected="demo.onItemSelected">
+                <wf-list-item id="TA-list-statically-item0">Item one</wf-list-item>
+                <wf-list-item id="TA-list-statically-item1">Item item 2</wf-list-item>
+                <wf-list-item select="true" id="TA-list-statically-item2">Item item 3</wf-list-item>
+            </wf-list>
+            <wf-list style="margin-bottom: 25px" disable="demo.plainList.disabled" heading="Plain list supplied with an array of items" id="TA-list-plain">
+                <wf-list-item ng-repeat="item in demo.plainList.items" id="TA-list-plain-item{{$index}}">{{item.text}}</wf-list-item>
+            </wf-list>
+            <wf-list disable="demo.selectionList.disabled" type="selection" heading="Selection supporting list" id="TA-list-selection" on-item-selected="demo.onItemSelected">
+                <wf-list-item ng-repeat="item in demo.selectionList.items" select="item.select" id="TA-list-selection-item{{$index}}">{{item.text}}</wf-list-item>
+            </wf-list>
+            <wf-list disable="demo.stripedList.disabled" type="selection" heading="Alternating/Striped List" design="striped" id="TA-list-alternating" on-item-selected="demo.onItemSelected">
+                <wf-list-item id="TA-list-alternating-item0">Item one</wf-list-item>
+                <wf-list-item id="TA-list-alternating-item1">Item item 2</wf-list-item>
+                <wf-list-item id="TA-list-alternating-item2">Item item 3</wf-list-item>
+                <wf-list-item id="TA-list-alternating-item3">Item item 4</wf-list-item>
+                <wf-list-item id="TA-list-alternating-item4">Item item 5</wf-list-item>
+            </wf-list>
+            <wf-list disable="demo.darkList.disabled" type="selection" heading="Dark Design" design="dark" id="TA-list-dark" on-item-selected="demo.onItemSelected">
+                <wf-list-item id="TA-list-dark-item0">Dark Item 1</wf-list-item>
+                <wf-list-item id="TA-list-dark-item1">Dark Item 2</wf-list-item>
+                <wf-list-item id="TA-list-dark-item2">Dark Item 3</wf-list-item>
+                <wf-list-item id="TA-list-dark-item3">Dark Item 4</wf-list-item>
+            </wf-list>
+            <button id="TA-list-disabledListBtn" type="button" style="margin-bottom: 25px" class="btn btn-small" ng-click="demo.toggleState()">{{demo.listDisabled?"Enable":"Disable"}} lists</button>
+            <button id="TA-list-disabledActionBtn" type="button" style="margin-bottom: 25px" class="btn btn-small" ng-click="demo.enableDisableAction()">{{demo.actionState?"Disable":"Enable"}} callback action</button>
+         </div>
+    <div class="col-md-7">
+        <p>
+        <h2>Overview</h2>
+        Angular version of lists. It contains two components. <code>wf-list</code> which represents the container list and <code>wf-list-item</code> which represents a list item.
+        <br/><br/>
+        <h2>wf-list settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accepted values</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>type: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>basic</li>
+                        <li>selection</li>
+                    </ul>
+                </td>
+                <td>
+                    The type of list. Value <code>selection</code> allows list items to be selected via click or keyboard shortcuts.
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>false (Default)</li>
+                        <li>true</li>
+                    </ul>
+                </td>
+                <td>
+                    If true, disables the entire list along with the list items. <b>Note</b> that the selected item will still be selected when disabled/re-enabled.
+                </td>
+            </tr>
+            <tr>
+                <td><code>design: @</code></td>
+                <td>
+                    <ul>
+                        <li>standard (Default)</li>
+                        <li>striped</li>
+                        <li>dark</li>
+                    </ul>
+                </td>
+                <td>Design of the entire list</td>
+            </tr>
+            <tr>
+                <td><code>heading: @</code></td>
+                <td>
+                    <ul>
+                        <li>Any string</li>
+                    </ul>
+                </td>
+                <td>Intended heading for the list</td>
+            </tr>
+            <tr>
+                <td><code>on-item-selected: &</code></td>
+                <td>
+                    function(index, heading, event)
+                </td>
+                <td>
+                    Callback function when list item is selected.
+                    <ul>
+                        <li>index - current item index of the list</li>
+                        <li>heading - heading of the current list</li>
+                        <li>event - event when item is selected</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table><br/>
+        <h2>wf-list-item settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accepted values</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>select: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (default)</li>
+                    </ul>
+                </td>
+                <td>
+                    If true, sets the list item to be selected. This attribute will have no effect if list is not of type <code>selection</code>.
+                    Selected item persists on toggling disable. End users can easily override this behavior by setting <code>select</code> to false.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Keyboard accessibility</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Moves the list item focus</td>
+                <td><kbd>↓</kbd> / <kbd>↑</kbd></td>
+                <td>
+                    Focus normally spawns focus from the currently selected item.
+                </td>
+            </tr>
+            <tr>
+                <td>Selects the currently focused item</td>
+                <td><kbd>Space</kbd> / <kbd>Enter</kbd></td>
+                <td>Will do nothing if nothing is focused</td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Missing functionality</h2>
+        <ul>
+            <li>Scrollbar not support yet.</li>
+        </ul>
+    </div>
+    </div>
+    <hr>
+    <div class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+            <pre ng-non-bindable>
+                <code data-language="html">
+<wf-list type="selection" heading="Statically defined list" on-item-selected="demo.onItemSelected">
+    <wf-list-item>Item one</wf-list-item>
+    <wf-list-item>Item item 2</wf-list-item>
+    <wf-list-item select="true">Item item 3</wf-list-item>
+</wf-list>
+<wf-list disable="demo.plainList.disabled" heading="Plain list supplied with an array of items">
+    <wf-list-item ng-repeat="item in demo.plainList.items">{{item.text}}</wf-list-item>
+</wf-list>
+<wf-list disable="demo.selectionList.disabled" type="selection" heading="Selection supporting list" on-item-selected="demo.onItemSelected">
+    <wf-list-item ng-repeat="item in demo.selectionList.items" select="item.select">{{item.text}}</wf-list-item>
+</wf-list>
+<wf-list disable="demo.stripedList.disabled" type="selection" heading="Alternating/Striped List" design="striped" on-item-selected="demo.onItemSelected">
+    <wf-list-item>Item one</wf-list-item>
+    <wf-list-item>Item item 2</wf-list-item>
+    <wf-list-item>Item item 3</wf-list-item>
+    <wf-list-item>Item item 4</wf-list-item>
+    <wf-list-item>Item item 5</wf-list-item>
+</wf-list>
+<wf-list disable="demo.darkList.disabled" type="selection" heading="Dark Design" design="dark" on-item-selected="demo.onItemSelected">
+    <wf-list-item>Dark Item 1</wf-list-item>
+    <wf-list-item>Dark Item 2</wf-list-item>
+    <wf-list-item>Dark Item 3</wf-list-item>
+    <wf-list-item>Dark Item 4</wf-list-item>
+</wf-list>
+            </code>
+            </pre>
+         </wf-pane>
+            <wf-pane label="Javascript">
+            <pre>
+                <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.list', 'wf.angular.tabs'])
+.controller('DemoController', function () {
+    this.plainList = {};
+    this.selectionList = {};
+    this.stripedList = {};
+    this.darkList = {};
+
+    this.demoItems = [
+        { text: "Item one" },
+        { text: "Item two" },
+        { text: "Item three" }
+    ];
+
+    this.demoItemsWithSelectedText = [
+        { text : "Item one" },
+        { text : "This item should be selected...", select: true },
+        { text : "This is a very very very very very very very very very very very very very very long text, so much so that it should wrap to the next line." }
+    ];
+
+    this.plainList.items = this.demoItems;
+    this.plainList.disabled = false;
+
+    this.selectionList.items = this.demoItemsWithSelectedText;
+    this.selectionList.disabled = false;
+
+    this.stripedList.disabled = false;
+    this.darkList.disabled = false;
+
+    this.onItemSelected = function (index, heading) {
+        alert(heading +'  item '+ index +' is selected');
+    };
+});
+                    </code>
+                </pre>
+            </wf-tabs>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/list/list.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.list', 'wf.angular.tabs'])
+                .controller('DemoController', function () {
+                    var self = this;
+                    this.plainList = {};
+                    this.selectionList = {};
+                    this.stripedList = {};
+                    this.darkList = {};
+
+                    this.demoItems = [
+                        { text: "Item one" },
+                        { text: "Item two" },
+                        { text: "Item three" }
+                    ];
+
+                    this.demoItemsWithSelectedText = [
+                        { text : "Item one" },
+                        { text : "This item should be selected...", select: true },
+                        { text : "This is a very very very very very very very very very very very very very very long text, so much so that it should wrap to the next line." }
+                    ];
+
+                    this.plainList.items = this.demoItems;
+
+                    this.selectionList.items = this.demoItemsWithSelectedText;
+
+                    this.onItemSelected = function (index, heading) {
+                        if (self.actionState) {
+                            alert(heading +'  item '+ index +' is selected');
+                        }
+                    };
+
+                    this.actionState = false;
+                    this.enableDisableAction = function () {
+                        self.actionState = !self.actionState;
+                    };
+                    this.listDisabled = false;
+                    this.toggleState = function() {
+                        self.listDisabled = !self.listDisabled;
+                        this.plainList.disabled = !this.plainList.disabled;
+                        this.selectionList.disabled = !this.selectionList.disabled;
+                        this.stripedList.disabled = !this.stripedList.disabled;
+                        this.darkList.disabled = !this.darkList.disabled;
+                    }
+                });
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</html>

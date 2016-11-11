@@ -1,0 +1,862 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+//@import "@{less-path-of-bootstrap}buttons.less";
+@import "@{less-path-of-bootstrap}buttons.less";
+@import "./mixins/gradients.less";
+@import "./mixins/vendor-prefixes.less";
+@import "./mixins/border-radius.less";
+@import "./mixins/buttons.less";
+@import "./mixins/tab-focus.less";
+@import "./mixins/opacity.less";
+@import "variables.less";
+
+.btn {
+  margin: 4px;
+
+  #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+  color: @gray-dark;
+  border: @button-default-border;
+  text-shadow: @button-text-shadow-white;
+  box-shadow: @button-drop-shadow-normal;
+
+  outline: none !important;
+  border-radius: 7px;
+
+  &:focus {
+    #gradient > .vertical(@button-focus-gradient-start, @button-focus-gradient-end);
+    color: @gray-white;
+    border-color: @button-active-focus-border-color;
+    text-shadow: @button-text-shadow-dark;
+    box-shadow: @button-drop-shadow;
+    background-color: @gray-nav;
+  }
+
+  &:hover {
+    #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+    color: @gray-dark;
+    text-shadow: none;
+    border-color: @blue-hover;
+    box-shadow: @button-drop-shadow-hover;
+  }
+
+  &:hover:not(:focus) {
+    #gradient > .vertical (@button-basic-gradient-start, @button-basic-gradient-end);
+    color: @gray-dark;
+    border-color: @blue-hover;
+    box-shadow: @button-drop-shadow-hover;
+  }
+
+  &:active {
+    #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+    color: @gray-dark;
+    border: @button-default-border;
+    border-color: @button-active-border-color;
+    border-top-color: @button-active-top-border-color;
+    text-shadow: @button-text-shadow-white;
+    box-shadow: @button-drop-shadow-active;
+  }
+
+  &[disabled] {
+    color: @input-color-disabled !important;
+    #gradient > .vertical(@button-disabled-gradient-start, @button-disabled-gradient-end) !important;
+    border: @button-disabled-border !important;
+    box-shadow: @button-drop-shadow-disabled !important;
+    text-shadow: none !important;
+    opacity: 1;
+  }
+
+  &-icon,
+  &-icon-button {
+    height: 32px;
+    padding: 6px 8px 8px 8px;
+
+    > span:first-child.icon + span {
+      padding-left: 5px;
+      margin-right: 12px;
+    }
+
+    &:focus {
+      > .icon:before {
+        color: @gray-white;
+      }
+    }
+
+    &:hover {
+      > .icon:before {
+        color: @gray-dark;
+      }
+    }
+
+    &:active {
+      > .icon:before {
+        color: @gray-dark;
+      }
+    }
+
+    &[disabled] {
+      > .icon:before {
+        color: @gray-light !important;
+      }
+    }
+  }
+
+  &-icon {
+    background: none;
+    border: 1px solid transparent;
+    box-shadow: none;
+
+    &[disabled] {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+
+      /*----------when button is disabled, any state style will not apply, delete below code in future-------*/
+      //&:hover, &:active, &:focus {
+      //    border: none;
+      //    box-shadow: none;
+      //    text-shadow: none;
+      //}
+    }
+  }
+
+  &-large {
+    font-size: 18px;
+    height: 42px;
+    min-width: 104px;
+    padding-left: 24px;
+    padding-right: 24px;
+    border-radius: 7px;
+  }
+
+  &-standard {
+    font-size: 14px;
+    height: 32px;
+    min-width: 82px;
+    padding-top: 5px;
+    padding-left: 18px;
+    padding-right: 19px;
+    border-radius: 7px;
+  }
+
+  &-small {
+    font-size: 14px;
+    height: 26px;
+    min-width: 70px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 2px;
+    border-radius: 5px;
+  }
+
+  &-close, &-minimize, &-carousel-chrome-back, &-carousel-chrome-next {
+    height: 21px;
+    width: 21px;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 1px 0 0 0;
+  }
+
+  &-close-dlg {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    padding: 0;
+    box-sizing: content-box !important;
+  }
+
+  &-close {
+    line-height: 21px;
+    text-align: center;
+    &:focus:not(:active) {
+      .icon-close:before {
+        color: @gray-white;
+      }
+    }
+    &:hover:not(:active) {
+      .icon-close:before {
+        color: @gray-dark;
+      }
+    }
+
+    .icon-close:before {
+      color: #1B1B1B;
+    }
+  }
+
+  &-carousel-chrome-back, &-carousel-chrome-next {
+    line-height: 21px;
+    text-align: center;
+    font-size: 18px;
+
+    .icon:before {
+      color: @gray-dark;
+    }
+
+    &:focus:not(:active) {
+      .icon:before {
+        color: @gray-white;
+      }
+    }
+    &:hover:not(:active):not(:disabled) {
+      .icon:before {
+        color: @gray-dark;
+      }
+    }
+
+    &[disabled] {
+      .icon:before {
+        color: @gray-disabled;
+      }
+    }
+  }
+
+  &-carousel-chrome-back {
+    text-indent: -1px;
+  }
+  &-carousel-chrome-next {
+    text-indent: 0.5px;
+  }
+
+  &-close-dlg:after {
+    font-family: @font-family-icons;
+    content: "\e604"; // Icon size is 15x14
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    border-bottom: none;
+    line-height: 1em;
+  }
+
+  &-minimize:after {
+    content: "-";
+    top: -2px;
+    position: relative;
+  }
+
+  &-minimize:active {
+    color: @gray-dark;
+  }
+
+  &-action {
+    margin: 4px;
+
+    color: @gray-white;
+    border-color: @button-action-border-color-dark;
+    text-shadow: @button-text-shadow-dark;
+    box-shadow: @button-drop-shadow-dark;
+    background: @button-action-active-gradient-start;
+
+    &:hover:not(:focus) {
+      #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+      color: @gray-dark;
+      border-color: @blue-hover;
+      text-shadow: @button-text-shadow-white;
+      box-shadow: @button-drop-shadow-hover;
+    }
+
+    &:active {
+      #gradient > .vertical(@button-focus-gradient-end, @button-focus-gradient-start);
+      color: @gray-white;
+      border-left: @button-default-dotted-border;
+      border-right: @button-default-dotted-border;
+      border-bottom: none;
+      border-color: @button-focus-hover-border-color;
+      text-shadow: none;
+      box-shadow: none;
+    }
+
+    &[disabled] {
+      #gradient > .vertical(@action-button-disabled-gradient-start, @action-button-disabled-gradient-end) !important;
+      color: #f3f3f3 !important;
+      box-shadow: @button-drop-shadow-disabled !important;
+      border-color: @action-button-disabled-border-color !important;
+      text-shadow: none !important;
+      /*----------when button is disabled, any state style will not apply, delete below code in future-------*/
+      //&:hover {
+      //    box-shadow: @button-drop-shadow-disabled;
+      //    border: 1px solid @action-button-disabled-border-color;
+      //}
+    }
+  }
+
+  &-help, &-info {
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+    padding: 0;
+    color: @gray-white;
+    font-weight: bold;
+    box-shadow: none;
+    text-shadow: none;
+
+    &:focus {
+      background: @blue-selection;
+      border-color: @blue-selection;
+      text-shadow: none;
+      box-shadow: none;
+    }
+    &:hover, &:active {
+      background: @special-button-hover-background !important;
+      border: 1px solid @blue-hover !important;
+      text-shadow: none !important;
+      box-shadow: none !important;
+    }
+
+    &[disabled] {
+      border: 1px solid @gray-light !important;
+      background: @gray-light !important;
+    }
+    &:after {
+      box-shadow: none;
+      text-shadow: none;
+      position: relative;
+      top: -2px;
+      color: @gray-white;
+    }
+  }
+  &-help:after {
+    content: "?";
+  }
+  &-info:after {
+    content: "i"
+  }
+  &-help {
+    border: 1px solid @blue-selection;
+    background: @blue-selection;
+  }
+  &-info {
+    background: @brand-info;
+  }
+
+  &-defaultBlue {
+    border: 1px solid @default-button-border-color;
+    color: @gray-white;
+    box-shadow: 0 1px 3px 0 @default-button-box-shadow-color;
+    #gradient > .vertical(@default-button-background-start, @default-button-background-end);
+    &.btn-standard:not(:hover):not(:active):not(:focus):not(:disabled){
+      text-shadow: 0 -1px 0 @default-button-text-shadow-color;
+    }
+    & .icon:before {
+      color: @gray-white;
+    }
+    &:hover,
+    &:active {
+      & .icon:before {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.btn-comment {
+
+  .btn-comment-definitions {
+    text-shadow: none;
+    border: none;
+    box-shadow: none;
+    background-image: none;
+    color: transparent;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+
+  .btn-comment-definitions;
+
+  .icon:before {
+    color: @comment-button-background;
+    text-shadow: -1px 0.5px @comment-button-border, 1px 0.5px @comment-button-border, 1px 0.5px @comment-button-border, 0.5px -1px @comment-button-border;
+  }
+
+  &:hover:not(:active):not(:disabled) {
+    .btn-comment-definitions;
+
+    > .icon:before {
+      color: @comment-button-background;
+      text-shadow: -1px 0.5px @comment-button-hover, 1px 0.5px @comment-button-hover, 1px 0.5px @comment-button-hover, 0.5px -1px @comment-button-hover;
+    }
+  }
+
+  &:focus, &:active, &[disabled] {
+    .btn-comment-definitions;
+  }
+
+  &:focus {
+    > .icon:before {
+      color: @comment-button-focus;
+      text-shadow: none;
+    }
+  }
+
+  &:active {
+    > .icon:before {
+      color: @comment-button-pressed;
+      text-shadow: none;
+    }
+  }
+
+  &[disabled] {
+    > .icon:before {
+      color: @comment-button-disabled;
+      text-shadow: none;
+    }
+  }
+
+  &.active {
+    .btn-comment-definitions;
+
+    .icon:before {
+      color: @comment-button-selected;
+      text-shadow: none;
+    }
+
+    &:focus, &:hover:not(:active), &:active {
+      .btn-comment-definitions;
+    }
+
+    &:focus {
+      > .icon:before {
+        color: @comment-button-focus;
+        text-shadow: none;
+      }
+    }
+
+    &:hover:not(:active) {
+      > .icon:before {
+        color: @special-button-hover-background;
+        text-shadow: -1px 0.5px @comment-button-hover, 1px 0.5px @comment-button-hover, 1px 0.5px @comment-button-hover, 0.5px -1px @comment-button-hover;
+      }
+    }
+
+    &:active {
+      > .icon:before {
+        color: @comment-button-pressed;
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+.btn-star {
+
+  .btn-star-definitions {
+    border: none;
+    box-shadow: none;
+    background-image: none;
+    color: transparent;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    text-shadow: none;
+  }
+
+  .btn-star-definitions;
+
+  .icon:before {
+    color: @Star-flag-background;
+    text-shadow: 0 0 1px @Star-flag-border, 0 0 1px @Star-flag-border, 0 0 1px @Star-flag-border;
+  }
+
+  &:hover:not(:active):not(:disabled) {
+    .btn-star-definitions;
+
+    > .icon:before {
+      color: @Star-flag-background;
+      text-shadow: 0 0 2px @Star-flag-hover, 0 0 2px @Star-flag-hover, 0 0 2px @Star-flag-hover;
+    }
+  }
+
+  &:focus, &:active, &[disabled] {
+    .btn-star-definitions;
+  }
+
+  &:focus {
+    > .icon:before {
+      color: @Star-flag-focus;
+      text-shadow: none;
+    }
+  }
+
+  &:active {
+    > .icon:before {
+      color: @Star-flag-pressed;
+      text-shadow: none;
+    }
+  }
+
+  &[disabled] {
+    > .icon:before {
+      color: @Star-flag-disabled;
+      text-shadow: none;
+    }
+  }
+
+  &.active {
+    .btn-star-definitions;
+
+    .icon:before {
+      color: @Star-flag-selected;
+      text-shadow: none;
+    }
+
+    &:focus, &:active {
+      .btn-star-definitions;
+    }
+
+    &:focus {
+      > .icon:before {
+        color: @Star-flag-focus;
+        text-shadow: none;
+      }
+    }
+
+    &:active {
+      > .icon:before {
+        color: @Star-flag-pressed;
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+.btn-star-primary {
+
+  padding: 1px 0 0 0;
+  box-sizing: content-box;
+  box-shadow: none;
+  text-shadow: none;
+  line-height: 21px;
+  text-align: center;
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+
+  #gradient > .vertical(@Star-flag-gradient-start, @Star-flag-gradient-end);
+  border-color: @Star-flag-border;
+
+  .icon:before {
+    color: @Star-flag-background;
+  }
+
+  &:focus {
+    box-shadow: none;
+    #gradient > .vertical(@Star-flag-gradient-end, @Star-flag-gradient-start) !important;
+    border-color: @Star-flag-border;
+    .icon:before {
+      color: @Star-flag-background;
+    }
+  }
+
+  &:hover:not(:active):not(:disabled) {
+    box-shadow: none;
+    #gradient > .vertical (@Star-flag-hover-gradient-start, @Star-flag-hover-gradient-end) !important;
+    border: 1px solid @Star-flag-hover !important;
+    .icon:before {
+      color: @Star-flag-background !important;
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+    #gradient > .vertical(@Star-flag-gradient-end, @Star-flag-gradient-start);
+    border-color: @Star-flag-border;
+    .icon:before {
+      color: @Star-flag-background;
+    }
+  }
+
+  &[disabled] {
+    #gradient > .vertical(@Star-flag-disabled-gradient-start, @Star-flag-disabled-gradient-end) !important;
+    border-color: @Star-flag-disabled-border !important;
+
+    .icon:before {
+      color: @Star-flag-background !important;
+    }
+  }
+
+  &.active {
+    padding: 1px 0 0 0;
+    box-sizing: content-box !important;
+    box-shadow: none;
+    text-shadow: none;
+    text-align: center;
+    line-height: 21px;
+    height: 21px;
+    width: 21px;
+    border-radius: 50%;
+
+    #gradient > .vertical(@Star-flag-gradient-start, @Star-flag-gradient-end);
+
+    &:active {
+      box-shadow: none;
+      border-color: @Star-flag-border;
+      #gradient > .vertical(@Star-flag-gradient-end, @Star-flag-gradient-start);
+    }
+  }
+}
+
+.btn-carousel-standard {
+
+  .btn-carousel-empty-background {
+    display: inline-block;
+    box-shadow: none;
+    text-shadow: none;
+    background-image: none !important;
+    color: transparent;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 3px solid transparent;
+  }
+
+  .btn-carousel-empty-background;
+
+  text-align: center;
+  width: 40px;
+  height: 40px;
+
+  &-back {
+    text-indent: -4px;
+  }
+
+  &-next {
+    text-indent: -2px;
+  }
+
+  .icon:before {
+    color: @nokia-blue;
+    opacity: 0.5;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &:hover:not(:focus), &:focus, &active {
+
+    .icon:before {
+      color: @nokia-blue;
+      opacity: 1;
+    }
+  }
+
+  &:hover:not(:focus) {
+    .btn-carousel-empty-background;
+    border-radius: 50%;
+    border: 3px solid @carousel-standard-hover-border;
+  }
+
+  &:focus, &:active {
+    .btn-carousel-empty-background;
+    border-radius: 50%;
+    border: 3px solid @nokia-blue;
+  }
+
+  &-bullet {
+
+    .icon:before {
+      font-size: 17px;
+    }
+
+    &:hover:not(:focus) {
+      .btn-carousel-empty-background;
+
+      .icon:before {
+        opacity: 1;
+        text-shadow: 0 0 7px @nokia-blue;
+
+      }
+    }
+
+    &:focus, &:active {
+      .btn-carousel-empty-background;
+
+      .icon:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.btn-group {
+  .btn {
+    margin: 0;
+    float: left;
+
+    &:first-child {
+      .border-right-radius(0px);
+    }
+
+    &:last-child {
+      .border-left-radius(0px);
+    }
+
+    &:not(:last-child):not(:first-child) {
+      border-radius: 0;
+    }
+
+    &:hover:focus {
+      box-shadow: @button-drop-shadow;
+    }
+
+    &:active:focus {
+      box-shadow: @button-group-drop-shadow-active;
+    }
+
+    &:disabled {
+      box-shadow: none !important;
+    }
+  }
+
+  //TODO: Replace this with a generic reuseable clearfix.
+  &:after {
+    content: " ";
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+  }
+
+}
+
+.n-tab-buttons {
+  .btn.selected {
+    .btn-tab-active;
+
+    &:focus {
+      border: 1px solid @gray-nav;
+    }
+
+    &:hover {
+      color: @gray-white;
+      text-shadow: none;
+      border: 1px solid @gray-nav;
+      #gradient > .vertical(@tab-button-selected-hover-top-color, @tab-button-selected-hover-bottom-color);
+    }
+  }
+}
+
+.btn-tab-active {
+  #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+  color: @gray-dark;
+  border: @button-default-border;
+  border-color: @button-active-border-color;
+  border-top-color: @button-active-top-border-color;
+  text-shadow: @button-text-shadow-white;
+  box-shadow: @button-group-drop-shadow-active;
+}
+
+.btn-details {
+
+  .btn-details-definitions {
+    border: none;
+    font-weight: bold;
+    box-shadow: none;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    > .icon:before {
+      color: @gray-medium;
+      text-shadow: none;
+      vertical-align: -1px;
+    }
+  }
+
+  .btn-details-definitions;
+  border: none;
+  color: @details-button-color;
+  text-shadow: none;
+  height: 25px;
+
+  &:hover:not(:disabled), &:focus, &:active:not(:disabled) {
+    .btn-details-definitions;
+    color: @details-button-color;
+    text-shadow: none;
+    outline: none;
+    height: 25px;
+
+    //This sets text underline
+    span {
+      position: relative;
+      padding-bottom: 0.1px;
+    }
+    span:after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px solid @blue-underline;
+      content: ""
+    }
+  }
+
+  &[disabled] {
+    > .icon:before {
+      color: @gray-light !important;
+      text-shadow: none;
+    }
+    span:after {
+      border-bottom: none;
+    }
+  }
+}
+
+.btn-details {
+
+  .btn-details-definitions {
+    border: none;
+    font-weight: bold;
+    box-shadow: none;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    > .icon:before {
+      color: @gray-medium;
+      text-shadow: none;
+      vertical-align: -1px;
+    }
+  }
+
+  .btn-details-definitions;
+  border: none;
+  color: @details-button-color;
+  text-shadow: none;
+  height: 25px;
+
+  &:hover:not(:disabled), &:focus, &:active:not(:disabled) {
+    .btn-details-definitions;
+    color: @details-button-color;
+    text-shadow: none;
+    outline: none;
+    height: 25px;
+
+    //This sets text underline
+    span {
+      position: relative;
+      padding-bottom: 0.1px;
+    }
+    span:after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      border-bottom: 1px solid @blue-underline;
+      content: ""
+    }
+  }
+
+  &[disabled] {
+    > .icon:before {
+      color: @gray-light !important;
+      text-shadow: none;
+    }
+    span:after {
+      border-bottom: none;
+    }
+  }
+}
+
+@media print {
+  .btn-not-print {
+    display: none;
+  }
+}

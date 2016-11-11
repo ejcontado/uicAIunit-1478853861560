@@ -1,0 +1,368 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_search">Search <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-4" id="TA-search-enablesearch">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Standard:</label>
+
+                <div class="col-sm-5">
+                    <div class="n-search">
+                        <a class="n-search-icon" >
+                            <span class="icon icon-search"></span></a>
+                        <input id="Example1" type="text" class="n-inputfield n-search-input" placeholder="Search">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Search options drop-down:</label>
+
+                <div class="col-sm-5">
+                    <div class="n-search">
+                        <a class="n-search-icon dropdown-toggle" href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false" >
+                            <span class="icon icon-search"></span>
+                            <span class="icon icon-arrow"></span></a>
+                        <input id="Example2" type="text" class="n-inputfield n-search-input" placeholder="Search">
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" href="#"><span>Action</span></a></li>
+                            <li role="presentation" id="TA-search-anotheraction1"><a role="menuitem" href="#"><span>Another action</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Something else here</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Search with clear selection:</label>
+
+                <div class="col-sm-5">
+                    <div class="n-search n-search-clearable">
+                        <a class="n-search-icon" >
+                            <span class="icon icon-search"></span></a>
+                        <input id="Example3" type="text" class="n-inputfield n-search-input" placeholder="Query">
+                        <a class="n-search-control-icon" href="#" id="TA-search-clear1">
+                            <span class="icon icon-close"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label"></label>
+
+                <div class="col-sm-5">
+                    <dd>
+                        <div class="n-search n-search-clearable">
+                            <a class="n-search-icon dropdown-toggle" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false" >
+                                <span class="icon icon-search"></span>
+                                <span class="icon icon-arrow"></span></a>
+                            <input id="Example4" type="text" class="n-inputfield n-search-input" placeholder="Query">
+                            <a class="n-search-control-icon"  href="#" id="TA-search-clear2">
+                                <span class="icon icon-close"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                                <li role="presentation"><a role="menuitem" href="#"><span>Action</span></a></li>
+                                <li role="presentation"><a role="menuitem" href="#"><span>Another action</span></a></li>
+                                <li role="presentation"><a role="menuitem" href="#"><span>Something else here</span></a></li>
+                                <li role="presentation"><a role="menuitem" href="#"><span>Separated link</span></a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label">Query with search button:</label>
+
+                <div class="col-sm-5">
+                    <div id="firstDiv" class="n-search n-search-action">
+                        <a class="n-search-icon" ><span class="icon icon-search"></span></a>
+                        <input id="Example5" type="text"  width="113px" class="n-inputfield n-search-input" placeholder="Query">
+                        <button class="btn n-search-button" id="TA-search-button1">Search</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label"></label>
+
+                <div class="col-sm-5">
+                    <div class="n-search n-search-action">
+                        <a class="n-search-icon dropdown-toggle" href="#" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="false" >
+
+                            <span class="icon icon-search"></span>
+                            <span class="icon icon-arrow"></span></a>
+                        <input id="Example6" type="text" class="n-inputfield n-search-input" placeholder="Query">
+                        <button class="btn n-search-button" id="TA-search-button2">Search</button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                            <li role="presentation"><a role="menuitem" href="#"><span>Action</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Another action</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Something else here</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+<pre>
+For search components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"&gt;</pre>
+        <p>
+            <code>input</code> element is always present after <code>a</code> and <code>button</code> elements
+        </p>
+      <pre>
+<code>
+    &lt;!-- Standard search box --&gt;
+    &lt;div class=&quot;n-search&quot;&gt;
+        &lt;a class=&quot;n-search-icon&quot;  &gt;
+            &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;input id=&quot;Example1&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Search&quot;&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Search box with drop down --&gt;
+    &lt;div class=&quot;n-search&quot;&gt;
+        &lt;a class=&quot;n-search-icon dropdown-toggle&quot; href=&quot;#&quot; id=&quot;dropdownMenu1&quot; data-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot; &gt;
+            &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;icon icon-arrow&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;input id=&quot;Example2&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Search&quot;&gt;
+        &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dropdownMenu1&quot;&gt;
+            &lt;li role=&quot;presentation&quot;&gt;
+                &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Action&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li role=&quot;presentation&quot;&gt;
+                &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Another action&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li role=&quot;presentation&quot;&gt;
+                &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Something else here&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li role=&quot;presentation&quot;&gt;
+                &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Separated link&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+    &lt;/div&gt;
+
+    &lt;/ul&gt;
+    &lt;!-- Search box with clear selection --&gt;
+    &lt;div class=&quot;n-search n-search-clearable&quot;&gt;
+        &lt;a class=&quot;n-search-icon&quot; &gt;
+            &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;input id=&quot;Example3&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Query&quot;&gt;
+        &lt;a class=&quot;n-search-control-icon&quot; href=&quot;#&quot;&gt;
+            &lt;span class=&quot;icon icon-close&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Query with search button --&gt;
+    &lt;div class=&quot;n-search n-search-action&quot;&gt;
+        &lt;a class=&quot;n-search-icon&quot; &gt;
+            &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;button class=&quot;btn n-search-button&quot;&gt;Search&lt;/button&gt;
+        &lt;input id=&quot;Example5&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Query&quot;&gt;
+    &lt;/div&gt;
+</code>
+          </pre>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-5 control-label label-disabled">Disabled standard:</label>
+
+                <div class="col-sm-5">
+                    <div class="n-search n-search-disable">
+                        <a class="n-search-icon" >
+                            <span class="icon icon-search"></span></a>
+                        <input id="Example1-disabled" type="text" class="n-inputfield n-search-input" placeholder="Search" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label label-disabled">Disabled search options drop-down:</label>
+
+                <div class="col-sm-5">
+                    <div class="n-search n-search-disable">
+                        <a class="n-search-icon dropdown-toggle" href="#" id="dropdownMenu4" data-toggle="dropdown" aria-expanded="false"  disabled>
+                            <span class="icon icon-search"></span>
+                            <span class="icon icon-arrow"></span></a>
+                        <input id="Example2-disabled" type="text" class="n-inputfield n-search-input" placeholder="Search" disabled>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" href="#"><span>Action</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Another action</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Something else here</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label label-disabled">Disabled search with clear selection:</label>
+
+                <div class="col-sm-5">
+                    <div class="n-search n-search-clearable n-search-disable">
+                        <a class="n-search-icon" >
+                            <span class="icon icon-search"></span></a>
+                        <input id="Example3-disabled" type="text" class="n-inputfield n-search-input" placeholder="Query" disabled>
+                        <a class="n-search-control-icon" href="#"  disabled>
+                            <span class="icon icon-close"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label"></label>
+
+                <div class="col-sm-5">
+                    <dd>
+                        <div class="n-search n-search-clearable n-search-disable">
+                            <a class="n-search-icon dropdown-toggle" href="#" id="dropdownMenu5" data-toggle="dropdown" aria-expanded="false"  disabled>
+                                <span class="icon icon-search"></span>
+                                <span class="icon icon-arrow"></span></a>
+                            <input id="Example4-disabled" type="text" class="n-inputfield n-search-input" placeholder="Query" disabled>
+                            <a class="n-search-control-icon"  href="#" disabled>
+                                <span class="icon icon-close"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                                <li role="presentation"><a role="menuitem" href="#"><span>Action</span></a></li>
+                                <li role="presentation"><a role="menuitem" href="#"><span>Another action</span></a></li>
+                                <li role="presentation"><a role="menuitem" href="#"><span>Something else here</span></a></li>
+                                <li role="presentation"><a role="menuitem" href="#"><span>Separated link</span></a></li>
+                            </ul>
+                        </div>
+                    </dd>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label label-disabled">Disabled query with search button:</label>
+
+                <div class="col-sm-5">
+                    <div id="firstDiv-disabled" class="n-search n-search-action n-search-disable">
+                        <a class="n-search-icon" ><span class="icon icon-search"></span></a>
+                        <input id="Example5-disabled" type="text"  width="113px" class="n-inputfield n-search-input" placeholder="Query" disabled>
+                        <button class="btn n-search-button" disabled>Search</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label"></label>
+
+                <div class="col-sm-5">
+                    <div class="n-search n-search-action n-search-disable">
+                        <a class="n-search-icon dropdown-toggle" href="#" id="dropdownMenu6" data-toggle="dropdown" aria-expanded="false"  disabled>
+                            <span class="icon icon-search"></span>
+                            <span class="icon icon-arrow"></span></a>
+                        <input id="Example6-disabled" type="text" class="n-inputfield n-search-input" placeholder="Query" disabled>
+                        <button class="btn n-search-button" disabled>Search</button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                            <li role="presentation"><a role="menuitem" href="#"><span>Action</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Another action</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Something else here</span></a></li>
+                            <li role="presentation"><a role="menuitem" href="#"><span>Separated link</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <p>
+            Add <code>n-search-disable</code> class to <code>n-search</code> div and <code>disable</code> attribute to the related elements
+        </p>
+      <pre>
+<code>
+    &lt;!-- Standard search box --&gt;
+    &lt;div class=&quot;n-search <span class="demo-highlight-color">n-search-disable</span>&quot;&gt;
+    &lt;a class=&quot;n-search-icon&quot;  &gt;
+    &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;input id=&quot;Example1&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Search&quot; <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Search box with drop down --&gt;
+    &lt;div class=&quot;n-search <span class="demo-highlight-color">n-search-disable</span>&quot;&gt;
+    &lt;a class=&quot;n-search-icon dropdown-toggle&quot; href=&quot;#&quot; id=&quot;dropdownMenu1&quot; data-toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;
+         <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;icon icon-arrow&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;input id=&quot;Example2&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Search&quot; <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dropdownMenu1&quot;&gt;
+    &lt;li role=&quot;presentation&quot;&gt;
+    &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Action&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li role=&quot;presentation&quot;&gt;
+    &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Another action&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li role=&quot;presentation&quot;&gt;
+    &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Something else here&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li role=&quot;presentation&quot;&gt;
+    &lt;a role=&quot;menuitem&quot; href=&quot;#&quot;&gt;&lt;span&gt;Separated link&lt;/span&gt;&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Search box with clear selection --&gt;
+    &lt;div class=&quot;n-search n-search-clearable <span class="demo-highlight-color">n-search-disable</span>&quot;&gt;
+    &lt;a class=&quot;n-search-icon&quot;  <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;input id=&quot;Example3&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Query&quot; <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;a class=&quot;n-search-control-icon&quot;  href=&quot;#&quot;  <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;span class=&quot;icon icon-close&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Query with search button --&gt;
+    &lt;div class=&quot;n-search n-search-action <span class="demo-highlight-color">n-search-disable</span>&quot;&gt;
+    &lt;a class=&quot;n-search-icon&quot;  <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;span class=&quot;icon icon-search&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;button class=&quot;btn n-search-button&quot;&gt;Search&lt;/button&gt;
+    &lt;input id=&quot;Example5&quot; type=&quot;text&quot; class=&quot;n-inputfield n-search-input&quot; placeholder=&quot;Query&quot; <span class="demo-highlight-color">disabled</span>&gt;
+    &lt;/div&gt;
+</code>
+          </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/search']);
+</script>
+</body>
+</html>

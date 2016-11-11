@@ -1,0 +1,856 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/table-row.less";
+@import "./mixins/gradients.less";
+@import "variables.less";
+@import "@{less-path-of-bootstrap}tables.less";
+
+caption {
+  padding-top: @table-cell-padding;
+  padding-bottom: @table-cell-padding;
+  color: @text-muted;
+  text-align: left;
+}
+
+th {
+  text-align: left;
+  &.n-row-indicated {
+    width: 26px;
+  }
+}
+
+// Table
+//
+// Standard table
+
+.n-table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: @line-height-computed;
+  border: 1px solid @n-table-border-color;
+
+  > thead > tr > th {
+    #gradient > .vertical(@n-table-th-top, @n-table-th-bottom);
+    font-weight: normal;
+    color: @gray-global;
+  }
+
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    tr {
+      color: @gray-dark;
+      font-weight: normal;
+
+      > th,
+      > td {
+        padding-left: @table-cell-padding;
+        padding-right: @table-cell-padding;
+        line-height: @n-table-cell-height;
+        border-top: 0;
+
+
+        &:focus{
+          outline: 1px solid @gray-medium;
+          outline-offset: -1px;
+        }
+        &:hover {
+          > a {
+            border-bottom: 1px solid;
+            color: @n-table-row-selected;
+          }
+        }
+        &.n-cell-dropdown {
+          width: 200px;
+        }
+        &.n-cell-control {
+          padding: 0 1px;
+          .selectlist {
+            .dropdown-menu {
+              min-width: 0;
+            }
+          }
+        }
+        > .n-inputfield {
+          width: 100%;
+          margin: 0;
+          height: @n-table-cell-content-height;
+          line-height: @n-table-cell-content-height;
+          padding: 0 @table-cell-padding 0 @table-cell-padding;
+          border-radius: 5px;
+          box-shadow: none;
+          border: 1px solid @n-table-border-color;
+
+          &:focus {
+            border: 1px solid @n-table-border-color;
+            box-shadow: none;
+          }
+        }
+
+        .checkbox-small {
+          line-height: 14px;
+          margin: 0;
+          input[type='checkbox'] {
+            position: absolute;
+          }
+          > label {
+            min-height: 14px;
+            font-size: 14px;
+            padding-left: 14px;
+            margin-left: 6px;
+          }
+        }
+        .checkbox-indicated{
+          > label{
+            padding-right: 25px;
+          }
+          .align-right {
+            float: right;
+          }
+        }
+        >.btn-group {
+          width: 100%;
+          margin: 0;
+          float: left;
+          .dropdown-menu {
+            width: 100%;
+          }
+          .dropdown-toggle {
+            width: 100% !important;
+            height: @n-table-cell-content-height;
+            padding-right: 8px;
+            padding-left: 8px;
+            box-shadow: none;
+            &:focus:not(:hover):not([aria-expanded=true]) {
+                #gradient > .vertical(@button-focus-gradient-start, @button-focus-gradient-end);
+                color: @gray-white;
+                border-color: @button-active-focus-border-color;
+                text-shadow: @button-text-shadow-dark;
+                box-shadow: @button-drop-shadow;
+                background-color: @gray-nav;
+            }
+            .selected-label {
+              float: left;
+              border-right: none;
+              line-height: @n-table-cell-content-height;
+            }
+            .selected-caret {
+              float: right;
+              .caret {
+                border-top: 4px solid;
+                float: right;
+                margin-top: 9px;
+                margin-left: 8px;
+                margin-bottom: 9px;
+              }
+            }
+          }
+          .btn:first-child {
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+          }
+        }
+
+        .btn {
+          margin: 0;
+          &:hover:focus{
+            box-shadow: @button-drop-shadow-hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Bottom align for column headings, styles in header
+> thead > tr > th {
+  color: @gray-global;
+  font-weight: normal;
+  #gradient > .vertical(@n-table-th-top, @n-table-th-bottom);
+  vertical-align: bottom;
+  border-bottom: 2px solid @table-border-color;
+  line-height: @n-table-cell-height;
+}
+
+// Remove top border from thead by default
+> caption + thead,
+> colgroup + thead,
+> thead:first-child {
+  > tr:first-child {
+    > th,
+    > td {
+      border-top: 0;
+    }
+  }
+}
+
+// Account for multiple tbody instances
+> tbody + tbody {
+  border-top: 2px solid @table-border-color;
+}
+
+// Nesting
+.table {
+  background-color: @body-bg;
+}
+
+// Grid lines
+//
+// White background with border lines between all cells.
+
+.n-sortable {
+  > span.icon-arrow,
+  > span.icon-arrow-up {
+    position: relative;
+    top: 2px;
+    left: 5px;
+  }
+
+  > span {
+    > span.icon-arrow {
+      position: relative;
+      top: 6px;
+      margin-left: -17.5px;
+      left: 5px
+    }
+
+    > span.icon-arrow-up {
+      position: relative;
+      top: -2px;
+      left: 5px;
+    }
+  }
+
+  > span.multi-sort-down {
+
+    > span.icon-arrow {
+      position: relative;
+      top: 6px;
+      left: 24px;
+      margin-left: -18px;
+    }
+    > span.icon-arrow + span.icon-arrow {
+      position: relative;
+      top: -1px;
+      left: 28px;
+    }
+  }
+
+  > span.multi-sort-up {
+
+    > span.icon-arrow-up {
+      position: relative;
+      top: -2px;
+      left: 5px;
+
+    }
+    > span.icon-arrow-up + span.icon-arrow-up {
+      position: relative;
+      top: 5px;
+      left: 24px;
+      margin-left: -33px;
+    }
+  }
+
+  cursor: pointer;
+}
+
+.n-table-grid-lines {
+  > thead,
+  > tbody,
+  > tfoot {
+    tr {
+      > th,
+      > td {
+        border-bottom: 1px solid @n-table-border-color;
+        border-left: 1px solid @n-table-border-color;
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+      }
+      &:last-child {
+        > th,
+        > td {
+          &:first-child {
+            border-left: none;
+          }
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+  > thead > tr {
+    > th {
+      border-bottom: 1px solid @n-table-border-color;
+      border-top: none;
+    }
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+  > tbody tr:nth-child(odd) {
+    background-color: @n-table-row-white;
+  }
+  > tbody tr:nth-child(even) {
+    background-color: @n-table-row-white;
+  }
+}
+
+// Zebra-striping
+//
+// Alternating white and grey background with borders between all columns.
+
+.n-table-striped {
+  > thead,
+  > tbody,
+  > tfoot {
+    tr {
+      > th,
+      > td {
+        border-left: 1px solid @n-table-border-color;
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+  > thead > tr {
+    > th {
+      border-top: none;
+      border-bottom: 1px solid @table-border-color;
+    }
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+  > tbody tr:nth-child(odd), &.n-table-filter >tbody tr.n-row-odd {
+    background-color: @n-table-row-white;
+  }
+  > tbody tr:nth-child(even), &.n-table-filter >tbody tr.n-row-even {
+    background-color: @n-table-row-grey;
+  }
+}
+
+// Row hover effect for alternating table and grid-line table
+
+.n-table-hover {
+  // Row hover for alternating table
+  > tbody tr:nth-child(odd):hover,
+  &.-table-filter >tbody tr.n-row-odd:hover,
+  > tbody > tr.n-drillDown-row:nth-child(odd):hover > td:not(.n-cell-selected){
+    background-color: @n-table-row-white-hover;
+    color: @black-hover;
+    > td {
+      &:hover {
+        cursor: pointer;
+      }
+      > a {
+        border-bottom: 1px solid;
+      }
+    }
+  }
+  > tbody tr:nth-child(even):hover,
+  &.n-table-filter >tbody tr.n-row-even:hover,
+  > tbody > tr.n-drillDown-row:nth-child(even):hover > td:not(.n-cell-selected) {
+    background-color: @n-table-row-grey-hover;
+    color: @black-hover;
+    > td {
+      &:hover {
+        cursor: pointer;
+      }
+      > a {
+        border-bottom: 1px solid;
+      }
+    }
+  }
+
+  // Row hover for grid line table
+  & .n-table-grid-line {
+    > tbody tr > td:hover {
+      cursor: pointer;
+      background-color: @n-table-row-white-hover;
+      color: @black-hover;
+    }
+    > tbody tr:nth-child(even) > .n-cell-selected:hover,
+    > tbody tr:nth-child(odd) > .n-cell-selected:hover {
+      color: @n-table-row-white;
+      background-color: @n-table-row-selected;
+    }
+  }
+}
+
+// Cell hover effect for alternating table and grid-line table
+
+.n-table-cell-hover {
+  // Cell hover for alternating table
+  > tbody tr:nth-child(odd) > td:hover {
+    cursor: pointer;
+    background-color: @n-table-row-white-hover;
+    color: @black-hover;
+  }
+  > tbody tr:nth-child(even) > td:hover {
+    cursor: pointer;
+    background-color: @n-table-row-grey-hover;
+    color: @black-hover;
+  }
+  > tbody tr:nth-child(even) > .n-cell-selected:hover,
+  > tbody tr:nth-child(odd) > .n-cell-selected:hover {
+    color: @n-table-row-white;
+    background-color: @n-table-row-selected;
+  }
+  // Cell hover for grid line table
+  & .n-table-grid-line {
+    > tbody tr > td:hover {
+      cursor: pointer;
+      background-color: @n-table-row-white-hover;
+      color: @black-hover;
+    }
+    > tbody tr:nth-child(even) > .n-cell-selected:hover,
+    > tbody tr:nth-child(odd) > .n-cell-selected:hover {
+      color: @n-table-row-white;
+      background-color: @n-table-row-selected;
+    }
+  }
+
+  > tbody tr > td.n-cell-error.n-cell-selected:hover {
+    background-color: @brand-danger;
+    color: @gray-white;
+  }
+  > tbody tr > td.n-cell-error:hover {
+    color: @brand-danger;
+  }
+}
+
+// Standard table container
+//
+// Standard table with rounded corners and shadow
+
+.n-table-standard {
+  border-radius: 7px;
+  box-shadow: 0 1px 3px 0 @n-table-standard-shadow;
+  border-collapse: inherit;
+  > tbody
+  tr:last-child {
+    > td {
+      &:first-child {
+        border-radius: 0 0 0 7px;
+      }
+      &:last-child {
+        border-radius: 0 0 7px 0;
+      }
+    }
+  }
+  > thead > tr {
+    > th {
+      &:first-child {
+        border-radius: 7px 0 0 0;
+      }
+      &:last-child {
+        border-radius: 0 7px 0 0;
+      }
+    }
+  }
+}
+
+// Cell error
+//
+// Text has bold error color
+
+.n-cell-error {
+  color: @brand-danger;
+  font-weight: bold;
+
+  a {
+    &:link, &:visited, &:hover{
+      color:@brand-danger;
+    }
+  }
+
+  &.n-cell-selected {
+    background-color: @brand-danger;
+    color: @n-cell-error-selected;
+  }
+}
+
+// Cell or row selected
+//
+// Text and background has selected color
+
+.n-cell-selected {
+  color: @n-table-row-white;
+  background-color: @n-table-row-selected;
+
+  .checkbox-small label {
+    color: @n-table-row-white;
+  }
+
+  &:not(.n-cell-control) {
+    a {
+      &:link, &:visited, &:hover {
+        color: @n-table-row-white;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+}
+
+.n-table-filter {
+  thead {
+    tr:nth-child(1) .icon-filter {
+      float: right;
+      line-height: 26px
+    }
+
+    tr:nth-child(2) > th {
+      border-radius: 0;
+      background-color: @n-table-filter-row-background;
+      background-image: none;
+      height: 34px;
+      padding-left: 3px;
+      padding-right: 3px;
+
+      .n-inputfield {
+        padding-right: 30px;
+
+        &::-ms-clear {
+          display: none;
+        }
+      }
+
+      .n-filter-clear-control {
+        .icon-close {
+          position: absolute;
+          right: 32px;
+          top: 0;
+          z-index: 2;
+          line-height: 30px;
+          padding: 0 5px;
+
+          font-size: 12px;
+          cursor: pointer;
+          margin: 0;
+          border: 1px solid transparent;
+          color: @gray-disabled;
+
+          &:before{
+            border-radius: 5px;
+            border: 1px solid transparent;
+          }
+
+          &:focus, &:hover {
+            &:before {
+              border: 1px solid @blue-hover;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        width: 20px;
+        padding-left: 2px;
+        padding-right: 2px;
+
+        .icon-close-rounded {
+          font-size: 16px;
+          line-height: 34px;
+        }
+      }
+
+
+      a {
+        &:focus {
+          .icon-close:before {
+            border: 1px solid @blue-hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.n-table-scrollbar {
+  width: 100%;
+
+  &.mCS_no_scrollbar {
+    tbody > tr > td:last-child {
+      padding-right: 8px;
+    }
+  }
+
+  tbody > tr > td:last-child {
+    padding-right: 12px;
+  }
+
+  .datepicker-calendar-days td:last-child {
+    padding-right: 0;
+  }
+
+  .mCustomScrollBox {
+    height: 150px;
+    padding: 0;
+    border-radius: 0 0 7px 7px;
+
+    .mCSB_container {
+      margin-right: 0;
+    }
+  }
+}
+
+.n-table-filter, .n-table-paging {
+  > tbody > tr {
+    > td {
+      &:first-child {
+        border-bottom-left-radius: 0 !important;
+      }
+      &:last-child {
+        border-bottom-right-radius: 0 !important;
+      }
+    }
+  }
+  > tfoot {
+    td {
+      position: relative;
+      border-bottom-left-radius: 7px !important;
+      border-bottom-right-radius: 7px !important;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 10px !important;
+      padding-right: 11px !important;
+      #gradient > .vertical(@n-table-th-top, @n-table-th-bottom);
+      height:40px;
+      line-height: 24px !important;
+
+      &:focus{
+        outline: none !important;
+      }
+
+      .n-table-total{
+        float:left;
+        display: inline-flex;
+        span {
+          color: @n-table-total-text;
+          font-size: 14px;
+        }
+        .icon-filter{
+          display: none;
+          padding-right: 3px;
+          padding-top: 4px;
+          &:before{
+            color: @n-table-total-icon;
+          }
+        }
+        .n-table-filter-result{
+          display: none;
+          padding-right: 14px;
+        }
+        &.no-filter{
+          >.icon-filter {
+            display: inline-block;
+            &:before{
+              color: #AAA;
+            }
+          }
+        }
+        &.has-filter{
+          >.icon-filter {
+            display: inline-block;
+          }
+          .n-table-filter-result{
+            display: inline-block;
+          }
+        }
+      }
+
+      .n-table-pagenum{
+        .n-inputfield{
+          text-align: right;
+          width: 50px;
+          height:24px !important;
+          display:inline-block;
+          vertical-align: top;
+          &:-ms-input-placeholder{
+            padding-top: 0;
+          }
+        }
+
+        > span {
+          color: @n-table-pagenum-text;
+          margin-left: 7px;
+          margin-right: 7px;
+          vertical-align: text-bottom;
+          line-height: 18px;
+        }
+
+
+        .btn{
+
+          > .icon{
+            left: -3px;
+            top: -3px;
+          }
+          height: 24px;
+          width: 24px;
+          margin-top: -3px !important;
+          margin-left:2px !important;
+          margin-right:2px !important;
+        }
+        position: absolute;
+        text-align: center;
+        width: 100%;
+      }
+
+      .n-table-pageselect {
+        display: inline-flex;
+        float: right;
+        position: relative;
+        .n-table-pagecombox {
+          color: @n-table-pagecombox-text;
+          font-size: 14px;
+          display: inline-flex;
+          width: 70px;
+          margin-right: 11px;
+          .btn{
+            height:24px !important;
+          }
+
+          .input-group .form-control{
+            float:inherit;
+          }
+          .n-inputfield {
+            text-align: right;
+            height:24px !important;
+          }
+          .dropdown-menu {
+            min-width: 50px;
+
+          }
+        }
+        .n-table-suffix {
+          display: inline-flex;
+          color: @n-table-suffix;
+        }
+      }
+    }
+  }
+}
+
+.n-table-error {
+  > thead > tr {
+    > th {
+      border-bottom: 1px solid @gray-light;
+
+      &:hover {
+        > a {
+          border-bottom: none;
+        }
+      }
+    }
+
+    &:last-child {
+      > th {
+        padding-right: 6px;
+        width: 100%;
+        height: 26px;
+        color: @brand-danger;
+        background: @brand-danger-background;
+        border-radius: 0;
+        font-family: @font-family-sans-serif;
+        font-weight: bold;
+
+        > span {
+          &:first-child {
+            .icon {
+              padding-right: 8px;
+            }
+          }
+        }
+        > a {
+          float: right;
+          > span {
+            padding-top: 5px;
+            font-size: 16px;
+            &:before {
+              color: @gray-disabled;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/*for table with error*/
+.n-error-indicator {
+  border-radius: 7px;
+  line-height: 15px !important;
+  margin-left: 10px;
+  color: @n-error-indicator-text;
+  background-color: @brand-danger;
+  font-size: 10px;
+  font-family: @font-family-sans-serif !important;
+  padding: 0 5px;
+  cursor: default;
+}
+
+.ng-n-inputfield {
+  width: 100%;
+  margin: 0;
+  height: @n-table-cell-content-height;
+  line-height: @n-table-cell-content-height;
+  padding: 0 @table-cell-padding 0 @table-cell-padding;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid @n-table-border-color;
+
+  &:focus {
+    border: 1px solid @n-table-border-color;
+    box-shadow: none;
+  }
+}
+
+td.n-cell-selected {
+  > div {
+    > span.icon-edited-small {
+      &:before {
+        color: @gray-white;
+      }
+    }
+  }
+
+  > span.icon-edited-small {
+    &:before {
+      color: @gray-white;
+    }
+  }
+}
+
+td {
+  > div {
+    > span.icon-edited-small {
+      &:before {
+        color: @details-button-color;
+      }
+    }
+  }
+
+  > span.icon-edited-small {
+    &:before {
+      color: @details-button-color;
+    }
+  }
+}
+
+.ng-n-hideEle {
+  display: none;
+}
+

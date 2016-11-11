@@ -1,0 +1,49 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="menu-body demo-body-content">
+<div>
+    <p id="component_type_indication">
+        Pure HTML/CSS/JS
+    </p>
+</div>
+<div class="panel panel-shadow demo-menu-example-panel nav-secondary-vertical">
+    <div class="fuelux menu-tree">
+        <ul class="tree tree-scroll" role="tree" id="myTree">
+            <li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false">
+                <div class="tree-branch-header">
+                    <a href="#" class="tree-branch-name" target="content">
+                        <span class="glyphicon icon-caret glyphicon-play"></span>
+                        <span class="glyphicon icon-folder glyphicon-folder-close"></span>
+                        <span class="tree-label"></span>
+                    </a>
+                </div>
+                <ul class="tree-branch-children" role="group"></ul>
+                <div class="tree-loader" role="alert">Loading...</div>
+            </li>
+            <li class="tree-item hide" data-template="treeitem" role="treeitem">
+                <a href="#" class="tree-item-name" target="content">
+                    <span class="glyphicon icon-item fueluxicon-bullet"></span>
+                    <span class="tree-label"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="menu-tree-legend">
+    <small><em class="draft">(D) = Draft</em></small>
+</div>
+<script src="assets/js/require.js"></script>
+<script src="assets/js/require-config.js"></script>
+<script src="assets/js/demo-menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+
+// Link
+// -------------------------
+
+a, a.link {
+    color: @blue-selection;
+    font-weight: bold;
+}
+
+a.visited {
+    color: @gray-dark;
+    border-bottom: 1px solid @gray-medium;
+}
+
+// TEMP solution to prevent the keyboard focus from changing the color (until proper focus prevention found)
+a.disabled, a.disabled:focus, a[disabled], a[disabled]:focus {
+    color: @gray-disabled;
+    font-weight: bold;
+    border-bottom: 1px solid @gray-disabled;
+    pointer-events: none;
+    cursor: default;
+}
+
+a:hover, a.link:hover, a.visited:hover, a:focus, a.link:focus, a.visited:focus {
+    text-decoration: none;
+    color:@blue-hover;
+}
+
+//ToDo disabled link need to be excluded from tab order)
+.n-link:extend(a all) {
+
+    color: @blue-selection;
+    font-weight: bold;
+
+    &:hover, &:focus{
+        color: @blue-selection;
+        border-bottom: 1px solid @blue-underline;
+        text-decoration: none;
+        outline: none;
+    }
+
+    &-visited {
+        color: @gray-dark;
+        border-bottom: 1px solid @gray-medium;
+    }
+
+    &-disabled, &-disabled:focus, &[disabled], &[disabled]:focus {
+        color: @gray-disabled;
+        border-bottom: 1px solid @gray-disabled;
+        pointer-events: none;
+        cursor: default;
+    }
+
+    &-secondary {
+        font-size: 12px;
+    }
+
+    &-action {
+        //TODO link disabling - temp this might not be required
+        &-icon, &-icon:hover {
+            display: inline-block;
+            text-decoration: none;
+            border-bottom: none;
+            aria-hidden: "true";
+            speak: none;
+        }
+    }
+}
+
+//TODO disclosure icon should behave as a link as well (without underlining)
+
+.n-link-action-icon {
+    font-family: @font-family-icons;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    border-bottom: none;
+    width: 1em;
+    aria-hidden: "true";
+    speak: none;
+}
+span.n-link-action-icon:after {
+    content: "\e61f";
+    vertical-align: middle;
+    font-size:small;
+}
+a.n-link-disabled + span.n-link-action-icon:after {
+    color: @gray-disabled;
+}

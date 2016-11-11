@@ -1,0 +1,177 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/gradients.less";
+@import "variables.less";
+//OT3 p.66
+
+@n-taskpad-branch-header-padding: 19px;
+@n-taskpad-branch-children-name-padding: 15px;
+@n-taskpad-branch-children-item-name-padding: calc(~"@{n-taskpad-branch-header-padding} + @{n-taskpad-branch-children-name-padding} + 17px");
+@n-taskpad-branch-item-name-padding: calc(~"@{n-taskpad-branch-header-padding} + 17px");
+@n-taskpad-border-right-radius: 7px;
+
+.n-taskpad {
+  z-index: 100;
+  .n-flyout-container {
+    background-color: @flyout-taskpad-bg;
+    border-top-right-radius: @n-taskpad-border-right-radius;
+    min-width: 350px;
+    min-height: 140px;
+  }
+
+  &-header {
+    height: 37px;
+
+    &-search {
+      float: left;
+      margin: 4px 0 0 15px;
+    }
+
+    &-settings {
+      float: right;
+      margin: 10px 12px 0 0;
+
+      >.icon{
+        font-size: 15px;
+      }
+    }
+  }
+
+  &-tree{
+    .tree{
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 16px;
+      border-bottom-right-radius: @n-taskpad-border-right-radius;
+      background-color: @flyout-taskpad-bg;
+      overflow-y: visible;
+      overflow-x: visible;
+
+      .tree-branch{
+        .tree-branch-header{
+          padding-left: @n-taskpad-branch-header-padding;
+          height: 34px;
+          white-space: normal;
+
+          .tree-branch-name{
+            border: none;
+
+            span {
+              line-height: 34px;
+              color: @flyout-taskpad-tree-label;
+            }
+            .icon-arrow:before {
+              color:@flyout-taskpad-tree-branch-name-icon;
+              content:"\e612";
+            }
+            .tree-description{
+              color: @flyout-taskpad-tree-description;
+            }
+
+            &:focus {
+              border: none; //IE focus
+              .tree-label {
+                border-bottom: 1px solid @n-tree-hover-underline-color;
+              }
+            }
+          }
+        }
+
+        .tree-branch-children {
+          padding-left: 0;
+
+          .tree-branch-header {
+            height: 32px;
+          }
+         >.tree-open{
+           .icon-arrow:before {
+             display:inline-block;
+             position:relative;
+             transform:rotate(90deg);
+           }
+         }
+          .tree-branch-name{
+            margin-left: @n-taskpad-branch-children-name-padding;
+          }
+
+          .tree-branch .tree-item .tree-item-name{
+            padding-left: @n-taskpad-branch-children-item-name-padding;
+          }
+        }
+
+        &:last-child{
+          margin-bottom: 0;
+          border-bottom-right-radius: @n-taskpad-border-right-radius;
+        }
+      }
+
+      .tree-item{
+        min-height: 26px;
+
+        .tree-item-name {
+          padding-left: @n-taskpad-branch-item-name-padding;
+          color: @flyout-taskpad-tree-item;
+
+          .icon {
+            position: absolute;
+            right: 11px;
+            line-height: 26px;
+          }
+
+          &:focus {
+            border: 1px solid transparent; //IE focus
+            .tree-label {
+              border-bottom: 1px solid @n-tree-hover-underline-color;
+            }
+          }
+        }
+
+        &:last-child{
+          border-bottom: none;
+        }
+      }
+
+      .tree-description {
+        color: @flyout-taskpad-tree-description;
+        font-size: 14px;
+      }
+
+      .tree-item.tree-selected {
+        .tree-description{
+          color: @flyout-taskpad-tree-description-selected;
+        }
+      }
+
+      > .tree-branch{
+        > .tree-branch-header{
+          border-top: 1px solid @flyout-taskpad-top-border;
+          box-shadow: inset 0 1px 0 @gray-white;
+          border-bottom: none;
+          border-radius: 0;
+        }
+      }
+
+      > .tree-open{
+        background-color: @gray-white;
+
+        > .tree-branch-header {
+          //#gradient > .vertical(@flyout-taskpad-tree-branch-header-gradient-start,@flyout-taskpad-tree-branch-header-gradient-end);
+          border-radius: 0;
+          background-color: @flyout-taskpad-bg;
+          .icon-arrow:before{
+            display:inline-block;
+            position:relative;
+            transform:rotate(90deg);
+          }
+        }
+
+        &:last-child{
+          padding-bottom: 7px;
+        }
+      }
+    }
+  }
+}

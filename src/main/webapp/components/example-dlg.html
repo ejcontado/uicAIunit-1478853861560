@@ -1,0 +1,243 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./wulfdist/css/wulf.css" rel="stylesheet"/>
+    <link href="demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dlg">Nokia dialogs <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="col-md-5">
+    <p>
+        Here are examples of different kind of dialogs:
+    </p>
+    <div>
+        <p>
+            <a href="#PlainDialogSubhead" data-backdrop="false" data-toggle="modal" data-keyboard="true">1 - Dialog (plain, subheader)</a>
+        </p>
+
+        <p>
+            <a href="#PlainDialogSubheadInstr" data-backdrop="false" data-toggle="modal" data-keyboard="true">2 - Dialog (plain,
+                subheader, instruction)</a>
+        </p>
+
+        <p>
+            <a href="#PlainDialogInstr" data-backdrop="false" data-toggle="modal" data-keyboard="true">3 - Dialog (plain, instruction)</a>
+        </p>
+
+        <p>
+            <a href="#ErrorDialog" data-backdrop="false" data-toggle="modal" data-keyboard="true">4 - Error dialog (plain)</a>
+        </p>
+
+        <p>
+            <a href="#WarningDialog" data-backdrop="false" data-toggle="modal" data-keyboard="true">5 - Warning Dialog (plain)</a>
+        </p>
+        <p>
+            <a href="#ConfirmationDialog" data-backdrop="false" data-toggle="modal" data-keyboard="true">6 - Confirmation Dialog (plain)</a>
+        </p>
+    </ol>
+</div>
+<div class="modal" id="PlainDialogSubhead" role="dialog" aria-labelledby="myModalDlgLabel-subhead" aria-hidden="true" tabindex='-1'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler"></div>
+                <div class="n-dialog-header-bg-filler"></div>
+                <!-- -->
+                <div class="n-dialog-header-curve">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close dialog"></i>
+                <h1 class="modal-title" id="myPlainSubheadModalLabel">Plain Dialog</h1>
+                <h2 class="modal-title-subheading" id="myPlainSubheadModalLabelVersion">Subheading</h2>
+
+            </div>
+            <div class="modal-body">
+                Text
+            </div>
+            <div class="modal-footer">
+                    <button class="btn btn btn-standard " data-dismiss="modal">OK</button>
+                    <button class="btn btn btn-standard" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="PlainDialogSubheadInstr" role="dialog" aria-labelledby="myModalDlgLabel-subhead-instr" aria-hidden="true" tabindex='-1'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler"></div>
+                <div class="n-dialog-header-bg-filler"></div>
+                <!-- -->
+                <div class="n-dialog-header-curve">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close"></i>
+                <h1 class="modal-title" id="myPlainSubheadInstrModalLabel">Plain Dialog</h1>
+                <h2 class="modal-title-subheading" id="myPlainSubheadInstrModalLabelVersion">Subheading</h2>
+                <h2 class="modal-title-instruction" id="myPlainSubheadInstrModalLabelInstruction">Instruction</h2>
+            </div>
+            <div class="modal-body">
+                Text
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn btn-standard" data-dismiss="modal">OK</button>
+                <button class="btn btn btn-standard" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="PlainDialogInstr" role="dialog" aria-labelledby="myModalDlgLabel-instr" aria-hidden="true" tabindex='-1'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler"></div>
+                <div class="n-dialog-header-bg-filler"></div>
+                <!-- -->
+                <div class="n-dialog-header-curve">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close"></i>
+                <h1 class="modal-title" id="myPlainInstrModalLabel">Plain Dialog</h1>
+
+                <h2 class="modal-title-instruction" id="myPlainInstrModalLabelInstruction">Instruction</h2>
+            </div>
+            <div class="modal-body">
+                Text
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn btn-standard" data-dismiss="modal" >OK</button>
+                <button class="btn btn btn-standard" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="ErrorDialog" role="dialog" aria-labelledby="myModalDlgLabel-error" aria-hidden="true" tabindex='-1'>
+    <div class="modal-dialog n-dialog-critical">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler"></div>
+                <div class="n-dialog-header-bg-filler"></div>
+                <!-- -->
+                <div class="n-dialog-header-curve">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close"></i>
+                    <h1 class="modal-title" id="myErrorModalLabel"><span class="icon icon-error"></span>Connection
+                        lost</h1>
+                <div class="modal-title-instruction" id="myErrorModalLabelInstruction">Check cable connections and
+                    try to reconnect</div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn btn-standard" data-dismiss="modal">Reconnect</button>
+                <button class="btn btn btn-standard" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="WarningDialog" role="dialog" aria-labelledby="myModalDlgLabel-warning" aria-hidden="true" tabindex='-1'>
+    <div class="modal-dialog n-dialog-warning">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler"></div>
+                <div class="n-dialog-header-bg-filler"></div>
+                <div class="n-dialog-header-curve">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close"></i>
+                <h1 class="modal-title" id="myWarningModalLabel"><span class="icon icon-warning"></span>IP Address is
+                    already in use</h1>
+                <div class="modal-title-instruction" id="myWarningModalLabelInstruction">Upate the configuration
+                    before trying to reconnect.</div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-action btn-standard" data-dismiss="modal">Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="ConfirmationDialog" role="dialog" aria-labelledby="myModalDlgLabel-confirm" aria-hidden="true" tabindex='-1'>
+    <div class="modal-dialog n-dialog-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler"></div>
+                <div class="n-dialog-header-bg-filler"></div>
+                <!-- -->
+                <div class="n-dialog-header-curve">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close"></i>
+                <h1 class="modal-title">Do you want to delete this user?</h1>
+
+            </div>
+            <div class="modal-body">
+                Warn users about the possible consequences of a requested action. The warning alerts users to confirm or cancel request.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn btn-standard" data-dismiss="modal">Delete 'OMC Admin'</button>
+                <button class="btn btn btn-standard" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="col-md-7">
+    <p>
+        To use the dialogs, see the examples below.
+    </p>
+</div>
+<div class="col-md-7">
+<pre>
+<code>
+&lt;!-- Standard dialog --&gt;
+&lt;a href="#PlainDialog" data-backdrop="false" data-toggle="modal"&gt;Plain dialog&lt;/a&gt;
+</code>
+</pre>
+Modify the size of the title banner area (curve location) in CSS:
+<pre>
+<code>
+.n-dialog-header-curve {
+    left: <span style="color:#f00;">140px</span>;
+}
+.n-dialog-header-fg-filler {
+    width: <span style="color:#f00;">140px</span>;
+}
+</code>
+</pre>
+</div>
+<script src="../wulfdist/js/dependencies/jquery.min.js"></script>
+<script src="../wulfdist/js/dependencies/bootstrap.min.js"></script>
+<script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"></script>
+<script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"></script>
+<script src="../wulfdist/js/wulf.min.js"></script>
+</body>
+</html>

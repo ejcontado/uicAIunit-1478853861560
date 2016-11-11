@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.flyoutactivityarea.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_flyout_menu">Flyout activity area</h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4 flyout-demo">
+            <div class="n-flyout" id="myFlyoutActiveArea" data-markup="flyout" data-direction="right"
+                 data-expand="false"
+                 style="top: 100px">
+                <div data-target-selector="#one" class="n-flyout-container n-flyout-activity-area">
+                    <div class="n-flyout-activity" id="TA-flyoutactivearea-activity">
+                        <div class="panel" id="TA-flyoutactivearea-activity-head">
+                            <div class="panel-heading">
+                                <h1>Messenger</h1>
+                                <a href="#">
+                                    <span class="icon icon-settings"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="n-flyout-content flyout-scoll" style="height: 400px;"  id="TA-flyoutactivearea-activity-content">
+                                <div class="n-flyout-message-left">
+                                    <div class="content">
+                                        <span class="icon icon-profile"></span>
+                                        <a href="#" class="n-link"><span>Jeff</span></a>
+                                        <span class="time">1hr</span>
+                                        <p>
+                                            Hi,how are you doing? lolololololol balabala
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="n-flyout-message-right">
+                                <div class="content">
+                                    <span class="icon icon-profile"></span>
+                                    <a href="#" class="n-link"><span>Tommy</span></a>
+                                    <span class="time">1d</span>
+                                    <p>
+                                        Hi,how are you doing?
+                                        What a good day!
+                                        shall we play basketball?
+                                        balabalabalabalabalabala
+                                    </p>
+                                </div>
+                            </div>
+
+                                <div class="n-flyout-message-right">
+                                <div class="content">
+                                    <span class="icon icon-profile"></span>
+                                    <a href="#" class="n-link"><span>Tommy</span></a>
+                                    <span class="time">5hr</span>
+
+                                    <p>
+                                        Hi,how are you doing?
+                                        What a good day!
+                                        shall we go to the beach?
+                                        valavalalvalvalvalvalval
+                                        long long long long long
+                                        conversation
+                                        balabalabalabalabalabala
+                                    </p>
+                                </div>
+                            </div>
+
+                                <div class="n-flyout-message-left">
+                                <div class="content">
+                                    <span class="icon icon-profile"></span>
+                                    <a href="#" class="n-link">Jeff</a>
+                                    <span class="time">3hr</span>
+
+                                    <p>
+                                        Hi,how are you doing?
+                                        What a good day!
+                                        shall we go to the beach?
+                                        valavalalvalvalvalvalval
+                                        long long long long long
+                                        conversation
+                                        balabalabalabalabalabala
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="n-flyout-foot" id="TA-flyoutactivearea-foot">
+                        <input id="Example1" type="text" class="form-control n-inputfield"
+                               placeholder="Type your message here">
+                    </div>
+                </div>
+                <div data-target-selector="#two" class="n-flyout-container n-flyout-activity-area" style="width: 426px;">
+                    <div class="n-flyout-activity">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h1>Messenger</h1>
+                                <a>
+                                    <span class="icon icon-settings"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="n-flyout-content" style="height: 400px;">
+                            <ul>
+                                Tab two content
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="n-flyout-foot">
+                        <input type="text" class="form-control n-inputfield"
+                               placeholder="Type your message here">
+                    </div>
+                </div>
+                <ul class="n-flyout-open n-flyout-activity-area-tabs">
+                    <li id="TA-flyoutactivearea-open1">
+                        <a href="#one"><span class="border-container"><i class="icon icon-bubble"></i></span></a>
+                    </li>
+                    <li id="TA-flyoutactivearea-open2">
+                        <a href="#two"><span class="border-container"><i class="icon icon-list"></i></span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <p>CSS dependency:</p>
+        <pre>
+    For flyout activate area components,it will be ok to import following css file:
+    &lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"&gt;
+    &lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"&gt;
+    &lt;link href="../wulfdist/css/wulf.flyoutactivityarea.min.css" rel="stylesheet"&gt;
+        </pre>
+            <p>Flyout activity area is a flyout menu. So we use flyout markup data-markup="flyout". the flyout activity
+                area is indicated by a vertical tab positioned along the left edge of the
+                interface. It expands to the right.These areas can be grouped as tabs, similar to the drawer.
+            </p>
+            <pre>
+<code>
+    &lt;div class="n-flyout" id="myFlyoutActiveArea" data-markup="flyout" data-direction="right" data-expand="false"&gt;
+        &lt;div data-target-selector="#one" class="n-flyout-container n-flyout-activity-area"&gt;
+            &lt;div class="n-flyout-activity"&gt;
+                &lt;div class="panel"&gt;
+                    &lt;div class="panel-heading"&gt;
+                        &lt;h1&gt;Messenger&lt;/h1&gt;
+                        &lt;span&gt;class="icon icon-settings"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="n-flyout-content flyout-scoll" style="height: 400px;"&gt;
+                    &lt;div class="n-flyout-message-left"&gt;
+                        &lt;div class="content"&gt;
+                            &lt;span class="icon icon-profile"&gt;&lt;/span&gt;
+                            &lt;a href="#" class="n-link"&gt;&lt;span&gt;Jeff&lt;/span&gt;&lt;/a&gt;
+                            &lt;span class="time"&gt;1hr&lt;/span&gt;
+                            &lt;p&gt;
+                                Hi,how are you doing?
+                                What a good day!
+                                balabalabalabalabalabala
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="n-flyout-message-right"&gt;
+                        &lt;div class="content"&gt;
+                            &lt;span class="icon icon-profile"&gt;&lt;/span&gt;
+                            &lt;a href="#" class="n-link"&gt;&lt;span&gt;Tommy&lt;/span&gt;&lt;/a&gt;
+                            &lt;span class="time"&gt;1d&lt;/span&gt;
+                            &lt;p&gt;
+                                Hi,how are you doing?
+                                What a good day!
+                                balabalabalabalabalabala
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="n-flyout-foot"&gt;
+                &lt;input id="Example1" type="text" class="form-control n-inputfield"
+               placeholder="Label inside"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div data-target-selector="#two" class="n-flyout-container n-flyout-activity-area"&gt;
+            &lt;div class="n-flyout-activity"&gt;
+                &lt;div class="panel"&gt;
+                    &lt;div class="panel-heading"&gt;
+                    &lt;h1&gt;Messenger&lt;/h1&gt;
+                    &lt;span&gt;class="icon icon-settings"&gt;&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class="n-flyout-content" style="height: 400px;"&gt;
+                    &lt;ul&gt;
+                        Tab two content
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="n-flyout-foot"&gt;
+                &lt;input id="Example1" type="text" class="form-control n-inputfield" placeholder="Label inside"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;ul class="n-flyout-open n-flyout-activity-area-tabs"&gt;
+            &lt;li&gt;
+                &lt;a href="#one"&gt;&lt;span class="border-container"&gt;&lt;i class="icon icon-bubble"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;li&gt;
+            &lt;li&gt;
+                &lt;a href="#two"&gt;&lt;span class="border-container"&gt;&lt;i class="icon icon-list"&gt;&lt;/i&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;li&gt;
+        &lt;ul&gt;
+    &lt;/div&gt;
+    </code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery','wulf/flyout-activity-area']);
+</script>
+</body>
+</html>

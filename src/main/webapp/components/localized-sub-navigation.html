@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.drilldown.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_localized_sub_navigation">Localized Sub Navigation <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-shadow" id="TA-navigation-messageBoards">
+                        <div class="panel-heading" id="TA-navigation-messageBoards-head">
+                            <h1>Message Boards</h1>
+                        </div>
+                        <ul class="nav-local nav-local-menu" id="TA-navigation-messageBoards-menu">
+                            <li class="nav-local-menu-item" id="TA-navigation-messageBoards-menu-li1">
+                                <a href="javascript:void(0)">
+                                    <span class="icon icon-home"></span>
+                                    <span>Message Board Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-local-menu-item" id="TA-navigation-messageBoards-menu-li2">
+                                <a href="javascript:void(0)">
+                                    <span class="icon icon-profile"></span>
+                                    <span>My Posts</span>
+                                </a>
+                            </li>
+                            <li class="nav-local-menu-item" id="TA-navigation-messageBoards-menu-li3">
+                                <a href="javascript:void(0)">
+                                    <span class="icon icon-add"></span>
+                                    <span>New Posts</span>
+                                </a>
+                            </li>
+                            <li class="nav-local-menu-item selected" id="TA-navigation-messageBoards-menu-li4">
+                                <a href="javascript:void(0)">
+                                    <span class="icon icon-settings"></span>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="panel-body" id="TA-navigation-messageBoards-body">
+                            <div class="panel-section text-center">
+                                Content
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p>JS & CSS dependency:</p>
+<pre>
+For localized sub navigation components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.drilldown.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"&gt;
+</pre>
+            <p> Gray text links can function as a lower level navigation within the interface.
+                Use <code>nav-local</code> as base for all localized sub navigation. To use normal menu on a panel,
+                use <code>nav-local-menu</code> as a class into the ul.
+                And add <code>nav-local-menu-item</code> for each li.
+            Use <code>nav-local-menu-divided</code> for the version with divider.</p>
+ <pre>
+            <code>
+    &lt;!-- Normal localized sub navigation menu--&gt;
+    &lt;div class="panel panel-shadow"&gt;
+        &lt;!-- Panel Heading--&gt;
+        &lt;ul class="<span class="demo-highlight-color">nav-local nav-local-menu</span>"&gt;
+            &lt;li class="<span class="demo-highlight-color">nav-local-menu-item</span>"&gt;
+                &lt;a href="#"&gt;
+                    &lt;span class="icon icon-home"&gt;&lt;/span&gt;
+                    &lt;span&gt;Message Board Home&gt;&lt;/span&gt;
+        &lt;!-- Closing tags --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Divided localized sub navigation menu--&gt;
+    &lt;ul class="<span class="demo-highlight-color">nav-local nav-local-menu-divided</span>"&gt;
+        &lt;li class="<span class="demo-highlight-color">nav-local-menu-item</span>"&gt;
+            &lt;a href="#"&gt;
+                &lt;span class="icon icon-home"&gt;&lt;/span&gt;
+                &lt;span&gt;Message Board Home&gt;&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    Requires: localized-navigation.js or wulf.js
+</code>
+ </pre>
+</div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12" style="padding-left:0;">
+                    <div class="panel panel-shadow" style="min-width:525px;" id="TA-navigation-FnFCalls">
+                        <div class="panel-heading" id="TA-navigation-FnFCalls-head">
+                            <h1>Free FnF Calls</h1>
+                        </div>
+                        <ul class="nav-local nav-local-menu-divided" id="TA-navigation-FnFCalls-menu">
+                            <li class="nav-local-menu-item" id="TA-navigation-FnFCalls-menu-li1">
+                                <a href="javascript:void(0)">
+                                    <span>Insert</span>
+                                    <span class="icon icon-arrow"></span>
+                                </a>
+                            </li>
+                            <li class="nav-local-menu-item" id="TA-navigation-FnFCalls-menu-li2">
+                                <a href="javascript:void(0)">
+                                    <span>Info</span>
+                                </a>
+                            </li>
+                            <li class="nav-local-menu-item" id="TA-navigation-FnFCalls-menu-li3">
+                                <a href="javascript:void(0)">
+                                    <span>Connect</span>
+                                </a>
+                            </li>
+                            <li class="nav-local-menu-item" id="TA-navigation-FnFCalls-menu-li4">
+                                <a href="javascript:void(0)">
+                                    <span>Parameters</span>
+                                </a>
+                            </li>
+                            <li class="nav-local-menu-item" id="TA-navigation-FnFCalls-menu-li5">
+                                <a href="javascript:void(0)">
+                                    <span>Delete</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="panel-body" id="TA-navigation-FnFCalls-body">
+                            <div class="nav-local-inline-toolbar" id="TA-navigation-FnFCalls-body-toolbar1">
+                                <div class="contents">
+                                    <div class="trigger">
+                                        <h1>Balance</h1>
+                                        <div class="description">
+                                            Maecenas sed diam ege
+                                        </div>
+                                        <button class="btn btn-default n-drillDown-item" data-target-selector="#item1">
+                                            <span class="icon icon-arrow"></span>
+                                        </button>
+                                    </div>
+                                    <div class="items-icon">
+                                        <ul>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--drillDown -->
+                            <div class="nav-local-drilldown" id="TA-navigation-FnFCalls-body-drilldown1">
+                                <div class="n-drillDown-collapsed" id="item1">
+                                    <div class="n-drillDown-arrowContainer">
+                                        <div class="n-drillDown-arrow"></div>
+                                    </div>
+                                    <div class="n-drillDown-content">
+                                        <div class="n-drillDown-inner">
+                                            <div class="available-components">
+                                                <span>Avaliable components</span>
+                                                <div class="items-icon">
+                                                    <ul>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="shared-components">
+                                                <span>Shared components</span>
+                                                <div class="items-icon-left">
+                                                    <ul>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="items-icon-right">
+                                                    <ul>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="icon icon-close-rounded" role="button"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Filter -->
+                            <div class="nav-local-inline-toolbar"  id="TA-navigation-FnFCalls-body-toolbar2">
+                                <div class="contents">
+                                    <div class="trigger">
+                                        <h1>Filter</h1>
+                                        <div class="description">
+                                            Maecenas sed diam ege
+                                        </div>
+                                        <button class="btn btn-default n-drillDown-item" data-target-selector="#item2">
+                                            <span class="icon icon-arrow"></span>
+                                        </button>
+                                    </div>
+                                    <div class="items-icon">
+                                        <ul>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                            <li>
+                                                <img  src="../assets/images/wulf.png">
+                                                <span>Free</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--drillDown -->
+                            <div class="nav-local-drilldown" style="margin-bottom:35px" id="TA-navigation-FnFCalls-body-drilldown2">
+                                <div class="n-drillDown-collapsed" id="item2">
+                                    <div class="n-drillDown-arrowContainer">
+                                        <div class="n-drillDown-arrow"></div>
+                                    </div>
+                                    <div class="n-drillDown-content">
+                                        <div class="n-drillDown-inner">
+                                            <div class="available-components">
+                                                <span>Avaliable components</span>
+                                                <div class="items-icon">
+                                                    <ul>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="shared-components">
+                                                <span>Shared components</span>
+                                                <div class="items-icon-left">
+                                                    <ul>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                        <li>
+                                                            <img  src="../assets/images/wulf.png">
+                                                            <span>Free</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="icon icon-close-rounded"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p>The interactive panel always expands below the selected element.
+               The<code>inline toolbar</code>is the Additional navigation.
+               The Inline toolbar is a simplified variation on the drill-down pattern.
+               So we use <code>n-drillDown-item</code>.
+               It opens from the bottom of the selected element.
+               So we set the direction as <code>data-target-selector="#item1"</code>.
+               We can integrate it with <code>drilldown</code> component and The component should point to the content with id:<code>id="item1"</code>.
+            </p>
+            <div id="nscroll" class="n-scroll" style="width: auto; height: 400px;margin-bottom:20px;">
+ <pre>
+<code>
+&lt;!-- The Inline toolbar of the localized sub navigation menu.--&gt;
+&lt;div class="<span class="demo-highlight-color">nav-local-inline-toolbar</span>"&gt;
+   &lt;div class="contents"&gt;
+     &lt;div class="trigger"&gt;
+       &lt;h1&gt;Balance&lt;/h1&gt;
+         &lt;div class="description"&gt;Maecenas sed diam ege&lt;/div&gt;
+         &lt;button class="btn btn-default <span class="demo-highlight-color">n-drillDown-item</span>"  <span class="demo-highlight-color">data-target-selector="#item1"</span>&gt;&lt;/button&gt;
+     &lt;/div&gt;
+     &lt;div class="items-icon"&gt;
+       &lt;ul&gt;
+         &lt;li&gt;
+           &lt;img src=""../assets/images/wulf.png""&gt;
+           &lt;span&gt;Free&lt;/span&gt;
+         &lt;/li&gt;
+       &lt;/ul&gt;
+     &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- The drill-down pattern in the Inline toolbar.--&gt;
+&lt;div <span class="demo-highlight-color">class="nav-local-drilldown"</span>&gt;
+ &lt;div class="n-drillDown-collapsed" <span class="demo-highlight-color">id="item1"</span>&gt;
+   &lt;div class="n-drillDown-arrowContainer"&gt;
+    &lt;div class="n-drillDown-arrow"&gt;&lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class="n-drillDown-content"&gt;
+     &lt;div class="n-drillDown-inner"&gt;
+      &lt;div class="available-components"&gt;
+       &lt;span&gt;Avaliable components&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="items-icon"&gt;
+        &lt;ul&gt;
+         &lt;li&gt;
+          &lt;img src="../assets/images/wulf.png"&gt;
+          &lt;span&gt;Free&lt;/span&gt;
+         &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="shared-components"&gt;
+     &lt;span&gt;Shared components&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="items-icon-left"&gt;
+        &lt;ul&gt;
+         &lt;li&gt;
+          &lt;img src="../assets/images/wulf.png"&gt;
+          &lt;span&gt;Free&lt;/span&gt;
+         &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+Requires: localized-navigation.js
+</code>
+</pre></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <div class="panel panel-shadow" id="TA-navigation-sub">
+                <div class="panel-heading" id="TA-navigation-sub-head">
+                    <h1>Localized Sub Navigation</h1>
+                </div>
+                <div class="panel-body" id="TA-navigation-sub-body">
+                    <div class="panel-section text-center">
+                        Content
+                    </div>
+                    <div class="row nav-local-horizontal-row" id="TA-navigation-sub-body-row">
+                        <ul class="nav-local nav-local-horizontal">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <span>Item One</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <span>Item Two</span>
+                                </a>
+                            </li>
+                            <li class="selected">
+                                <a href="javascript:void(0)">
+                                    <span>Item Three</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <span>Item Four</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row" id="TA-navigation-sub-body-rowDetails">
+                        <div class="col-md-4">
+                            <ul class="nav-local nav-local-vertical nav-local-vertical-round-left" id="TA-navigation-sub-body-rowDetails-ul">
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Item One</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Item Two</span>
+                                    </a>
+                                </li>
+                                <li class="selected">
+                                    <a href="javascript:void(0)">
+                                        <span>Item Three</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Item Four</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Item Five</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Item Six</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="panel-section text-center" id="TA-navigation-sub-body-rowDetails-center">
+                                Content
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p> Additional navigation may be necessary to access details within panels on a screen. Use the horizontal
+                navigation first, then add the vertical navigation if another layer of information is required.
+                Use <code>nav-local-horizontal</code> for horizontal navigation and <code>nav-local-vertical</code>
+                for vertical navigation.
+            </p>
+            <pre>
+<code>
+    &lt;!-- Horizontal localized sub navigation--&gt;
+    &lt;!-- Add nav-local-horizontal-row for the row style--&gt;
+    &lt;div class="row <span class="demo-highlight-color">nav-local-horizontal-row</span>"&gt;
+        &lt;ul class="<span class="demo-highlight-color">nav-local nav-local-horizontal</span>"&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;
+                    &lt;span&gt;Item One&gt;&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Vertical localized sub navigation--&gt;
+    &lt;ul class="<span class="demo-highlight-color">nav-local nav-local-vertical</span>"&gt;
+        &lt;li&gt;
+            &lt;a href="#"&gt;
+                &lt;span&gt;Item One&gt;&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+
+    To make the left corner radius rounded, add <span class="demo-highlight-color">nav-local-vertical-round-left</span> on the ul.
+    &lt;!-- Rounded Vertical local sub navigation --&gt;
+    &lt;ul class="nav nav-local-vertical <span class="demo-highlight-color">nav-local-vertical-round-left</span>"&gt;
+
+    Requires: localized-navigation.js or wulf.js
+</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/localized-navigation']);
+    require(['jquery', 'wulf/scroll'], function($){
+        $(document).ready(function () {
+            $("#nscroll").nScrollbar();
+        });
+    });
+</script>
+</body>
+</html>

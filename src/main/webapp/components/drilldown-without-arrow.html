@@ -1,0 +1,324 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.drilldown.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_drillDown_row">Drilldown without arrow <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div id="table-demo-container" class="col-md-6">
+    <table class="n-table n-table-standard n-table-striped n-table-hover n-drilldown-table">
+        <thead>
+        <tr>
+            <th class="n-sortable">With icon</span>
+                <span class="icon icon-arrow"></span>
+            </th>
+            <th class="n-sortable">With text</span>
+                <span class="icon icon-arrow"></span>
+            </th>
+            <th class="text-right n-sortable">With error/alert
+                <span class="icon icon-arrow"></span></th>
+            <th class="text-right n-sortable">With number<span class="icon icon-arrow"></span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="n-drillDown-row" id="TA-drilldownwithoutarrow-rown1" data-target-selector="#row1">
+
+            <td class="text-center" id="TA-drilldownwithoutarrow-icon1">
+                <div class="n-cell-icon-container">
+                    <div class="n-cell-icon">
+                        <span class="icon icon-fault-critical"></span>
+                    </div>
+                </div>
+            </td>
+            <td>Critical fault</td>
+
+            <td class="n-cell-error text-right">2010</td>
+            <td class="text-right">910</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="n-drillDown-collapsed-row" id="row1" style="height: 400px;">
+                    <div class="n-drillDown-content-row">
+                        <div class="n-drillDown-inner">Row1</div>
+                        <button class="btn btn-close" style="position: absolute;z-index: 3;top: 0;right: 30px;margin-top: 30px;cursor: pointer;"><span class="icon icon-close"></span></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="n-drillDown-row" data-target-selector="#row2" id="TA-drilldownwithoutarrow-rown2">
+            <td class="text-center">
+                <div class="n-cell-icon-container">
+                    <div class="n-cell-icon">
+                        <span class="icon icon-fault-major"></span>
+                    </div>
+                </div>
+            </td>
+            <td  id="TA-drilldownwithoutarrow-text2">Major fault</td>
+            <td class="n-cell-error text-right">2010</td>
+            <td class="text-right">910</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="n-drillDown-collapsed-row" id="row2" style="height: 400px;">
+                    <div class="n-drillDown-content-row">
+                        <div class="n-drillDown-inner">Row2</div>
+                        <button class="btn btn-close" style="position: absolute;z-index: 3;top: 0;right: 30px;margin-top: 30px;cursor: pointer;"><span class="icon icon-close"></span></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="n-drillDown-row" id="TA-drilldownwithoutarrow-rown3" data-target-selector="#row3">
+            <td class="text-center">
+                <div class="n-cell-icon-container">
+                    <div class="n-cell-icon">
+                        <span class="icon icon-fault-minor"></span>
+                    </div>
+                </div>
+            </td>
+            <td>Minor fault</td>
+
+            <td class="n-cell-error text-right" id="TA-drilldownwithoutarrow-error3">2010</td>
+            <td class="text-right">910</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="n-drillDown-collapsed-row" id="row3" style="height: 400px;">
+                    <div class="n-drillDown-content-row">
+                        <div class="n-drillDown-inner">Row3</div>
+                        <button class="btn btn-close" style="position: absolute;z-index: 3;top: 0;right: 30px;margin-top: 30px;cursor: pointer;"><span class="icon icon-close"></span></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="n-drillDown-row" id="TA-drilldownwithoutarrow-rown4" data-target-selector="#row4">
+            <td class="text-center">
+                <div class="n-cell-icon-container">
+                    <div class="n-cell-icon">
+                        <span class="icon icon-fault-warning"></span>
+                    </div>
+                </div>
+            </td>
+            <td>Warning</td>
+
+            <td class="n-cell-error text-right">2010</td>
+            <td class="text-right" id="TA-drilldownwithoutarrow-number4">910</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="n-drillDown-collapsed-row" id="row4" style="height: 400px;">
+                    <div class="n-drillDown-content-row">
+                        <div class="n-drillDown-inner">Row4</div>
+                        <button class="btn btn-close" style="position: absolute;z-index: 3;top: 0;right: 30px;margin-top: 30px;cursor: pointer;"><span class="icon icon-close"></span></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="n-drillDown-row" id="TA-drilldownwithoutarrow-rown5" data-target-selector="#row5">
+            <td class="text-center">
+                <div class="n-cell-icon-container">
+                    <div class="n-cell-icon">
+                        <span class="icon icon-fault-cleared"></span>
+                    </div>
+                </div>
+            </td>
+            <td id="TA-drilldownwithoutarrow-text5">Fault cleared</td>
+
+            <td class="n-cell-error text-right">2010</td>
+            <td class="text-right">910</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="n-drillDown-collapsed-row" id="row5" style="height: 400px;">
+                    <div class="n-drillDown-content-row">
+                        <div class="n-drillDown-inner">Row5</div>
+                        <button class="btn btn-close" style="position: absolute;z-index: 3;top: 0;right: 30px;margin-top: 30px;cursor: pointer;"><span class="icon icon-close"></span></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="n-drillDown-row" id="TA-drilldownwithoutarrow-rown6" data-target-selector="#row6">
+            <td class="text-center">
+                <div class="n-cell-icon-container">
+                    <div class="n-cell-icon">
+                        <span class="icon icon-fault-unknown"></span>
+                    </div>
+                </div>
+            </td>
+            <td>Unknown situation</td>
+
+            <td class="n-cell-error text-right" id="TA-drilldownwithoutarrow-error6">2010</td>
+            <td class="text-right">910</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="n-drillDown-collapsed-row" id="row6" style="height: 400px;">
+                    <div class="n-drillDown-content-row">
+                        <div class="n-drillDown-inner">Row6</div>
+                        <button class="btn btn-close" style="position: absolute;z-index: 3;top: 0;right: 30px;margin-top: 30px;cursor: pointer;"><span class="icon icon-close"></span></button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<div class="col-md-6">
+    <p>JS & CSS dependency:</p>
+<pre>
+For drilldown without arrow components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.drilldown.min.css" rel="stylesheet"/&gt;
+</pre>
+    <pre>
+<code>
+    &lt;div id="table-demo-container" class="col-md-6"&gt;
+        &lt;table class="n-table n-table-standard n-table-striped n-table-hover n-drilldown-table"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th class="n-sortable"&gt;With icon&lt;/span&gt;
+                    &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+                    &lt;/th&gt;
+                    &lt;th class="n-sortable"&gt;With text&lt;/span&gt;
+                    &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+                    &lt;/th&gt;
+                    &lt;th class="text-right n-sortable"&gt;With error/alert
+                    &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+                    &lt;th class="text-right n-sortable"&gt;With number&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr class="n-drillDown-row" data-target-selector="#row1"&gt;
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-critical"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td&gt;Critical fault&lt;/td&gt;
+                    &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+                    &lt;td class="text-right"&gt;910&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div class="n-drillDown-collapsed-row" id="row1" style="height: 400px;"&gt;
+                    &lt;div class="n-drillDown-content-row"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Row1&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class="n-drillDown-row" data-target-selector="#row2"&gt;
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-major"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td&gt;Major fault&lt;/td&gt;
+                    &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+                    &lt;td class="text-right"&gt;910&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div class="n-drillDown-collapsed-row" id="row2" style="height: 400px;"&gt;
+                    &lt;div class="n-drillDown-content-row"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Row2&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class="n-drillDown-row" data-target-selector="#row3"&gt;
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-minor"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td&gt;Minor fault&lt;/td&gt;
+
+                    &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+                    &lt;td class="text-right"&gt;910&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div class="n-drillDown-collapsed-row" id="row3" style="height: 400px;"&gt;
+                    &lt;div class="n-drillDown-content-row"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Row3&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class="n-drillDown-row" data-target-selector="#row4"&gt;
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-warning"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td&gt;Warning&lt;/td&gt;
+
+                    &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+                    &lt;td class="text-right"&gt;910&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div class="n-drillDown-collapsed-row" id="row4" style="height: 400px;"&gt;
+                    &lt;div class="n-drillDown-content-row"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Row4&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class="n-drillDown-row" data-target-selector="#row5"&gt;
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-cleared"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td&gt;Fault cleared&lt;/td&gt;
+
+                    &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+                    &lt;td class="text-right"&gt;910&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div class="n-drillDown-collapsed-row" id="row5" style="height: 400px;"&gt;
+                    &lt;div class="n-drillDown-content-row"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Row5&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                     &lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr class="n-drillDown-row" data-target-selector="#row6"&gt;
+                    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-unknown"&gt;&lt;/span&gt;&lt;/td&gt;
+                    &lt;td&gt;Unknown situation&lt;/td&gt;
+
+                    &lt;td class="n-cell-error text-right"&gt;2010&lt;/td&gt;
+                    &lt;td class="text-right"&gt;910&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td colspan="4"&gt;
+                    &lt;div class="n-drillDown-collapsed-row" id="row6" style="height: 400px;"&gt;
+                    &lt;div class="n-drillDown-content-row"&gt;
+                    &lt;div class="n-drillDown-inner"&gt;Row6&lt;/div&gt;
+                    &lt;span class="icon icon-close-rounded"&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Java Script --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/fuelux.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/wulf.min.js"&gt&lt/script&gt;
+</code>
+</pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/drilldown']);
+</script>
+</body>
+</html>

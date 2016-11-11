@@ -1,0 +1,1059 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_table">Table <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+	  <div id="table-demo-container" class="col-md-12">
+        <p>
+            Supports <a href="https://sharenet-ims.inside.nokiasiemensnetworks.com/Download/D521667724">OT3
+                    Specification</a> (aug-2014) page 146 and 148 excluding header pulldown, icon control and selected error/alert.
+        </p>
+
+         <p>JS & CSS dependency:</p>
+        <pre>
+For Table components, it will be ok to import following css file :
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/&gt;</pre>
+
+        <h4>Standard table with alternating rows and cell selection</h4>
+            <div class="demo-table-min-size">
+                <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+                    <thead>
+                        <tr>
+                            <th class="n-sortable">With icon status</span>
+                                <span class="icon icon-arrow"></span>
+                            </th>
+                            <th class="n-sortable">With text</span>
+                                <span class="icon icon-arrow"></span>
+                            </th>
+                            <th>With editable cell</th>
+                            <th>Checkbox cell</th>
+                            <th>Dropdown cell</th>
+                            <th class="text-right n-sortable">With error/alert
+                                <span class="icon icon-arrow"></span></th>
+                            <th class="text-right n-sortable">With number<span class="icon icon-arrow"></span></th>
+                            <th>Text links</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td id='TA_table_icon1' class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-critical"></span></div></div>
+                            </td>
+                            <td>Critical fault</td>
+                            <td class="n-cell-control"><input type="text" style="top: 0.5px; position: relative;" class="n-inputfield" style="top: 0.5px; position: relative;" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb1" checked/>
+                                    <label for="cb1">Option1</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist11" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table1_dropdown1" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-major"></span></div></div>
+                            </td>
+                            <td id='TA_table_text1'>Major fault</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb2" disabled/>
+                                    <label for="cb2">Option2</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist12" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table1_dropdown2" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-minor"></span></div></div>
+                            </td>
+                            <td>Minor fault</td>
+                            <td class="n-cell-control"><input id='TA_table_cell1' type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb3"/>
+                                    <label for="cb3">Option3</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist13" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table1_dropdown3" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                         <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-warning"></span></div></div>
+                            </td>
+                            <td>Warning</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td id='TA_table_option4'>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb4" checked disabled/>
+                                    <label for="cb4">Option4</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist14" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table1_dropdown4" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-cleared"></span></div></div>
+                            </td>
+                            <td>Fault cleared</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb5"/>
+                                    <label for="cb5">Option5</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist15" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table1_dropdown5" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a id='TA_table_dropdown1' href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            <td id='TA_table_alert1' class="n-cell-error text-right">2010</td>
+                            <td id='TA_table_number1' class="text-right">910</td>
+                            <td id='TA_table_link1'><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-unknown"></span></div></div>
+                            </td>
+                            <td>Unknown situation</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb6"/>
+                                    <label for="cb6">Option6</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist16" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table1_dropdown6" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+         </div>
+        <div class="col-md-12">
+            <pre>
+<code>
+    &lt;!-- Standard table with alternating rows and cell selection --&gt;
+    &lt;table class="n-table n-table-standard n-table-striped n-table-cell-hover"&gt;
+    ...
+    &lt;/table&gt;
+    &lt;!-- Standard table with n-sortable column --&gt;
+    &lt;th class="n-sortable"&gt;With icon &lt;span&gt;&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;</code>
+            </pre>
+        </div>
+
+        <div id="table-demo-container-row" class="col-md-12">
+
+        <h4>Standard table with alternating rows and row selection</h4>
+            <div class="demo-table-min-size">
+                <table class="n-table n-table-standard n-table-striped n-table-hover">
+                    <thead>
+                        <tr>
+                            <th class="n-sortable">With icon <span><span class="icon icon-arrow-up"></span>
+                                <span class="icon icon-arrow"></span></span></th>
+                            <th class="n-sortable">With text <span><span class="icon icon-arrow-up"></span>
+                                <span class="icon icon-arrow"></span></span></th>
+                            <th>With editable cell</th>
+                            <th class="n-sortable">Checkbox cell<span class="multi-sort-down"><span class="icon icon-arrow"></span><span class="icon icon-arrow"></span></span></th>
+                            <th class="n-sortable">Dropdown cell<span class="multi-sort-up"><span class="icon icon-arrow-up"></span><span class="icon icon-arrow-up"></span></span></th>
+                            <th class="text-right">With error/alert</th>
+                            <th class="text-right">With number</th>
+                            <th>Text links</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id='TA_table_icon2' class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-critical"></span></div></div>
+                            </td>
+                            <td>Critical fault</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb11" checked/>
+                                    <label for="cb11">Option11</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-dropdown n-cell-control">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist21" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table2_dropdown1" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-major"></span></div></div>
+                            </td>
+                            <td id='TA_table_text2'>Major fault</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb12" disabled/>
+                                    <label for="cb12">Option12</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist22" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table2_dropdown2" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-minor"></span></div></div>
+                            </td>
+                            <td>Minor fault</td>
+                            <td class="n-cell-control"><input id='TA_table_cell2' type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb13"/>
+                                    <label for="cb13">Option13</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist23" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table2_dropdown3" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-warning"></span></div></div>
+                            </td>
+                            <td>Warning</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td id='TA_table_option14'>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb14" checked disabled/>
+                                    <label for="cb14">Option14</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist24" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table2_dropdown4" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-cleared"></span></div></div>
+                            </td>
+                            <td>Fault cleared</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb15"/>
+                                    <label for="cb15">Option15</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist25" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table2_dropdown5" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a id='TA_table_dropdown2' href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td id='TA_table_alert2' class="n-cell-error text-right">2010</td>
+                            <td id='TA_table_number2' class="text-right">910</td>
+                            <td id='TA_table_link2' ><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-unknown"></span></div></div>
+                            </td>
+                            <td>Unknown situation</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb16"/>
+                                    <label for="cb16">Option16</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist26" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table2_dropdown6" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+         </div>
+
+        <div class="col-md-12">
+          <pre>
+<code>
+    &lt;!-- Standard table with alternating rows and row selection --&gt;
+    &lt;table class="n-table n-table-standard n-table-striped n-table-hover"&gt;
+    &lt;/table&gt;
+    &lt;!-- Standard table with up-down n-sortable icon --&gt;
+    &lt;th class="n-sortable"&gt;With icon &lt;span&gt;&lt;span class="icon icon-arrow-up"&gt;&lt;/span&gt;&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;</code>
+          </pre>
+        </div>
+
+        <div id="table-demo-container-grid-cell" class="col-md-12">
+            <h4>Standard table with grid lines and cell selection</h4>
+            <div class="demo-table-min-size">
+                <table class="n-table n-table-standard n-table-grid-lines n-table-cell-hover">
+                    <thead>
+                        <tr>
+                            <th class="n-sortable">With icon<span class="icon icon-arrow" ></span></th>
+                            <th class="n-sortable">With text<span class="icon icon-arrow" ></span></th>
+                            <th>With editable cell</th>
+                            <th>Checkbox cell</th>
+                            <th>Dropdown cell</th>
+                            <th class="text-right">With error/alert</th>
+                            <th class="text-right">With number</th>
+                            <th>Text links</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id='TA_table_icon3' class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-critical"></span></div></div>
+                            </td>
+                            <td>Critical fault</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb21" checked/>
+                                    <label for="cb21">Option21</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist31" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table3_dropdown1" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist31" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-major"></span></div></div>
+                            </td>
+                            <td id='TA_table_text3'>Major fault</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb22" disabled/>
+                                    <label for="cb22">Option22</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist32" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table3_dropdown2" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist32" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-minor"></span></div></div>
+                            </td>
+                            <td>Minor fault</td>
+                            <td class="n-cell-control"><input id='TA_table_cell3' type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb23"/>
+                                    <label for="cb23">Option23</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist33" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table3_dropdown3" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist33" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-warning"></span></div></div>
+                            </td>
+                            <td>Warning</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td id='TA_table_option24'>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb24" checked disabled/>
+                                    <label for="cb24">Option24</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist34" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table3_dropdown4" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist34" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-cleared"></span></div></div>
+                            </td>
+                            <td>Fault cleared</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb25"/>
+                                    <label for="cb25">Option25</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist35" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table3_dropdown5" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a id='TA_table_dropdown3' href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist35" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td id='TA_table_alert3' class="n-cell-error text-right">2010</td>
+                            <td id='TA_table_number3' class="text-right">910</td>
+                            <td id='TA_table_link3' ><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-unknown"></span></div></div>
+                            </td>
+                            <td>Unknown situation</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb26"/>
+                                    <label for="cb26">Option26</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist36" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table3_dropdown6" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist36" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+         </div>
+        <div class="col-md-12">
+
+          <pre>
+<code>
+    &lt;!-- Standard table with grid lines and cell selection --&gt;
+    &lt;table class="n-table n-table-standard n-table-grid-lines n-table-cell-hover"&gt;
+    ...
+    &lt;/table&gt;</code>
+          </pre>
+        </div>
+        <div id="table-demo-container-grid-row" class="col-md-12">
+            <h4>Standard table with grid lines and row selection</h4>
+            <div class="demo-table-min-size">
+                <table class="n-table n-table-standard n-table-grid-lines n-table-hover">
+                    <thead>
+                        <tr>
+                            <th class="n-sortable">With icon<span class="icon icon-arrow" ></span></th>
+                            <th class="n-sortable">With text<span class="icon icon-arrow" ></span></th>
+                            <th>With editable cell</th>
+                            <th>Checkbox cell</th>
+                            <th>Dropdown cell</th>
+                            <th class="text-right">With error/alert</th>
+                            <th class="text-right">With number</th>
+                            <th>Text links</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id='TA_table_icon4' class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-critical"></span></div></div>
+                            </td>
+                            <td>Critical fault</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb31" checked/>
+                                    <label for="cb31">Option31</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist41" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table4_dropdown1" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist41" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-major"></span></div></div>
+                            </td>
+                            <td id='TA_table_text4'>Major fault</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb32" disabled/>
+                                    <label for="cb32">Option32</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist42" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table4_dropdown2" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist42" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-minor"></span></div></div>
+                            </td>
+                            <td>Minor fault</td>
+                            <td class="n-cell-control"><input id='TA_table_cell4' type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb33"/>
+                                    <label for="cb33">Option33</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist43" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table4_dropdown3" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist43" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-warning"></span></div></div>
+                            </td>
+                            <td>Warning</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td id='TA_table_option34'>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb34" checked disabled/>
+                                    <label for="cb34">Option34</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist44" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table4_dropdown4" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist44" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-cleared"></span></div></div>
+                            </td>
+                            <td>Fault cleared</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb35"/>
+                                    <label for="cb35">Option35</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist45" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table4_dropdown5" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a id='TA_table_dropdown4' href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist45" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td id='TA_table_alert4' class="n-cell-error text-right">2010</td>
+                            <td id='TA_table_number4' class="text-right">910</td>
+                            <td id='TA_table_link4' ><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-unknown"></span></div></div>
+                            </td>
+                            <td>Unknown situation</td>
+                            <td class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" style="top: 0.5px; position: relative;" value="10.39.190.96"></td>
+                            <td>
+                                <div class="checkbox checkbox-small">
+                                    <input type="checkbox" id="cb36"/>
+                                    <label for="cb36">Option36</label>
+                                </div>
+                            </td>
+                            <td class="n-cell-control n-cell-dropdown">
+                                <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                                     id="mySelectlist46" >
+                                    <button class="btn btn-default dropdown-toggle" id="TA_table4_dropdown6" data-toggle="dropdown" type="button" aria-expanded="false">
+                                        <span class="selected-label"><span>Three1</span></span>
+                                        <span class="selected-caret" ><span class="caret"></span></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                                        <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                                        <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                                    </ul>
+                                    <input class="hidden hidden-field" name="mySelectlist46" readonly="readonly" aria-hidden="true"
+                                           type="text">
+
+                                </div>
+                            </td>
+                            <td class="n-cell-error text-right">2010</td>
+                            <td class="text-right">910</td>
+                            <td><a href="javascript:void(0);">Link</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+         </div>
+
+        <div class="col-md-12">
+
+          <pre>
+<code>
+    &lt;!-- Standard table with grid lines and row selection --&gt;
+    &lt;table class="n-table n-table-standard n-table-grid-lines n-table-hover"&gt;
+    ...
+    &lt;/table&gt;</code>
+          </pre>
+        </div>
+
+        <div class="col-md-12">
+        <p>
+			Source code for table content in all tables:
+        </p>
+            <pre>
+<code>
+    &lt;!-- Cell with icon --&gt;
+    &lt;td class="text-center"&gt;&lt;span class="icon icon-fault-critical"&gt;&lt;/span&gt;&lt;/td&gt;
+
+    &lt;!-- Editable cell --&gt;
+    &lt;td&gt;&lt;input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" style="top: 0.5px; position: relative;" value="10.39.190.96">&lt;/td&gt;
+
+    &lt;!-- Checkbox cell --&gt;
+    &lt;td&gt;
+        &lt;div class="checkbox checkbox-small"&gt;
+            &lt;input id="xx5" type="checkbox"/&gt;
+            &lt;label for="xx5"&gt; Option1 &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/td&gt;
+
+    &lt;!-- Cell with dropdown --&gt;
+    &lt;td class="n-cell-control n-cell-dropdown" &gt;
+        &lt;div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist" id="mySelectlist1"&gt;
+            &lt;button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button"&gt;
+                &lt;span class="selected-label"&gt;&lt;/span&gt;
+                &lt;span class="selected-caret" &gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;
+                &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;ul class="dropdown-menu" role="menu"&gt;
+                &lt;li data-value="1"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="2"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="3"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;Three&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="4"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;Four&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li data-value="5"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;Five&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;input class="hidden hidden-field" name="mySelectlist" readonly="readonly" aria-hidden="true" type="text"/&gt;
+        &lt;/div&gt;
+    &lt;/td&gt;
+    &lt;-- JS-script needed --&gt;
+        &lt;script src="../wulfdist/js/dependencies/fuelux.js" type="text/javascript"&gt;&lt;/script&gt;
+
+    &lt;!-- Cell with error --&gt;
+    &lt;td class="n-cell-error"&gt;2010&lt;/td&gt;
+
+    &lt;!-- Cell with number --&gt;
+    &lt;td class="text-right"&gt;910&lt;/td&gt;</code>
+          </pre>
+        </div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/tables']);
+</script>
+</body>
+</html>

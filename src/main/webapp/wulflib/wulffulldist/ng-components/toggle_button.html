@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Toggle Button</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Toggle Button</h1>
+<hr>
+<div id="angular_section" class="row">
+    <div class="col-md-6" ng-controller="ToggleDemoController as demo">
+        <form class="form-horizontal">
+            <div class="form-group" aria-label="Title row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">Standard</div>
+                <div class="col-sm-4">Disabled</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Standard:</label>
+                <div class="col-sm-4">
+                    <wf-toggle-button toggle-id="example1" on-click="demo.onClick" id="TA-toggleButton-standard0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button toggle-id="example2" on-click="demo.onClick" disable="true" id="TA-toggleButton-standard1"></wf-toggle-button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Small:</label>
+                <div class="col-sm-4">
+                    <wf-toggle-button checked="true" toggle-id="example3" size="small" on-click="demo.onClick" id="TA-toggleButton-small0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button checked="true" toggle-id="example4" size="small" disable="true" on-click="demo.onClick" id="TA-toggleButton-small1"></wf-toggle-button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Colored:</label>
+                <div class="col-sm-4">
+                    <wf-toggle-button toggle-id="example5" color="true" on-click="demo.onClick" id="TA-toggleButton-colored0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button toggle-id="example6" color="true" disable="true" on-click="demo.onClick" id="TA-toggleButton-colored1"></wf-toggle-button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Small Colored:</label>
+                <div class="col-sm-4">
+                    <wf-toggle-button toggle-id="example7" size="small" color="true" on-click="demo.onClick" id="TA-toggleButton-smallColored0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button checked="true" toggle-id="example8" size="small" color="true" disable="true" on-click="demo.onClick" id="TA-toggleButton-smallColored1"></wf-toggle-button>
+                </div>
+            </div>
+
+            <!-- DRAFT -->
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon only toggle:</label>
+
+                <div class="col-sm-4">
+                    <wf-toggle-button   icon-display-style="btn-icon" toggle-icon="true" icon-class-name="icon-search" on-click="demo.onClick" id="TA-toggleButton-icon0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button  disable="true" icon-display-style="btn-icon" toggle-icon="true" icon-class-name="icon-search" on-click="demo.onClick" id="TA-toggleButton-icon1"></wf-toggle-button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon button toggle:</label>
+
+                <div class="col-sm-4">
+                    <wf-toggle-button  icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-cancel" on-click="demo.onClick" id="TA-toggleButton-iconButton0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button  disable="true" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-cancel" on-click="demo.onClick" id="TA-toggleButton-iconButton1"></wf-toggle-button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon toggle with text:</label>
+                <div class="col-sm-4">
+                    <wf-toggle-button  text="Toggle" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-bubble" on-click="demo.onClick" id="TA-toggleButton-iconText0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button  text="Toggle" disable="true" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-bubble" on-click="demo.onClick" id="TA-toggleButton-iconText1"></wf-toggle-button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Small icon toggle with text:</label>
+
+                <div class="col-sm-4">
+                    <wf-toggle-button  text="Toggle" size="small" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-actions-menu" on-click="demo.onClick" id="TA-toggleButton-smallIconText0"></wf-toggle-button>
+                </div>
+                <div class="col-sm-4">
+                    <wf-toggle-button  text="Toggle" size="small" disable="true" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-actions-menu" on-click="demo.onClick" id="TA-toggleButton-smallIconText1"></wf-toggle-button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon toggles with emphasis:</label>
+
+                <div class="col-sm-8">
+                    <wf-toggle-button  icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-settings" emphasis="true" on-click="demo.onClick" id="TA-toggleButton-iconEmhassis0"></wf-toggle-button>
+                    <wf-toggle-button  text="Toggle" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-settings" emphasis="true" on-click="demo.onClick" id="TA-toggleButton-iconEmhassis1"></wf-toggle-button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Action Callback:</label>
+
+                <div class="col-sm-8">
+                    <button id="TA-toggle-disableAction" class="btn btn-small" ng-click="demo.enableDisableAction()" ng-cloak>
+                        {{demo.actionState?"Disable":"Enable"}} callback actions
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h2>Overview</h2>
+        <p>Angular version of toggle button component which is implemented by using <code>.component()</code> method introduced since Angular1.5. </p>
+
+        <h2>wf-toggle-button settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>toggle-id: @</code></td>
+                <td>
+                    <ul><li>valid html id string</li></ul>
+                </td>
+                <td>
+                    [required]Used for switch button, the id for toggle switch button
+                </td>
+            </tr>
+            <tr>
+                <td><code>color: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false(Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    [Optional]Used for switch button, if the toggle switch button will render with color
+                </td>
+            </tr>
+            <tr>
+                <td><code>checked: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false(Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    [Optional]Used for switch button, the enable state of toggle switch button
+                </td>
+            </tr>
+            <tr>
+                <td><code>icon-display-style: @</code></td>
+                <td>
+                    <ul><li>'btn-icon-button'</li>
+                    <li>'btn-icon'</li></ul>
+                </td>
+                <td>
+                    [required]Used for icon button, if toggle icon button display as  icon or button
+                </td>
+            </tr>
+            <tr>
+                <td><code>icon-class-name: @</code></td>
+                <td>
+                    <ul><li>icon class name(<a href="http://wulf-demo.dynamic.nsn-net.net/components/icons.html">icon class name list</a>)</li></ul>
+                </td>
+                <td>
+                    [Optional]Used for icon button, the class name of icon display in toggle icon button
+                </td>
+            </tr>
+            <tr>
+                <td><code>text: @</code></td>
+                <td>
+                    <ul><li>valid string text</li></ul>
+                </td>
+                <td>
+                    [Optional]Used for icon button, the text display in toggle icon button
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>toggle-icon: <</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false(Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    [Optional]Used for icon button, if the toggle is toggle icon button
+                </td>
+            </tr>
+            <tr>
+                <td><code>emphasis: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false(Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    [Optional]Used for icon button, if toggle icon button render with color when selected
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false(Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    [Optional]Used for all toggle button, the status of toggle button
+                </td>
+            </tr>
+            <tr>
+                <td><code>size: @</code></td>
+                <td>
+                    <ul>
+                        <li>'small'</li>
+                        <li>'standard'(default value)</li>
+                    </ul>
+                </td>
+                <td>
+                    [Optional]Used for all toggle button, the toggle button size
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-click: &</code></td>
+                <td>
+                    function(event)
+                </td>
+                <td>
+                    Callback function when button is clicked
+                    <ul>
+                        <li>event - event when button is clicked</li>
+                    </ul>
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        <p>If you are using this component in CSP mode, please make sure the 'unsafe-inline' is enabled.</p>
+        <p>Reference:</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP">https://developer.mozilla.org/en-US/docs/Web/Security/CSP</a></p>
+        <p><a href="https://docs.angularjs.org/api/ng/directive/ngCsp">https://docs.angularjs.org/api/ng/directive/ngCsp</a></p>
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                <code data-language="html">
+<div ng-controller="ToggleDemoController as demo">
+    <wf-toggle-button toggle-id="example1" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button toggle-id="example2" disable="true" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button checked="true" toggle-id="example3" size="small" on-click="demo.onClick" ></wf-toggle-button>
+    <wf-toggle-button checked="true" toggle-id="example4" size="small" disable="true" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button toggle-id="example5" color="true" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button toggle-id="example6" color="true" disable="true" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button toggle-id="example7" size="small" color="true" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button checked="true" toggle-id="example8" size="small" color="true" disable="true" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button icon-display-style="btn-icon" toggle-icon="true" icon-class-name="icon-search" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  disable="true" icon-display-style="btn-icon" toggle-icon="true" icon-class-name="icon-search" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-cancel" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  disable="true" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-cancel" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  text="Toggle" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-bubble" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  text="Toggle" disable="true" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-bubble" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  text="Toggle" size="small" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-actions-menu" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  text="Toggle" size="small" disable="true" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-actions-menu" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-settings" emphasis="true" on-click="demo.onClick"></wf-toggle-button>
+    <wf-toggle-button  text="Toggle" icon-display-style="btn-icon-button" toggle-icon="true" icon-class-name="icon-settings" emphasis="true" on-click="demo.onClick"></wf-toggle-button>
+</div>
+                </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.toggleButton']).controller('ToggleDemoController',function(){
+    var self = this;
+    self.onClick = function () {
+        alert('Button is clicked');
+    };
+});
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+        strictDi: true
+    });
+});
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/toggle/toggle.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.constants','wf.angular.toggleButton','wf.angular.tabs']).controller('ToggleDemoController',function(){
+            var self = this;
+            self.actionState = false;
+            self.enableDisableAction = function () {
+                self.actionState = !self.actionState;
+            };
+
+            self.onClick = function () {
+                if (self.actionState){
+                    alert('Button is clicked');
+                }
+            };
+        });
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

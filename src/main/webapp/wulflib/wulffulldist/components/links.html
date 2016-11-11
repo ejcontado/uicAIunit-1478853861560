@@ -1,0 +1,141 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_link">Link <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div id="link-demo-container" class="col-md-3">
+    <h4>Standard</h4>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-4">Normal:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link" id="TA-link-standardnormallink">Google</a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4">Visited:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-visited" id="TA-link-standardvisitedlink">Google</a>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4">Disabled:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-disabled" id="TA-link-standarddisabledlink" disabled>Google</a>
+            </div>
+        </div>
+    </form>
+    <br>
+    <h4>Secondary</h4>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-4">Normal:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-secondary" id="TA-link-secondarynormallink">Secondary
+                    Google</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4">Visited:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-secondary n-link-visited" id="TA-link-secondaryvisitedlink">Secondary
+                    Google</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4">Disabled:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-secondary n-link-disabled" id="TA-link-secondarydisabledlink" disabled>Secondary
+                    Google</a>
+            </div>
+        </div>
+    </form>
+    <br>
+    <h4>Call to action</h4>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-4">Normal:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-action" id="TA-link-calltoactionnormallink">Google</a><span
+                class="n-link-action-icon"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4">Visited:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-action n-link-visited" id="TA-link-calltoactiovisitedlink">Google</a><span
+                class="n-link-action-icon"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4">Disabled:</label>
+
+            <div class="col-sm-8">
+                <a href="http://google.fi" class="n-link n-link-action n-link-disabled" id="TA-link-calltoactiondisabledlink" disabled>Google</a><span
+                class="n-link-action-icon"></span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="col-md-9">
+    <br>
+    <p>JS & CSS dependency:</p>
+<pre>
+For links components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"&gt;</pre>
+    <br>
+    <pre>
+<code>
+    &lt;!-- Normal text links --&gt;
+    &lt;a href="http://google.fi" class="n-link"&gt;Normal link&lt;/a&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-visited"&gt;Visited link&lt;/a&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-disabled" <span class="demo-highlight-color">disabled</span>&gt;Disabled link&lt;/a&gt;</code>
+    </pre>
+    <br>
+    <pre>
+<code>
+    &lt;!-- Secondary text links --&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-secondary"&gt;Secondary link&lt;/a&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-secondary n-link-visited"&gt;Visited Secondary link&lt;/a&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-secondary n-link-disabled" <span class="demo-highlight-color">disabled</span>&gt;Disabled secondary link&lt;/a&gt;</code>
+    </pre>
+    <br>
+    <br>
+    <pre>
+<code>
+    &lt;!-- Call to action text links --&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-action"&gt;Call to action link&lt;/a&gt;&lt;span class="n-link-action-icon"&gt;&lt;/span&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-action n-link-visited"&gt;Visited Call to action link&lt;/a&gt;&lt;span class="n-link-action-icon"&gt;&lt;/span&gt;
+    &lt;a href="http://google.fi" class="n-link n-link-action n-link-disabled" <span class="demo-highlight-color">disabled</span>&gt;Disabled call to action link&lt;/a&gt;&lt;span class="n-link-action-icon"&gt;&lt;/span&gt;</code>
+    </pre>
+    <br>
+    <p>Note1: (Chrome-only) if it is required to get rid of extra underline highlight in case of double-click done after the link/text on the same row, you need to wrap the link/text inside div.</p>
+    <p>Note2: Call-to-action disclosure icon is not acting as hyper link like it should.</p>
+    <p>Note3: It would be better to always add "disabled" property to disabled links especially in IE, however "n-link-disabled" class can work fine without "disabled" property in Chrome and FF.</p>
+</div>
+</body>
+</html>

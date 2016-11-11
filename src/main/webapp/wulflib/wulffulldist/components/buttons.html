@@ -1,0 +1,593 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_button">Button <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Regular buttons</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Large button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-large" id="TA-Button-Largebutton">Button</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Standard button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-standard" id="TA-Button-Standardbutton">Button</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Small button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-small" id="TA-Button-Smallbutton">Button</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Disabled button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-standard" disabled id="TA-Button-Disabledbutton">Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For button components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;</pre>
+        <p>
+            You can use a number of different Nokia-style buttons by adding a <code>btn</code>
+            class definition to a button element. A number of different button sizes are provided
+            through additional size classes like <code>btn-large</code>, <code>btn-standard</code>
+            and <code>btn-small</code>.
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-large"&gt;Button&lt;/button&gt;
+    &lt;button class="btn btn-standard"&gt;Button&lt;/button&gt;
+    &lt;button class="btn btn-small"&gt;Button&lt;/button&gt;
+    &lt;button class="btn btn-standard" disabled&gt;Button&lt;/button&gt; </code>
+        </pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Buttons dark</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Dark button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-action btn-standard" id="TA-Button-Actionbutton">Button</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Disabled dark button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-action btn-standard" disabled id="TA-Button-Actionbuttondisabled">Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>
+            You can also use a dark version of the buttons by adding the
+            <code>btn-action</code> class to the button element. These buttons are
+            stylistically distinctive to encourage the user to take action.
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-action btn-standard"&gt;Button&lt;/button&gt;
+    &lt;button class="btn btn-action btn-standard" disabled&gt;Button&lt;/button&gt;</code>
+        </pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Not print buttons</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Not print buttons:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-large btn-not-print" id="TA-Button-Printbutton">Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>You can add .btn-not-print for button if you don't want it to be shown when printing.</p>
+        <pre>&lt;button class="btn btn-large <span class="demo-highlight-color">btn-not-print</span>"&gt;Button&lt;/button&gt;</pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h4>Special buttons</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Close button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-close" id="TA-Button-Closebutton"><span class="icon icon-close"></span></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Minimize button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-minimize" id="TA-Button-Minimizebutton"></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Help button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-help" id="TA-Button-Helpbutton"></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Info button(not in OT3):</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-info" id="TA-Button-Infobutton"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>
+            In addition to the regular buttons, you can also choose from
+            a few different special buttons for common use cases, such as
+            closing, minimizing,accessing help and displaying information. These buttons do not require
+            any additional markup other than adding a class like <code>btn-close</code>,
+            <code>btn-minimize</code>, <code>btn-help</code> or <code>btn-info</code> :
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-close"&gt;&lt;/button&gt;
+    &lt;button class="btn btn-minimize"&gt;&lt;/button&gt;
+    &lt;button class="btn btn-help"&gt;&lt;/button&gt;
+    &lt;button class="btn btn-info"&gt;&lt;/button&gt;</code>
+        </pre>
+        <p>
+        Note that these buttons are defined by appereance only and they do not provide
+        any functionality by themselves. You should use JavaScript if you wish to define
+        functionality for the buttons.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Button without text</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <button class="btn btn-icon" id="TA-Button-Settingsbutton">
+            <span class="icon icon-settings" ></span>
+        </button>
+        <button class="btn btn-icon" id="TA-Button-Bubblebutton">
+            <span class="icon icon-bubble"></span>
+        </button>
+        <button class="btn btn-icon" id="TA-Button-Refreshbutton">
+            <span class="icon icon-refresh"></span>
+        </button>
+        <button class="btn btn-icon" disabled id="TA-Button-Refreshbuttondisabled">
+            <span class="icon icon-refresh"></span>
+        </button>
+        <button class="btn btn-icon" id="TA-Button-Buttonswithicons">
+            <span class="icon icon-bubble"></span>
+            <span>Buttons with icons</span>
+        </button>
+    </div>
+    <div class="col-md-7">
+        <p>
+            You can use a icons inside buttons as well by including a <code>span</code> element
+            with the icon definition. To make sure that the button dimensions are correct, add
+            the <code>btn-icon</code> class to the button:
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-icon"&gt;
+        &lt;span class="icon icon-settings"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-icon" disabled&gt;
+        &lt;span class="icon icon-refresh"&gt;&lt;/span&gt;
+    &lt;/button&gt; </code>
+        </pre>
+        <p>
+            If you wish to include also text alongside an icon in the button, make sure to
+            wrap your text content in a span to ensure proper padding between the elements:
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-icon"&gt;
+        &lt;span class="icon icon-bubble"&gt;&lt;/span&gt;
+        &lt;span&gt;Buttons with icons&lt;/span&gt;
+    &lt;/button&gt;</code>
+        </pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Default Button</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Standard default button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-standard btn-defaultBlue" id="TA-Button-Bluebutton">Button</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Close default button:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-close btn-defaultBlue" id="TA-Button-Bluebuttonclose">
+                        <span class="icon icon-close"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Default button without text:</label>
+
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-defaultBlue" id="TA-Button-Bluebuttonbubble">
+                        <span class="icon icon-bubble"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>
+            You can turn a button to default button. To make sure that the button dimensions are correct, add
+            the <code>btn-defaultBlue</code> class to the button:
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-standard btn-defaultBlue"&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-close btn-defaultBlue"&gt;
+        &lt;span class="icon icon-close"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-icon btn-defaultBlue"&gt;
+        &lt;span class="icon icon-bubble"&gt;&lt;/span&gt;
+    &lt;/button&gt; </code>
+        </pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Comment Button</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Comment button:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-comment" data-toggle="button" id="TA-Button-Comment">
+                        <span class="icon icon-message"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Disabled comment button:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-comment" data-toggle="button" disabled id="TA-Button-DisabledComment" >
+                        <span class="icon icon-message"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>
+            Note: Comment button normal and hover states differ from OT3.1.
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-icon btn-comment" data-toggle="button"&gt;
+        &lt;span class="icon icon-message"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-icon btn-comment" data-toggle="button" disabled&gt;
+        &lt;span class="icon icon-message"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+     </code>
+        </pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Star Flag</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Standard:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-star" id="TA-Button-Star" data-toggle="button">
+                        <span class="icon icon-star"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Standard disabled:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-star" id="TA-Button-StarDisabled" data-toggle="button" disabled>
+                        <span class="icon icon-star"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Primary:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-star-primary" id="TA-Button-Primary" data-toggle="button">
+                        <span class="icon icon-star"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Primary disabled:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-star-primary" id="TA-Button-PrimaryDisabled" data-toggle="button" disabled>
+                        <span class="icon icon-star"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>
+            Note: Star flag differs from OT3.1.
+        </p>
+        <pre>
+<code>
+    &lt;button class="btn btn-icon btn-star-primary" data-toggle="button"&gt;
+        &lt;span class="icon icon-star"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-icon btn-star-primary" data-toggle="button" disabled&gt;
+        &lt;span class="icon icon-star"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+</code>
+        </pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Carousel buttons</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Chrome:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-carousel-chrome-back" id="TA-Button-back">
+                        <span class="icon icon-back"></span>
+                    </button>
+                    <button class="btn btn-carousel-chrome-next" id="TA-Button-next">
+                        <span class="icon icon-next"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Chrome disabled:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-carousel-chrome-back" disabled id="TA-Button-backdisabled">
+                        <span class="icon icon-back"></span>
+                    </button>
+                    <button class="btn btn-carousel-chrome-next" disabled id="TA-Button-nextdisabled">
+                        <span class="icon icon-next"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-7">
+        <p>
+            Chrome style Carousel button usage:
+        </p>
+        <pre>
+    <code>
+    &lt;button class="btn btn-carousel-chrome-back"&gt;
+        &lt;span class="icon icon-back"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-carousel-chrome-next"&gt;
+        &lt;span class="icon icon-next"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-carousel-chrome-back" disabled&gt;
+        &lt;span class="icon icon-back"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-carousel-chrome-next" disabled&gt;
+        &lt;span class="icon icon-next"&gt;&lt;/span&gt;
+    &lt;/button&gt;;
+    </code>
+        </pre>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Standard:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-carousel-standard btn-carousel-standard-back">
+                        <span class="icon icon-left"></span>
+                    </button>
+                    <button class="btn btn-carousel-standard btn-carousel-standard-bullet">
+                        <span class="icon icon-bullet"></span>
+                    </button>
+                    <button class="btn btn-carousel-standard btn-carousel-standard-bullet">
+                        <span class="icon icon-bullet"></span>
+                    </button>
+                    <button class="btn btn-carousel-standard btn-carousel-standard-next">
+                        <span class="icon icon-right"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        </pre>
+        <p>
+            Standard style carousel button usage (Note: icons do not follow OT3.1):
+        </p>
+        <pre>
+    <code>
+    &lt;button class="btn btn-carousel-standard btn-carousel-standard-back"&gt;
+       &lt;span class="icon icon-left"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-carousel-standard btn-carousel-standard-bullet"&gt;
+        &lt;span class="icon icon-bullet"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-carousel-standard btn-carousel-standard-next"&gt;
+        &lt;span class="icon icon-right"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;!-- if you want different colors please patch the styles like bellow
+    .btn-carousel-standard .icon:before{
+        color: #ffffff;
+    }
+    .btn-carousel-standard:hover:not(:focus) .icon:before,
+    .btn-carousel-standard:focus .icon:before,
+    .btn-carousel-standardactive .icon:before
+    {
+        color: #ffffff;
+    }
+    .btn-carousel-standard:focus,
+    .btn-carousel-standard:active
+    {
+        border: 3px solid #ffffff;
+    }
+    .btn-carousel-standard-bullet:hover:not(:focus) .icon:before
+    {
+        text-shadow: 0 0 7px #ffffff;
+    }
+    .btn-carousel-standard:hover:not(:focus){
+        border: 3px solid rgba(255, 255, 255, 0.5)
+    } --&gt;
+
+    </code>
+        </pre>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Show details</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Show details:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-details"id="details">
+                        <span>Show details</span>
+                        <i class="icon icon-arrow"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Hide details:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-details" id="details_close">
+                        <span>Hide details</span>
+                        <i class="icon icon-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-6 control-label">Disabled details:</label>
+                <div class="col-sm-6">
+                    <button class="btn btn-icon btn-details" id="details_disabled" disabled>
+                        <span>Disabled details</span>
+                        <i class="icon icon-arrow"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>
+            Details button usage:
+        </p>
+          <pre>
+  <code>
+      &lt;button class="btn btn-icon btn-details"&gt;
+      &lt;i class="icon icon-arrow"&gt;&lt;/i&gt;
+      &lt;/button&gt;
+      &lt;button class="btn btn-icon btn-details"&gt;
+      &lt;i class="icon icon-arrow-up"&gt;&lt;/i&gt;
+      &lt;/button&gt;
+      &lt;button class="btn btn-icon btn-details" disabled&gt;
+      &lt;i class="icon icon-arrow"&gt;&lt;/i&gt;
+      &lt;/button&gt;</code>
+          </pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/buttons']);
+</script>
+</body>
+</html>

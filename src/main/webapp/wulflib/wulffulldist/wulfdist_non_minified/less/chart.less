@@ -1,0 +1,39 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+
+.jqx-chart-axis-text, .jqx-chart-axis-description, .jqx-chart-label-text {
+  fill: @jqx-chart-axis-text;
+  font-size: 14px;
+  font-weight: lighter;
+  font-family: @font-family-base;
+}
+#svgChart circle {
+   cursor: pointer;
+}
+#svgChart .bar{
+   cursor: pointer;
+}
+.panel-shadow.chart-panel{
+  border:1px solid @jqx-chart-panel-border;
+  position: relative;
+}
+.pie-chart {
+  path {
+    cursor: pointer;
+  }
+
+  path[fill="none"] {
+    display: none;
+  }
+
+  .pie-shadow{
+    position: absolute;
+    bottom: 34px;
+    border-radius: 100%;
+    background-image: linear-gradient(to bottom,@jqx-chart-pie-shadow 0,transparent 50%);
+    left: 50%;
+  }
+}

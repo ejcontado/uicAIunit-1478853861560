@@ -1,0 +1,1603 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/gradients.less";
+@import "./mixins/vendor-prefixes.less";
+@import "@{less-path-of-bootstrap}mixins/tab-focus.less";
+@import "@{less-path-of-bootstrap}mixins/grid.less";
+@import "@{less-path-of-bootstrap}mixins/border-radius.less";
+@import "@{less-path-of-bootstrap}mixins/nav-vertical-align.less";
+@import "variables.less";
+@import "utilities.less";
+
+// Note impacting components that contain banner specific settings: dropdown.less
+.n-banner {
+    position: relative;
+    min-height: @n-banner-height;
+    border-top: 1px solid @n-banner-border-top;
+
+    padding-top: 16px;
+
+    // Prevent floats from breaking the navbar
+    &:extend(.clearfix all);
+
+    //@media (max-width: @n-banner-min-width) {
+    //    min-width: @n-banner-min-width;
+    //}
+    width: 100%;
+    min-width: @n-banner-min-width;
+    @media (max-width: (@grid-float-breakpoint - 2px)) {
+        width: 100%;
+        min-width: 100%;
+    }
+    @media (min-width: @grid-float-breakpoint) {
+        border-radius: @navbar-border-radius;
+    }
+}
+
+.n-banner-header {
+    &:extend(.clearfix all);
+
+    @media (min-width: @grid-float-breakpoint) {
+        float: left;
+    }
+}
+
+.n-banner-collapse {
+    overflow-x: visible;
+    padding-right: @navbar-padding-horizontal;
+    padding-left: @navbar-padding-horizontal;
+    border-top: 1px solid transparent;
+    box-shadow: inset 0 1px 0 @n-banner-collapse-shadow;
+    &:extend(.clearfix all);
+    -webkit-overflow-scrolling: touch;
+
+    &.in {
+        overflow-y: auto;
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+        overflow-y: visible !important;
+        overflow-x: visible;
+        //height:420px;
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+
+    @media (min-width: @grid-float-breakpoint) {
+        width: auto;
+        border-top: 0;
+        box-shadow: none;
+
+        &.collapse {
+            display: block !important;
+            visibility: visible !important;
+            height: auto !important;
+            padding-bottom: 0; // Override default setting
+            overflow: visible !important; //
+        }
+
+        &.in {
+            overflow-y: visible;
+        }
+    }
+}
+
+.container,
+.container-fluid {
+    > .n-banner-header,
+    > .n-banner-collapse {
+        margin-right: -@navbar-padding-horizontal;
+        margin-left: -@navbar-padding-horizontal;
+        white-space: nowrap;
+
+        @media (min-width: @grid-float-breakpoint) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+}
+
+// Brand/project name
+
+.n-banner-brand {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    //padding: @navbar-padding-vertical @navbar-padding-horizontal;
+    padding: 0 15px;
+    font-size: @font-size-large;
+    //line-height: @line-height-computed;
+    line-height: 61px;
+    //height: @navbar-height;
+    height: @n-banner-1st-gradient-blue-height;
+
+    color: @n-banner-brand-text;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 @n-banner-brand-text-shadow;
+
+    &:active,
+    &:hover,
+    &:focus {
+        border: none;
+        color: @n-banner-brand-focus-text;
+        outline: 0;
+        text-decoration: none;
+    }
+
+    > img {
+        display: block;
+    }
+
+    > span {
+        color: @n-banner-brand-span-text;
+    }
+
+    > h1 {
+        margin-top: 10px;
+        margin-bottom: 17px;
+    }
+
+    @media (min-width: @grid-float-breakpoint) {
+        .n-banner-brand > .container &,
+        .n-banner-brand > .container-fluid & {
+            margin-left: -@navbar-padding-horizontal;
+        }
+    }
+}
+
+.n-banner-toggle {
+    position: relative;
+    float: right;
+    margin-right: @navbar-padding-horizontal;
+
+    padding: 9px 10px;
+    .navbar-vertical-align(34px);
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    background: transparent none;
+    border: 1px solid transparent;
+    border-radius: @border-radius-base;
+
+    // We remove the `outline` here, but later compensate by attaching `:hover`
+    // styles to `:focus`.
+    &:focus {
+        outline: 0;
+    }
+
+    // Bars
+    .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+        background-color: @gray-white;
+    }
+    .icon-bar + .icon-bar {
+        margin-top: 4px;
+    }
+
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    @media (min-width: @grid-float-breakpoint) {
+        display: none;
+    }
+}
+
+@media (min-width: @grid-float-breakpoint) {
+    .n-banner-left {
+        .pull-left();
+    }
+
+    .n-banner-right {
+        .pull-right();
+        margin-right: -@navbar-padding-horizontal;
+
+        ~ .n-banner-right {
+            margin-right: 0;
+        }
+
+        .icon-profile {
+            padding-right: 4px;
+        }
+    }
+}
+
+// Navbar nav links
+//
+// Builds on top of the `.nav` components with its own modifier class to make
+// the nav the full height of the horizontal nav (above 768px).
+
+.n-banner-nav {
+    margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+    background: linear-gradient(to bottom, @n-banner-nav-bg-gradient-start, @n-banner-nav-bg-gradient-end);
+    height: @n-banner-1st-gradient-blue-height;
+    padding-top: 6px;
+    padding-left: 0;
+    list-style: none;
+
+    > li > a {
+        line-height: @line-height-computed;
+        position: relative;
+        display: block;
+        text-decoration: none;
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+        // Dropdowns get custom display when collapsed
+        // .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        > li > a,
+        .dropdown-header {
+            padding: 5px 15px 5px 25px;
+        }
+
+        > li > a {
+            line-height: @line-height-computed;
+            &:hover,
+            &:focus {
+                background-image: none;
+            }
+        }
+    }
+
+    // Uncollapse the nav
+    @media (min-width: @grid-float-breakpoint) {
+        float: left;
+        margin: 0;
+
+        > li {
+            float: left;
+            margin: 0 8px;
+        }
+    }
+}
+
+.n-banner-1st{
+  > ul > li, wf-banner-utility-set > ul > li{
+    @media (max-width: @grid-float-breakpoint-max) {
+      margin: 0 8px;
+      float: left;
+    }
+    margin: 0 3px;
+
+    > p {
+      padding: 15px 0;
+    }
+
+    > a {
+      color: @n-banner-1st-item-text;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0;
+      text-decoration: none;
+      text-shadow: 0 1px 0 @n-banner-1st-item-text-shadow;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-bottom:0;
+      &:active, &:focus, &:hover  {
+        background: transparent;
+        border: none;
+        outline: 0;
+        border-bottom:1px solid @blue-underline;
+      }
+    }
+  }
+}
+
+// Fillers
+.n-banner-1st-filler-white {
+    #gradient > .vertical(@n-banner-1st-gradient-white-start, @n-banner-1st-gradient-white-end);
+    height: @n-banner-1st-gradient-white-height;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.n-banner-1st-filler-blue {
+    #gradient > .vertical(@n-banner-1st-gradient-blue-start, @n-banner-1st-gradient-blue-end);
+    height: @n-banner-1st-gradient-blue-height;
+    left: 0;
+    position: absolute;
+    top: 16px;
+    width: 100%;
+    /*@media (min-width: @screen-sm-min) {
+        width: calc(~"50% + @{container-sm-no-gutter}/2");
+    }
+    @media (min-width: @screen-md-min) {
+        width: calc(~"50% + @{container-md-no-gutter}/2");
+    }
+    @media (min-width: @screen-lg-min) {
+        width: calc(~"50% +  @{container-lg-no-gutter}/2");
+    }*/
+    z-index: -1;
+}
+
+.n-banner-2nd {
+    li > a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    height: @n-banner-2nd-gradient-blue-height;
+    .n-banner-dropdown-toggle {
+        #gradient > .vertical(@n-banner-2nd-gradient-gray-start, @n-banner-2nd-gradient-gray-end);
+    }
+
+    .n-banner-tabs {
+        @media (max-width: @grid-float-breakpoint-max) {
+            padding-left: 0;
+            height: auto;
+        }
+        > li {
+            & > a {
+                @media (max-width: @grid-float-breakpoint-max) {
+                    border-radius: 0;
+                }
+                padding-left: 11px;
+                padding-right: 11px;
+            }
+        }
+    }
+}
+
+.n-banner-2nd-filler-blue {
+    #gradient > .vertical(@n-banner-2nd-gradient-blue-start, @n-banner-2nd-gradient-blue-end);
+    height: @n-banner-2nd-gradient-blue-height;
+    left: 0;
+    position: absolute;
+    top: 76px;
+    width: 100%;
+    z-index: 0;
+}
+
+.n-banner-2nd-filler-gray {
+    #gradient > .vertical(@n-banner-2nd-gradient-gray-start, @n-banner-2nd-gradient-gray-end);
+    height: @n-banner-2nd-gradient-gray-height;
+    left: 0;
+    position: absolute;
+    top: 76px;
+    z-index: -1;
+    width: 100%;
+}
+
+.n-banner-3rd-filler-gray {
+    display: none;
+    background: @n-banner-tab-background-active;
+    height: @n-banner-2nd-gradient-gray-height;
+    border-bottom: 1px solid @n-banner-3rd-filler-gray-border-bottom;
+    left: 0;
+    position: absolute;
+    top: @n-banner-3rd-filler-gray-top;
+    z-index: 0;
+    width: 100%;
+}
+
+.n-banner-3rd-filler-dark {
+    background: @n-banner-filter-background;
+    border: none;
+    height:200px;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: @n-banner-3rd-filler-gray-top;
+    z-index: 0;
+    width: 100%;
+}
+
+.n-banner-3rd {
+    ul {
+        list-style-type: none;
+
+        li {
+            float: left;
+            height: 100%;
+
+            &:hover > a > span {
+                border-bottom: 1px solid @blue-underline;
+            }
+            &.active > a > span {
+                color: @black-hover;
+            }
+            a {
+                display: block;
+                float: left;
+                cursor: pointer;
+                color: @n-banner-tab-text-color;
+                font-weight: normal;
+                text-shadow: 0 1px rgba(255, 255, 255, 0.65);
+                padding: 10px 8px 0 37px;
+                &:hover {
+                    text-decoration: none;
+                    color: @n-banner-3rd-item-hover-text;
+                }
+
+                span {
+                    float: left;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.n_banner_3rd_subItem {
+    display: none;
+    float: right;
+    height: 40px;
+    > li {
+        > a {
+            outline-style: none;
+            position: relative;
+        }
+        > a:hover, > a:active {
+            background: transparent;
+        }
+        > a:focus {
+            background: transparent;
+            > span {
+                border-bottom: 1px solid @blue-underline;
+            }
+        }
+    }
+}
+
+.n-banner-logo-img {
+    background: linear-gradient(to bottom, @n-banner-logo-img-background-gradient-start -16px, @n-banner-logo-img-background-gradient-end);
+    height: @n-banner-1st-gradient-blue-height;
+    padding-top: 17px;
+    width: 152px;
+    padding-left: 22px;
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      display: none;
+    }
+}
+
+// "Wave" transitions
+
+.n-banner-1st-blue-to-gray {
+    height: @n-banner-1st-gradient-blue-height;
+    min-width: 100px;
+    padding: 0;
+    position: relative;
+    width: 100px;
+
+    > .blue-mask {
+        background: linear-gradient(to bottom, @blue-to-gray-bluemask-bg-gradient-start -30px, @blue-to-gray-bluemask-bg-gradient-end);
+        bottom: 0;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+    > .gray-mask {
+        background: linear-gradient(to bottom, @blue-to-gray-graymask-bg-gradient-start, @blue-to-gray-graymask-bg-gradient-end 61px);
+        height: 50%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    > .blue-corner {
+        background: linear-gradient(to bottom, @blue-to-gray-blueconer-bg-gradient-start, @blue-to-gray-blueconer-bg-gradient-end);
+        border-radius: 0 100px 0 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        //glitch fix in ie
+        left: -1px;
+        width: calc(~"50% + 2px");
+
+    }
+    > .gray-corner {
+        background: linear-gradient(to bottom, @blue-to-gray-grayconer-bg-gradient-start, @blue-to-gray-grayconer-bg-gradient-end);
+        border-radius: 0 0 0 100px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        //glitch fix in ie
+        width: 63px;
+        right: -1px;
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      display: none;
+    }
+}
+
+.n-banner-1st-gray-to-white {
+    height: @n-banner-1st-gradient-blue-height;
+    min-width: 100px;
+    padding: 0;
+    position: relative;
+    width: 100px;
+
+    > .gray-mask {
+        background: linear-gradient(to bottom, @gray-to-white-graymask-bg-gradient-start -30px, @gray-to-white-graymask-bg-gradient-end);
+        bottom: 0;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+    > .white-mask {
+        background: linear-gradient(to bottom, @gray-to-white-whitemask-bg-gradient-start -16px, @gray-to-white-whitemask-bg-gradient-end 78px);
+        height: 50%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    > .gray-corner {
+        background: linear-gradient(to bottom, @gray-to-white-graycorner-bg-gradient-start, @gray-to-white-graycorner-bg-gradient-end);
+        border-radius: 0 100px 0 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        //glitch fix in ie
+        width: calc(~"50% + 2px");
+        left: -1px;
+    }
+    > .white-corner {
+        background: linear-gradient(to bottom, @gray-to-white-whitecorner-bg-gradient-start -16px, @gray-to-white-whitecorner-bg-gradient-end);
+        border-radius: 0 0 0 100px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        //glitch fix in ie
+        width: 63px;
+        right: -1px;
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      display: none;
+    }
+}
+
+.n-banner-2nd-gray-to-blue {
+    display: inline-block;
+    height: 40px;
+    min-width: 100px;
+    padding: 0;
+    position: relative;
+    width: 100px;
+
+    > .gray-mask {
+        background: linear-gradient(to bottom, @gray-to-blue-graymask-bg-gradient-start -15px, @gray-to-blue-graymask-bg-gradient-end);
+        bottom: 0;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+    }
+    > .blue-mask {
+        background: linear-gradient(to bottom, @gray-to-blue-bluemask-bg-gradient-start, @gray-to-blue-bluemask-bg-gradient-end 30px);
+        height: 50%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+    > .gray-corner {
+        background: linear-gradient(to bottom, @gray-to-blue-graycorner-bg-gradient-start, @gray-to-blue-graycorner-bg-gradient-end);
+        border-radius: 0 100px 0 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        //glitch fix in ie
+        width: calc(~"50% + 2px");
+        left: -1px;
+    }
+    > .blue-corner {
+        background: linear-gradient(to bottom, @gray-to-blue-bluecorner-bg-gradient-start, @gray-to-blue-bluecorner-bg-gradient-end);
+        border-radius: 0 0 0 100px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 99;
+        //glitch fix in ie
+        width: 62px;
+        right: -1px;
+    }
+
+    &.active, &.active:hover {
+        > .gray-mask {
+            background: @n-banner-tab-background-active;
+        }
+        > .gray-corner {
+            background: @n-banner-tab-background-active;
+            border-top: 1px solid @nav-tabs-border-color;
+        }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      display: none;
+    }
+}
+
+.n-banner-overflow-control {
+    width: 0;
+    .n-banner-dropdown-toggle {
+        display: block;
+        height: @n-banner-2nd-gradient-gray-height;
+        box-shadow: 0 0 8px 0 @overflow-control-toggle-shadow;
+        border-left: 1px solid;
+        .icon-dropdown-menu {
+            &:before {
+                color: @dropdown-menu-color;
+            }
+            left: 13px;
+            top: 13px;
+            z-index: 100;
+        }
+        .overflow-toggle-area {
+            &:before {
+                content: '';
+                height: @n-banner-2nd-gradient-gray-height;
+                width: 59px;
+                position: absolute;
+                top: 0;
+                left: -1px;
+                background: linear-gradient(to bottom, @overflow-control-toggle-area-before-bg-gradient-start, @overflow-control-toggle-area-before-bg-gradient-end);
+                border-radius: 0 100px 0 0;
+                z-index: 99;
+            }
+            &:after {
+                content: '';
+                height: 21px;
+                width: 83px;
+                position: absolute;
+                left: -1px;
+                bottom: 0;
+                background: linear-gradient(to bottom, @overflow-control-toggle-area-after-bg-gradient-start, @overflow-control-toggle-area-after-bg-gradient-end);
+                z-index: 99;
+            }
+        }
+        .overflow-toggle-area-cover {
+            &:after {
+                content: '';
+                width: 55px;
+                height: @n-banner-2nd-gradient-blue-height;
+                position: absolute;
+                top: 0;
+                left: 46px;
+                border-radius: 0 0 0 100px;
+                #gradient > .vertical(@n-banner-2nd-gradient-gray-start, @n-banner-2nd-gradient-gray-end);
+                z-index: 100;
+            }
+            display: none;
+        }
+        &:hover[aria-expanded=false] {
+            .overflow-toggle-area {
+                &:before {
+                    border-left: 2px solid @blue-hover;
+                    border-top: 0 @blue-hover;
+                }
+                &:after {
+                    border-left: 2px solid @blue-hover;
+                    border-bottom: 2px solid @blue-hover;
+                }
+            }
+        }
+        &:focus {
+            outline: 5px;
+        }
+
+        &:focus, &:hover,
+        &[aria-expanded=true] {
+            .overflow-toggle-area {
+                &:before {
+                    background: @dropdown-menu-background;
+                }
+                &:after {
+                    background: @dropdown-menu-background;
+                }
+            }
+        }
+        &[aria-expanded=true] > .overflow-toggle-area {
+            &:before {
+                border-left: 1px solid @overflow-control-toggle-expanded-area-border-left;
+            }
+            &:after {
+                left: 1px;
+            }
+        }
+    }
+    .dropdown-menu {
+        border-top: none;
+        margin-top: 0;
+        border: 1px @overflow-control-dropdown-border;
+        > li > a {
+            &:hover, &:focus {
+                background-color: white;
+                color:@black-hover;
+                > span {
+                    border-bottom-color: @blue-underline;
+                }
+            }
+            > span {
+                padding-bottom: 1px;
+                border-bottom: 1px solid transparent;
+            }
+        }
+    }
+}
+
+.n-banner-corner-on-tab(@border-color, @background-color) {
+    outline: 0;
+    & > span {
+        border-bottom:0;
+        color: @black-hover;
+        text-shadow: none;
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            width: @nav-tabs-border-radius;
+            height: @nav-tabs-border-radius;
+            bottom: 0;
+            border-bottom: 1px solid @border-color;
+            #gradient > .vertical(@n-banner-2nd-gradient-gray-start, @n-banner-2nd-gradient-gray-end, -85%);
+            z-index: 3;
+            @media (max-width: @grid-float-breakpoint-max) {
+                display: none;
+            }
+        }
+        &:before {
+            margin-left: -@nav-tabs-border-radius;
+            border-right: 1px solid @border-color;
+            left: 0;
+            border-radius: 0 0 @nav-tabs-border-radius 0;
+        }
+        &:after {
+            margin-right: -@nav-tabs-border-radius;
+            border-left: 1px solid @border-color;
+            right: 0;
+            border-radius: 0 0 0 @nav-tabs-border-radius;
+        }
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        width: calc(~"100% + 14px");
+        height: @nav-tabs-border-radius;
+        background: @background-color;
+        bottom: 0;
+        left: -7px;
+        z-index: 2;
+        @media (max-width: @grid-float-breakpoint-max) {
+            display: none;
+        }
+    }
+}
+
+.n-banner-corner-on-drop-down-tab(@border-color, @background-color) {
+    .n-banner-corner-on-tab(@border-color, @background-color);
+    &:after {
+        left: 0;
+        width: calc(~"100% + 7px");
+    }
+    & > span:before {
+        visibility: hidden;
+    }
+}
+
+.n-banner-tabs {
+    position: relative;
+    margin-left: -15px;
+    padding-left: 15px;
+    #gradient > .vertical(@n-banner-2nd-gradient-gray-start, @n-banner-2nd-gradient-gray-end);
+    height: @n-banner-2nd-gradient-blue-height;
+    padding-top: 0;
+
+    > li {
+        height: 100%;
+        & > a {
+            height: 100%;
+            color: @n-banner-tab-text-color;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 2.85em; //Mozilla doesn't support calc for line-height
+            padding: 0 15px;
+            text-shadow: 0 1px @n-banner-tabs-list-item-text-shadow;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 7px 7px 0 0;
+
+        }
+
+        &.active > a, &.active:hover > a,&.active > a:focus  {
+            background: @n-banner-tab-background-active;
+            text-shadow: none !important;
+            border: 1px solid @nav-tabs-border-color;
+            border-bottom-style: none;
+            .n-banner-corner-on-tab(@nav-tabs-border-color, @n-banner-tab-background-active);
+            > span {
+                color: @n-banner-tabs-list-item-active-text;
+            }
+            &:focus {
+                background: @n-banner-tab-background-active;
+            }
+        }
+
+        &:hover {
+            > a {
+                background: @n-banner-tab-background-hover;
+                border-radius: @nav-tabs-border-radius @nav-tabs-border-radius 0 0;
+                border: 1px solid @n-banner-tab-border-color-hover;
+                border-bottom-style: none;
+                .n-banner-corner-on-tab(@n-banner-tab-border-color-hover, @n-banner-tab-background-hover);
+
+                > span {
+                    color: @n-banner-tabs-list-item-hover-text;
+                    border-bottom: 1px solid @blue-underline;
+                    margin-bottom: 0;
+                }
+                a.active {
+                    background: @n-banner-tab-background-active;
+                }
+            }
+        }
+
+        > a:focus  {
+                background: @n-banner-tab-background-hover;
+                border-radius: @nav-tabs-border-radius @nav-tabs-border-radius 0 0;
+                border: 1px solid @n-banner-tab-border-color-hover;
+                border-bottom-style: none;
+                .n-banner-corner-on-tab(@n-banner-tab-border-color-hover, @n-banner-tab-background-hover);
+
+                > span {
+                    color: @n-banner-tabs-list-item-hover-text;
+                    border-bottom: 1px solid @blue-underline;
+                    margin-bottom: 0;
+                }
+        }
+
+        &[disabled] > a, &[disabled] .icon:before {
+          color: @gray-disabled;
+        }
+
+        &[disabled] {
+          pointer-events: none;
+        }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+        > li {
+            background-color: @n-banner-tabs-maxwidth-list-bg;
+            height: 100%;
+            & > a {
+                height: 100%;
+                color: @n-banner-tab-text-color;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: calc(~"@{n-banner-2nd-gradient-blue-height} - 1px"); //original 40px
+                padding: 0 15px;
+                text-shadow: 0 1px @n-banner-tabs-list-item-text-shadow;
+                border: 1px solid transparent;
+                border-bottom: none;
+                border-radius: 0;
+            }
+
+            &.active > a, &.active:hover > a {
+                background: @n-banner-tab-background-active;
+                text-shadow: none !important;
+                border: 1px solid @nav-tabs-border-color;
+                border-bottom-style: none;
+                .n-banner-corner-on-tab(@nav-tabs-border-color, @n-banner-tab-background-active);
+                > span {
+                    color: @n-banner-tabs-list-item-active-text;
+                }
+            }
+
+            &:hover {
+                > a {
+                    background: @n-banner-tab-background-hover;
+                    border-radius: 0;
+                    border: 1px solid @n-banner-tab-border-color-hover;
+                    border-bottom-style: none;
+                    .n-banner-corner-on-tab(@n-banner-tab-border-color-hover, @n-banner-tab-background-hover);
+                    > span {
+                        color: @n-banner-tabs-list-item-hover-text;
+                        border-bottom: 1px solid @blue-underline;
+                    }
+                    a.active {
+                        background: @n-banner-tab-background-active;
+                    }
+                }
+            }
+        }
+    }
+
+    > li.dropdown {
+        .dropdown-menu {
+            border-radius: 0 5px 5px 5px;
+            margin-top: -1px;
+            border-color: @input-border;
+            min-width: calc(~"100% + 15px");
+        }
+        &.open > a {
+            background: @dropdown-menu-background;
+            box-shadow: 0 1px 3px 0 @n-banner-tabs-list-dropdown-open-shadow;
+            border: 1px solid @nav-tabs-border-color;
+            border-bottom-style: none;
+            .n-banner-corner-on-drop-down-tab(@nav-tabs-border-color, @dropdown-menu-background);
+            &:after {
+                height: 8px;
+                margin-bottom: -3px;
+                z-index: 1001;
+            }
+            > span:after {
+                z-index: 1002;
+            }
+        }
+    }
+    > li.dropdown.rightmost-tab .dropdown-menu {
+        border-radius: 0 0 5px 5px;
+        border-top: 1px solid @dropdown-menu-background;
+        margin-top: -2px;
+    }
+    // right most tab will highlight part of the curve when focus / hover
+
+    > li.rightmost-tab {
+        margin-right: 0;
+        > a {
+            border-radius: 7px 0 0 0;
+            padding-right: 0;
+
+            &:hover, &:focus {
+                &:before {
+                    position: absolute;
+                    content: '';
+                    bottom: 0;
+                    right: 0;
+                    z-index: 3;
+                    margin-right: -100px;
+                    background: @n-banner-tab-background-hover;
+                    width: 100px;
+                    height: 20px;
+                }
+                > span:after {
+                    position: absolute;
+                    content: '';
+                    height: 39px;
+                    width: 50px;
+                    background: @n-banner-tab-background-hover;
+                    margin-right: -50px;
+                    border: none;
+                    border-radius: 0 100px 0 0;
+                }
+            }
+        }
+        &.active > a {
+            &:before {
+                position: absolute;
+                content: '';
+                bottom: 0;
+                right: 0;
+                z-index: 3;
+                margin-right: -100px;
+                background: @n-banner-tab-background-active;
+                width: 100px;
+                height: 20px;
+            }
+
+            > span:after {
+                background: @n-banner-tab-background-active;
+                border-color: @n-banner-tab-background-active;
+            }
+
+            &:hover:before {
+                background: @n-banner-tab-background-active;
+            }
+
+            &:focus:before {
+                background: @n-banner-tab-background-active;
+            }
+        }
+
+        &.active.open > a.n-banner-dropdown-toggle {
+            > span:after {
+              background: @dropdown-menu-background;
+              border-color: @dropdown-menu-background;
+              position: absolute;
+              content: '';
+              height: 38px;
+              width: 50px;
+              margin-right: -50px;
+              border: none;
+              border-radius: 0 100px 0 0;
+              bottom: 1px;
+            }
+            &:before {
+              background: @dropdown-menu-background;
+              position: absolute;
+              content: '';
+              bottom: 1px;
+              right: 0;
+              z-index: 3;
+              margin-right: -100px;
+              width: 100px;
+              height: 20px;
+            }
+        }
+    }
+}
+
+.n-banner-dropdown-toggle {
+    border: none;
+    box-shadow: none;
+    span.caret {
+        border-bottom: none !important;
+        padding-bottom: 4px;
+        border-top:4px solid;
+    }
+    // +++ Hovering but list not open
+    &:hover[aria-expanded=false], &:hover:not([aria-expanded]) {
+        color: @black-hover;
+        border: 1px solid @n-banner-tab-border-color-hover;
+        border-bottom: none;
+        box-shadow: none !important;
+        background: @n-banner-tab-background-hover;
+    }
+    // +++ List opened
+    &[aria-expanded=true] {
+        color: @black-hover;
+        border-radius: 7px 7px 0 0;
+        background: @dropdown-menu-background !important;
+    }
+    &:active:not([aria-expanded]), &:active[aria-expanded=false] {
+        #gradient > .vertical(@dropdown-banner-background-hover, @dropdown-banner-background-hover);
+        &:hover {
+            border-color: @nav-tabs-border-color;
+            box-shadow: none !important;
+        }
+    }
+    i.icon.icon-arrow {
+        vertical-align: middle;
+    }
+}
+
+.n-banner.condensed {
+    padding-top: 6px;
+    min-height: 85px;
+    .n-banner-toggle {
+        @media (max-width: @grid-float-breakpoint-max) {
+            margin-bottom: 7px;
+            margin-top: 7px;
+        }
+    }
+
+    .n-banner-1st-filler-white {
+        height: @n-banner-1st-gradient-white-height-condensed;
+    }
+    .n-banner-1st-filler-blue {
+        height: @n-banner-1st-gradient-blue-height-condensed;
+        top: 6px;
+    }
+    .n-banner-2nd-filler-blue,
+    .n-banner-2nd-filler-gray {
+        top: @n-banner-1st-gradient-white-height-condensed;
+    }
+    .n-banner-2nd {
+        @media (max-width: @grid-float-breakpoint-max) {
+            height: auto;
+        }
+
+    }
+
+    .n-banner-3rd-filler-gray {
+        top: @n-banner-3rd-filler-gray-top-condensed;
+        box-shadow: 0 2px 0 0 rgba(0, 0, 0, .2);
+        border-bottom: none;
+    }
+    .n-banner-brand,
+    .n-banner-1st .n-banner-nav,
+    .n-banner-1st-blue-to-gray,
+    .n-banner-1st-gray-to-white,
+    .n-banner-logo-img {
+        height: @n-banner-1st-gradient-blue-height-condensed;
+    }
+
+    .n-banner-1st-gray-to-white > .white-corner {
+        background: linear-gradient(to bottom, @gray-to-white-whitecorner-bg-gradient-start -6px, @gray-to-white-whitecorner-bg-gradient-end);
+    }
+    .n-banner-1st .n-banner-nav {
+        padding-top: 0;
+    }
+    .n-banner-logo-img {
+        padding-top: 11px;
+        background: linear-gradient(to bottom, @n-banner-logo-img-background-gradient-start -6px, @n-banner-logo-img-background-gradient-end);
+    }
+    .n-banner-brand {
+        line-height: @n-banner-1st-gradient-blue-height-condensed;
+        > h1 {
+            margin: 0;
+            line-height: 45px;
+        }
+    }
+
+    .n-banner-1st .n-search {
+
+        margin-top: 7px;
+
+    }
+}
+
+.n-banner-1st {
+    li > a {
+        padding-top: 15px;
+    }
+    // Tune the dropdown upper part to be a bit smaller
+    a.n-banner-dropdown-toggle[aria-expanded=true] {
+        margin-top: 3px;
+        padding-top: 12px;
+        height: 40px;
+    }
+    a.n-banner-dropdown-toggle[aria-expanded=false] {
+        margin-top: 0;
+        height: 37px;
+    }
+    .dropdown.a {
+        background-color: transparent;
+    }
+
+    .n-banner-dropdown-toggle[aria-expanded=false] {
+        &:hover {
+            background-color: transparent;
+            border: none;
+            border-bottom:1px solid @n-banner-dropdown-toggle-border;
+        }
+        &:focus {
+            background-color: transparent;
+        }
+    }
+    // Rounding the border corners
+    .n-banner-dropdown-toggle[aria-expanded=true] {
+        & > span {
+            &:before {
+                content: '';
+                height: 7px;
+                width: 7px;
+                background-color: @dropdown-menu-background;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin-right: -7px;
+                z-index: 1;
+
+            }
+
+            &:after {
+                content: '';
+                height: 7px;
+                width: 7px;
+                #gradient > .vertical(@n-banner-dropdown-curve-gradient-end, @n-banner-dropdown-curve-gradient-start);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                margin-right: -7px;
+                border-radius: 0 0 0 7px;
+                z-index: 2;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        border-radius: 0 7px 7px 7px;
+        border: none;
+        > li > a {
+            height: 26px;
+            line-height: 26px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .n-search {
+        width: 178px;
+        //@media (max-width: @grid-float-breakpoint-max){
+        //    margin-top: 28px;
+        //}
+        margin-top: 15px;
+        margin-right: -10px;
+        z-index: 1;
+
+        @media (max-width: @grid-float-breakpoint-max) {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            margin-left: -6px;
+        }
+
+        .n-search-icon .icon:before {
+            color: @n-banner-1st-search-icon;
+        }
+
+        .n-search-input {
+            background-color: @n-banner-1st-search-input-bg;
+            color: @n-banner-1st-search-input-text;
+            border-color: transparent;
+            box-shadow: 1px 1px 1px @n-banner-1st-search-input-shadow inset;
+
+            &:focus, &:hover {
+                box-shadow: none;
+                border-color: @blue-hover;
+            }
+
+        }
+    }
+}
+
+.n-banner-filter-background {
+    background: @n-banner-filter-background !important;
+}
+.n-banner-filter-title {
+    padding: 0 11px;
+    line-height: 2.85em;
+    text-shadow: 0 1px @n-banner-3rd-item-text-shadow;
+    border: 1px solid transparent;
+    display: block;
+    margin:0 8px;
+}
+
+.filter-bar {
+    display:none;
+    height:200px;
+    & > .filter-bar-content {
+        height:160px;
+        & > .n-banner-right {
+            margin-right: -3px;
+        }
+        & ul {
+            width: 230px;
+            height:140px;
+            float: left;
+            margin: 10px 0 0 20px;
+            &.filter-bar-list {
+                width: 110px;
+                margin-left: 10px;
+            }
+            & li {
+                float: none;
+            }
+        }
+    }
+    & .blue-mask,
+    & .blue-corner {
+        background: @n-banner-filter-background;
+    }
+    & .filter-caret {
+        border-left: 1px solid @n-banner-filter-caret-border;
+        float: right;
+        width:15px;
+        box-shadow: -1px 0 0 0 @n-banner-filter-caret-box-shadow;
+    }
+    & .filter-bar-footer .n-banner-right {
+        position: relative;
+        ul.n-banner-links {
+            background: @n-banner-filter-background;
+            & > li > div {
+                color: #fff;
+                border: 1px solid @n-banner-filter-button-dark-border;
+                width: 230px;
+                height: 32px;
+                padding:0 19px;
+                border-radius: 7px;
+                margin-left:20px;
+                background-image: linear-gradient(to bottom,@n-banner-filter-button-dark-gradient-start 0,@n-banner-filter-button-dark-gradient-end 100%);
+                box-shadow: 0 1px 3px 0 @n-banner-filter-button-dark-border !important;
+                & > span {
+                    display: inline-block;
+                    height: 30px;
+                    &:first-child {
+                        float:left;
+                        line-height:30px;
+                        & > span {
+                            color: @n-banner-filter-button-dark-item-text;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Secondary vertical navigation bar title
+.secondary-vertical-heading {
+    margin-bottom: 15px;
+    margin-top: 35px;
+    color: @gray-nav;
+}
+
+// Secondary vertical navigation bar
+.panel.nav-secondary-vertical {
+    border-radius: @navbar-border-radius;
+    background: @navbar-background-color;
+    cursor: pointer;
+
+    // For secondary vertical menu with fuelux tree, uses panel behind it
+    .fuelux.menu-tree {
+        .tree {
+            background: @navbar-background-color;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 0;
+            color: @gray-dark;
+            padding: 0;
+            .tree-item-name {
+                padding-left: 8px;
+            }
+            .tree-branch {
+                border-radius: 0;
+                .tree-branch-header {
+                    border-radius: 0;
+                    color: @gray-nav;
+                    &:hover {
+                        background-color: white;
+                    }
+                    .tree-branch-name .glyphicon-play {
+                        color: @gray-medium;
+                    }
+                }
+                &:focus {
+                    background-color: @gray-white;
+                    color: @black-hover;
+                    // +++ Get rid of outline for Moz
+                    outline: none;
+                    a > span:nth-child(3) {
+                        outline: none;
+                        color: @black-hover;
+                        border-bottom: 1px solid @blue-underline;
+                    }
+                }
+            }
+            .tree-branch.tree-selected {
+                border-radius: 0;
+                > .tree-branch-header {
+                    border-radius: 0;
+                    &:hover {
+                        background-color: @blue-selection;
+                    }
+                    > .tree-branch-name .glyphicon-play {
+                        color: @gray-white;
+                    }
+                }
+            }
+            .tree-branch:last-child {
+                margin-bottom: 0;
+            }
+            .tree-item {
+                border-radius: 0;
+                &:hover {
+                    background-color: @gray-white;
+                    // +++ Get rid of outline for Moz
+                    outline: none;
+                    a > span:nth-child(2) {
+                        outline: none;
+                        border-bottom: 1px solid @blue-underline;
+                    }
+                }
+                &:focus {
+                    background-color: @gray-white;
+                    color: @black-hover;
+                    // +++ Get rid of outline for Moz
+                    outline: none;
+                    a > span:nth-child(2) {
+                        outline: none;
+                        border-bottom: 1px solid @blue-underline;
+                    }
+                }
+                &.tree-selected .tree-item-name {
+                    font-weight: bold;
+                }
+            }
+
+            // This works for fuelux tree, there are 2 hidden items at top
+            > li:nth-child(3) {
+                padding-top: 5px;
+                // TODO should get focus state for the tree-item, then we could extend the border area...
+                //.tree-item:focus {
+                //   border-top-right-radius: @navbar-border-radius;
+                //   border-top-left-radius: @navbar-border-radius;
+                //                }
+                &.tree-selected {
+                    //background-color: @blue-selection;
+                    border-top-right-radius: @navbar-border-radius;
+                    border-top-left-radius: @navbar-border-radius;
+                }
+            }
+            // TODO if there is subtree as last item, selection of subtree last item is not looking perfect
+            > li:last-child {
+                padding-bottom: 5px;
+                // TODO should get focus state for the tree-item, then we could extend the border area...
+                //.tree-item:focus {
+                //   border-bottom-right-radius: @navbar-border-radius;
+                //    border-bottom-left-radius: @navbar-border-radius;
+                //               }
+                &.tree-selected {
+                    //background-color: @blue-selection;
+                    border-bottom-right-radius: @navbar-border-radius;
+                    border-bottom-left-radius: @navbar-border-radius;
+                }
+            }
+        }
+    }
+
+    // For secondary vertical menu with pure navbar, uses panel behind it
+    .navbar {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    .navbar-nav {
+        width: 100%;
+        margin: 0; // Needed for small size screen responsiveness
+        li {
+            width: 100%;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            span {
+                a {
+                    margin-left: 5px;
+                    span {
+                        font-family: @font-family-base;
+                        color: @text-color;
+                        font-weight: normal;
+                    }
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+            span.icon {
+                height: 14px;
+                margin-left: 10px;
+                margin-right: 0;
+                width: auto;
+            }
+            &:hover, &:focus, &.focused {
+                background-color: @gray-white;
+                color: @black-hover;
+                // +++ Get rid of outline for Moz
+                outline: none;
+                span a span {
+                    color: @black-hover;
+                    border-bottom: 1px solid @blue-underline;
+                }
+            }
+            // Not using &:active as that changes color already at mouse click
+            &.active {
+                background-color: @blue-selection;
+                border-bottom: none;
+                color: @gray-white;
+                span a span {
+                    color: @gray-white;
+                    font-weight: bold;
+                }
+            }
+            // Correct the rounding for first and last item in the menu
+            &:first-child {
+                padding-top: 9px;
+                &:hover, &:focus, &.focused, &:active, &.active {
+                    border-top-right-radius: @navbar-border-radius;
+                    border-top-left-radius: @navbar-border-radius;
+                }
+            }
+            &:last-child {
+                padding-bottom: 7px;
+                &:hover, &:focus, &.focused, &:active, &.active {
+                    border-bottom-right-radius: @navbar-border-radius;
+                    border-bottom-left-radius: @navbar-border-radius;
+                }
+            }
+        }
+    }
+}
+
+.nav-secondary-vertical > .navbar-nav,
+.nav-secondary-vertical > .navbar-nav > li,
+.nav-secondary-vertical > .navbar-left,
+.nav-secondary-vertical > .navbar-right,
+.nav-secondary-vertical > .navbar-header {
+    float: none !important;
+}
+
+// Secondary horizontal navigation
+.nav-secondary-horizontal {
+    padding-left: 30px;
+    margin-bottom: 0;
+    .box-shadow(inset 0px 1px 0px 0px @nav-secondary-horizontal-drop-shadow);
+
+    li {
+        float: left;
+        border-right: 1px solid transparent;
+        border-left: 1px solid transparent;
+
+        a {
+            min-height: 34px;
+            color: @gray-nav;
+            font-weight: normal;
+            padding: 6px 22px;
+            outline: 0;
+
+            &:hover {
+                span {
+                    color: @nav-secondary-horizontal-list-item-hover-text;
+                }
+            }
+            &:focus {
+                span {
+                    color: @nav-secondary-horizontal-list-item-focus-text;
+                }
+            }
+
+            &:active {
+              span {
+                color: @nav-secondary-horizontal-list-item-active-text;
+              }
+            }
+        }
+
+        &.selected, &:hover{
+            border-right-color: @nav-secondary-horizontal-drop-shadow;
+            border-left-color: @nav-secondary-horizontal-drop-shadow;
+        }
+
+        &.selected a{
+            #gradient > .vertical(@nav-secondary-horizontal-list-item-selected-gradient-start, @nav-secondary-horizontal-list-item-selected-gradient-end);
+            background-color: transparent;
+            .selected-hover-box-shadow;
+        }
+
+        &:hover a{
+            background-color: @nav-secondary-horizontal-hover;
+            .selected-hover-box-shadow;
+            span{
+                border-bottom: 1px solid @blue-underline;
+            }
+        }
+    }
+
+    li + li{
+        margin-left: -1px;
+    }
+}
+
+.n-banner-secondary-row{
+    min-height: 34px;
+    margin: 0 -30px;
+    border-bottom: 1px solid @nav-secondary-horizontal-border;
+    border-top: 1px solid @nav-secondary-horizontal-border;
+    .box-shadow(0 1px 0 0 @nav-secondary-horizontal-drop-shadow);
+
+    &.n-banner-secondary-row-scrolled{
+        .box-shadow(0 3px 2px -1px @n-banner-secondary-row-scrolled-shadow);
+    }
+}
+
+.selected-hover-box-shadow {
+    .box-shadow(inset 0 0 2px 2px @selected-hover-box-shadow );
+}
+.navbar-nav {
+    padding-left: 0;
+    list-style: none;
+}

@@ -1,0 +1,7 @@
+<div  class="n-toggle-switch" ng-class="{'n-toggle-switch-standard': $ctrl.standardSize, 'n-toggle-switch-small': !$ctrl.standardSize, 'n-toggle-switch-color': $ctrl.color }">
+    <input role="checkbox" ng-keydown="$ctrl.doKeyActive($event)" ng-click="$ctrl.doActive($event)" type="checkbox" aria-checked="{{ $ctrl.ifActive }}" ng-checked="$ctrl.checked"  name="example-toggle-name" class="n-toggle-switch-input" id="{{$ctrl.toggleId}}" ng-disabled="$ctrl.disable">
+    <label class="n-toggle-switch-container" for="{{$ctrl.toggleId}}">
+        <span class="n-toggle-switch-handler"></span>
+        <span class="n-toggle-switch-slider"></span>
+    </label>
+</div>

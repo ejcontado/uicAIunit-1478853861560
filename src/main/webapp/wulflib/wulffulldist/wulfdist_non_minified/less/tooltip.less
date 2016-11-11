@@ -1,0 +1,34 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/opacity.less";
+@import "./mixins/vendor-prefixes.less";
+@import "@{less-path-of-bootstrap}mixins/reset-text.less";
+@import "@{less-path-of-bootstrap}tooltip.less";
+@import "variables.less";
+
+// OT3 p.127
+
+.tooltip {
+    &.in {
+        .opacity(1);
+    }
+}
+
+.tooltip-inner {
+    background-color: @tooltip-bg;
+    border: 1px solid @tooltip-border-color;
+    .box-shadow(0 1px 3px 0 @tooltip-border-shadow);
+    color: @tooltip-text-color;
+    border-radius: @tooltip-border-radius;
+    text-align: left;
+    margin: 0;
+    padding: 3px 4px 3px 6px;
+    word-wrap: break-word;
+}
+
+.tooltip-arrow {
+    visibility: hidden;
+}
+

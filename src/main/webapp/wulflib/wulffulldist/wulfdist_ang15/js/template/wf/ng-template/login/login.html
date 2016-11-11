@@ -1,0 +1,83 @@
+<div class="n-login-wrapper">
+    <div ng-hide="$ctrl.isAcceptanceShow" class="n-login"
+         ng-class="{'n-login-signup':$ctrl.loginType === 'signup','n-login-product':$ctrl.loginType === 'product',
+         'n-login-legal-copy':$ctrl.loginType === 'legalcopy','n-login-with-four-column':$ctrl.loginType === 'withfourcolumn'}">
+        <div class="n-login-logo">
+            <img src="../wulfdist/img/logo.png" width="110" height="19" alt="Nokia logo"/>
+        </div>
+        <div class="panel panel-shadow panel-blue-cap">
+            <h1 class="n-login-title">{{$ctrl.titleText}}</h1>
+            <div class="panel-body">
+                <h2 class="n-login-title-version-light">{{$ctrl.version}}</h2>
+                <p class="n-login-product-name" ng-if="$ctrl.loginType === 'product'">{{$ctrl.productText}}</p>
+                <div class="n-login-panel-fields">
+                    <div class="form-horizontal"  method="post">
+                        <div class="alert-error" ng-show="$ctrl.isAlertErrorShow" ng-if="$ctrl.loginType === 'error'">
+                            <span class="icon icon-error"></span>{{$ctrl.errorText}}
+                        </div>
+                        <div class="form-group n-login-textfields">
+                            <div class="col-sm-6 input-required">
+                                <input name="username" type="text" class="form-control n-inputfield" ng-model="$ctrl.usernameValue"
+                                       id="applicationLoginUsername"
+                                       placeholder="Username">
+                                <a class="form-control-feedback">
+                                    <span class="icon"
+                                          ng-class="{'icon-mandatory':$ctrl.usernameValue===undefined || $ctrl.usernameValue.length===0}"></span></a>
+                            </div>
+                            <div class="col-sm-6 input-required">
+                                <input name="password" type="password"  class="form-control n-inputfield" ng-model="$ctrl.passwordValue"
+                                       id="applicationLoginPassword"
+                                       placeholder="Password">
+                                <a class="form-control-feedback form-control-feedback">
+                                    <span class="icon"
+                                          ng-class="{'icon-mandatory':$ctrl.passwordValue===undefined ||$ctrl.passwordValue.length===0}"></span></a>
+                            </div>
+                        </div>
+                        <div class="n-login-action">
+                            <div class="n-login-forget-password">
+                                <a ng-class="{'n-link-visited':$ctrl.forgetPasswordVisited}" ng-click="$ctrl.forgotPsw($event)" href="#">Forgot password</a>
+                                <span class="icon icon-breadcrumb"></span>
+                            </div>
+                            <button type="submit" class="btn btn-defaultBlue btn-standard n-login-button"
+                                    id="applicationLoginButton" ng-click="$ctrl.clickLoginButton($event)"
+                                    ng-disabled="!($ctrl.usernameValue.length>0 && $ctrl.passwordValue.length>0)">Log In
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-login-action n-login-sign-up-bar" ng-if="$ctrl.loginType === 'signup'">
+                    <span>Don't have an account?</span>
+                    <button class="btn btn-standard" ng-click="$ctrl.signUp($event)">Sign Up</button>
+                </div>
+            </div>
+            <div class="n-login-legal-copy-text" ng-if="$ctrl.loginType === 'legalcopy'">
+                {{$ctrl.legalcopyText}}
+            </div>
+        </div>
+    </div>
+    <div class="n-login n-login-legal-acceptance" ng-show="$ctrl.isAcceptanceShow" ng-if="$ctrl.loginType === 'acceptance'">
+        <div class="n-login-logo">
+            <img src="../wulfdist/img/logo.png" width="110" height="19" alt="Nokia logo"/>
+        </div>
+        <div id='TA_login_shadow' class="panel panel-shadow panel-blue-cap">
+            <h1 class="n-login-title">{{$ctrl.titleText}}</h1>
+            <div class="panel-body">
+                <h2 class="n-login-title-version-light">{{$ctrl.version}}</h2>
+
+                <div class="n-login-panel-fields">
+                    {{$ctrl.acceptanceText}}
+                    </div>
+            </div>
+            <div class="n-login-footer">
+                <button type="submit" class="btn btn-standard btn-defaultBlue n-login-button"
+                        id="applicationLoginAcceptButton">Accept
+                </button>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="n-login-four-column" ng-if="$ctrl.loginType === 'withfourcolumn'" ng-transclude>
+    </div>
+</div>
+<div class="small n-login-copyright">&copy; {{$ctrl.copyright}}</div>

@@ -1,0 +1,83 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dlg_instruct">Instruction dialog <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="col-md-5">
+    <p>
+        Here are example of the plain dialog with instruction:
+    </p>
+    <div>
+        <p>
+            <a href="#PlainDialogInstr" data-backdrop="false" data-toggle="modal" data-keyboard="true" id="TA-dialog-instruction"> Dialog (plain, instruction)</a>
+        </p>
+    </div>
+
+    <div class="modal" id="PlainDialogInstr" role="dialog" aria-labelledby="myModalDlgLabel-instr" aria-hidden="true" tabindex='1'>
+        <div class="modal-dialog">
+            <div class="modal-content" id="TA-dialog-instruction-content">
+                <div class="modal-header" id="TA-dialog-instruction-content-header">
+                    <div class="n-dialog-header-fg-filler">
+                        <h1 class="modal-title" id="myModalLabel">Plain dialog</h1>
+                    </div>
+                    <div class="n-dialog-header-bg-filler"></div>
+                    <!-- -->
+                    <div class="n-dialog-header-curve">
+                        <div class="fg-mask"></div>
+                        <div class="bg-mask"></div>
+                        <div class="fg-corner"></div>
+                        <div class="bg-corner"></div>
+                    </div>
+                    <i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close dialog" tabindex="4" id="TA-dialog-instruction-content-close"></i>
+                    <div style="clear: both"></div>
+                    <h2 class="modal-title-instruction-plain" id="myModalLabelInstruction">Instruction</h2>
+                </div>
+                <div class="modal-body-subtitle" id="TA-dialog-instruction-body">
+                    Text
+                </div>
+                <div class="modal-footer" id="TA-dialog-instruction-footer">
+                    <button class="btn btn-standard btn-defaultBlue" data-dismiss="modal" tabindex="2" id="TA-dialog-instruction-buttons-ok">OK</button>
+                    <button class="btn btn-standard" data-dismiss="modal" tabindex="3" id="TA-dialog-instruction-buttons-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-7">
+    <p>JS & CSS dependency:</p>
+        <pre>
+For instruction dialog components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/&gt;</pre>
+    <p>
+        To use the dialogs, see the examples below.
+    </p>
+<pre>
+<code>
+&lt;!-- Standard dialog --&gt;
+&lt;a href="#PlainDialog" data-backdrop="false" data-toggle="modal"&gt;Plain dialog&lt;/a&gt;
+</code>
+</pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['bootstrap','wulf/keyboard/keyboard-core']);
+</script>
+</body>
+</html>

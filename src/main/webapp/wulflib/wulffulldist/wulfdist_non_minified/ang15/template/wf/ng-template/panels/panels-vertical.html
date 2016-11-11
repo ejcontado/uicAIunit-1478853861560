@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<div class="panel panel-slide-vertical panel-container panel-shadow panel-blue-cap">
+    <div class="panel-heading" role="button" aria-controls="panelContent" ng-attr-tabindex="{{ $ctrl.index }}"
+         ng-click="$ctrl.show($event)" ng-keydown="$ctrl.showKeydown($event);" ng-transclude="header">
+        <h1>
+            <div class="panel-arrow">
+                <span class="icon icon-down" ng-show="$ctrl.slideAnimation" aria-expanded="{{!$ctrl.isShow}}"></span>
+                <label>{{$ctrl.header}}</label >
+            </div>
+        </h1>
+    </div>
+    <div ng-if="$ctrl.scrollbar"
+         wf-scrollbar
+         scrollbar-config = $ctrl.scrollbar ng-transclude>
+        <div class="panel-body" aria-expanded="{{!$ctrl.isShow}}" ng-transclude="body">
+        </div>
+    </div>
+    <div ng-if="!$ctrl.scrollbar" class="panel-body" aria-expanded="{{!$ctrl.isShow}}" ng-transclude="body">
+    </div>
+</div>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Table</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Table with errors</h1>
+<hr>
+<div class="col-md-12">
+    <h4>Standard table with error header row</h4>
+    <div class="demo-table-min-size" ng-controller="TableDemoController as demo">
+        <table id="TA-tableWithErrors1" wf-table="rowCollection" class="n-table n-table-standard n-table-striped n-table-cell-hover n-table-error">
+            <thead>
+            <tr>
+                <th>With icon status</th>
+                <th id="TA-tableWithErrors1-sortText" class="n-sortable" wf-sort="text" wf-skip-natural="true">With text<span class="icon icon-arrow"></span></th>
+                <th>With editable cell</th>
+                <th>Checkbox cell</th>
+                <th>Dropdown cell</th>
+                <th>With error/alert</th>
+                <th id="TA-tableWithErrors1-sortNumber" class="n-sortable" wf-sort="number" wf-skip-natural="true">With number<span class="icon icon-arrow"></span></th>
+                <th>Text links</th>
+            </tr>
+            <tr id="TA-tableWithErrors1-errorMsg" ng-show="!hideError">
+                <th colspan="8">
+                    <span><span class="icon icon-error"></span>There are {{totalErrors}} errors in this table.</span>
+                    <button id="TA-tableWithErrors1-errorMsgCloseBtn" class="btn btn-close" ng-click="hideError = !hideError" style="float: right;"><span class="icon icon-close"></span></button>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in rowCollection">
+                <td id="TA-tableWithErrors1-icon{{$index}}" class="text-center"><div class="n-cell-icon-container"><div class="n-cell-icon"><span class="{{row.icon}}"></span></div></div></td>
+                <td id="TA-tableWithErrors1-text{{$index}}">{{row.text}}</td>
+                <td id="TA-tableWithErrors1-editableCell{{$index}}" class="n-cell-control"><input type="text" class="n-inputfield" style="top: 1px; position: relative;" value="{{row.editableCell}}"></td>
+                <td id="TA-tableWithErrors1-checkbox{{$index}}">
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="{{row.checkBoxCell}}">
+                        <label for="{{row.checkBoxCell}}">{{row.checkBoxCell}}</label>
+                    </div>
+                </td>
+                <td id="TA-tableWithErrors1-dropdown{{$index}}" class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>One</span></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1" data-selected="true"><a href="#"><span>One</span></a></li>
+                            <li data-value="2"><a href="#"><span>Two</span></a></li>
+                            <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            <li data-value="4"><a href="#"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text">
+                    </div>
+                </td>
+                <td id="TA-tableWithErrors1-error{{$index}}" class="n-cell-error text-right">{{row.error}}</td>
+                <td id="TA-tableWithErrors1-number{{$index}}" ng-class-odd="'n-cell-error text-right'" ng-class-even="'text-right'">{{row.number}}</td>
+                <td id="TA-tableWithErrors1-link{{$index}}"><a href="javascript:void(0);">Link</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h4>Standard table with error indicator in table header</h4>
+    <div class="demo-table-min-size" ng-controller="TableDemoController as demo">
+        <table id="TA-tableWithErrorsIndicator" wf-table="rowCollection" class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>With icon status</th>
+                <th id="TA-tableWithErrorsIndicator-sortText" class="n-sortable" wf-sort="text" wf-skip-natural="true">With text<span class="icon icon-arrow"></span></th>
+                <th>With editable cell</th>
+                <th>Checkbox cell</th>
+                <th>Dropdown cell</th>
+                <th id="TA-tableWithErrorsIndicator-errorTh1">With error/alert <span class="icon text-center n-error-indicator">{{columnErrors}}</span></th>
+                <th id="TA-tableWithErrorsIndicator-errorTh2" class="n-sortable" wf-sort="number" wf-skip-natural="true">With number<span class="icon icon-arrow"></span>  <span class="icon text-center n-error-indicator">{{numberColumnErrors}}</span></th>
+                <th>Text links</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="row in rowCollection2">
+                <td id="TA-tableWithErrorsIndicator-icon{{$index}}" class="text-center"><div class="n-cell-icon-container"><div class="n-cell-icon"><span class="{{row.icon}}"></span></div></div></td>
+                <td id="TA-tableWithErrorsIndicator-text{{$index}}">{{row.text}}</td>
+                <td id="TA-tableWithErrorsIndicator-editableCell{{$index}}" class="n-cell-control"><input type="text" class="n-inputfield" style="top: 1px; position: relative;" value="{{row.editableCell}}"></td>
+                <td id="TA-tableWithErrorsIndicator-checkbox{{$index}}">
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="{{row.checkBoxCell}}">
+                        <label for="{{row.checkBoxCell}}">{{row.checkBoxCell}}</label>
+                    </div>
+                </td>
+                <td id="TA-tableWithErrorsIndicator-dropdown{{$index}}" class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>One</span></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1" data-selected="true"><a href="#"><span>One</span></a></li>
+                            <li data-value="2"><a href="#"><span>Two</span></a></li>
+                            <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            <li data-value="4"><a href="#"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text">
+                    </div>
+                </td>
+                <td id="TA-tableWithErrorsIndicator-error{{$index}}" class="n-cell-error text-right">{{row.error}}</td>
+                <td id="TA-tableWithErrorsIndicator-number{{$index}}" ng-class-odd="'n-cell-error text-right'" ng-class-even="'text-right'">{{row.number}}</td>
+                <td id="TA-tableWithErrorsIndicator-link{{$index}}"><a href="javascript:void(0);">Link</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+&lt;table wf-table="rowCollection" class="n-table n-table-standard n-table-striped n-table-cell-hover n-table-error"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;With icon status&lt;/th&gt;
+        &lt;th class="n-sortable" wf-sort="text" wf-skip-natural="true"&gt;With text&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+        &lt;th&gt;With editable cell&lt;/th&gt;
+        &lt;th&gt;Checkbox cell&lt;/th&gt;
+        &lt;th&gt;Dropdown cell&lt;/th&gt;
+        &lt;th&gt;With error/alert&lt;/th&gt;
+        &lt;th class="n-sortable" wf-sort="number" wf-skip-natural="true"&gt;With number&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+        &lt;th&gt;Text links&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr ng-show="!hideError"&gt;
+        &lt;th colspan="8"&gt;
+            &lt;span&gt;&lt;span class="icon icon-error"&gt;&lt;/span&gt;There are {{totalErrors}} errors in this table.&lt;/span&gt;
+            &lt;button class="btn btn-close" ng-click="hideError = !hideError" style="float: right;"&gt;&lt;span class="icon icon-close"&gt;&lt;/span&gt;&lt;/button&gt;
+        &lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr ng-repeat="row in rowCollection"&gt;
+        &lt;td class="text-center"&gt;&lt;div class="n-cell-icon-container"&gt;&lt;div class="n-cell-icon"&gt;&lt;span class="{{row.icon}}"&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;{{row.text}}&lt;/td&gt;
+        &lt;td class="n-cell-control"&gt;&lt;input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="{{row.editableCell}}"&gt;&lt;/td&gt;
+        &lt;td&gt;
+            &lt;div class="checkbox checkbox-small"&gt;
+                &lt;input type="checkbox" id="{{row.checkBoxCell}}"&gt;
+                &lt;label for="{{row.checkBoxCell}}"&gt;{{row.checkBoxCell}}&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class="n-cell-control n-cell-dropdown"&gt;
+            &lt;div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"&gt;
+                &lt;button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false"&gt;
+                    &lt;span class="selected-label"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/span&gt;
+                    &lt;span class="selected-caret"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;
+                    &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;ul class="dropdown-menu" role="menu"&gt;
+                    &lt;li data-value="1" data-selected="true"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="3"&gt;&lt;a href="#"&gt;&lt;span&gt;Three&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="4"&gt;&lt;a href="#"&gt;&lt;span&gt;Five Five Five&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text"&gt;
+            &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class="n-cell-error text-right"&gt;{{row.error}}&lt;/td&gt;
+        &lt;td ng-class-odd="'n-cell-error text-right'" ng-class-even="'text-right'"&gt;{{row.number}}&lt;/td&gt;
+        &lt;td&gt;&lt;a href="javascript:void(0);"&gt;Link&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table wf-table="rowCollection" class="n-table n-table-standard n-table-striped n-table-cell-hover"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;With icon status&lt;/th&gt;
+        &lt;th class="n-sortable" wf-sort="text" wf-skip-natural="true"&gt;With text&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+        &lt;th&gt;With editable cell&lt;/th&gt;
+        &lt;th&gt;Checkbox cell&lt;/th&gt;
+        &lt;th&gt;Dropdown cell&lt;/th&gt;
+        &lt;th&gt;With error/alert &lt;span class="icon text-center n-error-indicator"&gt;{{columnErrors}}&lt;/span&gt;&lt;/th&gt;
+        &lt;th class="n-sortable" wf-sort="number" wf-skip-natural="true"&gt;With number&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;  &lt;span class="icon text-center n-error-indicator"&gt;{{numberColumnErrors}}&lt;/span&gt;&lt;/th&gt;
+        &lt;th&gt;Text links&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr ng-repeat="row in rowCollection2"&gt;
+        &lt;td class="text-center"&gt;&lt;div class="n-cell-icon-container"&gt;&lt;div class="n-cell-icon"&gt;&lt;span class="{{row.icon}}"&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;{{row.text}}&lt;/td&gt;
+        &lt;td class="n-cell-control"&gt;&lt;input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="{{row.editableCell}}"&gt;&lt;/td&gt;
+        &lt;td&gt;
+            &lt;div class="checkbox checkbox-small"&gt;
+                &lt;input type="checkbox" id="{{row.checkBoxCell}}"&gt;
+                &lt;label for="{{row.checkBoxCell}}"&gt;{{row.checkBoxCell}}&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class="n-cell-control n-cell-dropdown"&gt;
+            &lt;div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"&gt;
+                &lt;button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false"&gt;
+                    &lt;span class="selected-label"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/span&gt;
+                    &lt;span class="selected-caret"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;
+                    &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;ul class="dropdown-menu" role="menu"&gt;
+                    &lt;li data-value="1" data-selected="true"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="3"&gt;&lt;a href="#"&gt;&lt;span&gt;Three&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="4"&gt;&lt;a href="#"&gt;&lt;span&gt;Five Five Five&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text"&gt;
+            &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class="n-cell-error text-right"&gt;{{row.error}}&lt;/td&gt;
+        &lt;td ng-class-odd="'n-cell-error text-right'" ng-class-even="'text-right'"&gt;{{row.number}}&lt;/td&gt;
+        &lt;td&gt;&lt;a href="javascript:void(0);"&gt;Link&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.tables']).controller('TableDemoController', ['$scope', '$filter', function (scope, filter) {
+    scope.rowCollection = [
+        {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option1', dropdownCell: '', error:'2010', number:500, link: ''},
+        {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option2', dropdownCell: '', error:'2010', number:160, link: ''},
+        {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option3', dropdownCell: '', error:'2010', number:590, link: ''},
+        {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option4', dropdownCell: '', error:'2010', number:530, link: ''},
+        {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option5', dropdownCell: '', error:'2010', number:500, link: ''},
+        {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option6', dropdownCell: '', error:'2010', number:300, link: ''}
+    ];
+
+    scope.rowCollection2 = [
+        {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option11', dropdownCell: '', error:'2010', number:500, link: ''},
+        {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option22', dropdownCell: '', error:'2010', number:160, link: ''},
+        {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option33', dropdownCell: '', error:'2010', number:590, link: ''},
+        {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option44', dropdownCell: '', error:'2010', number:530, link: ''},
+        {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option55', dropdownCell: '', error:'2010', number:500, link: ''},
+        {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option66', dropdownCell: '', error:'2010', number:300, link: ''}
+    ];
+    scope.totalErrors = 9;
+    scope.columnErrors = 6;
+    scope.numberColumnErrors = 3;
+
+    scope.hideError = false;
+}]);
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+        strictDi: true
+    });
+});
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular','wulf/tables', 'wulf-ng/tables/smart-table.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.tables', 'wf.angular.tabs']).controller('TableDemoController', ['$scope', '$filter', function (scope, filter) {
+            scope.rowCollection = [
+                {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option1', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option2', dropdownCell: '', error:'2010', number:160, link: ''},
+                {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option3', dropdownCell: '', error:'2010', number:590, link: ''},
+                {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option4', dropdownCell: '', error:'2010', number:530, link: ''},
+                {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option5', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option6', dropdownCell: '', error:'2010', number:300, link: ''}
+            ];
+
+            scope.rowCollection2 = [
+                {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option11', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option22', dropdownCell: '', error:'2010', number:160, link: ''},
+                {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option33', dropdownCell: '', error:'2010', number:590, link: ''},
+                {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option44', dropdownCell: '', error:'2010', number:530, link: ''},
+                {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option55', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option66', dropdownCell: '', error:'2010', number:300, link: ''}
+            ];
+            scope.totalErrors = 9;
+            scope.columnErrors = 6;
+            scope.numberColumnErrors = 3;
+
+            scope.hideError = false;
+        }]);
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+        setTimeout(Rainbow.color, 1000);
+    });
+</script>
+</body>
+</html>

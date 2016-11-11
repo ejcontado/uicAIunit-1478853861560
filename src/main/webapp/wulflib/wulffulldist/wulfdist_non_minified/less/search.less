@@ -1,0 +1,366 @@
+@import "./mixins/vendor-prefixes.less";
+@import "variables.less";
+
+/* mix-in definition*/
+.n-search-highlight-border-on-hover {
+  background: white;
+  border-color: @input-border-hover;
+  box-shadow: @n-search-highlight-border;
+}
+.n-search-move-input-with-dropdown {
+  position: relative;
+  left: @n-search-dropdown-width;
+  width: calc(~"100% - @{n-search-dropdown-width}");
+  padding-left: @n-search-right-left-small-padding;
+  border-radius: @n-search-border-right-round;
+}
+.n-search-input-with-button {
+  width: calc(~"100% - @{n-search-button-width}");
+  border-radius: @n-search-border-left-round;
+  padding-right: @n-search-right-left-small-padding;
+}
+.n-search-input-normal {
+  width: 100%;
+  border-radius: @n-search-input-corner-radius;
+  padding-right: calc(~"@{n-search-clear-width} + @{n-search-right-left-small-padding}");
+}
+
+.n-search-input {
+  &::-webkit-input-placeholder {
+    color: @gray-medium;
+  }
+  &::-moz-placeholder {
+    color: @gray-medium;
+  }
+  &:-ms-input-placeholder {
+    color: @gray-medium;
+  }
+}
+
+.n-search {
+  position: relative;
+  width: @n-search-width;
+  min-width: @n-search-input-min-width;
+  border-radius: @n-search-input-corner-radius;
+
+  &-icon {
+    cursor: default;
+    left: 0;
+    top: 0;
+    padding-left: @n-search-icon-padding-left;
+    position: absolute;
+    &:hover:not(.dropdown-toggle) + .n-inputfield {
+      border-color: @input-border-hover;
+      box-shadow: @n-search-highlight-border;
+    }
+  }
+
+  &-control-icon,
+  &-button {
+    border-radius: @n-search-border-right-round;
+    cursor: pointer;
+    height: @n-search-height;
+    margin: 0;
+    padding: 0 10px 0 9px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &-button {
+    box-shadow: none;
+    width: @n-search-button-width;
+
+    &:focus {
+      box-shadow: none;
+    }
+    &:hover {
+      box-shadow: @n-search-highlight-border;
+    }
+  }
+
+  &-input {
+    border-radius: @n-search-input-corner-radius;
+    height: @n-search-height;
+    padding: 0 10px 0 38px;
+    width: 100%;
+    min-width: @n-search-input-min-width;
+    &:hover {
+      box-shadow: @n-search-highlight-border;
+    }
+  }
+  &:hover .dropdown-toggle{
+    &:focus:not(:hover):not([disabled]) {
+      background: none;
+      border: @n-search-border-transparent;
+    }
+  }
+
+  .dropdown-toggle {
+    background: transparent;
+    border: @n-search-border-transparent;
+    border-radius: @n-search-border-left-round;
+    box-shadow: none;
+    height: @n-search-height;
+    cursor: pointer;
+    width: @n-search-dropdown-width;
+
+    &:hover:not(:disabled):not([aria-expanded=true]) {
+      background-image: none;
+      background: @gray-white;
+
+      .icon:before {
+        color: @gray-medium;
+      }
+      ~ .n-inputfield {
+        &:focus {
+          .n-search-move-input-with-dropdown;
+        }
+      }
+    }
+
+    &:focus:not(:hover):not([disabled]) {
+      border: 1px solid @focus-border-style;
+    }
+
+    &[aria-expanded=true] {
+      background: transparent !important;
+      border: @n-search-border-transparent !important; //TODO: because there is !important in .dropdown-toggle[aria-expanded=true]. unwanted, must get rid of
+    }
+    &[disabled] {
+      border: @n-search-border-transparent;
+    }
+    .icon-arrow {
+      width: @n-search-dropdown-icons-width;
+    }
+    .icon-search {
+      width: @n-search-dropdown-icons-width;
+    }
+  }
+
+  .dropdown-menu {
+    background-color: @dropdown-menu-background;
+    width: inherit;
+    * {
+      background-color: transparent;
+    }
+  }
+
+  .n-inputfield{
+    &:hover:focus {
+      border-color: @input-border-hover;
+      box-shadow: @n-search-highlight-border;
+    }
+    &[disabled] {
+      box-shadow:none;
+    }
+  }
+
+  .icon:not(.icon-close) {
+    font-size: @n-search-icon-hight;
+    line-height: @n-search-height;
+    .user-select(none);
+    & + .icon {
+      margin-left: -3px;
+    }
+  }
+
+  &.open {
+    .n-search-input {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      &:hover, &:focus{
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    .n-search-control-icon,
+    .n-search-button {
+      border-radius: @n-search-border-up-right-round;
+    }
+
+    .dropdown-toggle {
+      border-bottom-left-radius: 0;
+      &:hover ~.n-inputfield{
+          &:focus{
+            position :static;
+            padding-left: calc(~"@{n-search-dropdown-width} + @{n-search-right-left-small-padding}");
+            width: 100%;
+            border-radius: @n-search-border-up-round;
+          }
+      }
+    }
+  }
+
+  a:focus {
+    outline:none;
+  }
+}
+
+.n-search-action {
+  min-width: calc(~"@{n-search-button-width} + @{n-search-input-min-width}");
+}
+.n-search-action .n-search-input {
+  padding-right: calc(~"@{n-search-button-width} + @{n-search-right-left-small-padding}");
+  &:hover, &:focus {
+    .n-search-input-with-button;
+  }
+}
+.n-search-action .n-search-icon{
+  &:hover:not(.dropdown-toggle) +.n-inputfield {
+    .n-search-input-with-button;
+  }
+}
+.n-search-action .dropdown-toggle {
+  &:hover:not([disabled]):not([aria-expanded=true]) {
+    ~ .n-search-input {
+      &:focus {
+        border-radius: 0;
+        width: calc(~"100% - @{n-search-button-width} - @{n-search-dropdown-width}");
+        min-width: calc(~"@{n-search-input-min-width} - @{n-search-dropdown-width}");
+      }
+    }
+  }
+  &[aria-expanded=true] ~ .n-search-input{
+    &:hover, &:focus{
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+.n-search-clearable {
+  min-width: calc(~"@{n-search-input-min-width} + @{n-search-clear-width}");
+  &:hover {
+    &:not(.open) .n-inputfield:focus {
+      width: calc(~"100% - @{n-search-clear-width}");
+      border-radius: @n-search-border-left-round;
+      padding-right: @n-search-right-left-small-padding;
+      &:hover {
+        .n-search-input-normal;
+      }
+    }
+    .n-search-icon:hover:not(.dropdown-toggle) ~ .n-inputfield {
+      .n-search-input-normal;
+    }
+
+    .n-search-control-icon:hover .dropdown-toggle:focus {
+      border: 1px solid @focus-border-style;
+    }
+
+    .dropdown-toggle:hover {
+      &:not([disabled]):not([aria-expanded=true]) ~ .n-inputfield:focus {
+        .n-search-move-input-with-dropdown;
+        padding-right: calc(~"@{n-search-clear-width} + @{n-search-right-left-small-padding}");
+      }
+      ~ .n-search-control-icon {
+        &:focus {
+          border: 1px solid @focus-border-style;
+        }
+      }
+    }
+  }
+}
+.n-search-clearable .n-search-control-icon {
+    font-size: @n-search-close-icon-size;
+    line-height: 30px;
+    width: @n-search-clear-width;
+    padding: @n-search-close-icon-right-space 0 0 @n-search-close-icon-right-space;
+    border: 1px solid transparent;
+    .icon-close {
+      position: absolute;
+      &:before {
+        color: @gray-medium;
+      }
+    }
+    &:focus:not([disabled]) {
+      border: 1px solid @focus-border-style;
+      background: @gray-white;
+    }
+    &:hover, &:hover:focus {
+      border: 1px solid @n-search-clearable-icon-hover-border;
+      box-shadow: @n-search-clearable-icon-hover-shadow;
+      background: @gray-white;
+    }
+}
+.n-search-clearable .n-search-input {
+  padding-right: calc(~"@{n-search-clear-width} + @{n-search-right-left-small-padding}");
+  width: 100%;
+  &:hover ~.n-search-control-icon {
+    &:focus:not(:hover):not([disabled]) {
+      background: none;
+      border: @n-search-border-transparent;
+    }
+  }
+}
+.n-search-clearable .n-search-icon:not(.dropdown-toggle) {
+  &:hover ~.n-search-control-icon {
+    &:focus:not(:hover):not([disabled]) {
+      background: none;
+      border: @n-search-border-transparent;
+    }
+  }
+}
+
+.n-search-disable {
+  .n-search-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: @n-search-icon-padding-left;
+    cursor: default;
+    border-top: @n-search-border-transparent;
+    border-right: @n-search-border-transparent;
+    border-bottom: @n-search-border-transparent;
+    background: inherit;
+
+    .icon-arrow:before {
+      color: @n-search-disable-icon-arrow !important;
+    }
+
+    .icon-search:before {
+      color: @n-search-disable-icon-search !important;
+    }
+    &:focus{
+      border-bottom: @n-search-border-transparent;
+    }
+    &:hover:not(.icon-close):not(.dropdown-toggle) +.n-inputfield{
+      border: 1px solid @input-border-disabled;
+      box-shadow: none;
+    }
+  }
+
+  .n-search-control-icon {
+    line-height: 33px;
+    width: @n-search-clear-width;
+    .icon-close {
+      border: @n-search-border-transparent;
+      border-radius: 5px;
+      &:before {
+        color: @n-search-control-icon-close !important;
+      }
+    }
+    &:focus > .icon-close {
+      border-color: @n-search-control-icon-focus-close-border;
+    }
+    &:hover > .icon-close {
+      border-color: @n-search-control-icon-hover-close-border;
+    }
+    &[disabled] {
+      background: transparent;
+      border: @n-search-border-transparent;
+    }
+  }
+}
+
+.n-search-input-move{
+  .n-search-input {
+    width: calc(~"100% - @{n-search-clear-width}");
+    border-top-right-radius: 0;
+    padding-right: @n-search-right-left-small-padding;
+  }
+}
+.n-search-dropdown-focus{
+  &:hover .dropdown-toggle:focus:not(:hover):not([disabled]) {
+    border: @n-search-border-focus;
+  }
+}

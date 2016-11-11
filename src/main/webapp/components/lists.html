@@ -1,0 +1,203 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.list.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_list">List <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div id="list-demo-container" class="col-md-5">
+    <form class="form-horizontal button-list">
+        <div class="form-group">
+            <label class="col-sm-4 control-label" style="width: 140px">Standard:</label>
+            <div class="col-sm-8">
+                <span class="n-list-group-header">Plain list heading</span>
+                <ul class="list-group" id="TA_list_plainlistheading">
+                    <li class="list-group-item" id="TA_list_plainlistheading1">li style list-group-item</li>
+                    <li class="list-group-item" id="TA_list_plainlistheading2">Really really really really really really really really really really
+                        really really long text
+                    </li>
+                    <li class="list-group-item" id="TA_list_standardSomeitem">Some item</li>
+                </ul>
+
+                <span class="n-list-group-header label-disabled">Disabled</span>
+                <ul class="list-group disabled" tabindex="-1" id="TA_list_standarddisabled">
+                    <li class="list-group-item" id="TA_list_standarddisabled1">li style list-group-item</li>
+                    <li class="list-group-item" id="TA_list_standarddisabled2">Some item</li>
+                    <li class="list-group-item" id="TA_list_standarddisabled3">Some text</li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    <form class="form-horizontal button-list">
+        <div class="form-group">
+            <label class="col-sm-4 control-label" style="width: 140px">Selection:</label>
+            <div class="col-sm-8">
+                <span class="n-list-group-header">Selection support</span>
+                <ul class="n-list-group" id="TA_list_selectionsupport">
+                    <li class="n-list-group-item" id="TA_list_selectionsupport1"><span>li style n-list-group-item</span></li>
+                    <li class="n-list-group-item" id="TA_list_selectionsupport2"><span>Really really really really really really really really really really really really long text</span></li>
+                    <li class="n-list-group-item selected"><span>Example of an item pre-selected</span></li>
+                </ul>
+
+                <span class="n-list-group-header label-disabled">Disabled with selection</span>
+                <ul class="n-list-group disabled" id="TA_list_disabledselection">
+                    <li class="n-list-group-item" id="TA_list_disabledselection1"><span>li style n-list-group-item</span></li>
+                    <li class="n-list-group-item" id="TA_list_disabledselection2"><span>Really really really really really really really really really really really really long text</span></li>
+                    <li class="n-list-group-item selected"><span>Example of an item pre-selected</span></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    <form class="form-horizontal button-list">
+        <div class="form-group">
+            <label class="col-sm-4 control-label" style="width: 140px">Stripes:</label>
+            <div class="col-sm-8">
+                <span class="n-list-group-header">Alternating / striped with selection support</span>
+                <ul class="n-list-group n-list-striped" id="TA_list_stripesAlternating">
+                    <li class="n-list-group-item" id="TA_list_stripesAlternating1"><span>li style n-list-group-item</span></li>
+                    <li class="n-list-group-item selected" id="TA_list_stripesAlternating2"><span>Some text</span></li>
+                    <li class="n-list-group-item" id="TA_list_stripesAlternating3"><span>Test 1</span></li>
+                    <li class="n-list-group-item" id="TA_list_stripesAlternating4"><span>Test 2</span></li>
+                </ul>
+
+                <span class="n-list-group-header label-disabled">Disabled Alternating / striped with selection</span>
+                <ul class="n-list-group n-list-striped disabled">
+                    <li class="n-list-group-item"><span>li style n-list-group-item</span></li>
+                    <li class="n-list-group-item selected"><span>Some text</span></li>
+                    <li class="n-list-group-item"><span>Test 1</span></li>
+                    <li class="n-list-group-item"><span>Test 2</span></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    <form class="form-horizontal button-list">
+        <div class="form-group">
+            <label class="col-sm-4 control-label" style="width: 140px">Small:</label>
+            <div class="col-sm-8">
+                <span class="n-list-group-header">Small with selection support</span>
+                <ul class="n-list-group n-list-group-small n-list-striped" id="TA_list_smalllist">
+                    <li class="n-list-group-item" id="TA_list_smalllist1"><span>li style n-list-group-item</span></li>
+                    <li class="n-list-group-item" id="TA_list_smalllist2"><span>Really really really really really really really really really really really really long text for testing purposes</span></li>
+                    <li class="n-list-group-item selected" id="TA_list_smalllist3"><span>Example of an item pre-selected</span></li>
+                </ul>
+
+                <span class="n-list-group-header label-disabled">Disabled small with selection</span>
+                <ul class="n-list-group n-list-group-small n-list-striped disabled">
+                    <li class="n-list-group-item"><span>li style n-list-group-item</span></li>
+                    <li class="n-list-group-item"><span>Really really really really really really really really really really really really long text for testing purposes</span></li>
+                    <li class="n-list-group-item selected"><span>Example of an item pre-selected</span></li>
+                </ul>
+            </div>
+
+        </div>
+    </form>
+
+    <form class="form-horizontal button-list">
+        <div class="form-group">
+            <label class="col-sm-4 control-label" style="width: 140px">Dark (draft):</label>
+            <div class="col-sm-8">
+                <span class="n-list-group-header">Dark with selection support</span>
+                <ul class="n-list-group n-list-group-dark" id="TA_list_darklist">
+                    <li class="n-list-group-item" id="TA_list_darklist1"><span>li style n-list-group-item</span></li>
+                    <li class="n-list-group-item" id="TA_list_darklist2"><span>Really really really really really really really really really really really really long text</span></li>
+                    <li class="n-list-group-item selected"><span>Example of an item pre-selected</span></li>
+                </ul>
+            </div>
+
+        </div>
+    </form>
+
+    <h4>Subheaders <span class="draft">DRAFT</span></h4>
+    <h4>Grouped <span class="draft">DRAFT</span></h4>
+    <h4>Other <span class="draft">DRAFT</span></h4>
+
+</div>
+
+<div class="col-md-7">
+    <p>JS & CSS dependency:</p>
+<pre>
+For list components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.list.min.css" rel="stylesheet"&gt;</pre>
+    <pre>
+<code>
+    &lt;!-- Normal list --&gt;
+    &lt;span class="n-list-group-header"&gt;Plain list heading&lt;/span&gt;
+    &lt;ul class="list-group"&gt;
+        &lt;li class="list-group-item">li style list-group-item &lt;/li&gt;
+        &lt;li class="list-group-item">Some item&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- Disabled list --&gt;
+    &lt;span class="n-list-group-header"&gt;Disabled list&lt;/span&gt;
+    &lt;ul class="list-group <span class="demo-highlight-color">disabled</span>"&gt;
+        &lt;li class="list-group-item">Some item&lt;/li&gt;
+        &lt;li class="list-group-item">Another item&lt;/li&gt;
+    &lt;/ul&gt;</code>
+    </pre>
+    <pre>
+<code>
+    &lt;!-- Normal list with selection --&gt;
+    &lt;span class="n-list-group-header"&gt;Normal with selection support&lt;/span&gt;
+    &lt;ul class="<span class="demo-highlight-color">n-list-group</span>"&gt;
+        &lt;li class="<span class="demo-highlight-color">n-list-group-item</span>">&lt;span&gt;li style n-list-group-item&lt;/span&gt;&lt;/li&gt;
+        &lt;li class="<span class="demo-highlight-color">n-list-group-item selected</span>">&lt;span&gt;Pre-selected item example&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- Disabled list with selection --&gt;
+    &lt;span class="n-list-group-header <span class="demo-highlight-color">label-disabled</span>"&gt;Disabled list with selection&lt;/span&gt;
+    &lt;ul class="<span class="demo-highlight-color">n-list-group disabled</span>"&gt;
+        &lt;li class="<span class="demo-highlight-color">n-list-group-item</span>">&lt;span&gt;li style n-list-group-item&lt;/span&gt;&lt;/li&gt;
+        &lt;li class="<span class="demo-highlight-color">n-list-group-item selected</span>">&lt;span&gt;Pre-selected item example&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;</code>
+    </pre>
+    <pre>
+<code>
+    &lt;!-- Striped (alternating) list with selection support --&gt;
+    &lt;span class="n-list-group-header"&gt;Alternating / striped with selection support&lt;/span&gt;
+    &lt;ul class="n-list-group <span class="demo-highlight-color">n-list-striped</span>"&gt;
+        &lt;li class="n-list-group-item">&lt;span&gt;li style n-list-group-item&lt;/span&gt;&lt;/li&gt;
+        &lt;li class="n-list-group-item selected">&lt;span&gt;Some text&lt;/span&gt;&lt;/li&gt;
+        &lt;li class="n-list-group-item">&lt;span&gt;More text&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;</code>
+    </pre>
+    <pre>
+<code>
+    &lt;!-- Small striped list with selection support --&gt;
+    &lt;span class="n-list-group-header"&gt;Small with selection support&lt;/span&gt;
+    &lt;ul class="n-list-group <span class="demo-highlight-color">n-list-group-small</span> n-list-striped"&gt;
+        &lt;li class="n-list-group-item">&lt;span&gt;li style n-list-group-item&lt;/span&gt;&lt;/li&gt;
+        &lt;li class="n-list-group-item">&lt;span&gt;More text&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;</code>
+    </pre>
+    <pre>
+<code>
+    &lt;!-- Dark list with selection support --&gt;
+    &lt;span class="n-list-group-header"&gt;Dark with selection support&lt;/span&gt;
+    &lt;ul class="n-list-group <span class="demo-highlight-color">n-list-group-dark</span>"&gt;
+        &lt;li class="n-list-group-item">&lt;span&gt;li style n-list-group-item&lt;/span&gt;&lt;/li&gt;
+        &lt;li class="n-list-group-item">&lt;span&gt;More text&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;</code>
+    </pre>
+
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/list-group']);
+</script>
+
+</body>
+</html>

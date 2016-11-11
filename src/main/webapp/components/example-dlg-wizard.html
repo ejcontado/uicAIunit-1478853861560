@@ -1,0 +1,196 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tabpane.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Nokia dialog wizard</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dialog_wizard">Dialog wizard</h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="dlg-wizard-container col-md-3">
+            <p>
+                Here are the example of dialog wizard:
+            </p>
+            <a href="#myWizardDialog" data-backdrop="false" data-toggle="modal" data-keyboard="true">open Dialog
+                wizard</a>
+
+            <div class="modal n-dlg-wizard" id="myWizardDialog" role="dialog" aria-labelledby="myModalDlgLabel-subhead"
+                 aria-hidden="true"
+                 tabindex='-1'>
+                <div class="modal-dialog">
+                    <div class="modal-content" id="TA-modal-content">
+                        <div class="modal-header">
+                            <div class="n-dialog-header-fg-filler">
+                                <h1 class="modal-title" id="myModalLabel">Create Task</h1>
+                            </div>
+                            <div class="n-dialog-header-bg-filler"></div>
+                            <!-- -->
+                            <div class="n-dialog-header-curve">
+                                <div class="fg-mask"></div>
+                                <div class="bg-mask"></div>
+                                <div class="fg-corner"></div>
+                                <div class="bg-corner"></div>
+                            </div>
+                            <i role="button" class="icon icon-close-rounded" data-dismiss="modal"
+                               aria-label="Close wizard"></i>
+                            <div style="clear: both"></div>
+                            <h2 class="modal-title-subheading" id="myModalLabelVersion">General data</h2>
+
+                        </div>
+                        <div class="modal-body">
+                            <div class="navbar">
+                                <div class="navbar-inner">
+                                    <ul>
+                                        <li><a href="#tab1" data-toggle="tab"><span>1</span></a></li>
+                                        <li><a href="#tab2" data-toggle="tab"><span>2</span></a></li>
+                                        <li><a href="#tab3" data-toggle="tab"><span>3</span></a></li>
+                                        <li><a href="#tab4" data-toggle="tab"><span>4</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="n-dlg-wizard-step-description">
+                                        Step 1 description
+                                    </div>
+                                    <div class="n-dlg-wizard-step-content">
+                                        It is task 1.
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <div class="n-dlg-wizard-step-description">
+                                        Step 2 description
+                                    </div>
+                                    <div class="n-dlg-wizard-step-content">
+                                        It is task 2.
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <div class="n-dlg-wizard-step-description">
+                                        Step 3 description
+                                    </div>
+                                    <div class="n-dlg-wizard-step-content">
+                                        It is task 3.
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab4">
+                                    <div class="n-dlg-wizard-step-description">
+                                        Step 4 description
+                                    </div>
+                                    <div class="n-dlg-wizard-step-content">
+                                        It is task 4.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type='button' class='btn btn-standard button-previous' name='previous'
+                                   value='Back'/>
+                            <input type='button' class='btn btn-standard button-next' name='next'
+                                   value='Next'/>
+                            <input type='button' class='btn btn-standard button-last' name='last' value='Finish'/>
+                            <input type='button' class='btn btn-standard button-first ' name='first'
+                                   value='Cancel'/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <p>JS & CSS dependency:</p>
+        <pre>
+For dialog wizard components, it will be ok to import following css file :
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.tabpane.min.css" rel="stylesheet"/&gt;</pre>
+            <p>Wizard dialogues always contain a dynamic progress bar in the header, clearly showing the number of
+                steps in the process, and buttons at the base to navigate through those steps. To use the wizard dialog, see the examples below.</p>
+            <pre><code>&lt;!-- Dialog wizard --&gt;
+&lt;div class="modal n-dlg-wizard" id="myWizardDialog" role="dialog" aria-labelledby="myModalDlgLabel-subhead" aria-hidden="true" tabindex='-1'&gt;
+    &lt;div class="modal-dialog"&gt;
+        &lt;div class="modal-content"&gt;
+            &lt;div class="modal-header"&gt;
+                    &lt;div class="n-dialog-header-fg-filler"&gt;&lt;/div&gt;
+                    &lt;div class="n-dialog-header-bg-filler"&gt;&lt;/div&gt;
+                    &lt;div class="n-dialog-header-curve"&gt;
+                        &lt;div class="fg-mask"&gt;&lt;/div&gt;
+                        &lt;div class="bg-mask"&gt;&lt;/div&gt;
+                        &lt;div class="fg-corner"&gt;&lt;/div&gt;
+                        &lt;div class="bg-corner"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close wizard"&gt;&lt;/i&gt;
+                    &lt;h1 class="modal-title" id="myModalLabel"&gt;Create Task&lt;/h1&gt;
+                    &lt;h2 class="modal-title-subheading" id="myModalLabelVersion"&gt;General data&lt;/h2&gt;
+                &lt;/div&gt;
+            &lt;div class="modal-body"&gt;
+                &lt;div class="navbar"&gt;
+                &lt;div class="navbar-inner"&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="#tab1" data-toggle="tab"&gt;&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                        ...
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="tab-content"&gt;
+                &lt;div class="tab-pane" id="tab1"&gt;
+                    &lt;div class="n-dlg-wizard-step-description"&gt;Step 1 description&lt;/div&gt;
+                    &lt;div class="n-dlg-wizard-step-content"&gt;It is task 1.&lt;/div&gt;
+                &lt;/div&gt;
+                ...
+            &lt;/div&gt;
+            &lt;div class="modal-footer"&gt;
+                &lt;input type='button' class='btn btn-standard button-previous' name='previous' value='Back'/&gt;
+                &lt;input type='button' class='btn btn-standard button-next' name='next' value='Next'/&gt;
+                &lt;input type='button' class='btn btn-standard button-last' name='last' value='Finish'/&gt;
+                &lt;input type='button' class='btn btn-standard button-first ' name='first' value='Cancel'/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--  JS-script needed --&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.min.js" &gt;&lt;/script&gt;
+&lt;script src="../wulfdist/js/dependencies/bootstrap.min.js" &gt;&lt;/script&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js" &gt;&lt;/script&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js" &gt;&lt;/script&gt;
+&lt;script src="../wulfdist/js/dependencies/jquery.bootstrap.wizard.js" &gt;&lt;/script&gt;
+&lt;script src="../wulfdist/js/wulf.min.js" &gt;&lt;/script&gt;
+&lt;script&gt;
+    $(document).ready(function () {
+        $('#mydialog').initWizard();
+    });
+&lt;/script&gt;
+</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/dlg-wizard', 'wulf/keyboard/keyboard-core'], function ($) {
+        $(document).ready(function () {
+            $('#myWizardDialog').initWizard();
+        });
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) {
+                $('#myWizardDialog').modal('hide');
+            }
+        });
+    });
+</script>
+</body>
+</html>
+

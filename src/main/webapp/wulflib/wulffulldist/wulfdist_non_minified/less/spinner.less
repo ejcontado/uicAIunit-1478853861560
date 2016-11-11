@@ -1,0 +1,222 @@
+//
+// Copyright (C) 2015 Nokia Solutions and Networks. All rights reserved.
+//
+@import "./mixins/gradients.less";
+@import "variables.less";
+
+// Container to keep the label aligned with the actual spinner component
+@import "variables.less";
+@import "buttons.less";
+
+.spinner-container {
+    display: table;
+
+    > label {
+        display: table-cell;
+        vertical-align: middle;
+        // Consider using nowrap, but probably we should leave this setting to customers to make
+        //white-space: nowrap;
+    }
+
+    //TODO responsive behavior needs work for the spinner
+/* Responsive situation testing (note: the block statement below causes vertical alignment is lost for the label)
+    @media screen and (max-width: 479px) {
+        .spinner-container {
+            display: block;
+        }
+        label {
+            display: inline-block;
+        }
+    }
+    */
+
+    .n-spinbox-small{
+        .spinbox-input{
+            height:26px !important;
+        }
+
+        .spinbox-buttons{
+            .btn{
+                height: 13px !important;
+                .icon-arrow-up{top:-1px;}
+                .icon-arrow{top:-2px;}
+            }
+        }
+    }
+
+    .spinbox {
+        display: inline-block;
+        position: relative;
+
+        // TODO this padding-top added to get the related label alignment correctly on the same level
+        // label has for some reason always extra 5px in vertical size compared to the spinner, reason not known
+        padding-top: 4px;
+        .spinbox-input {
+            float: left;
+            width: 110px;
+            height: 34px;
+            padding: 0 43px 0 11px;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: right;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+
+            &::selection {
+                background-color: @spinbox-input-selection;
+            }
+
+            &::-ms-clear {
+                display: none;
+            }
+
+            &[disabled]{
+                border:1px solid @spinbox-input-disabled-border;
+            }
+        }
+
+        .spinbox-buttons {
+            position: absolute;
+            width: 32px;
+            // TODO this padding-top added to get the related label alignment correctly on the same level
+            // label has for some reason always extra 5px in vertical size compared to the spinner, reason not known
+            padding-top: 4px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: 0;
+
+            .btn {
+                position: relative;
+                height: 17px;
+                width: 32px;
+                margin: 0;
+                line-height: 15px;
+
+                .icon:before {
+                    color: @spinner-btn-before;
+                }
+
+                &:focus {
+                    .icon:before {
+                        color: @spinner-btn-focus;
+                    }
+                }
+                &:active {
+                    .icon:before {
+                        color: @spinner-btn-active;
+                    }
+                }
+            }
+
+            .btn:disabled {
+                span:before {
+                    color: @spinner-btn-disabled !important;
+                }
+            }
+
+            .spinbox-up {
+                border-top-right-radius: 7px !important;
+                border-top-left-radius: 0 !important;
+
+                box-shadow: 0 1px 3px 0 @spinbox-up-shadow, inset 0 1px 0 0 lighten(@spinbox-up-shadow-inset, 30%);
+
+                &:focus {
+                    #gradient > .vertical(@button-focus-gradient-start, @button-focus-gradient-end);
+                    color: @gray-white;
+                    border-color: @button-active-focus-border-color;
+                    text-shadow: @button-text-shadow-dark;
+                    box-shadow: @button-drop-shadow-focus;
+                    background-color: @button-focus-gradient-end;
+                }
+
+                &:hover:not(:focus) {
+                    #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+                    color: @gray-dark;
+                    border-color: @blue-hover;
+                    text-shadow: @button-text-shadow-white;
+                    box-shadow: @button-drop-shadow-hover;
+                }
+                &:hover {
+                    #gradient > .vertical(@button-focus-gradient-end, @button-focus-gradient-start);
+                    color:@gray-white;
+                    border-color: @button-focus-hover-border-color;
+                    text-shadow: none;
+                    box-shadow:none;
+                }
+
+                &:active {
+                    #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+                    color: @gray-dark;
+                    border:@button-default-border;
+                    border-color: @button-active-border-color;
+                    border-top-color: @button-active-top-border-color;
+                    text-shadow: @button-text-shadow-white;
+                    box-shadow: @button-drop-shadow-active;
+                }
+
+                &[disabled] {
+                    color: @input-color-disabled !important;
+                    #gradient > .vertical(@button-disabled-gradient-start, @button-disabled-gradient-end) !important;
+                    border: @button-disabled-border !important;
+                    box-shadow: @button-drop-shadow-disabled !important;
+                    text-shadow: none !important;
+                }
+            }
+
+            .spinbox-down {
+                border-top-right-radius: 0 !important;
+                border-top-left-radius: 0 !important;
+                border-bottom-right-radius: 7px;
+                border-bottom-left-radius: 0 !important;
+
+                box-shadow: 0 1px 3px 0 @spinbox-down-shadow, inset 0 1px 0 0 lighten(@spinbox-down-shadow-inset, 30%);
+
+                &:focus {
+                    #gradient > .vertical(@button-focus-gradient-start, @button-focus-gradient-end);
+                    color: @gray-white;
+                    border-color: @button-active-focus-border-color;
+                    text-shadow: @button-text-shadow-dark;
+                    box-shadow: @button-drop-shadow-focus;
+                    background-color: @button-focus-gradient-end;
+                }
+
+                &:hover:not(:focus) {
+                    #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+                    color: @gray-dark;
+                    border-color: @blue-hover;
+                    text-shadow: @button-text-shadow-white;
+                    box-shadow: @button-drop-shadow-hover;
+                }
+                &:hover {
+                    #gradient > .vertical(@button-focus-gradient-end, @button-focus-gradient-start);
+                    color:@gray-white;
+                    border-color: @button-focus-hover-border-color;
+                    text-shadow: none;
+                    box-shadow:none;
+                }
+
+                &:active {
+                    #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+                    color: @gray-dark;
+                    border:@button-default-border;
+                    border-color: @button-active-border-color;
+                    border-top-color: @button-active-top-border-color;
+                    text-shadow: @button-text-shadow-white;
+                    box-shadow: @button-drop-shadow-active;
+                }
+
+                &[disabled] {
+                    color: @input-color-disabled !important;
+                    #gradient > .vertical(@button-disabled-gradient-start, @button-disabled-gradient-end) !important;
+                    border: @button-disabled-border !important;
+                    box-shadow: @button-drop-shadow-disabled !important;
+                    text-shadow: none !important;
+                }
+            }
+
+        }
+    }
+}
+
+

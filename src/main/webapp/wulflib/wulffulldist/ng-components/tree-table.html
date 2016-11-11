@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Tree table angular</title>
+</head>
+
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_banner">Tree Table</h1>
+<hr>
+
+
+<div id="angular_section" class="row">
+    <div class="col-md-12">
+        <div ng-controller="TreeTableDemoController as demo">
+            <wf-tree-table class="tree-table" 
+                checkbox="demo.checkbox" 
+                on-check-box-clicked="demo.onCheckBoxClicked" 
+                on-row-selected="demo.onRowSelected"
+                draw-branch-col-index="demo.drawBranchColIndex"
+                is-row-checkbox-disabled="demo.isRowCheckboxDisabled"
+                tree-table-td-renderer="demo.treeTableTdRenderer"
+                table-headers="demo.tableHeaders"
+                tree-table-model="demo.treeTableModel">
+            </wf-tree-table>
+        </div>
+    </div>
+</div>
+
+
+<h2>Overview</h2>
+<p>
+Angular version of tree table component which is implemented by using <code>.component()</code> method introduced since Angular1.5. Involve JS 
+<code>'wulf-ng/tree-table/treeTableComponent'</code>,
+ and add the module <code>angular.module('myApp',['wf.angular.treeTable']</code> to your angular application. Insert <code>&lt;wf-tree-table class="tree-table"/&gt;</code> to your html. Now tree table is available.
+
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <h2>wf-tree-table settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>tableHeaders: &lt;</code></td>
+                <td>
+                    array
+                </td>
+                <td>
+                    Tree table header data
+                    <br>
+                    <code>
+                        [
+                            {
+                                title: "headerName", 
+                                textAlign: "left"
+                            }
+                            ..
+                        ]    
+                    </code>
+                    <ul>
+                        <li>
+                            <code>
+                                title: String 
+                            </code>
+                            - table header title
+                        </li>
+                        <li>
+                            <code>
+                                textAlign: String
+                            </code>
+                            - table header align
+                            <ul>
+                                <li>
+                                    <code>"left"</code> left align
+                                </li>
+                                <li>
+                                    <code>"right"</code> right align
+                                </li>
+                                <li>
+                                    <code>"center"</code> center align
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>treeTableModel: &lt;</code></td>
+                <td>
+                    object
+                </td>
+                <td>
+                    This object can create by treeModel, and put below pattern data in service.reserve to create
+                    <br>
+                        <code>
+                            { 
+                                'checkboxDisabled': true,
+                                'checked': true,
+                                'colData': ['text1', 'text2', ..], 
+                                'children': []
+                            }
+                        </code>
+
+                    <ul>
+                        <li>
+                            <code>checkboxDisabled: Boolean</code>
+                            - disable checkbox of this line or not.
+                        </li>
+                        <li>
+                            <code>checked: Boolean</code>
+                            - check checkbox of this line or not.
+                        </li>
+                        <li>
+                            <code>colData: Array</code>
+                            - line data widthout the checkbox row
+                        </li>
+                        <li>
+                            <code>children: Array</code>
+                            - define child nodes here
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>checkbox: &lt;</code></td>
+                <td>
+                    boolean(default: false)
+                </td>
+                <td>
+                    Display table checkbox col or not
+                </td>
+            </tr>
+            <tr>
+                <td><code>drawBranchColIndex: &lt;</code></td>
+                <td>
+                    Integer
+                </td>
+                <td>
+                    Choose which col to put the expanded/collapsed icon
+                </td>
+            </tr>
+            <tr>
+                <td><code>onRowSelected: &</code></td>
+                <td>
+                    function (event)
+                </td>
+                <td>
+                    Function called by onRowSelected event
+                </td>
+            </tr>
+            <tr>
+                <td><code>onCheckBoxClicked: &</code></td>
+                <td>
+                    function (event)
+                </td>
+                <td>
+                    Function called by onCheckBoxClicked event
+                </td>
+            </tr>
+            <tr>
+                <td><code>treeTableTdRenderer: &</code></td>
+                <td>
+                    function (colData, index)
+                </td>
+                <td>
+                    Function has two parameter 
+                    <br>
+                    <code>function (colData, index){ return "some html string or string" }</code>
+                    <ul>
+                        <li>
+                            <code>colData: </code> - current line data
+                        </li>
+                        <li>
+                            <code>index: </code> - current cell index of current line data
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<div ng-controller="TreeTableDemoController as demo">
+    <wf-tree-table class="tree-table" 
+        checkbox="demo.checkbox" 
+        on-check-box-clicked="demo.onCheckBoxClicked" 
+        on-row-selected="demo.onRowSelected"
+        draw-branch-col-index="demo.drawBranchColIndex"
+        is-row-checkbox-disabled="demo.isRowCheckboxDisabled"
+        tree-table-td-renderer="demo.treeTableTdRenderer"
+        table-headers="demo.tableHeaders"
+        tree-table-model="demo.treeTableModel">
+    </wf-tree-table>
+</div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular
+    .module('wf.ng.demo', ['wf.angular.tabs', 'wf.angular.treeTable'])
+    .controller('TreeTableDemoController', ['treeTableService', '_', TreeTableDemoController]);
+
+function TreeTableDemoController(treeTableService, _) {
+    var ctrl = this;
+    var service = treeTableService.newInstance();
+
+    var data = {
+        'checkboxDisabled': true,
+        'colData': ['', 'ADMIN000', 'ADMIN100', 'TrustAnchor', '2016.9.20', '2017.9.20', '100'],
+        'children': [{
+            'checkboxDisabled': true,
+            'checked': false,
+            'colData': ['ok', 'ADMIN100', 'ADMIN100', 'TrustAnchor', '2016.9.20', '2017.9.20', '100'],
+            'children': [{
+                'checkboxDisabled': true,
+                'checked': false,
+                'colData': ['error', 'ADMIN101', 'ADMIN100', 'CertificateAuthority', '2016.9.20', '2017.9.20', '101'],
+                'children': [{
+                    'checkboxDisabled': true,
+                    'checked': false,
+                    'colData': ['info', 'ADMIN102', 'ADMIN101', 'CertificateAuthority', '2016.9.20', '2017.9.20', '102'],
+                    'children': [{
+                        'checkboxDisabled': true,
+                        'checked': false,
+                        'colData': ['warning', 'ADMIN103', 'ADMIN102', 'CertificateAuthority', '2016.9.20', '2017.9.20', '103'],
+                        'children': [{
+                            'checkboxDisabled': true,
+                            'checked': false,
+                            'colData': ['', 'ADMIN104', 'ADMIN103', 'EndEntity', '2016.9.20', '2017.9.20', '104'],
+                            'children': []
+                        }, {
+                            'checkboxDisabled': true,
+                            'checked': false,
+                            'colData': ['', 'ADMIN105', 'ADMIN103', 'RegistrationAuthority', '2016.9.20', '2017.9.20', '105'],
+                            'children': []
+                        }]
+                    }]
+                }]
+            }]
+        }, {
+            'checkboxDisabled': false,
+            'checked': true,
+            'colData': ['', 'ADMIN200', 'ADMIN200', 'TrustAnchor', '2016.9.20', '2017.9.20', '200'],
+            'children': [{
+                'checkboxDisabled': false,
+                'checked': false,
+                'colData': ['warning', 'ADMIN201', 'ADMIN200', 'CertificateAuthority', '2016.9.20', '2017.9.20', '201'],
+                'children': [{
+                    'checkboxDisabled': false,
+                    'checked': false,
+                    'colData': ['ok', 'ADMIN202', 'ADMIN201', 'CertificateAuthority', '2016.9.20', '2017.9.20', '202'],
+                    'children': [{
+                        'checkboxDisabled': false,
+                        'checked': false,
+                        'colData': ['', 'ADMIN205', 'ADMIN202', 'CertificateAuthority', '2016.9.20', '2017.9.20', '205'],
+                        'children': []
+                    }]
+                }]
+            }]
+        }, {
+            'checkboxDisabled': true,
+            'checked': false,
+            'colData': ['', 'ADMIN203', 'ADMIN888', 'CertificateAuthority', '2016.9.20', '2017.9.20', '203'],
+            'children': [{
+                'checkboxDisabled': true,
+                'checked': false,
+                'colData': ['error', 'ADMIN202', 'ADMIN203', 'CertificateAuthority', '2016.9.20', '2017.9.20', '204'],
+                'children': []
+            }]
+        }]
+    };
+
+    ctrl.checkbox = true;
+    ctrl.drawBranchColIndex = 1;
+    ctrl.treeTableModel = service.reserve(data);
+    ctrl.onRowSelected = onRowSelected;
+    ctrl.onCheckBoxClicked = onCheckBoxClicked;
+    ctrl.treeTableTdRenderer = treeTableTdRenderer;
+    ctrl.tableHeaders = [
+        {'title': '', 'textAlign': 'center'},
+        {'title': 'Status', 'textAlign': 'center'},
+        {'title': 'Issued to', 'textAlign': 'left'},
+        {'title': 'Issued by', 'textAlign': 'left'},
+        {'title': 'Type', 'textAlign': 'left'},
+        {'title': 'Valid from', 'textAlign': 'left'},
+        {'title': 'Valid to', 'textAlign': 'left'},
+        {'title': 'Serial number', 'textAlign': 'right'}
+    ]
+
+    function treeTableTdRenderer(colData, index) {
+        var renderContent = colData[index];
+        if (index === 0){
+            switch (colData[index]){
+                case 'ok': renderContent = '<span class="icon icon-ok"></span>'; break;
+                case 'info': renderContent = '<span class="icon icon-info"></span>'; break;
+                case 'error': renderContent = '<span class="icon icon-error"></span>'; break;
+                case 'warning': renderContent = '<span class="icon icon-warning"></span>'; break;
+                default: renderContent = '';
+            }
+        } 
+        else if (renderContent === 'ADMIN104' || renderContent === 'ADMIN105'){
+            renderContent = '<span class="icon icon-refresh"></span>' + renderContent
+        }
+        return renderContent;
+    }
+
+    function onRowSelected(data) {
+        if (ctrl.selectedData) ctrl.selectedData.data = data;
+    }
+
+    function onCheckBoxClicked($event) {
+        $event.stopPropagation();
+    }
+
+}
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+</body>
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require([
+        'angular',
+        'wulf-ng/tabs/tabs.tlp.min',
+        'wulf/navbar',
+        'wulf-ng/tree-table/treeTable.tlp.min'
+    ], function (angular) {
+
+        angular
+            .module('wf.ng.demo', ['wf.angular.tabs', 'wf.angular.treeTable'])
+            .controller('TreeTableDemoController', ['treeTableService', '_', TreeTableDemoController]);
+
+        function TreeTableDemoController(treeTableService, _) {
+            var ctrl = this;
+            var service = treeTableService.newInstance();
+
+            var data = {
+                'checkboxDisabled': true,
+                'colData': ['', 'ADMIN000', 'ADMIN100', 'TrustAnchor', '2016.9.20', '2017.9.20', '100'],
+                'children': [{
+                    'checkboxDisabled': true,
+                    'checked': false,
+                    'colData': ['ok', 'ADMIN100', 'ADMIN100', 'TrustAnchor', '2016.9.20', '2017.9.20', '100'],
+                    'children': [{
+                        'checkboxDisabled': true,
+                        'checked': false,
+                        'colData': ['error', 'ADMIN101', 'ADMIN100', 'CertificateAuthority', '2016.9.20', '2017.9.20', '101'],
+                        'children': [{
+                            'checkboxDisabled': true,
+                            'checked': false,
+                            'colData': ['info', 'ADMIN102', 'ADMIN101', 'CertificateAuthority', '2016.9.20', '2017.9.20', '102'],
+                            'children': [{
+                                'checkboxDisabled': true,
+                                'checked': false,
+                                'colData': ['warning', 'ADMIN103', 'ADMIN102', 'CertificateAuthority', '2016.9.20', '2017.9.20', '103'],
+                                'children': [{
+                                    'checkboxDisabled': true,
+                                    'checked': false,
+                                    'colData': ['', 'ADMIN104', 'ADMIN103', 'EndEntity', '2016.9.20', '2017.9.20', '104'],
+                                    'children': []
+                                }, {
+                                    'checkboxDisabled': true,
+                                    'checked': false,
+                                    'colData': ['', 'ADMIN105', 'ADMIN103', 'RegistrationAuthority', '2016.9.20', '2017.9.20', '105'],
+                                    'children': []
+                                }]
+                            }]
+                        }]
+                    }]
+                }, {
+                    'checkboxDisabled': false,
+                    'checked': true,
+                    'colData': ['', 'ADMIN200', 'ADMIN200', 'TrustAnchor', '2016.9.20', '2017.9.20', '200'],
+                    'children': [{
+                        'checkboxDisabled': false,
+                        'checked': false,
+                        'colData': ['warning', 'ADMIN201', 'ADMIN200', 'CertificateAuthority', '2016.9.20', '2017.9.20', '201'],
+                        'children': [{
+                            'checkboxDisabled': false,
+                            'checked': false,
+                            'colData': ['ok', 'ADMIN202', 'ADMIN201', 'CertificateAuthority', '2016.9.20', '2017.9.20', '202'],
+                            'children': [{
+                                'checkboxDisabled': false,
+                                'checked': false,
+                                'colData': ['', 'ADMIN205', 'ADMIN202', 'CertificateAuthority', '2016.9.20', '2017.9.20', '205'],
+                                'children': []
+                            }]
+                        }]
+                    }]
+                }, {
+                    'checkboxDisabled': true,
+                    'checked': false,
+                    'colData': ['', 'ADMIN203', 'ADMIN888', 'CertificateAuthority', '2016.9.20', '2017.9.20', '203'],
+                    'children': [{
+                        'checkboxDisabled': true,
+                        'checked': false,
+                        'colData': ['error', 'ADMIN202', 'ADMIN203', 'CertificateAuthority', '2016.9.20', '2017.9.20', '204'],
+                        'children': []
+                    }]
+                }]
+            };
+
+            ctrl.checkbox = true;
+            ctrl.drawBranchColIndex = 1;
+            ctrl.treeTableModel = service.reserve(data);
+            ctrl.onRowSelected = onRowSelected;
+            ctrl.onCheckBoxClicked = onCheckBoxClicked;
+            ctrl.treeTableTdRenderer = treeTableTdRenderer;
+            ctrl.tableHeaders = [
+                {'title': '', 'textAlign': 'center'},
+                {'title': 'Status', 'textAlign': 'center'},
+                {'title': 'Issued to', 'textAlign': 'left'},
+                {'title': 'Issued by', 'textAlign': 'left'},
+                {'title': 'Type', 'textAlign': 'left'},
+                {'title': 'Valid from', 'textAlign': 'left'},
+                {'title': 'Valid to', 'textAlign': 'left'},
+                {'title': 'Serial number', 'textAlign': 'right'}
+            ];
+
+            function treeTableTdRenderer(colData, index) {
+                var renderContent = colData[index];
+                if (index === 0){
+                    switch (colData[index]){
+                        case 'ok': renderContent = "icon icon-ok"; break;
+                        case 'info': renderContent = "icon icon-info"; break;
+                        case 'error': renderContent = "icon icon-error"; break;
+                        case 'warning': renderContent = "icon icon-warning"; break;
+                        default: renderContent = '';
+                    }
+                    if (renderContent){
+                        renderContent = '<div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon '+ renderContent +'"></span></div></div>';
+                    }
+                }
+                else if (renderContent === 'ADMIN104' || renderContent === 'ADMIN105'){
+                    renderContent = '<span class="icon icon-refresh"></span>' + renderContent;
+                }
+                return renderContent;
+            }
+
+            function onRowSelected(data) {
+                if (ctrl.selectedData) {
+                    ctrl.selectedData.data = data;
+                }
+            }
+
+            function onCheckBoxClicked($event) {
+                $event.stopPropagation();
+            }
+
+        }
+
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+
+
+</script>
+</html>

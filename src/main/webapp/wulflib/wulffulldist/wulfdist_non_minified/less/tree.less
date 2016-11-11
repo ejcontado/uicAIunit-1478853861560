@@ -1,0 +1,301 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ * Source : tree.less
+ */
+@import "@{less-path-of-fuelux}mixins.less";
+@import "@{less-path-of-fuelux}variables.less";
+@import "@{less-path-of-fuelux}tree.less";
+@import "variables.less";
+
+.fuelux .tree {
+    background-color: @gray-white;
+
+    .tree-item {
+        margin: 0;
+
+        .tree-item-name {
+            display: inline-block;
+            width: 100%;
+            height: 25px;
+            line-height: 25px;
+            text-align: left;
+            font-weight: normal;
+            padding-left: 5px;
+            border: 1px solid transparent;
+            border-radius: 0;
+            color: @n-tree-text-normal-color;
+            &:hover {
+                color: @n-tree-text-hover-color;
+                .tree-label {
+                    border-bottom: 1px solid @n-tree-hover-underline-color;
+                }
+            }
+            &:focus {
+                border: 1px solid @n-tree-border-focus-color;
+            }
+
+            .fueluxicon-bullet, .glyphicon-ok {
+                font-size: 10px;
+                width: 12px;
+                top: 0;
+            }
+        }
+
+        &.tree-selected .tree-item-name {
+            background-color: @n-tree-selected-background-color;
+            color: @n-tree-text-selected-color;
+            &:hover .tree-label {
+                border-bottom: 1px solid transparent;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 1px dotted @n-tree-item-last-border-bottom;
+            border-radius: 0;
+        }
+    }
+
+    .icon-folder {
+        display: none;
+    }
+
+    height: 100%;
+    padding: 2px 2px 6px 2px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    border-radius: 7px;
+    .tree-branch {
+        margin-top: 0;
+        margin-bottom: 0;
+        .tree-branch-header {
+            height: 25px;
+            padding-left: 6px;
+            .glyphicon-play {
+                display: inline-block;
+                font-size: 14px;
+                width: 14px;
+                padding-left: 0;
+                padding-right: 0;
+                margin-right: 0;
+                &:before {
+                    top: 0;
+                }
+                &:hover {
+                    color: @n-tree-branch-header-icon-hover;
+                }
+            }
+
+            .tree-branch-name {
+                position: relative;
+                width: 100%;
+                height: 25px;
+                display: inline-block;
+                text-align: left;
+                border-radius: 0;
+                border: 1px solid transparent;
+                cursor: pointer;
+                color: @n-tree-text-normal-color;
+                font-weight: normal;
+                &:hover {
+                    color: @n-tree-text-hover-color;
+                    .tree-label {
+                        border-bottom: 1px solid @n-tree-hover-underline-color;
+                    }
+                }
+                &:focus {
+                    border: 1px solid @n-tree-border-focus-color;
+                    left: -6px;
+                    padding-left: 6px;
+                    width: calc(~"100% + 6px");
+                    height: 25px;
+                    display: inline-block;
+                }
+            }
+        }
+
+        .tree-branch-children {
+            margin-left: 0;
+            padding-left: 14px;
+        }
+
+        &.tree-selected > .tree-branch-header {
+          color: @n-tree-selected-branch-header-text;
+          border-radius: 0;
+          background: @n-tree-selected-background-color none;
+
+            .tree-branch-name {
+                background: transparent !important;
+                padding-left: 0;
+                left: 0;
+                color: @n-tree-text-selected-color;
+                border: 1px solid transparent;
+                &:focus {
+                    border: 1px solid @n-tree-border-focus-color;
+                    left: -6px;
+                    padding-left: 6px;
+                    width: calc(~"100% + 6px");
+                    height: 25px;
+                    display: inline-block;
+                }
+            }
+
+        }
+
+        &:last-child {
+            margin-bottom: 4px;
+        }
+    }
+
+    .tree-open > .tree-branch-header .glyphicon-play {
+        top: 0;
+      }
+
+    &-scroll {
+        > .mCustomScrollBox {
+            border-radius: 0;
+            padding: 0;
+            width: 100%;
+            background: transparent;
+
+            > .mCSB_container {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.fuelux .tree-has-checkbox {
+       .checkbox {
+         position: absolute;
+         top: 4px;
+         display: inline-block;
+       }
+       .checkbox input[type="checkbox"]:indeterminate + label:before {
+         font-family: @font-family-icons;
+         content: "\002D";
+         color: @gray-medium;
+         font-size: 1.8em;
+         line-height: 0.15em;
+
+         // Special line height and font-size for IE10+
+         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+           line-height: 0.35em;
+           font-size: 1.5em;
+         }
+
+         width: 14px;
+         height: 14px;
+         left: 0;
+         border-color: @tree-has-checkbox-border;
+         transform: scale(1, 1);
+         border-radius: 4px;
+         text-align: center;
+       }
+
+    .tree-label {
+        position: absolute;
+        top: 3px;
+        margin-left: 22px;
+    }
+
+    .icon-item {
+        display: inline;
+        line-height: 22px;
+    }
+
+    .tree-title {
+        margin-left: 8px;
+    }
+
+    .tree-item .tree-item-name .checkbox:hover label:before,
+    .tree-branch .tree-branch-name .checkbox:hover label:before {
+        border: 1px solid @input-border-hover !important;
+        box-shadow: 0 1px 3px 0 @input-border, 0 0 0 1px lighten(@input-border-hover, 30%) inset;
+    }
+
+    .tree-item .tree-item-name .checkbox:active label:before,
+    .tree-branch .tree-branch-name .checkbox:active label:before {
+        border: 1px solid @input-border-focus;
+        box-shadow: 0 1px 3px 0 @input-border-focus inset;
+    }
+
+    .checkbox input[type="checkbox"] {
+        &:focus + label:before {
+            border: 1px solid @input-border-focus !important;
+            box-shadow: 0 1px 3px 0 @input-border-focus !important;
+        }
+    }
+
+    .checkbox input[type="checkbox"]:not(.sr-only):checked ~ label:before,
+    .checkbox-inline input[type="checkbox"]:not(.sr-only):checked ~ label:before {
+        content: '\e600';
+        text-align: center;
+        color: @tree-has-checkbox-has-label-text;
+        background: @tree-has-checkbox-has-label-bg;
+        left: 0;
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-color: @tree-has-checkbox-has-label-border;
+
+        border-radius: 4px;
+        line-height: 10px;
+        padding: 1px 1px 1px 0;
+        font-family: @font-family-icons;
+    }
+    .glyphicon {
+        top: 5px;
+    }
+   .tree-item-name .icon-bullet{
+       margin-right: 3px;
+   }
+   .tree-branch .tree-branch-header .glyphicon-play {
+          padding-top: 2px;
+          width: 16px;
+     }
+
+    .tree-open > .tree-branch-header .glyphicon-play {
+        top: 1px;
+        padding-bottom: 1px;
+        width: 16px;
+
+    }
+
+    .tree-branch .tree-branch-name,
+    .tree-item .tree-item-name {
+        line-height: 18px;
+    }
+}
+
+.fuelux .disabled-tree {
+    span {
+        color: @disabled-tree-span-text !important;
+        cursor: default !important;
+    }
+
+    .tree-item-name,
+    .tree-branch-header{
+        background-color: @n-tree-text-selected-color !important;
+        &:hover {
+            .tree-label {
+                border-bottom: 0 !important;
+            }
+        }
+    }
+
+    .tree-item {
+        cursor: default;
+    }
+}
+
+// Lets avoid having dotted line at the very last tree item in the whole tree
+.menu-tree > .tree {
+    > li:not(tree-branch),
+    > .tree-branch:last-child > ul > .tree-item:last-child,
+    > .mCustomScrollBox > .mCSB_container > li:not(tree-branch),
+    > .mCustomScrollBox > .mCSB_container > .tree-branch:last-child > ul > .tree-item:last-child {
+        border: none !important;
+    }
+}

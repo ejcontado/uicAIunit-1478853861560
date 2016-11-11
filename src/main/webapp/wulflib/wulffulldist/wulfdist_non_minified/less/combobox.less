@@ -1,0 +1,254 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+@import "./mixins/gradients.less";
+
+// OT3 p.129
+// Settings work for FuelUX combobox
+// NOTE: see also the dropdowns.less + inputfields.less as those styles are used for combobox
+
+.combobox {
+  white-space: nowrap;
+  .form-control.n-inputfield {
+    box-shadow: none;
+    &:hover:enabled{
+      box-shadow: inset 0 0 0 1px lighten(@input-border-hover, 30%);
+      z-index: 9;
+      border: 1px solid @blue-hover;
+    }
+    &:focus{
+      box-shadow: none;
+    }
+  }
+
+  .form-control
+  {
+    height: 30px;
+  }
+
+  &.combobox-open > .form-control.n-inputfield {
+    border-bottom-left-radius: 0;
+
+  }
+}
+
+.combobox .dropdown-toggle, .n-combobutton .dropdown-toggle {
+  border-radius: 0 7px 7px 0 !important;
+  //TODO temporary margin
+  margin: 0;
+  -webkit-box-shadow: 0 1px 3px 0 @combobox-dropdown-toggle-shadow, inset 0 1px 0 0 @combobox-dropdown-toggle-shadow-inset;
+  box-shadow: 0 1px 3px 0 @combobox-dropdown-toggle-shadow, inset 0 1px 0 0 @combobox-dropdown-toggle-shadow-inset;
+  height:30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  // +++ Arrow placement
+  span.caret {
+    margin: 0 0 0 0;
+  }
+  &[aria-expanded=true] {
+    border-radius: 0 7px 0 0 !important;
+    #gradient > .vertical(@nav-tabs-dark-gradient-top, @nav-tabs-dark-gradient-bottom) !important;
+    color: @gray-dark !important;
+    border-color: @button-active-border-color !important;
+    border-top-color: @button-active-top-border-color !important;
+    text-shadow: @button-text-shadow-white !important;
+    box-shadow: @button-drop-shadow-active !important;
+  }
+
+  &:focus{
+    box-shadow: @button-drop-shadow;
+  }
+
+  &:hover:not(:focus){
+    box-shadow: @button-drop-shadow-hover;
+  }
+
+  &:active {
+    border-bottom:@button-default-border;
+    box-shadow: @button-drop-shadow-active;
+  }
+
+  &.disabled{
+    border:1px solid @combobox-dropdown-toggle-disabled;
+  }
+
+}
+
+.n-combobutton .dropdown-toggle
+{
+  padding-left: 11px !important;
+  padding-right: 11px !important;
+  // Float setting is needed to keep button with the text field in responsive case
+  float: none;
+}
+
+.n-combobutton-btn {
+  //padding-right: 36px;
+  padding-top: 4px;
+  //min-width: 160px;
+  .selected-label, .contextual-menu-label{
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  -webkit-box-shadow: 0 1px 3px 0 @combobox-btn-shadow, inset 0 1px 0 0 @combobox-btn-shadow-inset;
+  box-shadow: 0 1px 3px 0 @combobox-btn-shadow, inset 0 1px 0 0 @combobox-btn-shadow-inset;
+  height: 30px;
+}
+
+.n-combobutton .dropdown-menu {
+  width: 100%;
+}
+
+.n-scrollable {
+  overflow-y: scroll;
+}
+
+// +++ Small variant
+.n-combobutton-small {
+  .n-combobutton-btn,
+  .dropdown-toggle {
+    font-size: @font-size-small;
+    height: 26px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 5px;
+    vertical-align:top;
+    span.selected-label, span.contextual-menu-label {
+       line-height: 22px;
+      padding: 0 10px 0 0;
+    }
+    &[aria-expanded=true] {
+      border-radius: 6px 6px 0 0;
+    }
+  }
+  .dropdown-menu {
+    border-radius: 0 0 6px 6px;
+    font-size: @font-size-small;
+
+    >li>a{
+      padding-top: 6px;
+    }
+  }
+}
+
+.n-combobutton.open > .btn {
+  border-bottom-left-radius: 0;
+}
+
+.btn-group.n-combobutton  {
+  // Following needed to keep the button together with the textfield in responsive situation
+  white-space: nowrap;
+}
+
+.combobox-filter-dropdown-menu {
+  min-height: 39px;
+}
+
+.combobox-item-hidden {
+  display: none;
+}
+
+.combobox.n-cancel-button .n-inputfield {
+   padding: 6px 20px 6px 11px;
+ }
+
+.n-clear-button-icon {
+  position: absolute;
+  top: 9px;
+  right: 37px;
+  z-index: 100;
+  width: 14px;
+  height: 14px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  .icon-close {
+    &:before {
+      color: @combobox-clear-btn;
+    }
+  }
+  &[disabled] {
+    border-bottom: 0;
+
+    .icon-close {
+      &:before {
+        color: @combobox-clear-btn-disabled;
+      }
+    }
+  }
+}
+
+.n-clear-button-icon:hover {
+  border: 1px solid @combobox-clear-btn-hover-border;
+  border-radius: 3px;
+}
+
+.n-clear-button-icon:focus {
+  outline: none;
+  border: 1px solid @combobox-clear-btn-focus-border;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, @combobox-clear-btn-focus-bg-gradient-start, @combobox-clear-btn-focus-bg-gradient-end);
+
+  .icon-close {
+    &:before {
+      color: @combobox-clear-btn-focus;
+    }
+  }
+}
+
+.n-clear-button-icon:active {
+  border: 1px solid @combobox-clear-btn-active-border;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, @combobox-clear-btn-active-bg-gradient-start, @combobox-clear-btn-active-bg-gradient-end);
+  .icon-close {
+    &:before {
+      color: @combobox-clear-btn-active;
+    }
+  }
+}
+
+.n-clear-button-icon span {
+  top: -3px;
+  left: -1px;
+}
+
+.combobox-menu {
+  &-open {
+    border-top-left-radius: 7px !important;
+    border-bottom-left-radius: 0 !important;
+  }
+
+  &-close {
+    border-top-left-radius: 7px !important;
+    border-bottom-left-radius: 7px !important;
+  }
+}
+
+.n-combobutton {
+  width: 100%;
+
+  .n-combobutton-btn {
+    width: calc(~"100% - 30px");
+  }
+  .dropdown-toggle{
+    width:31px;
+  }
+}
+
+.n-combobutton-small {
+  width: 100%;
+
+  .n-combobutton-btn {
+    width: calc(~"100% - 28px");
+  }
+  .dropdown-toggle{
+    width:29px;
+  }
+}
+

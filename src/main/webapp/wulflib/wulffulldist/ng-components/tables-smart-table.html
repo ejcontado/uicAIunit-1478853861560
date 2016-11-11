@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Table</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Table</h1>
+<hr>
+<div class="col-md-12">
+    <div>
+        <p>
+            Angular version of table(Smart table). It allows you to quickly compose your table in a declarative way including sorting, filtering, row selection, pagination and indicators.
+            <br/>
+            The first thing when enable smart table is to require dependency js <code>'wulf-ng/tables/smart-table'</code> and add the module <code>angular.module('myApp',['wf.angular.tables']</code> to your angular application. Then use the markup you would normally do for html tables. On the table element add the <code>wf-table</code> attribute to tell smart-table which collection holds your <strong>displayed data</strong>, (ie the one you are going to use in the repeater). Now you will be able to compose the table using the plugins.
+        </p>
+        <h2>Settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th style="min-width: 168px;">Directive attribute</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>wf-table</code></td>
+                <td>
+                    JS object(Array)
+                </td>
+                <td>
+                    The displayed data in the table
+                </td>
+            </tr>
+            <tr>
+                <td><code>wf-sort</code></td>
+                <td>
+                    The key in JS object
+                </td>
+                <td>
+                    We can use the <code>wf-sort</code> directive to have a built in sort feature. Again, it is all declarative. You add the attribute wf-sort to your <Strong>table headers</Strong>. This will specify the property name you want to sort by or the name of a getter function available on the scope. There are three different sort states: ascending, descending and back to the primary order
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>wf-skip-natural</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    Skip the "natural order" state by adding <code>wf-skip-natural="true"</code> as attribute of your <code>th</code> element
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>wf-search</code></td>
+                <td>
+                    The key in JS object
+                </td>
+                <td>
+                    The <code>wf-search</code> gives you a way to filter rows globally if you don't set any value to the attribute. Or you can also define the predicate to use as value of the directive attribute. Use a property name, or alternatively you can interpolate the predicate with a scope property
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>wf-clear</code></td>
+                <td>
+                    NA
+                </td>
+                <td>
+                    Clear all the condition values in search function. Binding element click event to reset
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>wf-pagination</code></td>
+                <td>
+                    NA
+                </td>
+                <td>
+                    Enable pagination function and pagination template will be displayed. Pagination template includes summary information and paging button
+                </td>
+            </tr>
+
+            <tr>
+                <td><code>wf-items-by-pag</code></td>
+                <td>
+                    Numberic
+                </td>
+                <td>
+                    The item number in one page
+                </td>
+            </tr>
+            <tr>
+                <td><code>wf-summary</code></td>
+                <td>
+                    NA
+                </td>
+                <td>
+                    Enable calculate summary records function. Summary information includes total records and current records
+                </td>
+            </tr>
+            <tr>
+                <td><code>wf-indicator</code></td>
+                <td>
+                    JS object
+                </td>
+                <td>
+                    Watch the value in object, show indicator when value is changed
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+        <h2>Keyboard accessibility</h2>
+        Smart table support the basic keyboard action, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+        <kbd>Tab</kbd></kbd>, <kbd>↑</kbd>, <kbd>↓</kbd>, <kbd>←</kbd> and <kbd>→</kbd>.
+
+        <h2>Note</h2>
+        WULF smart table use for reference of angular <strong>smart table</strong>(http://lorenzofox3.github.io/smart-table-website/). WULF smart table covers all the features of angular <strong>smart table</strong> and make some templates for WULF style.
+        <br>
+        For more detail directive information, please refer to
+        <a href="http://lorenzofox3.github.io/smart-table-website/" target="_blank">http://lorenzofox3.github.io/smart-table-website/</a>.
+    </div>
+    <br>
+    <hr>
+
+    <h4>Standard table with alternating rows and cell selection. Enable sort column function with sort icon</h4>
+    <div class="demo-table-min-size" ng-controller="TableDemoController as demo">
+        <table id="TA-alternatingCellSelection-table" wf-table="rowCollection1" class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>With icon status</th>
+                <th id="TA-alternatingCellSelection-sortText" class="n-sortable" wf-sort="text" wf-skip-natural="true">With text<span class="icon icon-arrow"></span></th>
+                <th>With editable cell</th>
+                <th>Checkbox cell</th>
+                <th>Dropdown cell</th>
+                <th>With error/alert</th>
+                <th id="TA-alternatingCellSelection-sortNumber" class="n-sortable" wf-sort="number" wf-skip-natural="true">With number<span class="icon icon-arrow"></span></th>
+                <th>Text links</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="TA-alternatingCellSelection-row{{$index}}" ng-repeat="row in rowCollection1">
+                <td id="TA-alternatingCellSelection-icon{{$index}}" class="text-center"><div class="n-cell-icon-container"><div class="n-cell-icon"><span class="{{row.icon}}"></span></div></div></td>
+                <td id="TA-alternatingCellSelection-text{{$index}}">{{row.text}}</td>
+                <td id="TA-alternatingCellSelection-editableCell{{$index}}" class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="{{row.editableCell}}"></td>
+                <td>
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="{{row.checkBoxCell}}">
+                        <label for="{{row.checkBoxCell}}">{{row.checkBoxCell}}</label>
+                    </div>
+                </td>
+                <td id="TA-alternatingCellSelection-dropdown{{$index}}" class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>One</span></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1" data-selected="true"><a href="#"><span>One</span></a></li>
+                            <li data-value="2"><a href="#"><span>Two</span></a></li>
+                            <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            <li data-value="4"><a href="#"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text">
+                    </div>
+                </td>
+                <td id="TA-alternatingCellSelection-error{{$index}}" class="n-cell-error text-right">{{row.error}}</td>
+                <td id="TA-alternatingCellSelection-number{{$index}}" class="text-right">{{row.number}}</td>
+                <td id="TA-alternatingCellSelection-link{{$index}}"><a href="javascript:void(0);">Link</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <h4>Standard table with alternating rows and row selection. Enable sort column function with sort icon</h4>
+    <div class="demo-table-min-size" ng-controller="TableDemoController as demo">
+        <table id="TA-alternatingRowSelection-table" wf-table="rowCollection2" class="n-table n-table-standard n-table-striped n-table-hover">
+            <thead>
+            <tr>
+                <th>With icon status</th>
+                <th id="TA-alternatingRowSelection-sortText" class="n-sortable" wf-sort="text" wf-skip-natural="true">With text<span class="icon icon-arrow"></span></th>
+                <th>With editable cell</th>
+                <th>Checkbox cell</th>
+                <th>Dropdown cell</th>
+                <th>With error/alert</th>
+                <th id="TA-alternatingRowSelection-sortNumber" class="n-sortable" wf-sort="number" wf-skip-natural="true">With number<span class="icon icon-arrow"></span></th>
+                <th>Text links</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="TA-alternatingRowSelection-row{{$index}}" ng-repeat="row in rowCollection2">
+                <td id="TA-alternatingRowSelection-icon{{$index}}" class="text-center"><div class="n-cell-icon-container"><div class="n-cell-icon"><span class="{{row.icon}}"></span></div></div></td>
+                <td id="TA-alternatingRowSelection-text{{$index}}">{{row.text}}</td>
+                <td id="TA-alternatingRowSelection-editableCell{{$index}}" class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="{{row.editableCell}}"></td>
+                <td id="TA-alternatingRowSelection-checkbox{{$index}}">
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="{{row.checkBoxCell}}">
+                        <label for="{{row.checkBoxCell}}">{{row.checkBoxCell}}</label>
+                    </div>
+                </td>
+                <td id="TA-alternatingRowSelection-dropdown{{$index}}" class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>One</span></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1" data-selected="true"><a href="#"><span>One</span></a></li>
+                            <li data-value="2"><a href="#"><span>Two</span></a></li>
+                            <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            <li data-value="4"><a href="#"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text">
+                    </div>
+                </td>
+                <td id="TA-alternatingRowSelection-error{{$index}}" class="n-cell-error text-right">{{row.error}}</td>
+                <td id="TA-alternatingRowSelection-number{{$index}}" class="text-right">{{row.number}}</td>
+                <td id="TA-alternatingRowSelection-link{{$index}}"><a href="javascript:void(0);">Link</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <h4>Standard table with grid lines and cell selection. Enable sort column function with sort icon</h4>
+    <div class="demo-table-min-size" ng-controller="TableDemoController as demo">
+        <table id="TA-gridLineCellSelection-table" wf-table="rowCollection3" class="n-table n-table-standard n-table-grid-lines n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>With icon status</th>
+                <th id="TA-gridLineCellSelection-sortText" class="n-sortable" wf-sort="text" wf-skip-natural="true">With text<span class="icon icon-arrow"></span></th>
+                <th>With editable cell</th>
+                <th>Checkbox cell</th>
+                <th>Dropdown cell</th>
+                <th>With error/alert</th>
+                <th id="TA-gridLineCellSelection-sortNumber" class="n-sortable" wf-sort="number" wf-skip-natural="true">With number<span class="icon icon-arrow"></span></th>
+                <th>Text links</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="TA-gridLineCellSelection-row{{$index}}" ng-repeat="row in rowCollection3">
+                <td id="TA-gridLineCellSelection-icon{{$index}}" class="text-center"><div class="n-cell-icon-container"><div class="n-cell-icon"><span class="{{row.icon}}"></span></div></div></td>
+                <td id="TA-gridLineCellSelection-text{{$index}}">{{row.text}}</td>
+                <td id="TA-gridLineCellSelection-editableCell{{$index}}" class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="{{row.editableCell}}"></td>
+                <td id="TA-gridLineCellSelection-checkbox{{$index}}">
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="{{row.checkBoxCell}}">
+                        <label for="{{row.checkBoxCell}}">{{row.checkBoxCell}}</label>
+                    </div>
+                </td>
+                <td id="TA-gridLineCellSelection-dropdown{{$index}}" class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>One</span></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1" data-selected="true"><a href="#"><span>One</span></a></li>
+                            <li data-value="2"><a href="#"><span>Two</span></a></li>
+                            <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            <li data-value="4"><a href="#"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text">
+                    </div>
+                </td>
+                <td id="TA-gridLineCellSelection-error{{$index}}" class="n-cell-error text-right">{{row.error}}</td>
+                <td id="TA-gridLineCellSelection-number{{$index}}" class="text-right">{{row.number}}</td>
+                <td id="TA-gridLineCellSelection-link{{$index}}"><a href="javascript:void(0);">Link</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <h4>Standard table with grid lines and row selection. Enable sort column function with sort icon</h4>
+    <div class="demo-table-min-size" ng-controller="TableDemoController as demo">
+        <table id="TA-gridLineRowSelection-table" wf-table="rowCollection4" class="n-table n-table-standard n-table-grid-lines n-table-hover">
+            <thead>
+            <tr>
+                <th>With icon status</th>
+                <th id="TA-gridLineRowSelection-sortText" class="n-sortable" wf-sort="text" wf-skip-natural="true">With text<span class="icon icon-arrow"></span></th>
+                <th>With editable cell</th>
+                <th>Checkbox cell</th>
+                <th>Dropdown cell</th>
+                <th>With error/alert</th>
+                <th id="TA-gridLineRowSelection-sortNumber" class="n-sortable" wf-sort="number" wf-skip-natural="true">With number<span class="icon icon-arrow"></span></th>
+                <th>Text links</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="TA-gridLineRowSelection-row{{$index}}" ng-repeat="row in rowCollection4">
+                <td id="TA-gridLineRowSelection-icon{{$index}}" class="text-center"><div class="n-cell-icon-container"><div class="n-cell-icon"><span class="{{row.icon}}"></span></div></div></td>
+                <td id="TA-gridLineRowSelection-text{{$index}}">{{row.text}}</td>
+                <td id="TA-gridLineRowSelection-editableCell{{$index}}" class="n-cell-control"><input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="{{row.editableCell}}"></td>
+                <td id="TA-gridLineRowSelection-checkbox{{$index}}">
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="{{row.checkBoxCell}}">
+                        <label for="{{row.checkBoxCell}}">{{row.checkBoxCell}}</label>
+                    </div>
+                </td>
+                <td id="TA-gridLineRowSelection-dropdown{{$index}}" class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>One</span></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1" data-selected="true"><a href="#"><span>One</span></a></li>
+                            <li data-value="2"><a href="#"><span>Two</span></a></li>
+                            <li data-value="3"><a href="#"><span>Three</span></a></li>
+                            <li data-value="4"><a href="#"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text">
+                    </div>
+                </td>
+                <td id="TA-gridLineRowSelection-error{{$index}}" class="n-cell-error text-right">{{row.error}}</td>
+                <td id="TA-gridLineRowSelection-number{{$index}}" class="text-right">{{row.number}}</td>
+                <td id="TA-gridLineRowSelection-link{{$index}}"><a href="javascript:void(0);">Link</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+&lt;div class="demo-table-min-size" ng-controller="TableDemoController as demo"&gt;
+&lt;table wf-table="rowCollection" class="n-table n-table-standard n-table-striped n-table-cell-hover"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;With icon status&lt;/th&gt;
+        &lt;th class="n-sortable" wf-sort="text" wf-skip-natural="true"&gt;With text&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+        &lt;th&gt;With editable cell&lt;/th&gt;
+        &lt;th&gt;Checkbox cell&lt;/th&gt;
+        &lt;th&gt;Dropdown cell&lt;/th&gt;
+        &lt;th&gt;With error/alert&lt;/th&gt;
+        &lt;th class="n-sortable" wf-sort="number" wf-skip-natural="true"&gt;With number&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+        &lt;th&gt;Text links&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr ng-repeat="row in rowCollection1"&gt;
+        &lt;td class="text-center"&gt;&lt;div class="n-cell-icon-container"&gt;&lt;div class="n-cell-icon"&gt;&lt;span class="{{row.icon}}"&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;td&gt;{{row.text}}&lt;/td&gt;
+        &lt;td class="n-cell-control"&gt;&lt;input type="text" class="n-inputfield" style="top: 0.5px; position: relative;" value="{{row.editableCell}}"&gt;&lt;/td&gt;
+        &lt;td&gt;
+            &lt;div class="checkbox checkbox-small"&gt;
+                &lt;input type="checkbox" id="{{row.checkBoxCell}}"&gt;
+                &lt;label for="{{row.checkBoxCell}}"&gt;{{row.checkBoxCell}}&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class="n-cell-control n-cell-dropdown"&gt;
+            &lt;div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"&gt;
+                &lt;button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false"&gt;
+                    &lt;span class="selected-label"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/span&gt;
+                    &lt;span class="selected-caret"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;
+                    &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;ul class="dropdown-menu" role="menu"&gt;
+                    &lt;li data-value="1" data-selected="true"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="3"&gt;&lt;a href="#"&gt;&lt;span&gt;Three&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                    &lt;li data-value="4"&gt;&lt;a href="#"&gt;&lt;span&gt;Five Five Five&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;input class="hidden hidden-field" readonly="readonly" aria-hidden="true" type="text"&gt;
+            &lt;/div&gt;
+        &lt;/td&gt;
+        &lt;td class="n-cell-error text-right"&gt;{{row.error}}&lt;/td&gt;
+        &lt;td class="text-right"&gt;{{row.number}}&lt;/td&gt;
+        &lt;td&gt;&lt;a href="javascript:void(0);"&gt;Link&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.tables']).controller('TableDemoController', ['$scope', '$filter', function (scope, filter) {
+    scope.rowCollection = [
+        {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option1', dropdownCell: '', error:'2010', number:500, link: ''},
+        {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option2', dropdownCell: '', error:'2010', number:160, link: ''},
+        {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option3', dropdownCell: '', error:'2010', number:590, link: ''},
+        {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option4', dropdownCell: '', error:'2010', number:530, link: ''},
+        {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option5', dropdownCell: '', error:'2010', number:500, link: ''},
+        {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option6', dropdownCell: '', error:'2010', number:300, link: ''}
+    ];
+}]);
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+        strictDi: true
+    });
+});
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular','wulf/tables', 'wulf-ng/tables/smart-table.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.tables', 'wf.angular.tabs']).controller('TableDemoController', ['$scope', '$filter', function (scope, filter) {
+            scope.rowCollection1 = [
+                {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option1', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option2', dropdownCell: '', error:'2010', number:160, link: ''},
+                {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option3', dropdownCell: '', error:'2010', number:590, link: ''},
+                {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option4', dropdownCell: '', error:'2010', number:530, link: ''},
+                {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option5', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option6', dropdownCell: '', error:'2010', number:300, link: ''}
+            ];
+            scope.rowCollection2 = [
+                {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option11', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option22', dropdownCell: '', error:'2010', number:160, link: ''},
+                {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option33', dropdownCell: '', error:'2010', number:590, link: ''},
+                {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option44', dropdownCell: '', error:'2010', number:530, link: ''},
+                {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option55', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option66', dropdownCell: '', error:'2010', number:300, link: ''}
+            ];
+            scope.rowCollection3 = [
+                {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option111', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option222', dropdownCell: '', error:'2010', number:160, link: ''},
+                {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option333', dropdownCell: '', error:'2010', number:590, link: ''},
+                {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option444', dropdownCell: '', error:'2010', number:530, link: ''},
+                {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option555', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option666', dropdownCell: '', error:'2010', number:300, link: ''}
+            ];
+            scope.rowCollection4 = [
+                {icon: 'icon icon-fault-critical', text: 'Critical fault', editableCell: '10.39.190.90', checkBoxCell: 'Option1111', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-major', text: 'Major fault', editableCell: '10.39.190.91', checkBoxCell: 'Option2222', dropdownCell: '', error:'2010', number:160, link: ''},
+                {icon: 'icon icon-fault-minor', text: 'Minor fault', editableCell: '10.39.190.92', checkBoxCell: 'Option3333', dropdownCell: '', error:'2010', number:590, link: ''},
+                {icon: 'icon icon-fault-warning', text: 'Warning', editableCell: '10.39.190.93', checkBoxCell: 'Option4444', dropdownCell: '', error:'2010', number:530, link: ''},
+                {icon: 'icon icon-fault-cleared', text: 'Fault cleared', editableCell: '10.39.190.94', checkBoxCell: 'Option5555', dropdownCell: '', error:'2010', number:500, link: ''},
+                {icon: 'icon icon-fault-unknown', text: 'Unknown situation', editableCell: '10.39.190.95', checkBoxCell: 'Option6666', dropdownCell: '', error:'2010', number:300, link: ''}
+            ];
+        }]);
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

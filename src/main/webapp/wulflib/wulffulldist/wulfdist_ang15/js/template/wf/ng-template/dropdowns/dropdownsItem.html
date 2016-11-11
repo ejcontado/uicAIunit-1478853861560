@@ -1,0 +1,5 @@
+<li data-value="{{$ctrl.value}}" data-selected="{{$ctrl.parent.selectedItem == $ctrl.value ||  $ctrl.parent.selectedItem == $ctrl.label }}" >
+    <a href="javascript:void(0)" ng-click="$ctrl.selectItem($event)" ng-keydown="$ctrl.keyboardNavigation($event)" ng-disabled="$ctrl.disable" tabindex="{{$ctrl.disable ? -1 : null}}">
+        <span class="ng-item">{{$ctrl.displayText}}</span>
+    </a>
+</li>

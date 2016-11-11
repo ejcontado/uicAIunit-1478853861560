@@ -1,0 +1,3 @@
+<li ng-click="$ctrl.handleFlyoutOpen($event)" ng-keydown="$ctrl.keyboardNavigation($event)" ng-style="{'left': $ctrl.left+'px','top':$ctrl.top + 'px','right': $ctrl.right + 'px','z-index': $ctrl.zIndex}" ng-class="{selected:$ctrl.selected}">
+    <a href="#{{tab}}" ng-class="[$ctrl.direction,{focus:$ctrl.focus,selected:$ctrl.selected}]" ng-focus="$ctrl.handleFlyoutFocus($event)"><span class="border-container" ng-class="[$ctrl.direction,{selected:$ctrl.selected}]" ng-transclude></span></a>
+</li>

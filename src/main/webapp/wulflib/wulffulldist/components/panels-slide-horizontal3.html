@@ -1,0 +1,158 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Panel slide horizontal</title>
+
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_flyout_menu">Panel slide horizontal <span class="draft">DRAFT</span> </h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4 panel-slice">
+                <div class="panel panel-shadow panel-blue-cap">
+                    <div class="panel-heading">
+                        <h1>Configuration groups
+                            <span class="icon icon-left" style="float:right;cursor:pointer;width: 20px;"></span>
+                        </h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                    </div>
+                    <div class="panel-arrow panel-simple-shadow panel-blue-cap" style="width: 40px; height: 332px; display: none;">
+                      <span class="icon icon-right" style="
+                        height: 30px;
+                        width: 15px;
+                        margin-left: 9px;
+                        margin-top: 9px;align-self:auto;
+                    "></span>
+                      <span style="
+                    position: relative;/* padding-top: 30px; */margin-left: -18px;margin-top: 20px;padding-left: 0;">
+                        <span style="
+                        position: relative;
+                        width: 20px;
+                        height: 27px;
+                        float: left;
+                        display: block;
+                        transform: rotate(270deg);
+                        margin-top: 32px;
+                        margin-bottom: 0;
+                        margin-left: 2px;
+                    ">group</span><span style="
+                        position: relative;
+                        width: 20px;
+                        height: 27px;
+                        float: left;
+                        display: block;
+                        transform: rotate(270deg);
+                        margin-top: 114px;
+                        margin-bottom: 0;
+                        margin-left: 2px;
+                    ">Configuration</span></span>
+
+                        </div>
+                </div>
+        </div>
+
+        <div class="col-md-8">
+            <p>panel slide Toggle with Horizental</p>
+            <pre>
+    <code>
+        &lt;div class="col-md-4 panel-slice"&gt;
+            &lt;div class="panel panel-simple-shadow panel-blue-cap"&gt;
+                &lt;div class="panel-heading"&gt;
+                    &lt;h1&gt;Configuration groups&lt;/h1&gt;
+                &lt;/div&gt;
+                &lt;div class="panel-body"&gt;
+                    ...
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="panel-arrow panel-simple-shadow panel-blue-cap"&gt;
+                &lt;span class="icon icon-left"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+
+        &lt;script&gt;
+            $(".panel .panel-heading h1 span").slideToggleHorizontal3();
+        &lt;/script&gt;
+
+    </code>
+    </pre>
+        </div>
+    </div>
+</div>
+<script src="../wulfdist/js/dependencies/jquery.min.js"></script>
+<script src="../wulfdist/js/dependencies/bootstrap.min.js"></script>
+<script src="../wulfdist/js/dependencies/fuelux.min.js"></script>
+<script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"></script>
+<script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"></script>
+<script src="../wulfdist/js/wulf.min.js"></script>
+<script>
+    //TODO Jonathan: It seems this page is useless, should it be removed?
+    $.fn.extend({
+        slideToggleHorizontal3: function() {
+            var $span = $(this);
+            $span.click(function(){
+                var currentArrow = $(this);
+                var panelBody = currentArrow.parent().parent().parent();
+                var currentImg = panelBody.find(".panel-arrow");
+                if(panelBody.css('width') == "290px")
+                {
+                    panelBody.animate({width:0},"slow",function(){
+                        panelBody.removeClass("panel-shadow");
+                        $(this).find("div").each(function(){
+                            $(this).hide();
+                        });
+                        currentImg.show();
+                    });
+                }
+            })
+        }
+    });
+    $(".panel .panel-heading h1 span").slideToggleHorizontal3();
+    $(".panel .panel-arrow span").click(function(){
+        var currentArrow = $(this);
+        var panelBody = currentArrow.parent().parent();
+        var currentImg = panelBody.find(".panel-arrow");
+        if(panelBody.css('width') != "290px")
+        {
+            panelBody.find("div").each(function(){
+                $(this).show();
+            });
+            currentImg.hide();
+            panelBody.animate({width:"290px"},"slow",function(){
+                panelBody.addClass("panel-shadow");
+            });
+        }
+    })
+
+</script>
+</body>
+</html>

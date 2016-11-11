@@ -1,0 +1,294 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dropdowns">Pull down</h1>
+<hr>
+<div class="row">
+    <div class="col-md-5">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 160px">Standard:</label>
+                <div class="col-sm-4">
+                    <div class="btn-group selectlist selectlist-resize" data-resize="none" data-initialize="selectlist"
+                         id="mySelectlist1">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="#"><span>Menu</span></a></li>
+                            <li data-value="2" id="TAbutton2"><a href="#"><span>List item 1</span></a></li>
+                            <li data-value="3"><a href="#"><span>List item 2</span></a></li>
+                            <li data-value="4"><a href="#"><span>List very long long long long item 3</span></a></li>
+                            <li data-value="5"><a href="#"><span>List very long long long long item 312</span></a></li>
+                            <li data-value="6"><a href="#"><span>List very long long long long item 31244</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist1" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label label-disabled" style="width: 160px">Disabled:</label>
+                <div class="col-sm-4">
+                    <div class="btn-group selectlist selectlist-resize disabled" tabindex="-1" data-resize="none"
+                         data-initialize="selectlist" id="mySelectlist2">
+                        <button class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown" type="button"
+                                disabled>
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="#"><span>Menu</span></a></li>
+                            <li data-value="2"><a href="#"><span>List item 1</span></a></li>
+                            <li data-value="3"><a href="#"><span>List item 2</span></a></li>
+                            <li data-value="4"><a href="#"><span>List very long long long long item 3</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist2" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 160px">With disabled items:</label>
+                <div class="col-sm-4">
+                    <div class="btn-group selectlist selectlist-resize" data-resize="none" data-initialize="selectlist"
+                         id="mySelectlist_disabled_item">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="#"><span>Menu</span></a></li>
+                            <li data-value="2"><a href="#"><span>List item 1</span></a></li>
+                            <li data-value="3"><a href="#" tabindex="-1" disabled><span>List item 2</span></a></li>
+                            <li data-value="4"><a href="#"><span>List very long long long long item 3</span></a></li>
+                            <li data-value="5"><a href="#"><span>List very long long long long item 312</span></a></li>
+                            <li data-value="6"><a href="#" tabindex="-1" disabled><span>List very long long long long item 31244</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist1" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label-sm" style="width: 160px">Small:</label>
+                <div class="col-sm-4">
+                    <div class="btn-group selectlist selectlist-resize selectlist-small" data-resize="none" data-initialize="selectlist"
+                         id="mySelectlist3">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="#"><span>Menu</span></a></li>
+                            <li data-value="2" id="TA-Button-2"><a href="#"><span>List item 1 </span></a></li>
+                            <li data-value="3"><a href="#"><span>List item 2</span></a></li>
+                            <li data-value="4"><a href="#"><span>List very long long long long item 3</span></a></li>
+                            <li data-value="5"><a href="#"><span>List very long long long long item 312</span></a></li>
+                            <li data-value="6"><a href="#"><span>List very long long long long item 31244</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 160px">Dark:</label>
+                <div class="col-sm-4">
+                    <div class="btn-group selectlist selectlist-resize selectlist-dark" data-resize="none" data-initialize="selectlist"
+                         id="mySelectlist4">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="#"><span>Menu</span></a></li>
+                            <li data-value="2"><a href="#"><span>List item 1</span></a></li>
+                            <li data-value="3"><a href="#"><span>List item 2</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist4" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label label-disabled" style="width: 160px">Dark disabled:</label>
+                <div class="col-sm-4">
+                    <div class="btn-group selectlist selectlist-resize disabled selectlist-dark" tabindex="-1" data-resize="none"
+                         data-initialize="selectlist" id="mySelectlist5">
+                        <button class="btn btn-default dropdown-toggle disabled" data-toggle="dropdown" type="button"
+                                disabled>
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="#"><span>Menu</span></a></li>
+                            <li data-value="2"><a href="#"><span>List item 1</span></a></li>
+                            <li data-value="3"><a href="#"><span>List item 2</span></a></li>
+                            <li data-value="4"><a href="#"><span>List very long long long long item 3</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist5" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 160px">Dark with disabled items:</label>
+                <div class="col-sm-4">
+                    <div class="btn-group selectlist selectlist-resize selectlist-dark" data-resize="none" data-initialize="selectlist"
+                         id="mySelectlist_dark_disabled_item">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1" id="TA-Button-1"><a href="#"><span>Menu</span></a></li>
+                            <li data-value="2"><a href="#" tabindex="-1" disabled><span>List item 1</span></a></li>
+                            <li data-value="3"><a href="#"><span>List item 2</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist4" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" style="width: 160px">Multiple <span
+                        class="draft">DRAFT</span>:</label>
+                <div class="col-sm-5">
+                    <div class="btn-group selectlist selectlist-resize selectlist-multiple" data-resize="none"
+                         data-initialize="selectlist" id="mySelectlist8">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                            <span class="selected-label"></span>
+                            <span class="selected-caret"><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="#"><span class="checkbox ">
+                                <input type="checkbox" id="small1"/>
+                                <label for="small1"><span>Value 1</span></label>
+                             </span></a></li>
+                            <li data-value="2"><a href="#"><span class="checkbox ">
+                            <input type="checkbox" id="small2"/>
+                            <label for="small2"><span>Value 2</span></label>
+                        </span></a></li>
+                            <li data-value="3"><a href="#"><span class="checkbox ">
+                            <input type="checkbox" id="small3"/>
+                            <label for="small3"><span>Value 3</span></label>
+                        </span></a></li>
+                            <li data-value="4"><a href="#"><span class="checkbox ">
+                           <input type="checkbox" id="small4"/>
+                            <label for="small4"><span>Value 4</span></label>
+                        </span></a></li>
+                            <li data-value="5"><a href="#"><span class="checkbox ">
+                            <input type="checkbox" id="small5"/>
+                            <label for="small5"><span>Value 5</span></label>
+                        </span></a></li>
+                            <li data-value="6"><a href="#"><span class="checkbox ">
+                            <input type="checkbox" id="small6"/>
+                            <label for="small6"><span>Value 6</span></label>
+                        </span  ></a></li>
+                         </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist8" readonly="readonly" aria-hidden="true"
+                               type="text"/>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-7">
+        <p>JS &amp; CSS dependency:</p>
+        <pre>for Pull down components,you can use following css import code:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"&gt;</pre>
+    </div>
+    <div class="col-md-7">
+        <p>For getting the disabled version, add <code>disabled</code> as a class into the top div.
+            For getting the dark version, add <code>selectlist-dark</code> as a class into the top div.
+            For getting the small version, add <code>selectlist-small</code> as a class into the top div.
+            For more information about this component, see FuelUX documentation about <a
+                    href="http://getfuelux.com/javascript.html#selectlist">Selectlist</a>.</p>
+	<pre>
+<code>
+    <b>&lt;!-- Basic Pull down --&gt;</b>
+    &lt;div class="btn-group selectlist selectlist-resize" data-resize="none" data-initialize="selectlist" id="mySelectlist"&gt;
+    &lt;button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button"&gt;
+    &lt;span class="selected-label"&gt;&lt;/span&gt;
+    &lt;span class="selected-caret" &gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu" role="menu"&gt;
+    &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;input class="hidden hidden-field" name="mySelectlist" readonly="readonly" aria-hidden="true" type="text"/&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JS-script needed --&gt;
+    &lt;script"&gt;
+        require(['jquery', 'wulf/dropdowns'], function($){ });
+    &lt;/script&gt;
+</code>
+</pre>
+
+        <p>Using pull down component in scroll table need additional statement.</p>
+	<pre>
+<code>
+    &lt;td class="text-center"&gt;
+    &lt;div class="btn-group selectlist selectlist-resize" data-resize="none" data-initialize="selectlist" id="mySelectlist" <span
+        class="demo-highlight-color">data-position="fixed"</span>&gt;
+    &lt;button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button"&gt;
+    &lt;span class="selected-label"&gt;&lt;/span&gt;
+    &lt;span class="selected-caret" &gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="sr-only"&gt;Toggle Dropdown&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu" role="menu"&gt;
+    &lt;li data-value="1"&gt;&lt;a href="#"&gt;&lt;span&gt;One&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li data-value="2"&gt;&lt;a href="#"&gt;&lt;span&gt;Two&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;input class="hidden hidden-field" name="mySelectlist" readonly="readonly" aria-hidden="true" type="text"/&gt;
+    &lt;/div&gt;
+</code>
+</pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/dropdowns'], function($){});
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content" ng-controller="DemoController">
+<h1 class="component-header" id="nokia_info_alert">Alert</h1>
+<hr>
+<div class="row">
+    <div class="col-md-5" ng-cloak>
+        <wf-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="deleteAlert($index)" id="TA-alert-{{alert.type}}">{{alert.message}}</wf-alert>
+    </div>
+    <div class="col-md-7">
+        <p>
+            <h2>Overview</h2>
+            Information alerts can be used to display errors or other messages with prominence.
+            To use alerts in Angular in WULF, use the element <code>wf-alert</code>.
+            <h2>wf-alert settings</h2>
+            <ul>
+                <li>
+                    <code>type: '@'</code> - Type of alert. Determines the icon and the font color of the alert text. Currently
+                    supported are 'ok', 'warning', 'info' and 'error'. With <code>type='error'</code>, font color of alert is red to imply urgency.
+                    'info' will be the default type when type attribute is not specified.
+                </li>
+                <li>
+                    <code>close: '&'</code> - User defined callback function. Determines the action performed by the close button.
+                    <b>Note</b> that not passing a <code>close</code> attribute will not generate a close button.
+                </li>
+            </ul>
+            <h2>Keyboard accessibility</h2>
+            <kbd>Space</kbd> - Closes the currently focused <b>closeable</b> alert.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5" ng-cloak>
+    <wf-alert type="error" id="TA-alert-error2">This is an uncloseable alert. Here is some long text to demonstrate behavior in a text wrap situation.
+        Notice how there is no close button at the end of this alert.</wf-alert>
+    <wf-alert id="TA-alert-info2">This is an alert with no other attributes passed.</wf-alert>
+    </div>
+    <div class="col-md-7">
+    <p>
+        Since alerts are important in every implementation, end users
+        are to pass a callback function to the <code>close</code> attribute for adding additional business logic when
+        about to close the alert and the actual DOM deletion of the alert element. For this demo, all closeable alerts are in an array,
+        rendered via <code>ng-repeat</code> and are removed via splicing the array element.
+    </p>
+</div>
+</div>
+<hr>
+<div class="row col-md-12">
+    <wf-tabs ng-cloak>
+        <wf-pane label="Markup">
+            <pre ng-non-bindable>
+                <code data-language="html">
+<div ng-controller="DemoController">
+<wf-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="deleteAlert($index)">{{alert.message}}</wf-alert>
+<wf-alert type="error">This is an uncloseable alert. Here is some long text to demonstrate behavior in a text wrap situation.
+    Notice how there is no close button at the end of this alert.</wf-alert>
+</div>
+                </code>
+            </pre>
+        </wf-pane>
+        <wf-pane label="Javascript">
+            <pre>
+                <code data-language="javascript">
+var demo = angular.module('wf.ng.demo', ['wf.angular.alerts']);
+var demoController = function($scope){
+    $scope.deleteAlert = function($index){
+    $scope.alerts.splice($index,1);
+};
+$scope.alerts =
+ [
+    {"type": "error", "message" : "Something has gone terribly wrong."},
+    {"type": "info", "message" : "This is to inform you that this is an informational alert."},
+    {"type": "ok", "message" : "Operation finished successfully. This long text is for testing purposes to demonstrate a " +
+   "really really really long text that wraps at some point to another line in the message area."},
+    {"type": "warning", "message" : "This is an warning alert. "}
+];
+ }
+demoController.$inject = ['$scope'];
+demo.controller('DemoController', demoController);
+                </code>
+            </pre>
+        </wf-pane>
+    </wf-tabs>
+    </div>
+</body>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/alerts/alerts.tlp.min' ,'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        var demo = angular.module('wf.ng.demo', ['wf.angular.alerts', 'wf.angular.tabs']);
+        var demoController = function ($scope) {
+            $scope.deleteAlert = function ($index) {
+                $scope.alerts.splice($index, 1);
+            };
+
+            $scope.alerts =
+                    [
+                        {
+                            "type": "error",
+                            "message": "Something has gone terribly wrong."
+                        },
+                        {
+                            "type": "info",
+                            "message": "This is to inform you that this is an informational alert."
+                        },
+                        {
+                            "type": "ok",
+                            "message": "Operation finished successfully. This long text is for testing purposes to demonstrate a " +
+                            "really really really long text that wraps at some point to another line in the message area."
+                        },
+                        {
+                            "type": "warning",
+                            "message": "This is an warning alert. "
+                        }
+                    ];
+        }
+        demoController.$inject = ['$scope'];
+        demo.controller('DemoController', demoController);
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</html>

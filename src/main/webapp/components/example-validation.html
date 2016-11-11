@@ -1,0 +1,92 @@
+
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css"  rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_validation">Validations <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Here are examples of different kinds of validations:
+        </p>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label" style="width: 175px">IP Address:</label>
+                <input id="ip_address" type="text" class="n-inputfield-validation n-inputfield-ip-address n-inputfield">
+            </div>
+            <div class="form-group">
+                <label class="control-label" style="width: 175px">Date:</label>
+                <input id="date" type="text" class="n-inputfield-validation n-inputfield-date n-inputfield">
+                <span>DD/MM/YYYY </span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" style="width: 175px">Date with
+                    placeholder:</label>
+                <input id="date_placeholder" type="text" class="n-inputfield-validation n-inputfield-placeholder n-inputfield" placeholder="DD/MM/YYYY">
+            </div>
+            <div class="form-group">
+                <label class="control-label" style="width: 175px">Time:</label>
+                <input id="time" type="text" class="n-inputfield-validation n-inputfield-time n-inputfield">
+                <span>HH:MM:SS </span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" style="width: 175px">Customized validation:</label>
+                <input id="customized" type="text" class="n-inputfield-validation n-inputfield-customized n-inputfield">
+                <br>
+                <label class="control-label" >Note: This validation is accept three-digit number.</label>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For validations components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&gt;</pre>
+        <pre>
+<code>
+&lt;!-- IP Address validation--&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="control-label" style="width: 175px"&gt;IP address:&lt;/label&gt;
+    &lt;input type="text" class="n-inputfield-validation n-inputfield-ip-address n-inputfield"&gt;
+&lt;/div&gt;
+
+&lt;!-- Customized validation--&gt;
+    &lt;div class="form-group"&gt;
+    &lt;label class="control-label" style="width: 175px"&gt;Customized validation:&lt;/label&gt;
+    &lt;input type="text" class="n-inputfield-validation n-inputfield-customized n-inputfield"&gt;
+&lt;/div&gt;
+</code>
+        </pre>
+Jquery based validation support deliver your regex to validation.
+        <pre>
+<code>
+require(['jquery', 'wulf/validation'], function($){
+    $('.customized').customerReg(/^[1-9]{3}d*$/);
+});
+</code>
+        </pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery','wulf/validation'],function($){
+        $('.n-inputfield-customized').customerReg(/^[1-9]{3}d*$/);
+    });
+</script>
+</body>
+</html>

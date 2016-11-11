@@ -1,0 +1,169 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.spinner.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Spinner</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_spinner">Spinner</h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="spinner-container">
+                <label for="s-normal" class="control-label" style="width: 120px">Normal spinner: </label>
+                <div class="spinbox" data-initialize="spinbox" id="mySpinner">
+                    <input id="s-normal" type="text" class="form-control spinbox-input n-inputfield"/>
+                    <div class="spinbox-buttons btn-group btn-group-vertical">
+                        <button type="button" class="btn btn-default spinbox-up btn-xs" id="TA-spinner-normaluparrow">
+                            <span class="icon icon-arrow-up"></span><span class="sr-only">Increase</span>
+                        </button>
+                        <button type="button" class="btn btn-default spinbox-down btn-xs" id="TA-spinner-normaldownarrow">
+                            <span class="icon icon-arrow"></span><span class="sr-only">Decrease</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="spinner-container">
+                <label for="s-disabled" class="control-label label-disabled" style="width: 120px">Disabled spinner:</label>
+                <div class="spinbox" data-initialize="spinbox" id="mySpinnerDisabled">
+                    <input id="s-disabled" type="text" class="form-control spinbox-input n-inputfield" disabled/>
+                    <div class="spinbox-buttons btn-group btn-group-vertical">
+                        <button type="button" class="btn btn-default spinbox-up btn-xs" id="TA-spinner-disableduparrow" disabled>
+                            <span class="icon icon-arrow-up"></span><span class="sr-only">Increase</span>
+                        </button>
+                        <button type="button" class="btn btn-default spinbox-down btn-xs" id="TA-spinner-disableddownarrow" disabled>
+                            <span class="icon icon-arrow"></span><span class="sr-only">Decrease</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spinner-container">
+                <label for="s-normal" class="control-label" style="width: 120px">Small spinner: </label>
+                <div class="spinbox n-spinbox-small" data-initialize="spinbox" id="mySmallSpinner">
+                    <input id="s-small" type="text" class="form-control spinbox-input n-inputfield"/>
+                    <div class="spinbox-buttons btn-group btn-group-vertical">
+                        <button type="button" class="btn btn-default spinbox-up btn-xs" id="TA-spinner-smalluparrow">
+                            <span class="icon icon-arrow-up"></span><span class="sr-only">Increase</span>
+                        </button>
+                        <button type="button" class="btn btn-default spinbox-down btn-xs" id="TA-spinner-smalldownarrow">
+                            <span class="icon icon-arrow"></span><span class="sr-only">Decrease</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="spinner-container">
+                <label for="s-disabled" class="control-label label-disabled" style="width: 120px">Disabled small spinner:</label>
+                <div class="spinbox n-spinbox-small" data-initialize="spinbox" id="mySmallSpinnerDisabled">
+                    <input id="s-small-disabled" type="text" class="form-control spinbox-input n-inputfield" disabled/>
+                    <div class="spinbox-buttons btn-group btn-group-vertical">
+                        <button type="button" class="btn btn-default spinbox-up btn-xs" id="TA-spinner-smalldisableduparrow" disabled>
+                            <span class="icon icon-arrow-up"></span><span class="sr-only">Increase</span>
+                        </button>
+                        <button type="button" class="btn btn-default spinbox-down btn-xs"  id="TA-spinner-smalldisableddownarrow" disabled>
+                            <span class="icon icon-arrow"></span><span class="sr-only">Decrease</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <p>JS & CSS dependency:</p>
+<pre>
+For spinner components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.spinner.min.css" rel="stylesheet"&gt;</pre>
+            <p>
+                For getting the disabled version, add <code>disabled</code> as a class into the top div, <code>&lt;input&gt;</code> tag, <code>&lt;label&gt;</code> tag and <code>&lt;button&gt;</code> tag.
+                Also for the label <code>&lt;label for="mySpinnerDisabled" class="control-label <span
+                    class="demo-highlight-color">label-disabled</span>"&gt;Disabled spinner:&lt;/label&gt;</code><br>
+                For more information about this component, see FuelUX documentation about <a href="http://getfuelux.com/javascript.html#spinbox">spinbox</a>.
+            </p>
+            <pre>
+<code>
+    &lt;!-- Basic spinner --&gt;
+    &lt;div class="spinner-container"&gt;
+    &lt;label for="mySpinner" class="control-label"&gt;Normal spinner:&lt;/label&gt;
+    &lt;div class="spinbox" data-initialize="spinbox" id="mySpinner"&gt;
+    &lt;input id="s-normal" type="text" class="form-control spinbox-input n-inputfield"&gt;
+    &lt;div class="spinbox-buttons btn-group btn-group-vertical"&gt;
+    &lt;button type="button" class="btn btn-default spinbox-up btn-xs"&gt;
+    &lt;span class="icon icon-arrow-up"&gt;&lt;/span&gt;
+    &lt;span class="sr-only">Increase&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default spinbox-down btn-xs"&gt;
+    &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+    &lt;span class="sr-only">Decrease&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- small spinner --&gt;
+    &lt;div class="spinner-container"&gt;
+    &lt;label for="mySpinner" class="control-label"&gt;Normal spinner:&lt;/label&gt;
+    &lt;div class="spinbox <span class="demo-highlight-color">n-spinbox-small</span>" data-initialize="spinbox" id="mySpinner"&gt;
+    &lt;input id="s-normal" type="text" class="form-control spinbox-input n-inputfield"&gt;
+    &lt;div class="spinbox-buttons btn-group btn-group-vertical"&gt;
+    &lt;button type="button" class="btn btn-default spinbox-up btn-xs"&gt;
+    &lt;span class="icon icon-arrow-up"&gt;&lt;/span&gt;
+    &lt;span class="sr-only">Increase&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button type="button" class="btn btn-default spinbox-down btn-xs"&gt;
+    &lt;span class="icon icon-arrow"&gt;&lt;/span&gt;
+    &lt;span class="sr-only">Decrease&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JS-script needed --&gt;
+    &lt;script src="../wulfdist/js/dependencies/fuelux.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script&gt;
+    $('#mySpinner').spinbox();
+    $('#mySpinnerDisabled').spinbox();
+    $('#mySmallSpinner').spinbox();
+    $('#mySmallSpinnerDisabled').spinbox();
+
+    //for disabled version
+    $('#mySpinnerDisabled').off("mousedown");
+    $('#mySmallSpinnerDisabled').off("mousedown");
+    &lt;/script&gt;</code>
+            </pre>
+            <p>Modify the width of spinner input in CSS:</p>
+            <pre>
+<code>
+    .spinbox .spinbox-input {
+    width: 200px;
+    }</code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['jquery', 'fuelux/spinbox', 'wulf/spinner'], function($){
+        $('#mySpinner').spinbox();
+        $('#mySpinnerDisabled').spinbox();
+        $('#mySmallSpinnerDisabled').spinbox();
+        $("#mySpinnerDisabled").off("mousedown");
+        $("#mySmallSpinnerDisabled").off("mousedown")
+    });
+</script>
+</body>
+</html>

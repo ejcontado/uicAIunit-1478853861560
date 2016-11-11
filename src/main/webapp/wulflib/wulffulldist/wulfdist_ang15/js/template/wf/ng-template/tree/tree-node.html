@@ -1,0 +1,46 @@
+<li ng-class='[$ctrl.nodeTypeClass(),$ctrl.isOpenClass($ctrl.node),$ctrl.selectedClass($ctrl.node)]'
+    ng-click="$ctrl.selectNode($ctrl.node,$event)"
+    data-template="{{$ctrl.isBranch()}}"
+    role="treeitem" src="" id="{{$ctrl.label}}"
+    aria-label="treeitem {{$ctrl.label}}"
+    aria-selected="{{$ctrl.node.isSelected}}"
+    aria-expanded="{{$ctrl.node.isExpend}}">
+    <div ng-class={"tree-branch-header":!$ctrl.isLeafClass()}>
+        <a tabindex="0" ng-class={"tree-branch-name":!$ctrl.isLeafClass(),"tree-item-name":$ctrl.isLeafClass()}
+           ng-disabled="$ctrl.isNodeDisabled()"
+           ng-keydown="$ctrl.selectKeydown($ctrl.node, $event)" role="button">
+            <span class="glyphicon icon-caret glyphicon-play"
+                  ng-click="$ctrl.itemExpended($ctrl.node, $event);"
+                  ng-if="!$ctrl.isLeafClass()"></span>
+            <span class="glyphicon icon-folder"
+                  ng-class="$ctrl.isOpenClass($ctrl.node)?'glyphicon-folder-open':'glyphicon-folder-close'"
+                  ng-if="!$ctrl.isLeafClass()"></span>
+            <span class="glyphicon icon-bullet" ng-if="$ctrl.isLeafClass()"></span>
+            <span ng-if="$ctrl.hasCheckbox()" class="checkbox" name="file">
+				<input id="{{$ctrl.label}}-check"
+                       ng-keydown="$ctrl.selectCheckbox($ctrl.node,$event)"
+                       ng-model="$ctrl.node.isSelected"
+                       ui-indeterminate="$ctrl.node.isIndeterminate"
+                       ng-disabled="$ctrl.isNodeDisabled()"
+                       name="file" type="checkbox"/>
+			    <label for="{{$ctrl.label}}-check"
+                       ng-click="$ctrl.triggerNode($ctrl.node)"></label>
+            </span>
+            <!--+ {{$ctrl.node.isSelected}} + "- " + {{$ctrl.node.isIndeterminate}} + "- " + {{$ctrl.node.isExpend}}-->
+            <span href class="tree-label" role="button" id="{{$ctrl.label}}-label">
+                {{$ctrl.label}}
+            </span>
+        </a>
+    </div>
+
+    <ul class="tree-branch-children" ng-if="$ctrl.isChildrenShow($ctrl.node)" role="group">
+        <wf-tree-node ng-repeat="item in $ctrl.children"
+                      label="item.title"
+                      children="item.children"
+                      node="item"
+                      disable="$ctrl.disable"
+                      src="" on-selected="&" on-expanded="" on-cllapsed=""
+                      has-checkbox="$ctrl.hasCheckbox()" ng-class="{'last':$last}">
+        </wf-tree-node>
+    </ul>
+</li>

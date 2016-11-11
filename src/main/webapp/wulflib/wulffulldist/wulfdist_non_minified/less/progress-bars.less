@@ -1,0 +1,99 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/progress-bar.less";
+@import "./mixins/gradients.less";
+@import "./mixins/vendor-prefixes.less";
+@import "@{less-path-of-bootstrap}progress-bars.less";
+@import "@{less-path-of-bootstrap}mixins/gradients.less";
+@import "variables.less";
+
+// OT3 p 157 + p 28
+
+.progress {
+    background-color: @progress-bg; // empty area
+    box-shadow: inset 1px 1px 2px 0 @progress-drop-shadow-color;
+
+    &.with-value {
+      float: left;
+      width: 80%;
+      white-space: nowrap;
+    }
+}
+
+.progress-bar {
+    background-color:@progress-gradient-start !important;
+    #gradient > .vertical(@progress-gradient-start, @progress-gradient-end) ;
+    box-shadow: inset 1px 1px 2px 0 lighten(@progress-bar-shadow, 20%);
+}
+
+// Nokia style: percentage value outside the bar
+.progress-wrapper {
+    overflow: hidden;
+    display: inline-block;
+    > .progress {
+        float: left;
+        width: 80%;
+        white-space: nowrap; // Force items to display on the same line
+    }
+}
+
+.progress-value-inverse {
+    color: @progress-text-color;
+    padding-left: 10px;
+}
+
+.n-progress-verification {
+    font-size: @progress-verification;
+}
+
+div.progress-wrapper > span.progress-value:after {  // Last span element's pseudo element
+    content: "";
+    display: block;
+}
+
+.progress-small:extend(.progress all) {
+    height: 10px;
+}
+
+.n-indeterminate-progress .progress-bar{
+    background-image: linear-gradient(135deg,
+    @progress-striped-color 25%, transparent 25%, transparent 50%,
+    @progress-striped-color 50%,
+    @progress-striped-color 75%, transparent 75%, transparent);
+    background-size: 24px 24px;
+    width: 100%;
+    &.active {
+        -webkit-animation-duration: 1s;
+        -o-animation-duration: 1s;
+        animation-duration: 1s;
+    }
+}
+
+@-webkit-keyframes progress-bar-stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 24px 0;
+    }
+}
+
+@-o-keyframes progress-bar-stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 24px 0;
+    }
+}
+
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 24px 0;
+    }
+}

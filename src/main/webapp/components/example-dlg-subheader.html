@@ -1,0 +1,85 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dlg_subheader">Subheader dialog <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="col-md-5">
+    <p>
+        Here are example of the plain dialog with subheader:
+    </p>
+    <div>
+        <p>
+            <a href="#PlainDialogSubhead" data-backdrop="false" data-toggle="modal" data-keyboard="true" id="TA-dialog-subheaderdialog"> Dialog (plain, subheader)</a>
+        </p>
+    </div>
+    <div class="modal" id="PlainDialogSubhead" role="dialog" aria-labelledby="myModalDlgLabel-subhead" aria-hidden="true" tabindex="1">
+        <div class="modal-dialog">
+            <div class="modal-content" id="TA-dialog-plaindialog">
+                <div class="modal-header">
+                    <div class="n-dialog-header-fg-filler">
+                        <h1 class="modal-title" id="myModalLabel">Plain dialog</h1>
+                    </div>
+                    <div class="n-dialog-header-bg-filler"></div>
+                    <!-- -->
+                    <div class="n-dialog-header-curve">
+                        <div class="fg-mask"></div>
+                        <div class="bg-mask"></div>
+                        <div class="fg-corner"></div>
+                        <div class="bg-corner"></div>
+                    </div>
+                    <i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close dialog" tabindex='4' id="TA-dialog-plaindialogcloseicon"></i>
+                    <div style="clear: both"></div>
+                    <h2 class="modal-title-subheading" id="myModalLabelVersion">Subheading</h2>
+
+                </div>
+                <div class="modal-body-subtitle">
+                    Text
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-standard btn-defaultBlue" data-dismiss="modal" id="TA-dialog-PlainDialogokbutton" tabindex='2' >OK</button>
+                    <button class="btn btn-standard" data-dismiss="modal" id="TA-dialog-PlainDialogcancelbutton" tabindex='3' >Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-7">
+    <p>
+        To use the dialogs, see the examples below.
+    </p>
+</div>
+<div class="col-md-7">
+    <p>JS & CSS dependency:</p>
+        <pre>
+For Subheader dialog components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/&gt;</pre>
+<pre>
+<code>
+&lt;!-- Standard dialog --&gt;
+&lt;a href="#PlainDialog" data-backdrop="false" data-toggle="modal"&gt;Plain dialog&lt;/a&gt;
+</code>
+</pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['bootstrap', 'wulf/keyboard/keyboard-core']);
+</script>
+</body>
+</html>

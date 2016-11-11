@@ -1,0 +1,183 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_checkbox">Checkbox <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Enabled checkbox group:</label>
+            <div class="checkbox">
+                <input id="check1" type="checkbox">
+                <label for="check1" id="TA-Checkbox-enabledcheck1">Value 1</label>
+            </div>
+            <div class="checkbox">
+                <input id="check2" type="checkbox">
+                <label for="check2" id="TA-Checkbox-enabledcheck2">Value 2</label>
+            </div>
+            <div class="checkbox">
+                <input id="check3" type="checkbox" checked>
+                <label for="check3" id="TA-Checkbox-enabledcheck3">Value 3</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Disabled checkbox group:</label>
+
+            <div class="checkbox">
+                <input id="disab1" type="checkbox" disabled>
+                <label for="disab1" id="TA-Checkbox-disabledcheck1">Value 1</label>
+            </div>
+            <div class="checkbox">
+                <input id="disab2" type="checkbox" disabled>
+                <label for="disab2" id="TA-Checkbox-disabledcheck2">Value 2</label>
+            </div>
+            <div class="checkbox">
+                <input id="disab3" type="checkbox" disabled checked>
+                <label for="disab3" id="TA-Checkbox-disabledcheck3">Value 3</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Small checkbox group:</label>
+
+            <div class="checkbox checkbox-small">
+                <input id="small1" type="checkbox">
+                <label for="small1" id="TA-Checkbox-smallcheck1">Value 1</label>
+            </div>
+            <div class="checkbox checkbox-small">
+                <input id="small2" type="checkbox" checked>
+                <label for="small2" id="TA-Checkbox-smallcheck2">Value 2</label>
+            </div>
+            <div class="checkbox checkbox-small">
+                <input id="small3" type="checkbox" disabled>
+                <label for="small3" id="TA-Checkbox-smallcheck3">Value 3</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Tri-state checkbox:</label>
+            <ul style="padding-left: 0">
+                <li class="checkbox">
+                    <input type="checkbox" id="tristatecheck">
+                    <label for="tristatecheck" id="TA-Checkbox-tristatecheck">Value 1</label>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="short-1" id="short-1">
+                            <label for="short-1" id="TA-Checkbox-smurfcheck1">Smurf 1</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="short-2" id="short-2">
+                            <label for="short-2" id="TA-Checkbox-smurfcheck2">Smurf 2</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" name="short-3" id="short-3">
+                            <label for="short-3" id="TA-Checkbox-smurfcheck3">Smurf 3</label>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For Checkbox components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.css" rel="stylesheet"/&gt;
+&lt;link href="../assets/css/demo.css" rel="stylesheet"&gt;</pre>
+        You get disabled checkbox by adding class <code>disabled</code> inside the input tag. Originally checked one
+        you get by adding class <code>checked</code> inside the input tag. To get small checkboxes use class
+        <code>checkbox checkbox-small</code> instead of <code>checkbox</code>.
+<pre>
+<code>
+    &lt;!-- Group of checkboxes --&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;Label for checkbox group:&lt;/label&gt;
+        &lt;div class="checkbox"&gt;
+            &lt;input id="xx" type="checkbox"&gt;&lt;/input&gt;
+            &lt;label for="xx"&gt; Name of the checkbox &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code>
+    &lt;!-- Tri-state checkboxes --&gt;
+    &lt;li class="checkbox"&gt;
+        &lt;input type="checkbox" id="tristatecheck"&gt;
+        &lt;label for="tristatecheck"&gt;Value 1&lt;/label&gt;
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;input type="checkbox" name="short-1" id="short-1"&gt;
+                &lt;label for="short-1"&gt;Smurf 1&lt;/label&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+
+    Additionally some javascript is required to the tri-state, see this checkbox.html file for that.
+</code>
+</pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery'], function($){
+        $(function () {
+            //TODO Jonathan: do we need to move the following codes into a dedicated JS file, e.g. checkbox.js?
+            // Freely used from Chris Coyier's web page css-tricks.com (if we improve this code, we could send it to him)
+            // onchange does not work in IE sometimes, WULF-611
+            $('input[type="checkbox"]').click(function (e) {
+                var checked = $(this).prop("checked"),
+                        container = $(this).parent(),
+                        siblings = container.siblings();
+
+                container.find('input[type="checkbox"]').prop({
+                    indeterminate: false,
+                    checked: checked
+                });
+
+                function checkSiblings(el) {
+                    var parent = el.parent().parent(),
+                            all = true;
+
+                    el.siblings().each(function () {
+                        return all = ($(this).children('input[type="checkbox"]').prop("checked") === checked);
+                    });
+
+                    if (all && checked) {
+                        parent.children('input[type="checkbox"]').prop({
+                            indeterminate: false,
+                            checked: checked
+                        });
+                        checkSiblings(parent);
+                    }
+                    else if (all && !checked) {
+                        parent.children('input[type="checkbox"]').prop("checked", checked);
+                        parent.children('input[type="checkbox"]').prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
+                        checkSiblings(parent);
+                    }
+                    else {
+                        el.parents("li").children('input[type="checkbox"]').prop({
+                            indeterminate: true,
+                            checked: false
+                        });
+                    }
+                }
+
+                checkSiblings(container);
+            });
+        });
+    });
+</script>
+</body>
+</html>

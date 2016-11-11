@@ -1,0 +1,92 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+  <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+  <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+  <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_panel_scroll">Panel with scrollbar <a href="../demo-dev-react.html">
+  <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="col-md-12">
+  <div class="row">
+    <div id="panel-shadow-demo" class="col-md-5">
+      <div class="panel panel-shadow panel-blue-cap" id="TA-panelWithScroller">
+        <div class="panel-heading">
+          <h1>Available Operations</h1>
+        </div>
+        <div class="panel-body panel-body-scroll">
+
+          <div class="panel-section">
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+          </div>
+
+          <div class="panel-section">
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+          </div>
+
+          <div class="panel-single-row">
+            <h2>Title or label</h2>
+          </div>
+
+          <div class="panel-section">
+            <h2>Title of section</h2>
+            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. dolor</span>
+            <button class="btn btn-standard" id="TA-panelWithScrollbar-button">Add to My favorites</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="panel-shadow-description" class="col-md-7">
+      JS & CSS dependency:
+        <pre>
+For Panel with scrollbar components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"&gt;
+        </pre>
+
+      <p>
+        You can get basic panel scroll by setting into a div container a class <code>panel-body-scroll</code>:
+      </p>
+      <pre>
+<code>
+  &lt;div class="panel panel-shadow panel-blue-cap"&gt;
+  &lt;div class="panel-heading"&gt;
+    &lt;h1&gt;Available Operations&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div class="panel-body <span class="demo-highlight-color">panel-body-scroll</span>"&gt;
+    ...
+  &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    <span class="demo-highlight-color">$(document).ready(function(){
+      $(".panel-body-scroll").nScrollbar();
+    });</span>
+  &lt;/script&gt;</code>
+      </pre>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+  require(['jquery', 'wulf/scroll'], function ($) {
+    $(document).ready(function(){
+      $(".panel-body-scroll").nScrollbar();
+    });
+  });
+</script>
+</body>
+</html>

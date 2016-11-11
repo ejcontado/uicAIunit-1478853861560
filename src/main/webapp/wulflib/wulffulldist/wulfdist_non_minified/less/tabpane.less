@@ -1,0 +1,218 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "@{less-path-of-bootstrap}mixins/border-radius.less";
+@import "@{less-path-of-bootstrap}mixins/nav-divider.less";
+@import "@{less-path-of-bootstrap}navs.less";
+@import "./mixins/gradients.less";
+@import "variables.less";
+@import "buttons.less";
+
+// OT3 p.145
+// Tabs
+.nav-tabs {
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  &:after {
+    clear: both;
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  margin-bottom: 0;
+  > li {
+    > a {
+      // Normal tabs that are not on top
+      font-weight: normal;
+      color: @nav-tabs-text-color;
+      border-radius: @nav-tabs-border-radius @nav-tabs-border-radius 0 0;
+      padding: 5px 10px 5px 10px;
+      margin: 0;
+      border-color: @nav-tabs-border-color;
+      #gradient > .vertical(@nav-tabs-gradient-bottom, @nav-tabs-gradient-top);
+
+      &:nth-child(1):not(:only-child) {
+        padding-right: 35px;
+        &:focus + a .icon:before {
+          color: @tab-dark-close-button-color;
+        }
+        &:active + a .icon:before {
+          color: @tab-focus-close-button-color;
+        }
+      }
+
+      &.n-close {
+        width: 0;
+        height: 0;
+        border: none;
+        background: transparent;
+        position: absolute;
+        top: 2px;
+        right: 15px;
+        &:hover,
+        &:focus {
+          box-shadow: none;
+          border: none;
+          background: transparent;
+        }
+        &:focus .icon {
+          left: -1px;
+          border: 1px solid @tab-close-button-focus-color;
+          border-radius: 3px;
+        }
+        & .icon:hover {
+          border: 1px solid @tab-close-button-hover-color;
+          border-radius: 3px;
+          left: -1px;
+        }
+        &:active {
+          background: transparent;
+          border: none;
+          box-shadow: none !important;
+          background-image: none !important;
+        }
+      }
+
+      &:hover {
+        box-shadow: @tab-hover-show;
+      }
+      // Accessed via right click
+      &:focus {
+        #gradient > .vertical(@nav-tabs-focus-gradient-start, @nav-tabs-focus-gradient-end);
+        color: @nav-tabs-focus-text-color;
+        border-color: @nav-tabs-border-color;
+        box-shadow: none;
+        outline: none !important;
+      }
+      // When clicked and button kept down
+      &:active {
+        #gradient > .vertical(@nav-tabs-gradient-bottom, @nav-tabs-gradient-top);
+        color: @nav-tabs-text-color;
+        &:hover {
+          border-color: @nav-tabs-border-color;
+          box-shadow: none;
+        }
+
+        &:active {
+          #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+          border-color: @button-active-border-color;
+          border-top-color: @button-active-top-border-color;
+          text-shadow: @button-text-shadow-white;
+          box-shadow: @button-drop-shadow-active;
+        }
+      }
+    }
+    &[disabled] > a,
+    &.disabled > a {
+      #gradient > .vertical(@nav-tabs-disabled-gradient-bottom, @nav-tabs-disabled-gradient-top);
+      color: @gray-light;
+      border-color: @nav-tabs-border-disabled;
+      border-bottom-color: @nav-tabs-border-color;
+      &:hover {
+        border-color: @nav-tabs-border-disabled;
+        border-bottom-color: @nav-tabs-border-color;
+        box-shadow: none;
+      }
+      &.n-close,
+      &.n-close:hover,
+      &.n-close:focus {
+        & .icon {
+          border: none;
+          left: 0;
+          &:before {
+            color: #aaa;
+          }
+        }
+      }
+    }
+
+    // Currently shown tab on top
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        #gradient > .vertical(@nav-tabs-gradient-top, @nav-tabs-gradient-mid);
+        background-color: @nav-tabs-gradient-mid;
+        color: @nav-tabs-text-color;
+        border: 1px solid @nav-tabs-border-color;
+        padding-top: 3px;
+        border-top: 3px solid @tab-border-top-color;
+        border-bottom-color: transparent;
+        box-shadow: none;
+      }
+      &:focus{
+        #gradient > .vertical(@button-focus-gradient-start, @button-focus-gradient-end);
+        color: @gray-white;
+      }
+
+      & + a,
+      & + a:hover,
+      & + a:focus {
+        background: transparent;
+        border: none;
+        padding-top: 5px;
+      }
+
+      &:nth-child(1):focus + a .icon:before {
+        color: @tab-dark-close-button-color;
+      }
+    }
+  }
+
+}
+
+.tab-content {
+  #gradient > .vertical(@nav-tabs-gradient-mid, @nav-tabs-gradient-bottom);
+  border-left: 1px solid @nav-tabs-border-color;
+  border-right: 1px solid @nav-tabs-border-color;
+  border-bottom: 1px solid @nav-tabs-border-color;
+  border-radius: 0 0 @nav-tabs-border-radius @nav-tabs-border-radius;
+  padding: 10px;
+  box-shadow: 0 1px 3px 0 @nav-tabs-dark-gradient-top;
+  height: calc(~"100% - 32px");
+}
+
+.tab-content-scroll {
+  padding: 0 2px;
+  height: 100px;
+
+  .tab-pane {
+    display: none;
+    visibility: hidden;
+    &.active {
+      display: block;
+      visibility: visible;
+      padding: 7px 8px;
+    }
+  }
+  & > .active {
+    display: block;
+    visibility: visible;
+    padding: 7px 8px;
+  }
+
+  > .mCustomScrollBox {
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+    background: transparent;
+
+    .mCSB_container {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.n-tabbed-spacekkey-active {
+  #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end) !important;
+  color: @nav-tabs-text-color !important;
+  border-color: @button-active-border-color !important;
+  border-top-color: @button-active-top-border-color !important;
+  text-shadow: @button-text-shadow-white !important;
+  box-shadow: @button-drop-shadow-active !important;
+}

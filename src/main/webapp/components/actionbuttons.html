@@ -1,0 +1,79 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_button">Tab buttons <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div id="button-group-demo-container" class="col-md-5">
+        <h4>Standard</h4>
+        <div class="btn-group n-tab-buttons">
+            <button class="btn btn-standard" id="TA-tabbutton-standard1">Button1</button>
+            <button class="btn btn-standard" id="TA-tabbutton-standard2">Button2</button>
+            <button class="btn btn-standard" id="TA-tabbutton-standard3">Button3</button>
+        </div>
+        <h4>Disabled</h4>
+        <div class="btn-group n-tab-buttons">
+            <button class="btn btn-standard" id="TA-tabbutton-disabled1" disabled>Button1</button>
+            <button class="btn btn-standard" id="TA-tabbutton-disabled2" disabled>Button2</button>
+            <button class="btn btn-standard" id="TA-tabbutton-disabled3" disabled>Button3</button>
+        </div>
+        <h4>Small</h4>
+        <div class="btn-group n-tab-buttons">
+            <button class="btn btn-small" id="TA-tabbutton-small1">Button1</button>
+            <button class="btn btn-small" id="TA-tabbutton-small2">Button2</button>
+            <button class="btn btn-small" id="TA-tabbutton-small3">Button3</button>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <p>JS & CSS dependency:</p>
+<pre>
+For tab buttons components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+</pre>
+        <p>
+            You can also group buttons together to form button groups. This is done by wrapping
+            the buttons to be grouped in a container with the class <code>btn-group</code>.
+            You can also add <code>n-tab-buttons</code> to enable tab button behavior:
+        </p>
+        <pre>
+
+<code>
+    &lt;div class="btn-group n-tab-buttons"&gt;
+        &lt;button class="btn btn-standard"&gt;Button&lt;/button&gt;
+        &lt;button class="btn btn-standard"&gt;Button&lt;/button&gt;
+    &lt;/div&gt;
+     &lt;div class="btn-group n-tab-buttons"&gt;
+        &lt;button class="btn btn-standard" <span class="demo-highlight-color">disabled</span>&gt;Button&lt;/button&gt;
+        &lt;button class="btn btn-standard" <span class="demo-highlight-color">disabled</span>&gt;Button&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="btn-group n-tab-buttons"&gt;
+        &lt;button class="btn btn-<span class="demo-highlight-color">small</span>"&gt;Button&lt;/button&gt;
+        &lt;button class="btn btn-<span class="demo-highlight-color">small</span>"&gt;Button&lt;/button&gt;
+    &lt;/div&gt;</code>
+        </pre>
+        <p>
+            Note that you can use disabled buttons and call to action versions of
+            buttons with button groups as well.
+        </p>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/buttons']);
+</script>
+</body>
+</html>

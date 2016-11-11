@@ -1,0 +1,285 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.tree-normal.min.css" rel="stylesheet"/>
+	<link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_vertical_navigation">Navigation - Vertical</h1>
+<hr>
+<div class="row">
+<div class="col-md-2">
+	<h2 class="secondary-vertical-heading">Navigation title text</h2>
+	<div class="panel panel-shadow nav-secondary-vertical" id="TA-navigationVertical1">
+		<div class="fuelux menu-tree">
+			<ul id="myTreeVerticalNav" class="tree" role="tree">
+				<li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false" id="TA-navigationVertical1-li1">
+					<div class="tree-branch-header">
+						<a href="#" class="tree-branch-name">
+							<span class="glyphicon icon-caret glyphicon-play"></span>
+							<span class="glyphicon icon-folder glyphicon-folder-close"></span>
+							<span class="tree-label"></span>
+						</a>
+					</div>
+					<ul class="tree-branch-children" role="group"></ul>
+					<div class="tree-loader" role="alert">Loading...</div>
+				</li>
+				<li class="tree-item hide" data-template="treeitem" role="treeitem" id="TA-navigationVertical1-li2">
+					<a href="" class="tree-item-name" target="_self">
+						<span class="glyphicon icon-item fueluxicon-bullet"></span>
+						<span class="tree-label"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-10">
+	Option 1 - Complex with fuelux tree component (when there is tree-like menu structure needed).<br>
+	Note that example on left is without node item selection support (thus click on it does not cause blue background),
+	only leaves are
+	having action.
+	<pre>
+<code>
+	&lt;!-- Import css style and js file --&gt;
+	&lt;!-- NOTICE: always import fuelux.css --&gt;
+
+	&lt;link href="./wulfdist/css/fuelux.css" rel="stylesheet"/&gt;
+        &lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+        &lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"&gt;
+        &lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"&gt;
+        &lt;link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"&gt;
+	    &lt;link href="../wulfdist/css/wulf.tree-normal.min.css" rel="stylesheet"&gt;
+        &lt;link href="demo.css" rel="stylesheet"&gt;
+
+	&lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+	&lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt&lt/script&gt;
+	&lt;script src="../wulfdist/js/dependencies/fuelux.min.js"&gt&lt/script&gt;
+	&lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+	&lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+	&lt;script src="../wulfdist/js/wulf.min.js"&gt&lt/script&gt;</code>
+	</pre>
+	<pre>
+<code>
+	&lt;!-- Vertical navigation component inside panel --&gt;
+	&lt;h2 class="secondary-vertical-heading"&gt;Navigation title text&lt;/h2&gt;
+	&lt;div class="panel panel-shadow <span class="demo-highlight-color">nav-secondary-vertical</span>"&gt;
+		&lt;div class="fuelux menu-tree"&gt;
+			&lt;ul id="myTreeVerticalNav" class="tree" role="tree"&gt;
+				&lt;li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false"&gt;
+					&lt;div class="tree-branch-header"&gt;
+						&lt;a class="tree-branch-name"&gt;
+							&lt;span class="glyphicon icon-caret glyphicon-play"&gt;&lt;/span&gt;
+							&lt;span class="glyphicon icon-folder glyphicon-folder-close"&gt;&lt;/span&gt;
+							&lt;span class="tree-label"&gt;&lt;/span&gt;
+						&lt;/a&gt;
+					&lt;/div&gt;
+					&lt;ul class="tree-branch-children" role="group"&gt;&lt;/ul&gt;
+					&lt;div class="tree-loader" role="alert"&gt;Loading...&lt;/div&gt;
+				&lt;/li&gt;
+				&lt;li class="tree-item hide" data-template="treeitem" role="treeitem"&gt;
+					&lt;a class="tree-item-name" target="_self"&gt;
+						&lt;span class="glyphicon icon-item fueluxicon-bullet"&gt;&lt;/span&gt;
+						&lt;span class="tree-label"&gt;&lt;/span&gt;
+					&lt;/a&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code>
+	</pre>
+	<pre>
+<code>
+	&lt;!-- Initiate tree data in js --&gt;
+	&lt;script&gt;
+	$(document).ready( function ()
+	{
+		$('#myTreeVerticalNav').tree({
+			dataSource: dataSource,
+			folderSelect :false
+		});
+		&lt;-- Insert data for tree component --&gt;
+		dataSource = function(parentData, callback){//...}
+
+		&lt;-- Optionally define static data for tree component --&gt;
+		var childNodesArray = [
+			{ "name": "Add WULF", "type": "item", "attr":{"parentNode" : "rootNode", "src" :"#", "id":"start_add"}}
+		];
+		function staticDataSource(openedParentData, callback) {
+			if(typeof openedParentData.attr != 'undefined'){
+				callback({
+					data: get(childNodesArray,openedParentData.name)
+				});
+			} else {
+				callback({
+					data: get(childNodesArray ,"rootNode")
+				});
+			}
+		}
+	});
+	&lt;/script&gt;</code>
+	</pre>
+	To disable the tree, you can simply call disable method for the tree component:
+	<pre>
+<code>
+	&lt;span class="demo-highlight-color"&gt;$('#myTreeVerticalNav').tree('disable');&lt;/span&gt;</code>
+	</pre>
+	<br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-2">
+		<h2 class="secondary-vertical-heading">Navigation title text</h2>
+		<div class="panel panel-shadow nav-secondary-vertical" id="TA-navigationVertical2">
+			<nav class="navbar" role="navigation">
+				<ul class="nav navbar-nav">
+					<li class="active" id="nav_how_add" id="TA-navigationVertical2-li1"><span
+						class="icon icon-bullet"><a href="javascript:void(0)"><span>Add WULF to project</span></a></span></li>
+					<li id="nav_sys_req"><span class="icon icon-bullet" id="TA-navigationVertical2-li2"><a href="javascript:void(0)"><span>System
+						Requirements</span></a></span>
+					</li>
+					<li id="nav_third_party"><span class="icon icon-bullet"><a href="javascript:void(0)"><span>Third Party
+						SW</span></a></span>
+					</li>
+					<li id="nav_faq"><span class="icon icon-bullet"><a href="javascript:void(0)"><span>FAQ</span></a></span></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="col-md-10">
+		Option 2 - Simple with pure navbar component (when there is no tree-like menu structure needed):
+		<pre>
+<code>
+	&lt;h2 class="secondary-vertical-heading"&gt;Navigation title text&lt;/h2&gt;
+	&lt;div class="panel panel-shadow <span class="demo-highlight-color">nav-secondary-vertical</span>"&gt;
+		<span class="demo-highlight-color">&lt;nav class="navbar" role="navigation"&gt;
+			&lt;ul class="nav navbar-nav"&gt;
+				&lt;li class="active" id="nav_add"&gt;
+					&lt;span class="icon icon-bullet"&gt;&lt;a&gt;&lt;span&gt;Add WULF&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
+				&lt;/li&gt;
+				&lt;li id="nav_sys_req"&gt;
+					&lt;span class="icon icon-bullet"&gt;&lt;a&gt;&lt;span&gt;System Req&lt;/span&lt;/a&gt;&lt;/span&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/nav&gt;</span>
+	&lt;/div></code>
+		</pre>
+		Javascript for the Option 2 to work:
+	<pre>
+<code>
+	&lt;script&gt;
+	$('.nav li').click(function(e) {
+		$('.nav li.active').removeClass('active');
+		var $this = $(this);
+		if (!$this.hasClass('active')) {
+			$this.addClass('active');
+		}
+		e.preventDefault();
+	});
+	&lt;/script&gt;</code>
+	</pre>
+	</div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+	require(['jquery', 'wulf/tree'], function ($) {
+		$(document).ready(
+				function ()
+				{
+					var childNodesArray = [
+						{ "name": "Add WULF", "type": "item", "attr":{"parentNode" : "rootNode", "src" :"#",
+							"id":"demo_sidebar_1"}},
+						{ "name": "System requirements", "type": "item", "attr":{"parentNode" : "rootNode",
+							"src" :"#","id":"demo_sidebar_2"}},
+						{ "name": "FAQ", "type": "item", "attr":{"parentNode" : "rootNode",
+							"src":"#", "id":"demo_sidebar_3"}},
+						{ "name": "FAQx", "type": "folder", "attr":{"parentNode" : "rootNode",
+							"src":"#"}},
+						{ "name": "FAQxx", "type": "item", "attr":{"parentNode" : "FAQx",
+							"src":"#" }},
+						{ "name": "FAQxxx", "type": "item", "attr":{"parentNode" : "FAQx",
+							"src":"#" }} ,
+						{ "name": "FAQq", "type": "item", "attr":{"parentNode" : "rootNode",
+							"src":"#", "id":"demo_sidebar_5"}}
+					];
+
+					function staticDataSource(openedParentData, callback) {
+						if(typeof openedParentData.attr != 'undefined'){
+							callback({
+								data: get(childNodesArray,openedParentData.name)
+							});
+						}else{
+							callback({
+								data: get(childNodesArray ,"rootNode")
+							});
+						}
+					}
+
+					function get(arrPerson,objValue)
+					{
+						return $.grep(arrPerson, function(cur){
+							return cur.attr.parentNode==objValue;
+						});
+					}
+
+					var basicTree = $('#myTreeVerticalNav');
+					basicTree.tree({
+						dataSource: staticDataSource,
+						folderSelect :false
+					});
+
+					// For the option 2 to get selection to move with click
+					var navList = $('.nav li');
+					navList.click(function() {
+						navList.removeClass('active');
+						var $this = $(this);
+						if (!$this.hasClass('active')) {
+							$this.addClass('active');
+						}
+						$this.find('a').focus();
+						navList.removeClass('focused');
+					});
+
+					$('.nav li a').focus(function() {
+						navList.removeClass('focused');
+						$(this).parents('li').addClass('focused');
+					}).focusout(function() {
+						navList.removeClass('focused');
+					}).keyup(function(e) {
+						var $parentList = $(this).parents('li');
+						if (e.keyCode == 32) { //space bar
+							if (!$parentList.hasClass('active')) {
+								navList.removeClass('active');
+								navList.removeClass('focused');
+								$parentList.addClass('active');
+							}
+						} else if(e.keyCode == 38) { //up key
+							$parentList.prev().find('a').focus();
+						} else if(e.keyCode == 40) { //down key
+							$parentList.next().find('a').focus();
+						}
+					}).keydown(function(e) { //prevents page from scrolling down
+						if (e.keyCode == 32 || e.keyCode == 38 || e.keyCode == 40) {
+							e.preventDefault();
+						}
+					});
+
+				});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.calendar.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_calendar">Calendar</h1>
+<hr>
+
+<div id="calendar-demo-container" class="col-md-4">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <h4>Calendar with data-markup API</h4>
+            <label for="myDatepickerInput1" class="control-label col-md-3">Date: </label>
+
+            <div id="calendar_date" class="col-md-9 datepicker fuelux">
+                <div class="input-group n-calendar" id="TA-calendar-dataMarkup">
+                    <input class="form-control n-inputfield" id="myDatepickerInput1" name="myDatepickerName"
+                           data-markup="calendar" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Disbaled calendar with data-markup API</h4>
+            <label for="myDisabledDatepickerInput1" class="control-label col-md-3 label-disabled">Date: </label>
+
+            <div id="disabled_calendar_date" class="col-md-9 datepicker fuelux">
+                <div class="input-group n-calendar" id="TA-calendar-dataMarkup-disabled">
+                    <input class="form-control n-inputfield" id="myDisabledDatepickerInput1" name="myDatepickerName"
+                           data-markup="disabled_calendar" type="text" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Calendar without data-markup API</h4>
+            <label for="myDatepickerInput2" class="control-label col-md-3">Datetime: </label>
+
+            <div class="col-md-9 datepicker fuelux" id="calendar_datetime">
+                <div class="input-group n-calendar"id="TA-calendar-datatime">
+                    <input class="form-control n-inputfield" id="myDatepickerInput2" name="myDatepickerName"
+                           data-markup="calendar" type="text">
+
+                    <div class="input-group-btn" id="TA-calendar-datatime-menu">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-expanded="false" id="TA-calendar-datatime-button">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            <span class="sr-only">Toggle Calendar</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right datepicker-calendar-wrapper" role="menu" id="TA-calendar-datatime-content">
+                            <div class="datepicker-calendar" id="TA-calendar-datatime-calendar">
+                                <div class="datepicker-calendar-header">
+                                    <button type="button" class="prev"><span
+                                            class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous Month</span>
+                                    </button>
+                                    <button type="button" class="next"><span
+                                            class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next Month</span>
+                                    </button>
+                                    <button type="button" class="title">
+                                <span class="month">
+                                    <span data-month="0">January</span>
+                                    <span data-month="1">February</span>
+                                    <span data-month="2">March</span>  <span data-month="3">April</span>  <span
+                                        data-month="4">May</span>  <span data-month="5">June</span>  <span
+                                        data-month="6">July</span>  <span data-month="7">August</span>  <span
+                                        data-month="8">September</span>  <span
+                                        data-month="9">October</span>  <span
+                                        data-month="10">November</span>  <span
+                                        data-month="11">December</span></span> <span class="year"></span>
+                                    </button>
+                                </div>
+                                <table class="datepicker-calendar-days">
+                                    <thead>
+                                    <tr>
+                                        <th>SUN</th>
+                                        <th>MON</th>
+                                        <th>TUE</th>
+                                        <th>WED</th>
+                                        <th>THU</th>
+                                        <th>FRI</th>
+                                        <th>SAT</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="datepicker-wheels" aria-hidden="true" id="TA-calendar-datatime-wheels">
+                                <div class="datepicker-wheels-month"><h2 class="header">Month</h2>
+                                    <ul>
+                                        <li data-month="0">
+                                            <button type="button">Jan</button>
+                                        </li>
+                                        <li data-month="1">
+                                            <button type="button">Feb</button>
+                                        </li>
+                                        <li data-month="2">
+                                            <button type="button">Mar</button>
+                                        </li>
+                                        <li data-month="3">
+                                            <button type="button">Apr</button>
+                                        </li>
+                                        <li data-month="4">
+                                            <button type="button">May</button>
+                                        </li>
+                                        <li data-month="5">
+                                            <button type="button">Jun</button>
+                                        </li>
+                                        <li data-month="6">
+                                            <button type="button">Jul</button>
+                                        </li>
+                                        <li data-month="7">
+                                            <button type="button">Aug</button>
+                                        </li>
+                                        <li data-month="8">
+                                            <button type="button">Sep</button>
+                                        </li>
+                                        <li data-month="9">
+                                            <button type="button">Oct</button>
+                                        </li>
+                                        <li data-month="10">
+                                            <button type="button">Nov</button>
+                                        </li>
+                                        <li data-month="11">
+                                            <button type="button">Dec</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="datepicker-wheels-year"><h2 class="header">Year</h2>
+                                    <ul></ul>
+                                </div>
+                                <div class="datepicker-wheels-footer clearfix">
+                                    <button type="button" class="btn datepicker-wheels-back" id="TA-calendar-datatime-wheels-return"><span
+                                            class="icon icon-left"></span><span class="sr-only">Return to Calendar</span>
+                                    </button>
+                                    <button type="button" class="btn datepicker-wheels-select" id="TA-calendar-datatime-wheels-select">Select <span
+                                            class="sr-only">Month and Year</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Disabled calendar without data-markup API</h4>
+            <label for="myDisabledDatepickerInput2" class="control-label col-md-3 label-disabled">Datetime: </label>
+
+            <div class="col-md-9 datepicker fuelux" id="disabled_calendar_datetime">
+                <div class="input-group n-calendar" id="TA-calendar-datetime-disabled">
+                    <input class="form-control n-inputfield" id="myDisabledDatepickerInput2" name="myDatepickerName"
+                           data-markup="calendar" type="text" disabled>
+
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-expanded="false" disabled>
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            <span class="sr-only">Toggle Calendar</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right datepicker-calendar-wrapper" role="menu">
+                            <div class="datepicker-calendar">
+                                <div class="datepicker-calendar-header">
+                                    <button type="button" class="prev"><span
+                                            class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Previous Month</span>
+                                    </button>
+                                    <button type="button" class="next"><span
+                                            class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Next Month</span>
+                                    </button>
+                                    <button type="button" class="title">
+                                <span class="month">
+                                    <span data-month="0">January</span>
+                                    <span data-month="1">February</span>
+                                    <span data-month="2">March</span>  <span data-month="3">April</span>  <span
+                                        data-month="4">May</span>  <span data-month="5">June</span>  <span
+                                        data-month="6">July</span>  <span data-month="7">August</span>  <span
+                                        data-month="8">September</span>  <span
+                                        data-month="9">October</span>  <span
+                                        data-month="10">November</span>  <span
+                                        data-month="11">December</span></span> <span class="year"></span>
+                                    </button>
+                                </div>
+                                <table class="datepicker-calendar-days">
+                                    <thead>
+                                    <tr>
+                                        <th>SUN</th>
+                                        <th>MON</th>
+                                        <th>TUE</th>
+                                        <th>WED</th>
+                                        <th>THU</th>
+                                        <th>FRI</th>
+                                        <th>SAT</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="datepicker-wheels" aria-hidden="true">
+                                <div class="datepicker-wheels-month"><h2 class="header">Month</h2>
+                                    <ul>
+                                        <li data-month="0">
+                                            <button type="button">Jan</button>
+                                        </li>
+                                        <li data-month="1">
+                                            <button type="button">Feb</button>
+                                        </li>
+                                        <li data-month="2">
+                                            <button type="button">Mar</button>
+                                        </li>
+                                        <li data-month="3">
+                                            <button type="button">Apr</button>
+                                        </li>
+                                        <li data-month="4">
+                                            <button type="button">May</button>
+                                        </li>
+                                        <li data-month="5">
+                                            <button type="button">Jun</button>
+                                        </li>
+                                        <li data-month="6">
+                                            <button type="button">Jul</button>
+                                        </li>
+                                        <li data-month="7">
+                                            <button type="button">Aug</button>
+                                        </li>
+                                        <li data-month="8">
+                                            <button type="button">Sep</button>
+                                        </li>
+                                        <li data-month="9">
+                                            <button type="button">Oct</button>
+                                        </li>
+                                        <li data-month="10">
+                                            <button type="button">Nov</button>
+                                        </li>
+                                        <li data-month="11">
+                                            <button type="button">Dec</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="datepicker-wheels-year"><h2 class="header">Year</h2>
+                                    <ul></ul>
+                                </div>
+                                <div class="datepicker-wheels-footer clearfix">
+                                    <button type="button" class="btn datepicker-wheels-back"><span
+                                            class="glyphicon glyphicon-arrow-left"></span><span class="sr-only">Return to Calendar</span>
+                                    </button>
+                                    <button type="button" class="btn datepicker-wheels-select">Select <span
+                                            class="sr-only">Month and Year</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Calendar with past days locked</h4>
+            <label for="myDatepickerInputLocked" class="control-label col-md-3">Date: </label>
+
+            <div id="calendar_date_locked" class="col-md-9 datepicker fuelux">
+                <div class="input-group n-calendar n-calendar-lock-past" id="TA-calendar-dataPastLocked">
+                    <input class="form-control n-inputfield" id="myDatepickerInputLocked" name="myDatepickerName"
+                           data-markup="calendar" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <h4>Calendar with date range</h4>
+            <div id="calendar_date_range" class="col-md-12 n-date-range">
+                <div class="form-group" id="TA-calendar-date-range1">
+                    <label for="dateRangeInput1" class="control-label col-md-3">Start date: </label>
+                    <div class="col-md-9 datepicker fuelux">
+                        <div class="input-group n-calendar n-date-range-start" id="TA-calendar-dateRange1">
+                            <input class="form-control n-inputfield" id="dateRangeInput1" name="dataRangeName1"
+                                   data-markup="calendar" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="TA-calendar-date-range2">
+                    <label for="dateRangeInput2" class="control-label col-md-3">End date: </label>
+                    <div class="col-md-9 datepicker fuelux">
+                        <div class="input-group n-calendar n-date-range-end" id="TA-calendar-dateRange2">
+                            <input class="form-control n-inputfield" id="dateRangeInput2" name="dataRangeName2"
+                                   data-markup="calendar" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="col-md-8">
+    <pre>
+        <code>
+    &lt;!-- CSS dependency: --&gt;
+    &lt;link href="./wulfdist/css/fuelux.css" rel="stylesheet"/&gt;
+    &lt;link href="./wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./wulfdist/css/wulf.calendar.min.css" rel="stylesheet"/&gt;
+    &lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+    &lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+    &lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+
+    &lt;div id="calendar_date" class="datepicker fuelux"&gt;
+        &lt;div class="input-group n-calendar"&gt;
+            &lt;input class="form-control n-inputfield" id="myDatepickerInput1" name="myDatepickerName" <span
+                class="demo-highlight-color">data-markup="calendar"</span> type="text"/&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Java Script --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/moment-with-locales.min.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/fuelux.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/wulf.min.js"&gt&lt/script&gt;
+
+    &lt;script&gt;
+    $(document).ready(function () {
+        $('#calendar_date').datepicker({
+        allowPastDates: true,
+        momentConfig: {
+        culture: 'en',
+        format: 'DD.MM.YYYY'
+        }
+        });
+    });
+    &lt;/script&gt;
+        </code>
+    </pre>
+    <p>
+        If you provide data-markup attribute as the example, the HTML markups of calendar will be generated
+        automatically next to the input element which provides the data-markup attribute.
+        Otherwise you should specify your HTML markup by yourself. We have prepared HTML markups for you as following.
+        <span class="demo-highlight-color">Please be noted that if you use the data-markup to generate the HTML markups automatically, you should not use 'data-initialize' to initialize the calendar at the same time.</span>
+    </p>
+
+    <div style="max-height:300px; overflow-y:auto">
+<pre>
+    <code>
+    &lt;div class="input-group-btn"&gt;
+        &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;
+            &lt;span class="glyphicon glyphicon-calendar"&gt;&lt;/span&gt;
+            &lt;span class="sr-only"&gt;Toggle Calendar&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="dropdown-menu dropdown-menu-right datepicker-calendar-wrapper" role="menu"&gt;
+            &lt;div class="datepicker-calendar"&gt;
+                &lt;div class="datepicker-calendar-header"&gt;
+                    &lt;button type="button" class="prev"&gt;&lt;span class="glyphicon glyphicon-chevron-left"&gt;&lt;/span&gt;&lt;span
+                    class="sr-only"&gt;Previous Month&lt;/span&gt;&lt;/button&gt;
+                    &lt;button type="button" class="next"&gt;&lt;span class="glyphicon glyphicon-chevron-right"&gt;&lt;/span&gt;&lt;span
+                    class="sr-only"&gt;Next Month&lt;/span&gt;&lt;/button&gt;
+                    &lt;button type="button" class="title"&gt;
+                    &lt;span class="month"&gt;
+                    &lt;span data-month="0"&gt;January&lt;/span&gt;
+                    &lt;span data-month="1"&gt;February&lt;/span&gt;
+                    &lt;span data-month="2"&gt;March&lt;/span&gt;
+                    &lt;span data-month="3"&gt;April&lt;/span&gt;
+                    &lt;span data-month="4"&gt;May&lt;/span&gt;
+                    &lt;span data-month="5"&gt;June&lt;/span&gt;
+                    &lt;span data-month="6"&gt;July&lt;/span&gt;
+                    &lt;span data-month="7"&gt;August&lt;/span&gt;
+                    &lt;span data-month="8"&gt;September&lt;/span&gt;
+                    &lt;span data-month="9"&gt;October&lt;/span&gt;
+                    &lt;span data-month="10"&gt;November&lt;/span&gt;
+                    &lt;span data-month="11"&gt;December&lt;/span&gt;
+                    &lt;/span&gt; &lt;span class="year"&gt;&lt;/span&gt;
+                    &lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;table class="datepicker-calendar-days"&gt;
+                    &lt;thead&gt;
+                    &lt;tr&gt;
+                    &lt;th&gt;Su&lt;/th&gt;
+                    &lt;th&gt;Mo&lt;/th&gt;
+                    &lt;th&gt;Tu&lt;/th&gt;
+                    &lt;th&gt;We&lt;/th&gt;
+                    &lt;th&gt;Th&lt;/th&gt;
+                    &lt;th&gt;Fr&lt;/th&gt;
+                    &lt;th&gt;Sa&lt;/th&gt;
+                    &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;&lt;/tbody&gt;
+                    &lt;/table&gt;
+                    &lt;/div&gt;
+                    &lt;div class="datepicker-wheels" aria-hidden="true"&gt;
+                    &lt;div class="datepicker-wheels-month"&gt;
+                    &lt;h2 class="header"&gt;Month&lt;/h2&gt;
+                    &lt;ul&gt;
+                    &lt;li data-month="0"&gt;&lt;button type="button"&gt;Jan&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="1"&gt;&lt;button type="button"&gt;Feb&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="2"&gt;&lt;button type="button"&gt;Mar&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="3"&gt;&lt;button type="button"&gt;Apr&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="4"&gt;&lt;button type="button"&gt;May&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="5"&gt;&lt;button type="button"&gt;Jun&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="6"&gt;&lt;button type="button"&gt;Jul&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="7"&gt;&lt;button type="button"&gt;Aug&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="8"&gt;&lt;button type="button"&gt;Sep&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="9"&gt;&lt;button type="button"&gt;Oct&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="10"&gt;&lt;button type="button"&gt;Nov&lt;/button&gt;&lt;/li&gt;
+                    &lt;li data-month="11"&gt;&lt;button type="button"&gt;Dec&lt;/button&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;div class="datepicker-wheels-year"&gt;
+                    &lt;h2 class="header"&gt;Year&lt;/h2&gt;
+                    &lt;ul&gt;&lt;/ul&gt;
+                    &lt;/div&gt;
+                    &lt;div class="datepicker-wheels-footer clearfix"&gt;
+                    &lt;button type="button" class="btn datepicker-wheels-back"&gt;&lt;span class="glyphicon glyphicon-arrow-left"&gt;&lt;/span&gt;&lt;span
+                    class="sr-only"&gt;Return to Calendar&lt;/span&gt;&lt;/button&gt;
+                    &lt;button type="button" class="btn datepicker-wheels-select"&gt;Select &lt;span class="sr-only"&gt;Month and
+                    Year&lt;/span&gt;&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    </code>
+</pre>
+    </div>
+    <p>
+        If you put your HTML markups by yourself, you can do the same thing as the first demo to initialize datepicker
+        by passing your options as following.
+    </p>
+     <pre>
+        <code>
+    &lt;div id="calendar_date" class="datepicker fuelux"&gt;
+        &lt;div class="input-group n-calendar"&gt;
+            &lt;input class="form-control n-inputfield" id="myDatepickerInput1" name="myDatepickerName" type="text"/&gt;
+            <span class="demo-highlight-color">*Copy the HTML markups to here*</span>
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+    $(document).ready(function () {
+        $('#calendar_datetime').datepicker({
+        allowPastDates: true,
+        momentConfig: {
+        culture: 'en',
+        <span class="demo-highlight-color">format: 'DD.MM.YYYY HH:mm:ss'</span>
+        }
+        });
+    });
+    &lt;/script&gt;
+        </code>
+    </pre>
+    <p>
+        To disable the calender, you can simply add disabled attribute to the element and if you are using the markup-API, please also update the data-markup.
+    </p>
+     <pre>
+        <code>
+    &lt;div id="disabled_calendar_date" class="col-md-9 datepicker fuelux"&gt;
+        &lt;div class="input-group n-calendar"&gt;
+            &lt;input class="form-control n-inputfield" id="myDisabledDatepickerInput1" name="myDatepickerName"
+                   <span class="demo-highlight-color">data-markup="disabled_calendar"</span> type="text" <span class="demo-highlight-color">disabled</span>&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="input-group n-calendar"&gt;
+        &lt;input class="form-control n-inputfield" id="myDisabledDatepickerInput2" name="myDatepickerName"
+               data-markup="calendar" type="text" <span class="demo-highlight-color">disabled</span>&gt;
+
+        &lt;div class="input-group-btn"&gt;
+            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                    aria-expanded="false" <span class="demo-highlight-color">disabled</span>&gt;
+                &lt;span class="glyphicon glyphicon-calendar"&gt;&lt;/span&gt;
+                &lt;span class="sr-only"&gt;Toggle Calendar&lt;/span&gt;
+            &lt;/button&gt;
+            ... ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+        </code>
+    </pre>
+
+    <p>
+        Using calendar component in scroll table need additional statement.
+    </p>
+    <pre>
+        <code>
+    &lt;td class="text-center"&gt;
+        &lt;div id="calendar_date3" class="datepicker fuelux"&gt;
+            &lt;div class="input-group n-calendar"&gt;
+                &lt;input id="calendar-id" name="calendar-name" type="text"
+                       class="form-control n-inputfield" data-markup="calendar" <span class="demo-highlight-color">data-position="fixed"</span>/&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/td&gt;
+        </code>
+    </pre>
+
+    <p>
+        To disable the past days in calendar, you can add class 'n-calendar-lock-past' to the calendar element.
+    </p>
+    <pre>
+        <code>
+    &lt;div class="input-group n-calendar <span class="demo-highlight-color">n-calendar-lock-past</span>"&gt;
+        &lt;input class="form-control n-inputfield" id="myDatepickerInputLocked" name="myDatepickerName"
+               data-markup="calendar" type="text"&gt;
+    &lt;/div&gt;
+        </code>
+    </pre>
+
+    <p>
+        Using calendar with date range, you need two calendar components using class 'n-data-range-start'and class 'n-data-range-end', respectively.
+    </p>
+    <pre>
+        <code>
+    &lt;div id="calendar_date_range" class="n-data-range"&gt;
+        &lt;div class="datepicker fuelux"&gt;
+            &lt;div class="input-group n-calendar <span class="demo-highlight-color">n-data-range-start</span>"&gt;
+                &lt;input class="form-control n-inputfield" id="dateRangeInput1" name="dataRangeName1"
+                       data-markup="calendar" type="text"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="datepicker fuelux"&gt;
+            &lt;div class="input-group n-calendar <span class="demo-highlight-color">n-data-range-end"</span>&gt;
+                &lt;input class="form-control n-inputfield" id="dateRangeInput2" name="dataRangeName2"
+                       data-markup="calendar" type="text"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+    $(document).ready(function () {
+        $('#calendar_date_range').nDateRangePicker({
+            allowPastDates: true,
+            momentConfig: {
+                culture: 'en',
+                format: 'DD.MM.YYYY'
+            }
+        });
+    });
+    &lt;/script&gt;
+        </code>
+    </pre>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/calendar'], function($){
+        $(document).ready(function () {
+            $('#calendar_date').datepicker({
+                allowPastDates: true,
+                momentConfig: {
+                    culture: 'en',
+                    format: 'DD.MM.YYYY'
+                }
+            });
+            $('#disabled_calendar_date').datepicker({
+                allowPastDates: true,
+                momentConfig: {
+                    culture: 'en',
+                    format: 'DD.MM.YYYY'
+                }
+            });
+            $('#calendar_datetime').datepicker({
+                allowPastDates: true,
+                momentConfig: {
+                    culture: 'en',
+                    format: 'DD.MM.YYYY HH:mm:ss'
+                }
+            });
+            $('#disabled_calendar_datetime').datepicker({
+                allowPastDates: true,
+                momentConfig: {
+                    culture: 'en',
+                    format: 'DD.MM.YYYY HH:mm:ss'
+                }
+            });
+            $('#calendar_date_locked').datepicker({
+                allowPastDates: true,
+                momentConfig: {
+                    culture: 'en',
+                    format: 'DD.MM.YYYY'
+                }
+            });
+            $('#calendar_date_range').nDateRangePicker({
+                allowPastDates: true,
+                momentConfig: {
+                    culture: 'en',
+                    format: 'DD.MM.YYYY'
+                }
+            });
+            //$('.datepicker .n-calendar .form-control').off('focus.fu.datepicker');
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+a,
+a.link,
+.n-link,
+.n-link.link {
+  color: #0B6DAF;
+  font-weight: bold;
+}
+a.visited,
+.n-link.visited {
+  color: #1B1B1B;
+  border-bottom: 1px solid #666666;
+}
+a.disabled,
+a.disabled:focus,
+a[disabled],
+a[disabled]:focus,
+.n-link.disabled,
+.n-link.disabled:focus,
+.n-link[disabled],
+.n-link[disabled]:focus {
+  color: #999999;
+  font-weight: bold;
+  border-bottom: 1px solid #999999;
+  pointer-events: none;
+  cursor: default;
+}
+a:hover,
+a.link:hover,
+a.visited:hover,
+a:focus,
+a.link:focus,
+a.visited:focus,
+.n-link:hover,
+.n-link.link:hover,
+.n-link.visited:hover,
+.n-link:focus,
+.n-link.link:focus,
+.n-link.visited:focus {
+  text-decoration: none;
+  color: #00A1CC;
+}
+.n-link {
+  color: #0B6DAF;
+  font-weight: bold;
+}
+.n-link:hover,
+.n-link:focus {
+  color: #0B6DAF;
+  border-bottom: 1px solid #124191;
+  text-decoration: none;
+  outline: none;
+}
+.n-link-visited {
+  color: #1B1B1B;
+  border-bottom: 1px solid #666666;
+}
+.n-link-disabled,
+.n-link-disabled:focus,
+.n-link[disabled],
+.n-link[disabled]:focus {
+  color: #999999;
+  border-bottom: 1px solid #999999;
+  pointer-events: none;
+  cursor: default;
+}
+.n-link-secondary {
+  font-size: 12px;
+}
+.n-link-action-icon,
+.n-link-action-icon:hover {
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: none;
+  aria-hidden: "true";
+  speak: none;
+}
+.n-link-action-icon {
+  font-family: "Icons", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  border-bottom: none;
+  width: 1em;
+  aria-hidden: "true";
+  speak: none;
+}
+span.n-link-action-icon:after {
+  content: "\e61f";
+  vertical-align: middle;
+  font-size: small;
+}
+a.n-link-disabled + span.n-link-action-icon:after,
+.n-link.n-link-disabled + span.n-link-action-icon:after {
+  color: #999999;
+}

@@ -1,0 +1,176 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content">
+<h1>Frequently Asked Questions</h1>
+<p>
+<a href="#why_bootstrap" class="n-link">Why you use framework (Bootstrap)?</a><br>
+<a href="#other_framework" class="n-link">Have you evaluated other frameworks than Bootstrap?</a><br>
+<a href="#offer_old_ot" class="n-link">Are you offering OT2.5 or older styles?</a><br>
+<a href="#offer_new_ot" class="n-link">Are you going to offer the new styles (like SkyTouch)?</a><br>
+<a href="#mandatory_wulf" class="n-link">Is WULF The Framework approved by GUI Board that everybody should / must
+    use?</a><br>
+<a href="#support_ie" class="n-link">IE8 is not supported, will you support it in the future?</a><br>
+<a href="#offer_widget" class="n-link">Do you offer widgets?</a><br>
+<a href="#license_purchase" class="n-link">Are you including any commercial widgets that customer project should buy
+    license?</a><br>
+<a href="#open_source_license" class="n-link">Are you checking the licenses of used open source components?</a><br>
+<a href="#ecc_statement" class="n-link">Are you offering ECC statement for WULF?</a><br>
+<a href="#component_principle" class="n-link">Why you use xxx component/principle/tool, as there are much better
+    ones?</a><br>
+<a href="#size_reduction" class="n-link">WULF size is getting too big, can it be reduced?</a><br>
+<a href="#browser_edge" class="n-link">Is WULF going to support new Edge browser in Windows 10?</a><br>
+<p>
+
+<div class="col-md-12">
+    <p>
+        <a name="why_bootstrap"></a><b>Why you use framework (Bootstrap)?</b>
+    </p>
+
+    <p>
+        We wanted to get components quickly for the project use. We agree that most of basic UI components are doable
+        using pure css/html, but for the more complicated ones are not easy to make (and secondly we have no time nor
+        effort to start from scratch for every component).<br>
+        We can consider taking pure css/html solutions also into use, though that would cause interface changes to
+        customer projects. This is area for further consideration.
+    </p>
+
+    <p>
+        <a name="other_framework"></a><b>Have you evaluated other frameworks than Bootstrap?</b>
+    </p>
+
+    <p>
+        Not really. Bootstrap was chosen due to its popularity in the internet (active community, lots of examples
+        and hints).<br>
+        There was no time for extensive evaluations that would take weeks/months to complete. In addition we did not
+        have effort available to start each component from scratch (we wanted to get something reused).
+    </p>
+
+    <p>
+        <a name="offer_old_ot"></a><b>Are you offering OT2.5 or older styles?</b>
+    </p>
+
+    <p>
+        No. Target is to build support for the latest officially approved specification (OT3.1).<br>
+        However if you want, you can tune the WULF (mainly css) to support OT2.5 and make that available via WULF
+        distribution. OT3.0 is available as one package, though it is not maintained separately - all efforts go to
+        fulfilling OT3.1.
+    </p>
+
+    <p>
+        <a name="offer_new_ot"></a><b>Are you going to offer the new styles (like SkyTouch)?</b>
+    </p>
+
+    <p>
+        Yes this is planned.<br>
+        Schedule is though unknown and resourcing needs to be secured for that.
+    </p>
+
+    <p>
+        <a name="mandatory_wulf"></a><b>Is WULF The Framework approved by GUI Board that everybody should / must
+        use?</b>
+    </p>
+
+    <p>
+        No. There is however initiative to get Web UI frameworks defined and agreed - WULF is a candidate.<br>
+        We try to implement such a platform that serves (almost all if not all) the needs from all web projects in
+        Nokia and in that case it could become as the official L&F platform for Web UIs. This topic will be discussed with GUI Board later.
+    </p>
+
+    <p>
+        <a name="support_ie"></a><b>IE8 is not supported, will you support it in the future?</b>
+    </p>
+
+    <p>
+        Currently it is not planned, as it would require even tenfold effort and we don't have that amount of persons
+        available. Also it is our feeling that the OT3 is not fully doable for IE8 as responsive and light-weight.<br>
+        If you must support IE8, it might be possible to tweak WULF to support it - if we were demanded to do it, we would need funding + also persons from the requesting organization. Certain design solutions are bringing challenges...
+    </p>
+
+    <p>
+        <a name="offer_widget"></a><b>Do you offer widgets?</b>
+    </p>
+
+    <p>
+        Yes. In the first phase we concentrate on getting the basic UI components into OT3 look. The second phase will
+        contain widgets (like table) where the UI component will contain some logic / intelligence
+        implemented with JavaScript.<br>
+        We will be heading to this direction slightly in parallel of the first phase (listbox component, some other
+        components have also in-built intelligence).
+    </p>
+
+    <p>
+        <a name="license_purchase"></a><b>Are you including any commercial widgets that customer project should buy
+        license?</b>
+    </p>
+
+    <p>
+        We will include commercial widgets if there is Nokia wide license available. WULF will be free-of-charge
+        solution for the projects using it (so no license purchases forced to customer projects by WULF).<br>
+        You are free to integrate any commercial components/widgets though. If there are commercial components bought
+        for Nokia wide usage and they can technically be added into WULF, we can of course add that kind of
+        components. We don't have the funds nor time to start licensing negotiations with the vendors.<br>
+        NOTE1: jqWidgets commercial component has been included inside WULF as there is Nokia wide license for it in
+        place. No license fees need to be paid by WULF customer projects for that.<br>
+        NOTE2: HighCharts has not bee included (as there is no common Nokia license available) though we have made one
+        example for that.
+    </p>
+
+    <p>
+        <a name="open_source_license"></a><b>Are you checking the licenses of used open source components?</b>
+    </p>
+
+    <p>
+        Yes we run the components through Talko legal / license checking. We are trying to use components/code via MIT license as much as possible.
+    </p>
+
+    <p>
+        <a name="ecc_statement"></a><b>Are you offering ECC statement for WULF?</b>
+    </p>
+
+    <p>
+        Yes that is available in 4 Used 3rd Party SW page.
+    </p>
+
+    <p>
+        <a name="component_principle"></a><b>Why you use xxx component/principle/tool, as there are much better
+        ones?</b>
+    </p>
+
+    <p>
+        In order to keep schedules to at least some extent we cannot run heavy or long evaluations. WULF is developed
+        with lean practices: we see quickly within day or two the available options and pick one of them.<br>
+        If later on a better option is found out / there are major problems from the chosen option, we will change.
+    </p>
+
+    <p>
+        <a name="size_reduction"></a><b>WULF size is getting too big, can it be reduced?</b>
+    </p>
+
+    <p>
+        Yes. Depending on which components you need, you can leave out certain parts of WULF easily (unfortunately we
+        are not supporting full customizability for WULF content, only limited amount of components can be left out
+        easily). See chapter 2 Usage Instruction.<br>
+        Later on it can be studied if the WULF could be offered just like Bootstrap, that customer project can select which components are required and build system produces such release for the project. In addition you can suggest things to drop away from WULF files to make it smaller.
+    </p>
+
+    <p>
+        <a name="browser_edge"></a><b>Is WULF going to support new Edge browser in Windows 10?</b>
+    </p>
+
+    <p>
+        Yes that is supported.<br>
+        There are currently several issues with screen reader but those are NVDA and Edge system related. We are
+        waiting the vendors to fix the problems.
+    </p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dlg">Dialog</h1>
+<hr>
+<div>
+    Click the tree folder to see the corresponding page.
+    <pre>
+<code>
+    &lt;!-- Dialog generic principle --&gt;
+    &lt;a href="#PlainDialogSubhead" data-backdrop="false" data-toggle="modal" data-keyboard="true"&gt;Dialog&lt;/a&gt;
+    &lt;div class="modal" id="PlainDialogSubhead" role="dialog" aria-labelledby="myModalDlgLabel-subhead" aria-hidden="true" tabindex='-1'&gt;
+        &lt;div class="modal-dialog"&gt;
+            &lt;div class="modal-content"&gt;
+                &lt;div class="modal-header"&gt;
+                    &lt;div class="n-dialog-header-fg-filler"&gt;&lt;/div&gt;
+                    &lt;div class="n-dialog-header-bg-filler"&gt;&lt;/div&gt;
+                    &lt;div class="n-dialog-header-curve"&gt;
+                        &lt;div class="fg-mask"&gt;&lt;/div&gt;
+                        &lt;div class="bg-mask"&gt;&lt;/div&gt;
+                        &lt;div class="fg-corner"&gt;&lt;/div&gt;
+                        &lt;div class="bg-corner"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close"&gt;&lt;/i&gt;
+                    &lt;h1 class="modal-title" id="myModalLabel"&gt;Plain Dialog&lt;/h1&gt;
+                    &lt;h2 class="modal-title-subheading" id="myModalLabelVersion"&gt;Subheading&lt;/h2&gt;
+                &lt;/div&gt;
+                &lt;div class="modal-body"&gt; Text &lt;/div&gt;
+                &lt;div class="modal-footer"&gt;
+                    &lt;button class="btn btn-standard btn-defaultBlue" data-dismiss="modal"&gt;OK&lt;/button&gt;
+                    &lt;button class="btn btn-standard" data-dismiss="modal"&gt;Cancel&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code>
+    </pre>
+    Modify the size of the title banner area (curve location) in CSS:
+    <pre>
+<code>
+    .n-dialog-header-curve {
+        left: <span class="demo-highlight-color">140px</span>;
+    }
+    .n-dialog-header-fg-filler {
+        width: <span class="demo-highlight-color">140px</span>;
+    }</code>
+    </pre>
+</div>
+</body>
+</html>

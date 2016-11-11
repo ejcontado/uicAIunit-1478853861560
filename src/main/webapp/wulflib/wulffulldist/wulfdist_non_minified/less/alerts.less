@@ -1,0 +1,71 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+@import "./mixins/gradients.less";
+@import "./mixins/vendor-prefixes.less";
+@import "@{less-path-of-bootstrap}mixins/alerts.less";
+@import "@{less-path-of-bootstrap}/alerts.less";
+// OT3 p.126
+
+.alert {
+    border-radius: 10px;
+    #gradient > .vertical(@alert-gradient-start, @alert-gradient-end);
+    padding: 12px 40px 12px 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .box-shadow(0px 1px 3px @alert-shadow-color);
+    color: @gray-global;
+    font-size: @font-size-base;
+    position: relative;
+
+    > .icon:first-child {
+        position: relative;
+        top: 3px;
+        font-size: @font-size-medium;
+        margin-right: 10px;
+    }
+
+    > .n-close {
+        display: inline-block;
+        position: absolute;
+        top: 17px;
+        right: 25px;
+        float: right;
+        margin: 0;
+        padding: 0;
+
+        .icon-close {
+            border-radius: 3px;
+        }
+
+        &:focus{
+            outline:none;
+            top: 16px;
+            right: 26px;
+            > span {
+                border:1px solid @gray-medium;
+            }
+        }
+        &:hover{
+            outline:none;
+            top: 16px;
+            right: 26px;
+            > span {
+                border:1px solid @blue-hover;
+            }
+        }
+    }
+
+    .n-close > span {
+        display: block;
+        position: absolute;
+        top: 0;
+    }
+
+    &-error {
+        font-weight: bold;
+        color: @brand-danger;
+    }
+}

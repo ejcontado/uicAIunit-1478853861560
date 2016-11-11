@@ -1,0 +1,89 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ *
+ * This less file defines navbar layout when it is collapsed
+ */
+@import "./mixins/gradients.less";
+@import "variables.less";
+
+.n-banner-links-collapse {
+
+  height: 40px;
+
+  @media (max-width: @grid-float-breakpoint-max) {
+    //padding-left: 0;
+    width:40px;
+    position: relative;
+    margin-top: -40px;
+    margin-right:-15px;
+    float:right;
+    display: inline-block;
+  }
+
+  &-dropdown-toggle {
+    height: 40px;
+    width: 36px;
+    padding: 12px 10px;
+    position: absolute;
+    right: 0;
+    #gradient.vertical(@n-banner-links-collapse-dropdown-toggle-gradient-start, @n-banner-links-collapse-dropdown-toggle-gradient-end) !important;
+
+    &:before {
+      content: "";
+      border-left: 1px solid;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 40px;
+      display: block;
+      box-shadow: 0 0 8px 0 @n-banner-links-collapse-dropdown-toggle-before-shadow;
+      z-index: -1;
+    }
+
+    &[aria-expanded=true]{
+      border-radius: 0;
+    }
+
+    &:focus:not(.disabled):not([aria-expanded=true]),
+    &:hover:not(.disabled)[aria-expanded=false]{
+      height: 40px;
+      width: 36px;
+      padding: 10px 8px;
+      border: 2px solid @blue-hover;
+      outline: 0;
+      background: @gray-white !important;
+      &:before{
+        display: none;
+      }
+    }
+    
+  }
+
+  &-dropdown-menu,
+  .n-banner-dropdown-links-collapse-dropdown-menu{
+    border-radius: 7px 0 7px 7px;
+    border: none;
+    right: 0;
+    left: auto;
+    li a:hover span{
+      //border: none;
+    }
+
+    .n-dropdown-sub-menu{
+
+    }
+  }
+
+}
+
+.n-banner-links-collapse-dropdown-menu .dropdown-menu.n-collapse-dropdown-sub-menu {
+  position: absolute;
+  top: -7px;
+  border-radius: 5px;
+  border: 1px solid @n-banner-links-collapse-dropdown-sub-menu-border;
+  min-width: 160px;
+  background-color: @n-banner-links-collapse-dropdown-sub-menu-bg;
+  padding: 6px 0;
+  box-shadow: 0 6px 12px @n-banner-links-collapse-dropdown-sub-menu-shadow;
+}

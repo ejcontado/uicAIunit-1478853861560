@@ -1,0 +1,77 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.slider.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Slider</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_slider">Slider</h1>
+<hr>
+<div class="row">
+    <div class="slider-container col-md-4">
+        <label for="slider">Slider: </label>
+        <input id="slider" type="range" min="0" max="10">
+        <p>
+            Current value of the slider: <strong id="slider-value"></strong>
+        </p>
+        <label for="slider-disable">Disabled Slider: </label>
+        <input id="slider-disable" type="range" min="0" max="10" disabled>
+    </div>
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+<pre>
+For slider components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.slider.min.css" rel="stylesheet"/&gt;
+</pre>
+        <p>
+            A basic slider is provided for selecting a number from a range of valid
+            numbers. To use the slider, insert an <code>input</code> element with
+            the type <code>range</code>:
+        </p>
+    <pre>
+<code>
+    &lt;input type="range" min="0" max="10"&gt;</code>
+    </pre>
+        <p>
+            Note that you must include JavaScript to make the slider look and behave
+            correctly, as the browser support for the native input varies.
+            To include the JavaScript dependencies needed for the slider to work,
+            just include <code>wulf.min.js</code> with your page. The script will
+            automatically handle constructing and styling the slider on page load.
+        </p>
+        <p>
+            Listening for changes of the slider value can be done the usual way:
+        </p>
+    <pre>
+<code>
+    $('#slider').on('change input', function() {
+
+    //Do things here with the value of the input slider
+    var value = $(this).val();
+    });</code>
+    </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['jquery'], function($){
+        var $slider = $('#slider');
+        $slider.on('input change', function () {
+            $('#slider-value').html($(this).val());
+        });
+        $('#slider-value').html($slider.val());
+    });
+</script>
+</body>
+</html>

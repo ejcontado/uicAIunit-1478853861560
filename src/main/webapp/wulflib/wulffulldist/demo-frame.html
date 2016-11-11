@@ -1,0 +1,245 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en" class="demo-main-html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Nokia Web UI Look &amp; Feel</title>
+    <link rel="shortcut icon" href="assets/wulf.ico" type="image/x-icon" />
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body>
+<span id="top"></span>
+
+<div class="fluid-container demo-container">
+    <header>
+        <div class="row demo-header">
+            <div class="col-md-12">
+                <nav class="n-banner nokia_banner_normal" style="min-height:60px">
+
+                    <div class="n-banner-1st-filler-white"></div>
+                    <div class="n-banner-1st-filler-blue"></div>
+                    <div class="n-banner-2nd-filler-blue hidden-xs hidden-on-blue-detached"></div>
+                    <div class="n-banner-2nd-filler-gray hidden-xs"></div>
+
+                    <div class="container-fluid">
+
+                        <div class="n-banner-header">
+                            <button class="n-banner-toggle collapsed" data-target="#n-banner-collapse"
+                                    data-toggle="collapse" type="button">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="n-banner-brand" href="#">
+                                Web UI Look &amp; Feel (WULF)
+                            </a>
+                        </div>
+
+                        <div class="collapse n-banner-collapse" id="n-banner-collapse">
+
+                            <div class="row n-banner-1st">
+
+                                <div class="n-banner-right n-banner-logo-img hidden-xs">
+                                    <img alt="Nokia" src="./wulfdist/img/logo.png">
+                                </div>
+
+                                <div class="n-banner-right n-banner-1st-gray-to-white hidden-xs">
+                                    <div class="gray-mask"></div>
+                                    <div class="white-mask"></div>
+                                    <div class="gray-corner"></div>
+                                    <div class="white-corner"></div>
+                                </div>
+
+                                <ul class="nav n-banner-right n-banner-nav n-banner-controls">
+                                    <li id="wulf_contacts">
+                                        <a href="#" data-toggle="modal"
+                                           data-target="#contactsDlg">
+                                            <icon class="icon icon-profile"></icon>
+                                            Contacts</a>
+                                    </li>
+                                </ul>
+
+                                <div class="n-banner-right n-banner-1st-blue-to-gray hidden-xs">
+                                    <div class="blue-mask"></div>
+                                    <div class="gray-mask"></div>
+                                    <div class="blue-corner"></div>
+                                    <div class="gray-corner"></div>
+                                </div>
+                            </div>
+
+                            <div class="row n-banner-2nd">
+
+                                <ul class="nav n-banner-nav n-banner-tabs">
+                                    <li class="n-banner-3Link" id="nav_home">
+                                        <a href="demo-home.html" target="main-content"
+                                           data-item="item1"><span>Home</span></a>
+                                    </li>
+                                    <li class="n-banner-3Link" id="nav_download">
+                                        <a href="demo-download.html" target="main-content" data-item="item2"><span>
+                                            Download</span></a>
+                                    </li>
+                                    <li class="n-banner-3Link" id="nav_get_started">
+                                        <a href="demo-get-started.html" target="main-content"
+                                           data-item="item3"><span>Getting Started</span></a>
+                                    </li>
+                                    <li class="n-banner-3Link dropdown" id="nav_examples">
+                                        <a aria-expanded="false" class="n-banner-dropdown-toggle"
+                                           data-toggle="dropdown"
+                                           href="#" role="button">
+                                            <span>Examples</span>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="demo-examples.html#PureHTMLCSSJS" target="main-content">
+                                                    <span>Pure HTML/CSS/JS</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="demo-examples.html#Angular15" target="main-content">
+                                                    <span>Angular 1.5</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="n-banner-3Link" id="nav_releases">
+                                        <a href="demo-plans.html" target="main-content" data-item="item5"
+                                           ><span>Release
+                                            Plans</span></a>
+                                    </li>
+                                    <li class="n-banner-3Link dropdown rightmost-tab" id="nav_documents">
+                                        <a aria-expanded="false" class="n-banner-dropdown-toggle"
+                                           data-toggle="dropdown"
+                                           href="#" role="button">
+                                            <span>Documentation</span>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="demo-tips.html" target="main-content">
+                                                    <span>Tips</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="demo-dev-react.html" target="main-content">
+                                                    <span>React</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="demo-cdn.html" target="main-content">
+                                                    <span>CDN</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="demo-package.html" target="main-content">
+                                                    <span>Package Manager</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="demo-distribution.html" target="main-content">
+                                                    <span>Distribution</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="demo-i18n.html" target="main-content">
+                                                    <span>i18n</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <div class="n-banner-2nd-gray-to-blue hidden-xs hidden-on-blue-detached">
+                                    <div class="gray-mask"></div>
+                                    <div class="blue-mask"></div>
+                                    <div class="gray-corner"></div>
+                                    <div class="blue-corner"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="col-md-2 demo-version demo-version-time">
+                <span id="build-time"> 11.11.2016 10:33:21 </span>
+            </div>
+            <div class="col-md-2 demo-version">
+                <span>Version: WULF_OT31_1_2_16</span>
+            </div>
+        </div>
+    </header>
+    <div class="demo-main-content">
+        <iframe name="main-content" id="main_content">
+        </iframe>
+    </div>
+    <div class="n-footer demo-footer-background">
+        <div class="n-footer-right">
+            <small>&#169; 2016 Nokia. All rights reserved.</small>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="contactsDlg" role="dialog" aria-labelledby="Contacts"
+     aria-hidden="true" tabindex='-1'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="n-dialog-header-fg-filler"></div>
+                <div class="n-dialog-header-bg-filler"></div>
+                <div class="n-dialog-header-curve">
+                    <div class="fg-mask"></div>
+                    <div class="bg-mask"></div>
+                    <div class="fg-corner"></div>
+                    <div class="bg-corner"></div>
+                </div>
+                <i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close dialog"></i>
+
+                <h1 class="modal-title" id="contactsTitle">Contacts</h1>
+            </div>
+            <div class="modal-body">
+                <h2><b>Specification (OT)</b></h2>
+
+                <p>
+                    Nokia GUI Board: <a href="mailto:gui.board@nokia.com" class="n-link">gui.board@nokia.com</a>
+                </p>
+                <br>
+                <h2><b>Implementation (WULF)</b></h2>
+                <p>
+                    Development team: <a href="mailto:I_EXT_WULF@internal.nsn.com" class="n-link">I_EXT_WULF@internal.nsn.com</a><br>
+                    WULF users: <a href="mailto:nokia-wulf-user@mlist.emea.nsn-intra.net" class="n-link">nokia-wulf-user@mlist.emea.nsn-intra.net</a><br>
+                </p>
+                <br>
+                <h2><b>Projects using WULF</b></h2>
+                <p>
+                    Customer projects: <a
+                    href="https://confluence.int.net.nokia.com/display/WULF/11+Contacts" class="n-link"
+                                                                     target="_blank">WULF Confluence/Contacts</a>
+                </p>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-standard btn-defaultBlue" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--JIRA script should be loaded firstly as it contains jquery 1.7.1 that would result the JS error "bootstrap require jquery 1.9.1 or higer"-->
+<script type="text/javascript"
+        src="https://jira.int.net.nokia.com/s/e0d650b2535d5d7a6f9fa070383c6e15-T/en_UK-6lgpox/64025/74/1.4.27/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-UK&collectorId=23fab2d5"></script>
+<script src="assets/js/require.js"></script>
+<script src="assets/js/require-config.js"></script>
+<script src="assets/js/demo-frame.js"></script>
+</body>
+</html>

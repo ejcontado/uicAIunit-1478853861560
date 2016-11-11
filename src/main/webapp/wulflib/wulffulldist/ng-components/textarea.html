@@ -1,0 +1,168 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content" ng-controller="TextareaDemoController as demo">
+<h1 class="component-header" id="nokia_panel">Text area</h1>
+<hr>
+<div class="row">
+    <div class="col-md-5">
+        <h2>Normal/Disabled text area</h2>
+        <textarea class="n-textarea" ng-disabled="demo.textareaInstance.disable" id="TA-textarea-normal">{{demo.textareaInstance.content}}</textarea>
+        <div>
+            <button class="btn btn-standard" ng-click="demo.updateEnableDisable()">{{demo.enableDisable}} Text Area
+            </button>
+        </div>
+
+        <h2>Normal/Read-only text area</h2>
+        <textarea class="n-textarea" ng-readonly="demo.textareaInstance.readonly" id="TA-textarea-readOnly">{{demo.textareaInstance.content}}</textarea>
+        <div>
+            <button class="btn btn-standard" ng-click="demo.updateReadonly()">{{demo.readonlyOperation}} Text Area
+            </button>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <h2>Overview</h2>
+        <p>We did not capsulate textarea tag but just show how to use directive to update component status.
+            <br/>
+            Detail angular textarea information please refer to <a href="https://docs.angularjs.org/api/ng/directive/textarea" target="_blank">https://docs.angularjs.org/api/ng/directive/textarea</a>.
+        </p>
+        <h2>Missing functionality</h2>
+        <ul>
+            <li>Scrollbar not support yet.</li>
+        </ul>
+    </div>
+</div>
+<br/>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<h2>Normal/Disabled text area</h2>
+<textarea class="n-textarea" ng-disabled="demo.textareaInstance.disable">{{demo.textareaInstance.content}}</textarea>
+<div>
+    <button class="btn btn-standard" ng-click="demo.updateEnableDisable()">{{demo.enableDisable}} Text Area
+    </button>
+</div>
+
+<h2>Normal/Read-only text area</h2>
+<textarea class="n-textarea" ng-readonly="demo.textareaInstance.readonly">{{demo.textareaInstance.content}}</textarea>
+<div>
+    <button class="btn btn-standard" ng-click="demo.updateReadonly()">{{demo.readonlyOperation}} Text Area
+    </button>
+</div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.tabs']).controller('TextareaDemoController', TextareaDemoController).controller('DemoCtrl', function(){});
+function TextareaDemoController() {
+    var newInstance = function (disable, readonly, content) {
+        return {
+            disable: disable,
+            readonly: readonly,
+            content: content
+        }
+    };
+
+    this.textareaInstance = newInstance(true, true, "TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT");
+
+    this.enableDisable = "Enable";
+    this.updateEnableDisable = function () {
+        this.textareaInstance.disable = !this.textareaInstance.disable;
+        if(this.textareaInstance.disable) {
+            this.enableDisable = "Enable";
+        } else {
+            this.enableDisable = "Disable";
+        }
+    };
+
+    this.readonlyOperation = "Normal";
+    this.updateReadonly = function () {
+        this.textareaInstance.readonly = !this.textareaInstance.readonly;
+        if(this.textareaInstance.readonly) {
+            this.readonlyOperation = "Normal";
+        } else {
+            this.readonlyOperation = "Readonly";
+        }
+    };
+}
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+        strictDi: true
+    });
+});
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['angular', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.tabs']).controller('TextareaDemoController', TextareaDemoController).controller('DemoCtrl', function(){});
+        function TextareaDemoController() {
+            var newInstance = function (disable, readonly, content) {
+                return {
+                    disable: disable,
+                    readonly: readonly,
+                    content: content
+                }
+            };
+
+            this.textareaInstance = newInstance(true, true, "TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT");
+
+            this.enableDisable = "Enable";
+            this.updateEnableDisable = function () {
+                this.textareaInstance.disable = !this.textareaInstance.disable;
+                if(this.textareaInstance.disable) {
+                    this.enableDisable = "Enable";
+                } else {
+                    this.enableDisable = "Disable";
+                }
+            };
+
+            this.readonlyOperation = "Normal";
+            this.updateReadonly = function () {
+                this.textareaInstance.readonly = !this.textareaInstance.readonly;
+                if(this.textareaInstance.readonly) {
+                    this.readonlyOperation = "Normal";
+                } else {
+                    this.readonlyOperation = "Readonly";
+                }
+            };
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

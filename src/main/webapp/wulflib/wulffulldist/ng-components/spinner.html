@@ -1,0 +1,269 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Spinner</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_search">Spinner</h1>
+<hr>
+<div class="row">
+    <div class="col-md-3">
+        <div ng-controller="spinnerDemoController as demo" >
+                <label ng-class="['col-sm-5 control-label', {'label-disabled' : demo.spinner1.disable}]">Standard:</label>
+                <div class="col-sm-7">
+                    <wf-spinner id="TA-spinner-standard" min="demo.spinner1.min" max="demo.spinner1.max" init="demo.spinner1.init" step="demo.spinner1.step" pattern="standard" disable="demo.spinner1.disable" on-value-changed="demo.spinner1.onValueChanged"></wf-spinner>
+                </div>
+                <label ng-class="['col-sm-5 control-label', {'label-disabled' : demo.spinner2.disable}]">Small:</label>
+                <div class="col-sm-7">
+                    <wf-spinner id="TA-spinner-small" min="demo.spinner2.min" max="demo.spinner2.max" init="demo.spinner2.init" step="demo.spinner2.step" pattern="small" disable="demo.spinner2.disable" on-value-changed="demo.spinner2.onValueChanged"></wf-spinner>
+                </div>
+                <button id="TA-spinner-disable" class="btn btn-small" ng-click="demo.updateEnableDisable()" ng-cloak>
+                    {{demo.spinner1.disable?"Enable ":"Disable"}} spinner
+                </button>
+                <br>
+                <button id="TA-spinner-disableAction" class="btn btn-small" ng-click="demo.enableDisableAction()" ng-cloak>
+                    {{demo.actionState?"Disable":"Enable"}} callback actions
+                </button>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h2>Overview</h2>
+        <p>Angular version of spinner component. It is implemented by using <code>.component()</code> method introduced since Angular1.5. This component can be used to present and edit a value from within a discrete range of values.</p>
+
+        <h2>wf-spinner settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>min: &lt;</code></td>
+                <td>
+                    Number (Default: 0)
+                </td>
+                <td>
+                    The minimum value of the spinner.
+                </td>
+            </tr>
+            <tr>
+                <td><code>max: &lt;</code></td>
+                <td>
+                    Number (Default: 999)
+                </td>
+                <td>
+                    The maximal value of the spinner.
+                </td>
+            </tr>
+            <tr>
+                <td><code>init: &lt;</code></td>
+                <td>
+                    Number (Optional)
+                </td>
+                <td>
+                    The initial value of the spinner. The default initial value is minimum value.
+                </td>
+            </tr>
+            <tr>
+                <td><code>step: &lt;</code></td>
+                <td>
+                    Number (Default: 1)
+                </td>
+                <td>
+                    The step value when increase or decrease.
+                </td>
+            </tr>
+            <tr>
+                <td><code>pattern: @</code></td>
+                <td>
+                    <ul>
+                        <li>standard(Default)</li>
+                        <li>small</li>
+                    </ul>
+                </td>
+                <td>
+                    The type of spinner.
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false(Default)</li>
+                    </ul>
+                </td>
+                <td>
+                    The status of spinner.
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-value-changed: &</code></td>
+                <td>
+                    function (currentValue, event)
+                </td>
+                <td>
+                    Callback function when spinner value changed.
+                    <ul>
+                        <li>currentValue - changed value of spinner</li>
+                        <li>event - event when spinner's value is changed</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Keyboard accessibility</h2>
+        Besides the basic keyboard support, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+        <kbd>Tab</kbd></kbd> and <kbd>Enter</kbd>.
+        This component supports the following
+        keystrokes for the interaction.
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Increase/decrease spinner value</td>
+                <td>
+                    <kbd>↓</kbd>
+                    or <kbd>↑</kbd>
+                </td>
+                <td>
+                    Only in the inputfield
+                </td>
+            </tr>
+            <tr>
+                <td>Trigger increase/decrease button</td>
+                <td>
+                    <kbd>Spacebar</kbd>/<kbd>Enter</kbd>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+    <div ng-controller="spinnerDemoController as demo" >
+            <wf-spinner min="demo.spinner1.min" max="demo.spinner1.max" init="demo.spinner1.init" step="demo.spinner1.step" pattern="standard" disable="demo.spinner1.disable" on-value-changed="demo.spinner1.onValueChanged"></wf-spinner>
+            <wf-spinner min="demo.spinner2.min" max="demo.spinner2.max" init="demo.spinner2.init" step="demo.spinner2.step" pattern="small" disable="demo.spinner2.disable" on-value-changed="demo.spinner2.onValueChanged"></wf-spinner>
+    </div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+    <code data-language="javascript">
+    angular.module('wf.ng.demo', ['wf.angular.spinner']).controller('spinnerDemoController', spinnerDemoController);
+    function spinnerDemoController() {
+        var newInstance = function (min, max, init, step, disable) {
+            return {
+                min: min,
+                max: max,
+                init: init,
+                step: step,
+                disable: disable
+            }
+        };
+        var self = this;
+        var onValueChanged = function (currentValue) {
+            if (self.actionState) {
+                alert('current value will change to ' + currentValue);
+            }
+        };
+        self.spinner1 = newInstance(0, 999, 1, 1, false);
+        self.spinner1.onValueChanged = onValueChanged;
+        self.spinner2 = newInstance(0, 999, 1, 1, false);
+        self.spinner2.onValueChanged = onValueChanged;
+    }
+    angular.element(document).ready(function () {
+        angular.bootstrap(document, ['wf.ng.demo'], {
+            strictDi: true
+        });
+    });
+    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+
+</body>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+
+<script src="../assets/js/require.js" type="text/javascript"> </script>
+<script src="../assets/js/require-config.js"  type="text/javascript"></script>
+<script type="text/javascript">
+    require(['angular', 'wulf-ng/spinner/spinner.tlp.min','wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.spinner','wf.angular.tabs']).controller('spinnerDemoController', spinnerDemoController);
+        function spinnerDemoController() {
+            var newInstance = function (min, max, init, step, disable) {
+                return {
+                    min: min,
+                    max: max,
+                    init: init,
+                    step: step,
+                    disable: disable
+                }
+            };
+            var self = this;
+            var onValueChanged = function (currentValue) {
+                if (self.actionState) {
+                    alert('current value will change to ' + currentValue);
+                }
+            };
+            self.spinner1 = newInstance(0, 999, 1, 1, false);
+            self.spinner2 = newInstance(0, 999, 1, 1, false);
+            self.spinner1.onValueChanged = onValueChanged;
+            self.spinner2.onValueChanged = onValueChanged;
+            self.updateEnableDisable = function () {
+                self.spinner1.disable = !self.spinner1.disable;
+                self.spinner2.disable = !self.spinner2.disable;
+
+            };
+            self.actionState = false;
+            self.enableDisableAction = function () {
+                self.actionState = !self.actionState;
+            };
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</html>

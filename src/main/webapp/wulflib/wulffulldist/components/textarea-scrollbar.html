@@ -1,0 +1,56 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_textarea_scroll">Text area with scrollbar<a
+    href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <form role="form">
+            <div class="form-group">
+                <div class="content content-scroll" style="height: 150px">
+                    <label for="ta-scroll">Scrolling textarea</label>
+                    <textarea id="ta-scroll" class="n-textarea">TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <P>Add class <code>content-scroll</code> in div, which has textarea child that has class <code>n-textarea</code>. Also you can change the width and height of textarea by overriding class name ".content-scroll" if you
+            want as in following example.</p>
+         <pre>
+<code>
+    &lt;form role="form"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;div class="content <span class="demo-highlight-color">content-scroll</span>"&gt;
+                &lt;label for="ta-scroll"&gt;Scrolling text area&lt;/label&gt;
+                &lt;textarea id="ta-scroll" class="<span class="demo-highlight-color">n-textarea</span>"&gt;TEXT TEXT TEXT TEXT TEXT TEXT TEXT&lt;/textarea&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+
+    // Change the textarea width and height if you want
+    &lt;style&gt;
+        .content-scroll{width:200px; height:200px;}
+    &lt;/style&gt;</code>
+         </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/textarea']);
+</script>
+</body>
+</html>

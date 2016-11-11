@@ -1,0 +1,234 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_button_toggles">Toggles <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <form class="form-horizontal">
+            <div class="form-group" aria-label="Title row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">Standard</div>
+                <div class="col-sm-4">Disabled</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Standard:</label>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-standard">
+                        <input type="checkbox" name="example-toggle-name" class="n-toggle-switch-input" id="example-id">
+                        <label class="n-toggle-switch-container" for="example-id" id="TA-togglesbutton-standardenable">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider" id="TA-togglesbutton-standardslider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-standard">
+                        <input type="checkbox" name="example-toggle-name2" class="n-toggle-switch-input" id="example-id2" disabled>
+                        <label class="n-toggle-switch-container" for="example-id2" id="TA-togglesbutton-standarddisable">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Small:</label>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-small">
+                        <input type="checkbox" name="example-toggle-name3" class="n-toggle-switch-input" id="example-id3" checked>
+                        <label class="n-toggle-switch-container" for="example-id3" id="TA-togglesbutton-smallenable">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider" id="TA-togglesbutton-smallslider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-small">
+                        <input type="checkbox" name="example-toggle-name4" class="n-toggle-switch-input" id="example-id4" disabled checked>
+                        <label class="n-toggle-switch-container" for="example-id4" id="TA-togglesbutton-smalldisable">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Colored:</label>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-standard n-toggle-switch-color">
+                        <input type="checkbox" name="example-toggle-name5" class="n-toggle-switch-input" id="example-id5">
+                        <label class="n-toggle-switch-container " for="example-id5" id="TA-togglesbutton-coloredenable">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider" id="TA-togglesbutton-coloredslider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-standard n-toggle-switch-color">
+                        <input type="checkbox" name="example-toggle-name6" class="n-toggle-switch-input" id="example-id6" disabled>
+                        <label class="n-toggle-switch-container" for="example-id6" id="TA-togglesbutton-coloreddisableslider">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Small Colored:</label>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-small n-toggle-switch-color">
+                        <input type="checkbox" name="example-toggle-name7" class="n-toggle-switch-input" id="example-id7">
+                        <label class="n-toggle-switch-container " for="example-id7" id="TA-togglesbutton-smallcoloredenable">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider" id="TA-togglesbutton-smallcoloredslider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="n-toggle-switch n-toggle-switch-small n-toggle-switch-color">
+                        <input type="checkbox" name="example-toggle-name8" class="n-toggle-switch-input" id="example-id8" checked disabled >
+                        <label class="n-toggle-switch-container " for="example-id8" id="TA-togglesbutton-smallcoloreddisable">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DRAFT -->
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon only toggle:</label>
+
+                <div class="col-sm-4">
+                    <button class="btn btn-icon n-toggle-button" data-toggle="button" id="TA-togglesbutton-onlytogglebutton">
+                        <span class="icon icon-search"></span>
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-icon n-toggle-button" data-toggle="button" id="TA-togglesbutton-togglebuttondisable" disabled>
+                        <span class="icon icon-search"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon button toggle:</label>
+
+                <div class="col-sm-4">
+                    <button class="btn btn-icon-button n-toggle-button" data-toggle="button" id="TA-togglesbutton-iconbutton">
+                        <span class="icon icon-cancel"></span>
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-icon-button n-toggle-button" data-toggle="button" id="TA-togglesbutton-iconbuttondisable" disabled>
+                        <span class="icon icon-cancel"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon toggle with text:</label>
+
+                <div class="col-sm-4">
+                    <button class="btn btn-icon-button n-toggle-button" data-toggle="button" id="TA-togglesbutton-withtextbutton">
+                        <span class="icon icon-bubble"></span>
+                        <span>Toggle</span>
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-icon-button n-toggle-button" data-toggle="button" id="TA-togglesbutton-withtextbuttondisable" disabled>
+                        <span class="icon icon-bubble"></span>
+                        <span>Toggle</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Small icon toggle with text:</label>
+
+                <div class="col-sm-4">
+                    <button class="btn btn-icon-button n-toggle-button n-toggle-button-small" data-toggle="button" id="TA-togglesbutton-smalltextbutton">
+                        <span class="icon icon-actions-menu"></span>
+                        <span>Toggle</span>
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-icon-button n-toggle-button n-toggle-button-small" data-toggle="button" id="TA-togglesbutton-smalltextbuttondis" disabled>
+                        <span class="icon icon-actions-menu"></span>
+                        <span>Toggle</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Icon toggles with emphasis:</label>
+
+                <div class="col-sm-8">
+                    <button class="btn btn-icon-button n-toggle-button n-toggle-button-color" data-toggle="button" id="TA-togglesbutton-emphasisbutton1">
+                        <span class="icon icon-settings"></span>
+                    </button>
+                    <button class="btn btn-icon-button n-toggle-button n-toggle-button-color" data-toggle="button" id="TA-togglesbutton-emphasisbutton2">
+                        <span class="icon icon-settings"></span>
+                        <span>Toggle</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <p>JS &amp; CSS dependency:</p>
+        <pre>For Toggle button components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;</pre>
+        <p>
+            You can use a number of different Nokia-style toggle switches and buttons by adding <code>n-toggle-switch</code> or <code>n-toggle-button</code>
+            class definition to a checkbox element.
+            <br />
+            A number of different toggle button sizes are provided through additional size classes like <code>n-toggle-switch-small</code> and <code>n-toggle-button-small</code>
+            <br />
+            There is a colored version for toggle switch by adding class <code>n-toggle-switch-color</code> to toggle switch
+            <br />
+            There are dark and green versions of toggles button by adding class <code>n-toggle-button-dark</code> and <code>n-toggle-button-green</code> to toggle button
+        </p>
+<pre>
+<code>
+    &lt;div class=&quot;n-toggle-switch n-toggle-switch-standard n-toggle-switch-color&quot;&gt;
+        &lt;input type=&quot;checkbox&quot; name=&quot;example-toggle-name6&quot; class=&quot;n-toggle-switch-input&quot; id=&quot;example-id6&quot; disabled&gt;
+        &lt;label class=&quot;n-toggle-switch-container&quot; for=&quot;example-id6&quot;&gt;
+            &lt;span class=&quot;n-toggle-switch-handler&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;n-toggle-switch-slider&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;button class=&quot;btn btn-icon-button n-toggle-button&quot; data-toggle=&quot;button&quot;&gt;
+        &lt;span class=&quot;icon icon-cancel&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;button class=&quot;btn btn-icon-button n-toggle-button n-toggle-button-color&quot; data-toggle=&quot;button&quot;&gt;
+        &lt;span class=&quot;icon icon-settings&quot;&gt;&lt;/span&gt;
+        &lt;span&gt;Toggle&lt;/span&gt;
+    &lt;/button&gt;
+</code>
+</pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/buttons']);
+</script>
+</body>
+</html>

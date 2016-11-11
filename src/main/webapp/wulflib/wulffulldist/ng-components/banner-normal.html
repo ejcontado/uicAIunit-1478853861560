@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Banner angular</title>
+</head>
+
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_banner">Basic Banner</h1>
+<hr>
+
+<div id="angular_section" class="row">
+    <div class="col-md-12">
+        <div ng-controller="BannerDemoController as demo">
+            <wf-banner id="TA-Angular-banner" product-info="demo.productInfo"
+                       utility-set="demo.utilitySet" nav-tabs-info="demo.navTabsInfo"
+                       action-set="demo.actionSet" overflow-open="demo.overflowOpen">
+                       <!--tab-content-template="demo.navTabContentTemplate">-->
+            </wf-banner>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<div ng-controller="BannerDemoController as demo">
+    <wf-banner product-info="demo.productInfo" utility-set="demo.utilitySet"
+               nav-tabs-info="demo.navTabsInfo" action-set="demo.actionSet"
+               overflow-open="demo.overflowOpen">
+    </wf-banner>
+</div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+require(['angular', 'wulf-ng/banner/banner.tlp.min', 'wulf-ng/tabs/tabs.tlp.min', 'wulf/navbar'], function (angular) {
+    angular.module('wf.ng.demo', ['wf.angular.banner', 'wf.angular.tabs']).controller('BannerDemoController', BannerDemoController);
+    function BannerDemoController() {
+        var self = this;
+        var newNavUtilityMenuItemInstance = function (name, link, selected) {
+            return {
+                name: name,
+                link: link,
+                selected: selected
+            }
+        };
+
+        self.productInfo = {
+            productName:  "WebUI Look & Feel",
+            suiteName: "(WULF)",
+            search: true
+        };
+
+        self.utilitySet = [
+            {
+                label: "User Name",
+                cssClass: "",
+                link: "#",
+                menuItems: [],
+                disable: false
+            },
+            {
+                label: "Account",
+                cssClass: "dropdown",
+                link: "#",
+                menuItems: [
+                    {
+                        label: "Account sub item1",
+                        cssClass: "dropdown-menu",
+                        link: "#"
+                    },
+                    {
+                        label: "Account sub item2",
+                        cssClass: "dropdown-menu",
+                        link: "#"
+                    }
+                ],
+                disable: false
+            },
+            {
+                label: "Log Out",
+                cssClass: "",
+                link: "#",
+                menuItems: [],
+                disable: false
+            }
+        ];
+
+        self.navTabsInfo ={
+            navTabIndex:  -1,
+            navTabs: [
+                {
+                    label: "item 1",
+                    cssClass: "n-banner-3Link",
+                    link: "#",
+                    dataItem: "item1",
+                    menuBar: ""
+                },
+                {
+                    label: "dropdown 2",
+                    cssClass: "dropdown",
+                    link: "#",
+                    dataItem: "",
+                    menuBar: [
+                        {
+                            label: "Subitem one",
+                            link: "#",
+                            hasChild: false
+                        },
+                        {
+                            label: "Subitem two",
+                            link: "#",
+                            hasChild: false
+                        },
+                        {
+                            label: "Subitem three",
+                            link: "#",
+                            hasChild: true,
+                            children: [
+                                {
+                                    label: "Option one",
+                                    link: "#",
+                                    hasChild: true,
+                                    children: [
+                                        {
+                                            label: "One: item one",
+                                            link: "#",
+                                            hasChild: false
+                                        },
+                                        {
+                                            label: "One: item two",
+                                            link: "#",
+                                            hasChild: false
+                                        },
+                                    ]
+                                },
+                                {
+                                    label: "Option two",
+                                    link: "#",
+                                    hasChild: false
+                                },
+                                {
+                                    label: "Option three",
+                                    link: "#",
+                                    hasChild: true,
+                                    children: [
+                                        {
+                                            label: "Three: item one",
+                                            link: "#",
+                                            hasChild: false
+                                        },
+                                        {
+                                            label: "Three: item two",
+                                            link: "#",
+                                            hasChild: false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: "item 3",
+                    cssClass: "n-banner-3Link",
+                    link: "#",
+                    dataItem: "item3",
+                    menuBar: ""
+                },
+                {
+                    label: "item 4",
+                    cssClass: "",
+                    link: "#",
+                    dataItem: "",
+                    menuBar: ""
+                },
+                {
+                    label: "item 5",
+                    cssClass: "",
+                    link: "#",
+                    dataItem: "",
+                    menuBar: ""
+                },
+                {
+                    label: "item 6",
+                    cssClass: "",
+                    link: "#",
+                    dataItem: "",
+                    menuBar: ""
+                },
+                {
+                    label: "item 7",
+                    cssClass: "rightmost-tab",
+                    link: "#",
+                    dataItem: "",
+                    menuBar: ""
+                }
+            ]
+        };
+
+        self.actionSet = [
+            {
+                name: "Manage",
+                cssClass: "dropdown",
+                icon: "icon icon-manage",
+                link:  "#",
+                hasChild: true,
+                childItems: [
+                    newNavUtilityMenuItemInstance("sub item1", "#", false),
+                    newNavUtilityMenuItemInstance("sub item2", "#", false)
+                ]
+            },
+            {
+                name: "Manage",
+                cssClass: "dropdown",
+                icon: "icon icon-manage",
+                link:  "#",
+                hasChild: false,
+                childItems: [
+                ]
+            },
+            {
+                name: "Item",
+                cssClass: "dropdown",
+                icon: "",
+                link:  "#",
+                hasChild: false,
+                childItems: [
+                    newNavUtilityMenuItemInstance("SubItem_1", "#", false),
+                    newNavUtilityMenuItemInstance("SubItem_2", "#", false)
+                ]
+            },
+            {
+                name: "Add",
+                cssClass: "dropdown",
+                icon: "icon icon-add",
+                link:  "#",
+                hasChild: true,
+                childItems: [
+                    newNavUtilityMenuItemInstance("Add User", "#", false),
+                    newNavUtilityMenuItemInstance("Add NE Group", "#", false)
+                ]
+            },
+            {
+                name: "Settings",
+                cssClass: "dropdown",
+                icon: "icon icon-settings",
+                link:  "#",
+                hasChild: true,
+                childItems: [
+                    newNavUtilityMenuItemInstance("User Setting", "#", false),
+                    newNavUtilityMenuItemInstance("Time Setting", "#", false),
+                    newNavUtilityMenuItemInstance("Location Setting", "#", false)
+                ]
+            }
+        ];
+        self.overflowOpen = true;
+        self.navTabContentTemplate = "";
+    }
+
+    angular.element(document).ready(function () {
+        angular.bootstrap(document, ['wf.ng.demo'], {
+            strictDi: true
+        });
+    });
+});
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+</body>
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+	require(['angular', 'wulf-ng/banner/banner.tlp.min', 'wulf-ng/tabs/tabs.tlp.min', 'wulf/navbar'], function (angular) {
+		angular.module('wf.ng.demo', ['wf.angular.banner', 'wf.angular.tabs']).controller('BannerDemoController', BannerDemoController);
+		function BannerDemoController() {
+            var self = this;
+            var newNavUtilityMenuItemInstance = function (name, link, selected) {
+                return {
+                    name: name,
+                    link: link,
+                    selected: selected
+                }
+            };
+
+            self.productInfo = {
+                productName:  "WebUI Look & Feel",
+                suiteName: "(WULF)",
+                search: true
+            };
+
+            self.utilitySet = [
+                {
+                    label: "User Name",
+                    cssClass: "",
+                    link: "#",
+                    menuItems: [],
+                    disable: false
+                },
+                {
+                    label: "Account",
+                    cssClass: "dropdown",
+                    link: "#",
+                    menuItems: [
+                        {
+                            label: "Account sub item1",
+                            cssClass: "dropdown-menu",
+                            link: "#"
+                        },
+                        {
+                            label: "Account sub item2",
+                            cssClass: "dropdown-menu",
+                            link: "#"
+                        }
+                    ],
+                    disable: false
+                },
+                {
+                    label: "Log Out",
+                    cssClass: "",
+                    link: "#",
+                    menuItems: [],
+                    disable: false
+                }
+            ];
+
+            self.navTabsInfo ={
+                navTabIndex:  -1,
+                navTabs: [
+                    {
+                        label: "item 1",
+                        cssClass: "n-banner-3Link",
+                        link: "#",
+                        dataItem: "item1",
+                        menuBar: ""
+                    },
+                    {
+                        label: "dropdown 2",
+                        cssClass: "dropdown",
+                        link: "#",
+                        dataItem: "",
+                        menuBar: [
+                            {
+                                label: "Subitem one",
+                                link: "#",
+                                hasChild: false
+                            },
+                            {
+                                label: "Subitem two",
+                                link: "#",
+                                hasChild: false
+                            },
+                            {
+                                label: "Subitem three",
+                                link: "#",
+                                hasChild: true,
+                                children: [
+                                    {
+                                        label: "Option one",
+                                        link: "#",
+                                        hasChild: true,
+                                        children: [
+                                            {
+                                                label: "One: item one",
+                                                link: "#",
+                                                hasChild: false
+                                            },
+                                            {
+                                                label: "One: item two",
+                                                link: "#",
+                                                hasChild: false
+                                            },
+                                        ]
+                                    },
+                                    {
+                                        label: "Option two",
+                                        link: "#",
+                                        hasChild: false
+                                    },
+                                    {
+                                        label: "Option three",
+                                        link: "#",
+                                        hasChild: true,
+                                        children: [
+                                            {
+                                                label: "Three: item one",
+                                                link: "#",
+                                                hasChild: false
+                                            },
+                                            {
+                                                label: "Three: item two",
+                                                link: "#",
+                                                hasChild: false
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: "item 3",
+                        cssClass: "n-banner-3Link",
+                        link: "#",
+                        dataItem: "item3",
+                        menuBar: ""
+                    },
+                    {
+                        label: "item 4",
+                        cssClass: "",
+                        link: "#",
+                        dataItem: "",
+                        menuBar: ""
+                    },
+                    {
+                        label: "item 5",
+                        cssClass: "",
+                        link: "#",
+                        dataItem: "",
+                        menuBar: ""
+                    },
+                    {
+                        label: "item 6",
+                        cssClass: "",
+                        link: "#",
+                        dataItem: "",
+                        menuBar: ""
+                    },
+                    {
+                        label: "item 7",
+                        cssClass: "rightmost-tab",
+                        link: "#",
+                        dataItem: "",
+                        menuBar: ""
+                    }
+                ]
+            };
+
+            self.actionSet = [
+                {
+                    name: "Manage",
+                    cssClass: "dropdown",
+                    icon: "icon icon-manage",
+                    link:  "#",
+                    hasChild: true,
+                    childItems: [
+                        newNavUtilityMenuItemInstance("sub item1", "#", false),
+                        newNavUtilityMenuItemInstance("sub item2", "#", false)
+                    ]
+                },
+                {
+                    name: "Manage",
+                    cssClass: "dropdown",
+                    icon: "icon icon-manage",
+                    link:  "#",
+                    hasChild: false,
+                    childItems: [
+                    ]
+                },
+                {
+                    name: "Item",
+                    cssClass: "dropdown",
+                    icon: "",
+                    link:  "#",
+                    hasChild: false,
+                    childItems: [
+                        newNavUtilityMenuItemInstance("SubItem_1", "#", false),
+                        newNavUtilityMenuItemInstance("SubItem_2", "#", false)
+                    ]
+                },
+                {
+                    name: "Add",
+                    cssClass: "dropdown",
+                    icon: "icon icon-add",
+                    link:  "#",
+                    hasChild: true,
+                    childItems: [
+                        newNavUtilityMenuItemInstance("Add User", "#", false),
+                        newNavUtilityMenuItemInstance("Add NE Group", "#", false)
+                    ]
+                },
+                {
+                    name: "Settings",
+                    cssClass: "dropdown",
+                    icon: "icon icon-settings",
+                    link:  "#",
+                    hasChild: true,
+                    childItems: [
+                        newNavUtilityMenuItemInstance("User Setting", "#", false),
+                        newNavUtilityMenuItemInstance("Time Setting", "#", false),
+                        newNavUtilityMenuItemInstance("Location Setting", "#", false)
+                    ]
+                }
+            ];
+            self.overflowOpen = true;
+            self.navTabContentTemplate = "";
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</html>

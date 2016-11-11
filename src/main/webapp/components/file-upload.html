@@ -1,0 +1,64 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+	<link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+	<link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_file_upload">File upload <a href="../demo-dev-react.html">
+	<img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+	<div class="col-md-4">
+		<form class="form-horizontal">
+			<div class="form-group n-file-upload col-sm-12">
+					<input type="file" id="file-input" tabindex="-1"/>
+					<button class="btn btn-standard" type="button" id="file-input-btn">Browse...</button>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">File name:</label>
+				<div class="col-sm-9">
+					<p class="form-control-static" id="file-name"> </p>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-8">
+		<p>JS & CSS dependency:</p>
+<pre>
+For file upload components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;</pre>
+		<pre>
+<code>
+	&lt;div class="n-file-upload"&gt;
+		&lt;input type="file" id="file-input" tabindex="-1"/&gt;
+		&lt;button class="btn btn-standard" id="file-input-btn"&gt;Name for the button&lt;/button&gt;
+	&lt;/div&gt;</code>
+		</pre>
+	</div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+	require(['jquery'], function($){
+		$('#file-input').change(function() {
+			document.getElementById("file-name").innerHTML = this.value.split("\\")[this.value.split("\\").length-1];
+			document.getElementById("file-input-btn").focus();
+		});
+
+		$('#file-input-btn').click(function() {
+			$('#file-input').click();
+		});
+
+	});
+</script>
+</body>
+</html>

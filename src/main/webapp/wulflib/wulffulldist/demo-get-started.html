@@ -1,0 +1,122 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content">
+
+<div class="col-md-2 demo-started-menu-box">
+    <div class="panel panel-shadow nav-secondary-vertical demo-started-panel">
+        <div class="fuelux menu-tree">
+            <ul id="demoGetStartedTree" class="tree" role="tree">
+                <li class="tree-branch hide" data-template="treebranch" role="treeitem" aria-expanded="false">
+                    <div class="tree-branch-header">
+                        <a href="#" class="tree-branch-name">
+                            <span class="glyphicon icon-caret glyphicon-play"></span>
+                            <span class="glyphicon icon-folder glyphicon-folder-close"></span>
+                            <span class="tree-label"></span>
+                        </a>
+                    </div>
+                    <ul class="tree-branch-children" role="group"></ul>
+                    <div class="tree-loader" role="alert">Loading...</div>
+                </li>
+                <li class="tree-item hide" data-template="treeitem" role="treeitem">
+                    <a href="" class="tree-item-name" target="_self">
+                        <span class="glyphicon icon-item fueluxicon-bullet"></span>
+                        <span class="tree-label"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<iframe src="demo-dev-use.html" class="demo-started-content-box" name="start-content" id="start_content">
+</iframe>
+
+<script src="assets/js/require.js"></script>
+<script src="assets/js/require-config.js"></script>
+
+<script>
+    require(['jquery', 'wulf/tree'], function($) {
+        $ (document).ready (
+                function () {
+                    var childNodesArray = [
+                        {
+                            "name": "Add WULF to project", "type": "item", "attr": {
+                            "parentNode": "rootNode", "src": "#",
+                            "id": "start_add_project"
+                        }
+                        },
+                        {
+                            "name": "System requirements", "type": "item", "attr": {
+                            "parentNode": "rootNode",
+                            "src": "#", "id": "start_sys_requirements"
+                        }
+                        },
+                        {
+                            "name": "Third party SW", "type": "item", "attr": {
+                            "parentNode": "rootNode", "src": "#",
+                            "id": "start_third_party"
+                        }
+                        },
+                        {
+                            "name": "FAQ", "type": "item", "attr": {
+                            "parentNode": "rootNode",
+                            "src": "#", "id": "start_faq"
+                        }
+                        }
+                    ];
+
+                    function staticDataSource (openedParentData, callback) {
+                        if (typeof openedParentData.attr != 'undefined') {
+                            callback ({
+                                data: get (childNodesArray, openedParentData.name)
+                            });
+                        }
+                        else {
+                            callback ({
+                                data: get (childNodesArray, "rootNode")
+                            });
+                        }
+                    }
+
+                    function get (arrPerson, objValue) {
+                        return $.grep (arrPerson, function (cur, i) {
+                            return cur.attr.parentNode == objValue;
+                        });
+                    }
+
+                    var basicTree = $ ('#demoGetStartedTree');
+                    basicTree.tree ({
+                        dataSource: staticDataSource,
+                        folderSelect: false
+                    });
+                    basicTree.tree('selectItem', $('#start_add_project'));
+                    basicTree.on('selected.fu.tree', function (event, data) {
+                        event.preventDefault();
+                        // do something with data: { selected: [array], target: [object] }
+                        //console.log("selected items: ", basicTree.tree('selectedItems')[0].attr.src);
+                        //TODO Spec - this did not work, it loses the side menu for some reason
+                        //document.getElementById('start_content').src = basicTree.tree('selectedItems')[0].attr.src;
+                        var selectedPage;
+                        switch (basicTree.tree('selectedItems')[0].attr.id) {
+                            case "start_add_project" : selectedPage = "demo-dev-use.html"; break;
+                            case "start_sys_requirements" : selectedPage = "demo-sysreq.html"; break;
+                            case "start_third_party" : selectedPage = "demo-dev-libs.html"; break;
+                            case "start_faq" : selectedPage = "demo-faq.html"; break;
+                            default : selectedPage = "#"; break;
+                        }
+                        document.getElementById('start_content').src = selectedPage;
+                    });
+                });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Angular Input </title>
+</head>
+<body class="demo-body-content" ng-controller="InputfieldDemoController as demo">
+<h1 class="component-header" id="nokia_input_field">Text field</h1>
+<hr>
+<div class="row">
+    <div class="col-md-6">
+        <h4>Standard text fields</h4>
+
+        <div class="form-horizontal inputfield-list">
+            <div class="form-group">
+                <label for="Example1"  class="col-sm-5 control-label" ng-class="{true: 'label-disabled'}[demo.standard.disable]"   style="width: 180px">Editable/Disabled: </label>
+                <div class="col-sm-7">
+                    <input id="Example1" type="text"  class="form-control n-inputfield" ng-disabled="demo.standard.disable"   ng-model="demo.standard.enableDisableShow" >
+                    <div>
+                        <button id="TA-textfield-standardBtn" class="btn btn-small" ng-click="demo.standard.updateEnableDisable()">{{demo.standard.disable ? "Enable": "Disable"}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Example2" class="col-sm-5 control-label" style="width: 180px">Editable/Not editable: </label>
+                <div class="col-sm-7">
+                    <input id="Example2" type="text" class="form-control n-inputfield" ng-readonly="demo.standard.readonly"  ng-model="demo.standard.readonlyOperationShow">
+                    <div>
+                        <button id="TA-textfield-readonlyBtn" class="btn btn-small" ng-click="demo.standard.updateReadonly()">{{demo.standard.readonly ? "Enable":"ReadOnly"}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="no-edit-right" class="col-sm-5 control-label" style="width: 180px">No edit rights: </label>
+                <div class="col-sm-7">
+                    <input id="no-edit-right" type="text" class="form-control n-inputfield n-inputfield-uneditable" ng-readonly="true" value="Read-only for this user">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="with-clear-button" class="col-sm-5 control-label" style="width: 180px">Field with clear button: </label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-clearable" id="TA-inputfield-standardCl">
+                        <input id="with-clear-button" type="text" class="form-control n-inputfield"  ng-model="inputField" placeholder="Clearable with button">
+                        <a class="n-inputfield-control-icon" ng-show="inputField.length"   ng-click="inputField = ''"  href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-5 control-label-sm" style="width: 180px">Field with filter: </label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-filter n-inputfield-clearable" id="TA-inputfield-standardFilter">
+                        <a class="n-inputfield-filter-icon"><span class="icon icon-filter"></span> </a>
+                        <input id="with-filter-button" type="text" class="form-control n-inputfield" ng-model="fileterField" placeholder="Filter...">
+                        <a  class="n-inputfield-control-icon"  ng-show="fileterField.length"   ng-click="fileterField = ''"  href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Small text fields</h4>
+
+        <div class="form-horizontal inputfield-list">
+            <div class="form-group">
+                <label for="small-example1" class="col-sm-5 control-label-sm" ng-class="{true: 'label-disabled'}[demo.small.disable]" style="width: 180px">Editable/Disabled: </label>
+                <div class="col-sm-7">
+                    <input id="small-example1" type="text" class="form-control n-inputfield n-inputfield-small" ng-disabled="demo.small.disable"  ng-model="demo.small.enableDisableShow">
+                    <div>
+                        <button id="TA-textfield-smallStandardBtn" class="btn btn-small" ng-click="demo.small.updateEnableDisable()">{{demo.small.disable ? "Enable": "Disable"}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="small-example3" class="col-sm-5 control-label-sm" style="width: 180px">Editable/Not editable: </label>
+                <div class="col-sm-7">
+                    <input id="small-example3" type="text" class="form-control n-inputfield n-inputfield-small"
+                           ng-readonly="demo.small.readonly" ng-model="demo.small.readonlyOperationShow">
+                    <div>
+                        <button id="TA-textfield-smallReadonlyBtn" class="btn btn-small" ng-click="demo.small.updateReadonly()">{{demo.small.readonly ? "Enable":"ReadOnly"}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="small-no-edit-right" class="col-sm-5 control-label-sm" style="width: 180px">No edit rights: </label>
+                <div class="col-sm-7">
+                    <input id="small-no-edit-right" type="text"  class="form-control n-inputfield n-inputfield-small n-inputfield-uneditable"
+                           ng-readonly="true"  value="Read-only for this user">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label-sm" style="width: 180px">Field with clear button: </label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-clearable" id="TA-inputfield-smallClear">
+                        <input id="Clear-button-small" type="text" class="form-control n-inputfield n-inputfield-small" ng-model="inputSmallField" placeholder="Clearable with button">
+                        <a class="n-inputfield-control-icon n-inputfield-control-icon-small" ng-show="inputSmallField.length"  ng-click="inputSmallField = ''" href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-5 control-label-sm" style="width: 180px">Field with filter: </label>
+                <div class="col-sm-7">
+                    <div class="n-inputfield-filter n-inputfield-clearable" id="TA-inputfield-smallFilter">
+                        <a class="n-inputfield-filter-icon-small"><span class="icon icon-filter"></span> </a>
+                        <input id="filter-button-small" type="text" class="form-control n-inputfield n-inputfield-small" ng-model="smallField" placeholder="Filter...">
+                        <a class="n-inputfield-control-icon n-inputfield-control-icon-small" ng-show="smallField.length"  ng-click="smallField = ''"  href="javascript:void(0)">
+                            <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h4>Form input text field validation with angularjs attributes</h4>
+
+        <form class="form-horizontal inputfield-list"  name="formValidation"   onkeydown="if (event.keyCode ==13) {return false}" novalidate >
+            <div class="form-group">
+                <label for="small-error1" class="col-sm-5 control-label-sm" ng-class="{true: 'label-disabled'}[demo.validation.disable]" style="width: 180px">Error:</label>
+                <div class="col-sm-4" id="TA-inputfield-validation-error">
+                    <input name = "Error" id="small-error1" type="text" class="form-control  n-inputfield" ng-class="{true: 'has-error'}[(formValidation.Error.$invalid) && (!demo.validation.disable)]" placeholder="Text"  ng-model="inputValue0"  ng-minlength="2"  ng-maxlength="4"
+                           ng-required="demo.requireValue" ng-pattern="demo.digitalPattern" ng-disabled="demo.validation.disable"/>
+                    <a  ng-show="formValidation.Error.$error.required &&  inputValue0.length" ></a>
+                </div>
+                <div class="col-sm-7">
+                    <span  ng-class="{true: 'label-disabled'}[demo.validation.disable]">Note: valid digital length between 2~4 </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="small-error2" class="col-sm-5 control-label-sm" ng-class="{true: 'label-disabled'}[demo.validation.disable]" style="width: 180px">Error2:</label>
+                <div class="col-sm-4" id="TA-inputfield-validation-error2">
+                    <input name = "Error2" id="small-error2" type="text" class="form-control  n-inputfield" ng-class="{true: 'has-error'}[(formValidation.Error2.$invalid) && (!demo.validation.disable)]" placeholder="Digital"  ng-model="inputValue1"
+                           ng-required="demo.requireValue"  ng-disabled="demo.validation.disable"  ng-pattern="demo.minMaxPattern"/>
+                    <a  ng-show="formValidation.Error2.$error.required &&  inputValue1.length" ></a>
+                </div>
+                <!--{{formValidation.Error2.$invalid}}-->
+                <div class="col-sm-7">
+                    <span  ng-class="{true: 'label-disabled'}[demo.validation.disable]">Note: valid digital [1...99] </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="small-required" class="col-sm-5 control-label-sm" ng-class="{true: 'label-disabled'}[demo.validation.disable]" style="width: 180px">Required: </label>
+                <div class="col-sm-4" id="TA-inputfield-validation-required">
+                    <input id="small-required" name = "input" type="text" class="form-control n-inputfield" placeholder="Text"  ng-disabled="demo.validation.disable" ng-model="inputValue2" ng-required="demo.requireValue" ng-pattern="demo.pattern2">
+                    <a class="form-control-feedback" ng-show="demo.requireValue  && !inputValue2.length">
+                        <span class="icon" ng-class="{true: 'icon-mandatory'}[!demo.validation.disable]"></span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback" ng-class="{true: 'input-error', false: 'valid'}[formValidation.EntryInvalid.$invalid]">
+                <label  class="col-sm-5 control-label-sm" ng-class="{true: 'label-disabled'}[demo.validation.disable]" style="width: 180px">Entry invalid/valid:</label>
+                <div class="col-sm-4" id="TA-inputfield-validation-entryValid">
+                    <input name="EntryInvalid" type="text" class="form-control n-inputfield" placeholder="Text"  ng-disabled="demo.validation.disable" ng-model="inputValue3" ng-required="requireValue"  ng-minlength="2"  ng-maxlength="4" ng-pattern="demo.letterPattern">
+                    <a class="form-control-feedback" ng-show="formValidation.EntryInvalid.$invalid"><span class="icon" ng-class="{true: 'icon-input-error-disabled', false: 'icon-input-error'}[demo.validation.disable]" ></span></a>
+                    <a class="form-control-feedback" ng-show="formValidation.EntryInvalid.$valid &&  inputValue3.length"><span class="icon" ng-class="{true: 'icon-ok-disabled', false: 'icon-ok'}[demo.validation.disable]"></span></a>
+                </div>
+                <div class="col-sm-7">
+                    <span  ng-class="{true: 'label-disabled'}[demo.validation.disable]">Note: valid letter length between 2~4 </span>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback entry-changed">
+                <label for="small-Edited" class="col-sm-5 control-label-sm" ng-class="{true: 'label-disabled'}[demo.validation.disable]" style="width: 180px">Entry Changed: </label>
+                <div class="col-sm-4" id="TA-inputfield-validation-entryChanged">
+                    <input id="small-Edited" type="text" class="form-control n-inputfield"  name="EntryChanged"  ng-disabled="demo.validation.disable"  ng-model="demo.validation.entryChange"   ng-required="demo.requireValue"  ng-pattern="demo.pattern2">
+                    <a class="form-control-feedback" ng-show="!demo.validation.noChange()"><span class="icon"  ng-class="{true:  'icon-edited-disabled', false:'icon-edited' }[demo.validation.disable]"></span></a>
+                    <div>
+                        <button id="TA-textfield-entryChangedBtn" class="btn btn-small" ng-click="demo.validation.updateEnableDisable()">{{demo.validation.disable ? "Enable": "Disable"}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div >
+            <h2>Notes</h2>
+            <p>If  want use angularjs validation, you must set ng-required and ng-pattern, for details info, see below Validation tab part.</p>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Overview</h2>
+        <p>We did not capsulate input text tag but just show how to use directive to update component status.
+            <br/>
+            Detail angular input text information please refer to <a href="#" onclick="javascript:window.open('https://docs.angularjs.org/api/ng/directive/input');">https://docs.angularjs.org/api/ng/directive/input</a>.
+            <br/>
+            <br/>
+            AngularJS provides basic form validation by honoring the standard HTML element attributes, such as type and
+            required, and adding some directives.
+            <br/>
+            The directive that AngularJS uses for input elements provides some additional attributes that can be used to improve
+            integration with the data model, as below:
+            <ul>
+                <li>
+                    <code>ng-model</code>— Specifies a two-model binding.
+                </li>
+                <li>
+                    <code>ng-change</code>— Specifies an expression that is evaluated when the contents of the element are changed.
+                </li>
+                <li>
+                    <code>ng-minlength</code>— Sets a minimum number of characters required for the element to be valid.
+                </li>
+                <li>
+                    <code>ng-maxlength</code>— Sets a maximum number of characters required for the element to be valid.
+                </li>
+                <li>
+                    <code>ng-pattern</code>— Sets a regular expression. The contents of the element must match this pattern in order to be valid.
+                </li>
+                <li>
+                    <code>ng-required</code>— Sets the value of the required attribute with a data binding..
+                </li>
+            </ul>
+            The form object comes with a few predefined states that allow you to make decisions
+            on what actions you want to allow. These states are as follows:
+            <ul>
+                <li>
+                    <code>$pristine</code>— This Boolean flag indicates that the form is unmodified.
+                </li>
+                <li>
+                    <code>$dirty</code>— This Boolean flag indicates that the form has been modified.
+                </li>
+                <li>
+                    <code>$valid</code>— This Boolean flag indicates that the form is in a valid state.
+                </li>
+                <li>
+                    <code>$invalid</code>— This Boolean flag indicates that the form is in an invalid state.
+                </li>
+                <li>
+                    <code>$error</code>— This object contains all the validations on a form and whether they’re valid or invalid.
+                </li>
+                <li>
+                    <code>$touched</code>— This Boolean flag indicates that a control has lost focus.
+                </li>
+            </ul>
+            AngularJS also adds a corresponding CSS class
+            to the form element, reports on the outcome of these validation checks by adding and removing the elements it validates
+            from a set of classes, which can be combined with CSS to provide feedback to the user by styling the element:
+            <ul>
+                <li>
+                    <code>.ng-valid</code>—  the model is valid.
+                </li>
+                <li>
+                    <code>.ng-invalid</code>—  the model is invalid.
+                </li>
+                <li>
+                    <code>.ng-valid-[key]</code>—  for each valid key added by $setValidity.
+                </li>
+                <li>
+                    <code>.ng-invalid-[key]</code>—  for each invalid key added by $setValidity.
+                </li>
+                <li>
+                    <code> .ng-pristine</code>—  the control hasn't been interacted with yet.
+                </li>
+                <li>
+                    <code>.ng-dirty</code>—  the control has been interacted with.
+                </li>
+                <li>
+                    <code>.ng-touched</code>—  the control has been blurred.
+                </li>
+                <li>
+                    <code>.ng-untouched</code>—  the control hasn't been blurred.
+                </li>
+                <li>
+                    <code>.ng-pending</code>—  any $asyncValidators are unfulfilled.
+                </li>
+                <li>
+                    <code>.ng-empty</code>—  the view does not contain a value or the value is deemed "empty", as defined by the ngModel.NgModelController method.
+                </li>
+                <li>
+                    <code>.ng-not-empty</code>—  the view contains a non-empty value.
+                </li>
+            </ul>
+            You can define ng-pattern with yourself, use this directives and attributes and "ng-show", "ng-if" to complete validation.</p>
+        <p>Reference:</p>
+        <p><a href="https://docs.angularjs.org/guide/forms">https://docs.angularjs.org/guide/forms</a></p>
+        <p><a href="https://docs.angularjs.org/api/ng/type/ngModel.NgModelController">https://docs.angularjs.org/api/ng/type/ngModel.NgModelController</a></p>
+    </div>
+
+</div>
+<br/>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+    <!-- Standard size Editable/Disabled field -->
+    <label for="Example1" class="col-sm-5 control-label" style="width: 180px">Editable/Disabled</label>
+    <div class="col-sm-7">
+         <input type="text"  class="form-control n-inputfield" ng-disabled="demo.standard.disable"   ng-model="demo.standard.enableDisableShow" >
+    </div>
+
+    <!-- Standard size Editable/Not-editable  field -->
+    <label for="Example2" class="col-sm-5 control-label" style="width: 180px">Editable/Not-editable field</label>
+    <div class="col-sm-7">
+        <input  type="text" class="form-control n-inputfield" ng-readonly="demo.standard.readonly"  ng-model="demo.standard.readonlyOperationShow">
+    </div>
+
+    <!-- Standard size Clearable text field -->
+    <input  type="text" class="form-control n-inputfield"  ng-model="demo.inputField" placeholder="Label inside">
+    <a class="n-inputfield-control-icon" ng-show="demo.inputField.length"   ng-click="demo.inputField = ''"  href="javascript:void(0)">
+        <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+    </a>
+
+    <!-- Small size Editable/Disabled field -->
+    <label for="small-example1" class="col-sm-5 control-label-sm" style="width: 180px">Editable/Disabled field:</label>
+    <div class="col-sm-7">
+        <input  type="text" class="form-control n-inputfield n-inputfield-small" ng-disabled="demo.inputTextInstance.disable"  ng-model="demo.small.enableDisableShow"  >
+    </div>
+
+    <!-- Small size Editable/Not-editable field -->
+    <label for="small-example3" class="col-sm-5 control-label-sm" style="width: 180px">Editable/Not-editable field:</label>
+    <div class="col-sm-7">
+        <input  type="text" class="form-control n-inputfield n-inputfield-small" ng-readonly="demo.small.readonly" ng-model="demo.small.readonlyOperationShow">
+    </div>
+
+    <!-- Small size  clearable field -->
+    <input type="text" class="form-control n-inputfield n-inputfield-small" ng-model="demo.inputSmallField" placeholder="Label inside">
+    <a class="n-inputfield-control-icon n-inputfield-control-icon-small" ng-show="demo.inputSmallField.length"  ng-click="demo.inputSmallField = ''" href="javascript:void(0)">
+        <span role="button" aria-label="clear textfield content" class="icon icon-close"></span>
+    </a>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="Validation">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+    <!-- Input validation: Error with valid digital length between 2~4 --->
+     <input name = "Error" type="text" class="form-control  n-inputfield" ng-class="{true: 'has-error'}[(formValidation.Error.$invalid) && (!demo.validation.disable)]" placeholder="Text"  ng-model="inputValue0"  ng-minlength="2"  ng-maxlength="4"
+            ng-required="demo.requireValue" ng-pattern="demo.digitalPattern" ng-disabled="demo.validation.disable"/>
+    <a  ng-show="formValidation.Error.$error.required &&  inputValue0.length" ></a>
+
+    <!-- Input validation: Error with valid digital [1...99] --->
+    <input name = "Error2"  type="text" class="form-control  n-inputfield" ng-class="{true: 'has-error'}[(formValidation.Error2.$invalid) && (!demo.validation.disable)]" placeholder="Digital"  ng-model="inputValue1"
+               ng-required="demo.requireValue"  ng-disabled="demo.validation.disable"  ng-pattern="demo.minMaxPattern"/>
+    <a  ng-show="formValidation.Error2.$error.required &&  inputValue1.length" ></a>
+
+    <!-- Input validation: Required --->
+    <input  name = "input" type="text" class="form-control n-inputfield" placeholder="Text"  ng-disabled="demo.validation.disable" ng-model="inputValue1" ng-required="demo.requireValue" ng-pattern="demo.pattern2">
+    <a class="form-control-feedback" ng-show="demo.requireValue  && !inputValue1.length"><span class="icon" ng-class="{true: 'icon-mandatory'}[!demo.validation.disable]"></span></a>
+
+    <!-- Input validation: Entry invalid/valid --->
+    <input name="EntryInvalid" type="text" class="form-control n-inputfield" placeholder="Text"  ng-disabled="demo.validation.disable" ng-model="inputValue2" ng-required="requireValue"  ng-minlength="2"  ng-maxlength="4" ng-pattern="demo.letterPattern">
+    <a class="form-control-feedback" ng-show="formValidation.EntryInvalid.$invalid"><span class="icon" ng-class="{true: 'icon-input-error-disabled', false: 'icon-input-error'}[demo.validation.disable]" ></span></a>
+    <a class="form-control-feedback" ng-show="formValidation.EntryInvalid.$valid &&  inputValue2.length"><span class="icon" ng-class="{true: 'icon-ok-disabled', false: 'icon-ok'}[demo.validation.disable]"></span></a>
+
+    <!-- Input validation: Entry changed --->
+    <input type="text" class="form-control n-inputfield"  name="EntryChanged"  ng-disabled="demo.validation.disable"  ng-model="demo.validation.entryChange"   ng-required="demo.requireValue"  ng-pattern="demo.pattern2">
+    <a class="form-control-feedback" ng-show="!demo.validation.noChange()"><span class="icon"  ng-class="{true:  'icon-edited-disabled', false:'icon-edited' }[demo.validation.disable]"></span></a>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.tabs']).controller('InputfieldDemoController', InputfieldDemoController);
+function InputfieldDemoController() {
+    var newInstance = function (disable, readonly, content) {
+        return {
+            disable: disable,
+            readonly: readonly,
+            content: content
+        }
+    };
+
+    var self = this;
+    self.standard = newInstance(false, true, "Text");
+    self.small = newInstance(false, true, "Text");
+    self.validation = newInstance(false, true, "Text");
+
+    self.standard.enableDisableShow = "Editable field";
+    self.standard.updateEnableDisable = function () {
+        self.standard.disable = !self.standard.disable;
+    };
+
+    self.standard.readonlyOperationShow = "Read-only input field";
+    self.standard.updateReadonly = function () {
+        self.standard.readonly = !self.standard.readonly;
+    };
+
+    self.small.enableDisableShow = "Editable field";
+    self.small.updateEnableDisable = function () {
+        self.small.disable = !self.small.disable;
+    };
+
+    self.small.readonlyOperationShow = "Read-only input field";
+    self.small.updateReadonly = function () {
+        self.small.readonly = !self.small.readonly;
+    };
+
+    self.validation.updateEnableDisable = function () {
+        self.validation.disable = !self.validation.disable;
+    };
+
+    self.validation.initValue = "Changed";
+    self.validation.result = "";
+    self.validation.entryChange = "Changed";
+    self.validation.noChange = function () {
+        self.validation.result = angular.equals(self.validation.initValue,  self.validation.entryChange );
+        return self.validation.result;
+    }
+
+    self.requireValue =  true;
+    self.letterPattern = new RegExp("^[a-zA-Z]");
+    self.digitalPattern = new RegExp("^[0-9]");
+    self.minMaxPattern = new RegExp("^(0?[1-9]|[1-9][0-9])$");
+    self.pattern2 = new RegExp("^[a-zA-Z0-9]");
+}
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.tabs']).controller('InputfieldDemoController', InputfieldDemoController);
+        function InputfieldDemoController() {
+            var newInstance = function (disable, readonly, content) {
+                return {
+                    disable: disable,
+                    readonly: readonly,
+                    content: content
+                }
+            };
+
+            var self = this;
+            self.standard = newInstance(false, true, "Text");
+            self.small = newInstance(false, true, "Text");
+            self.validation = newInstance(false, true, "Text");
+
+            self.standard.enableDisableShow = "Editable field";
+            self.standard.updateEnableDisable = function () {
+                self.standard.disable = !self.standard.disable;
+            };
+
+            self.standard.readonlyOperationShow = "Read-only input field";
+            self.standard.updateReadonly = function () {
+                self.standard.readonly = !self.standard.readonly;
+            };
+
+            self.small.enableDisableShow = "Editable field";
+            self.small.updateEnableDisable = function () {
+                self.small.disable = !self.small.disable;
+            };
+
+            self.small.readonlyOperationShow = "Read-only input field";
+            self.small.updateReadonly = function () {
+                self.small.readonly = !self.small.readonly;
+            };
+
+            self.validation.updateEnableDisable = function () {
+                self.validation.disable = !self.validation.disable;
+            };
+
+            self.validation.initValue = "Changed";
+            self.validation.result = "";
+            self.validation.entryChange = "Changed";
+            self.validation.noChange = function () {
+                self.validation.result = angular.equals(self.validation.initValue,  self.validation.entryChange );
+                return self.validation.result;
+            }
+            
+            self.requireValue =  true;
+            self.letterPattern  = new RegExp("^[a-zA-Z]");
+            self.digitalPattern = new RegExp("^[0-9]");
+            self.minMaxPattern = new RegExp("^(0?[1-9]|[1-9][0-9])$");
+            self.pattern2 = new RegExp("^[a-zA-Z0-9]");
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

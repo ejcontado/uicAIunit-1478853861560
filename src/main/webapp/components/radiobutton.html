@@ -1,0 +1,113 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_radiobutton">Radio button <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Enabled radiobutton group:</label>
+
+            <div class="radio">
+                <input id="radio1" name="radiobuttongroup1" class = "n-radio-btn" type="radio">
+                <label for="radio1" id="TA_Radiobutton_enabledradio1">Value 1</label>
+            </div>
+            <div class="radio">
+                <input id="radio2" name="radiobuttongroup1" class = "n-radio-btn" type="radio">
+                <label for="radio2" id="TA_Radiobutton_enabledradio2">Value 2</label>
+            </div>
+            <div class="radio">
+                <input id="radio3" name="radiobuttongroup1" class = "n-radio-btn" type="radio" checked>
+                <label for="radio3" id="TA_Radiobutton_enabledradio3">Value 3</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Disabled radiobutton group:</label>
+
+            <div class="radio">
+                <input id="disabradio1" name="radiobuttongroup2" class = "n-radio-btn" type="radio" disabled>
+                <label for="disabradio1" id="TA_Radiobutton_disabledradio1">Value 1</label>
+            </div>
+            <div class="radio">
+                <input id="disabradio2" name="radiobuttongroup2" class = "n-radio-btn" type="radio" disabled>
+                <label for="disabradio2" id="TA_Radiobutton_disabledradio2">Value 2</label>
+            </div>
+            <div class="radio">
+                <input id="disabradio3" name="radiobuttongroup2" class = "n-radio-btn" type="radio" disabled checked>
+                <label for="disabradio3" id="TA_Radiobutton_disabledradio3">Value 3</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Small radiobutton group:</label>
+
+            <div class="radio radio-small">
+                <input id="smallradio1" name="radiobuttongroup3" class = "n-radio-btn" type="radio">
+                <label for="smallradio1" id="TA_Radiobutton_smallradio1">Value 1</label>
+            </div>
+            <div class="radio radio-small">
+                <input id="smallradio2" name="radiobuttongroup3" class = "n-radio-btn" type="radio" checked>
+                <label for="smallradio2" id="TA_Radiobutton_smallradio2">Value 2</label>
+            </div>
+            <div class="radio radio-small">
+                <input id="smallradio3" name="radiobuttongroup3" class = "n-radio-btn" type="radio" disabled>
+                <label for="smallradio3" id="TA_Radiobutton_smallradio3">Value 3</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For Radio button components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.css" rel="stylesheet"/&gt;
+&lt;link href="../assets/css/demo.css" rel="stylesheet"&gt;</pre>
+<pre>
+<code>
+    &lt;!-- Group of radiobuttons --&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label&gt;Label for radiobutton group:&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;!--Enabled and checked radiobutton --&gt;
+    &lt;div class="radio"&gt;
+        &lt;input id="id for radiobutton 1" name="name for group of radiobuttons" type="radio" checked&gt;
+        &lt;label for="id for for radiobutton 1">Name of the radiobutton 1/label&gt;
+    &lt;/div&gt;
+
+    &lt;!--Enabled and unchecked radiobutton --&gt;
+    &lt;div class="radio"&gt;
+        &lt;input id="id for radiobutton 2" name="name for group of radiobuttons" type="radio" &gt;
+        &lt;label for="id for radiobutton 2">Name of the radiobutton 2/label&gt;
+    &lt;/div&gt;
+
+    &lt;!--Disabled radiobutton --&gt;
+    &lt;div class="radio"&gt;
+        &lt;input id="id for radiobutton 3" name="name for group of radiobuttons type="radio" disabled&gt;
+        &lt;label for="id for radiobutton 3">Name of the radiobutton 3/label&gt;
+    &lt;/div&gt;
+
+    &lt;!--Small radiobuttons by adding extra class "radio-small" after "radio"--&gt;
+    </code>
+</pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/radiogroup']);
+</script>
+</body>
+</html>

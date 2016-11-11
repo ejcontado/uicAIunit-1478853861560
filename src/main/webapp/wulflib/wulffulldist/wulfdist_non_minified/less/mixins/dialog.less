@@ -1,0 +1,86 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "gradients.less";
+
+/*
+ * Used to generate 2 color curve style in banner dialog
+ * @height: height of the banner
+ * @color-x-name:  color name for left part in the curve, e.g. gray
+ * @color-y-name:  color name for right part in the curve, e.g. dark, red, orange
+ *
+ * color names should be explicitly defined as n-banner-dlg-gradient-@{color-x-name}-start in variables.less
+ */
+.n-banner-dlg-x-to-y (@height; @color-x-name; @color-y-name ) {
+ // float: right;
+  height: @height;
+  min-width: 90px; // was 100px
+  padding: 0;
+  //position: relative;
+  width: 90px; // was 100px
+
+  @var-color-x-start: ~"n-banner-dlg-gradient-@{color-x-name}-start";
+  @var-color-x-end: ~"n-banner-dlg-gradient-@{color-x-name}-end";
+  @var-color-y-start: ~"n-banner-dlg-gradient-@{color-y-name}-start";
+  @var-color-y-end: ~"n-banner-dlg-gradient-@{color-y-name}-end";
+  @var-color-x-y-mid: ~"n-banner-dlg-gradient-@{color-y-name}-@{color-y-name}-mid";
+
+  > .fg-mask {
+    background: linear-gradient(to bottom, @@var-color-x-start -15px, @@var-color-x-end);
+    bottom: 0;
+    height: 50%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+  > .bg-mask {
+    background: linear-gradient(to bottom, @@var-color-y-start -10px, @@var-color-y-end 30px); // #1A64C1, #0E3277
+    height: 50%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  > .fg-corner {
+    background: linear-gradient(to bottom, @@var-color-x-start -10px, @@var-color-x-end);
+    border-radius: 0 70px 0 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    //glitch fix in ie
+    left: -1px;
+    width: 38px;
+  }
+  > .bg-corner {
+    background: linear-gradient(to bottom, @@var-color-y-start -10px, @@var-color-y-end);
+    border-radius: 0 0 0 100px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    // Todo: need to create some border/rule to separate the two grays from eachother, but following does not work
+    //border-bottom: 1px solid @banner-dlg-gray-dark-bottom;
+    z-index: 1;
+    //glitch fix in ie
+    right: -1px;
+    width: 62px;
+  }
+}
+
+.n-banner-dlg-filler-x(@height;@color-x-name ) {
+  @var-color-x-start: ~"n-banner-dlg-gradient-@{color-x-name}-start";
+  @var-color-x-end: ~"n-banner-dlg-gradient-@{color-x-name}-end";
+
+  #gradient > .vertical(@@var-color-x-start, @@var-color-x-end);
+  height: @height;
+  border-radius: 7px 7px 0 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+

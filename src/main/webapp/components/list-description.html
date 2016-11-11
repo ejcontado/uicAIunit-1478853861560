@@ -1,0 +1,279 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.list.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_description_list">Description list (dl/dt/dd)<a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div id="list-demo-container" class="col-md-5">
+        <form class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Standard:</label>
+                <div class="col-sm-8">
+                    <span class="n-list-group-header">Example</span>
+                    <dl class="list-group">
+                        <dt class="list-group-item" id="TA-list-Dapibus">Dapibus ac facilisis in</dt>
+                            <dd class="list-group-item">Cras justo odio</dd>
+                            <dd class="list-group-item">Nulla vel metus</dd>
+                            <dd class="list-group-item">Donec lacinia</dd>
+                        <dt class="list-group-item">Porta ac consectetur ac</dt>
+                            <dd class="list-group-item">Cras justo odio</dd>
+                            <dd class="list-group-item">Nulla vel metus</dd>
+                        <dt class="list-group-item">Vestibulum at eros</dt>
+                            <dd class="list-group-item">Donec lacinia</dd>
+                    </dl>
+
+                    <span class="n-list-group-header label-disabled">Disabled example</span>
+                    <dl class="list-group disabled">
+                        <dt class="list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="list-group-item" id="TA-list-Cras">Cras justo odio</dd>
+                            <dd class="list-group-item">Nulla vel metus</dd>
+                            <dd class="list-group-item">Donec lacinia</dd>
+                        <dt class="list-group-item">Porta ac consectetur ac</dt>
+                            <dd class="list-group-item">Cras justo odio</dd>
+                            <dd class="list-group-item">Nulla vel metus</dd>
+                        <dt class="list-group-item">Vestibulum at eros</dt>
+                            <dd class="list-group-item">Donec lacinia</dd>
+                    </dl>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-7">
+        <p>JS & CSS dependency:</p>
+<pre>
+For description list (dl/dt/dd) components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.list.min.css" rel="stylesheet"&gt;</pre>
+        <span>Code</span>
+        <pre>
+<code>
+    &lt;!-- Normal list --&gt;
+    &lt;dl class="list-group"&gt;
+        &lt;dt class="list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="list-group-item"&gt;Cras justo odio&lt;/dd&gt;
+            &lt;dd class="list-group-item"&gt;Nulla vel metus&lt;/dd&gt;
+            &lt;dd class="list-group-item"&gt;Donec lacinia&lt;/dd&gt;
+        &lt;dt class="list-group-item"&gt;Porta ac consectetur ac&lt;/dt&gt;
+            &lt;dd class="list-group-item"&gt;Cras justo odio&lt;/dd&gt;
+            &lt;dd class="list-group-item"&gt;Nulla vel metus&lt;/dd&gt;
+        &lt;dt class="list-group-item"&gt;Vestibulum at eros&lt;/dt&gt;
+            &lt;dd class="list-group-item"&gt;Donec lacinia&lt;/dd&gt;
+    &lt;/dl&gt;
+
+    &lt;!-- Disabled list --&gt;
+    &lt;dl class="list-group <span class="demo-highlight-color">disabled</span>"&gt;
+        &lt;dt class="list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="list-group-item"&gt;Cras justo odio&lt;/dd&gt;
+            &lt;dd class="list-group-item"&gt;Nulla vel metus&lt;/dd&gt;
+            &lt;dd class="list-group-item"&gt;Donec lacinia&lt;/dd&gt;
+        &lt;dt class="list-group-item"&gt;Porta ac consectetur ac&lt;/dt&gt;
+            &lt;dd class="list-group-item"&gt;Cras justo odio&lt;/dd&gt;
+            &lt;dd class="list-group-item"&gt;Nulla vel metus&lt;/dd&gt;
+        &lt;dt class="list-group-item"&gt;Vestibulum at eros&lt;/dt&gt;
+            &lt;dd class="list-group-item"&gt;Donec lacinia&lt;/dd&gt;
+    &lt;/dl&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<div class="row">
+    <div id="list-demo-container-selection" class="col-md-5">
+        <form class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Selection:</label>
+                <div class="col-sm-8">
+                    <span class="n-list-group-header">Selection support</span>
+                    <dl class="n-list-group">
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item selected"><span>Donec lacinia</span></dd>
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                    </dl>
+
+                    <span class="n-list-group-header label-disabled">Disabled with selection</span>
+                    <dl class="n-list-group disabled">
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item selected" id="TA-list-Nulla"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item"><span>Donec lacinia</span></dd>
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                    </dl>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-7">
+        <span>Code</span>
+        <pre>
+<code>
+    &lt;!-- Normal list with selection --&gt;
+    &lt;dl class="<span class="demo-highlight-color">n-list-group</span>"&gt;
+        &lt;dt class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            &lt;dd class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;&lt;span&gt;Nulla vel metus&lt;/span&gt;&lt;/dd&gt;
+            &lt;dd class="<span class="demo-highlight-color">n-list-group-item selected</span>"&gt;&lt;span&gt;Donec lacinia&lt;/span&gt;&lt;/dd&gt;
+        &lt;dt class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+    &lt;/dl&gt;
+
+    &lt;!-- Disabled list with selection --&gt;
+    &lt;dl class="<span class="demo-highlight-color">n-list-group disabled</span>"&gt;
+        &lt;dt class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="<span class="demo-highlight-color">n-list-group-item</span>"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+    &lt;/dl&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<div class="row">
+    <div id="list-demo-container-small" class="col-md-5">
+        <form class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Small:</label>
+                <div class="col-sm-8">
+                    <span class="n-list-group-header">Small with selection support</span>
+                    <dl class="n-list-group n-list-group-small">
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item selected" id="TA-list-Donec"><span>Donec lacinia</span></dd>
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item"><span>Donec lacinia</span></dd>
+                    </dl>
+
+                    <span class="n-list-group-header label-disabled">Disabled small with selection</span>
+                    <dl class="n-list-group n-list-group-small disabled">
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item selected"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item"><span>Donec lacinia</span></dd>
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item" id="TA-list-odio"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item"><span>Donec lacinia</span></dd>
+                    </dl>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-7">
+        <span>Code</span>
+        <pre>
+<code>
+    &lt;!-- Small list with selection --&gt;
+    &lt;dl class="n-list-group <span class="demo-highlight-color">n-list-group-small</span>"&gt;
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Nulla vel metus&lt;/span&gt;&lt;/dd&gt;
+            &lt;dd class="n-list-group-item selected"&gt;&lt;span&gt;Donec lacinia&lt;/span&gt;&lt;/dd&gt;
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+    &lt;/dl&gt;
+
+    &lt;!-- Disabled small list with selection --&gt;
+    &lt;dl class="n-list-group <span class="demo-highlight-color">n-list-group-small disabled</span>"&gt;
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+    &lt;/dl&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<div class="row">
+    <div id="list-demo-container-scroll" class="col-md-5">
+        <form class="form-horizontal button-list">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Scroll list:</label>
+                <div class="col-sm-8">
+                    <span class="n-list-group-header">Scroll list with selection support</span>
+                    <dl class="n-list-group n-list-group-scroll">
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item" id="TA-list-justo"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item selected"><span>Donec lacinia</span></dd>
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item"><span>Donec lacinia</span></dd>
+                    </dl>
+
+                    <span class="n-list-group-header label-disabled">Disabled scroll list with selection</span>
+                    <dl class="n-list-group n-list-group-scroll disabled">
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item selected"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item"><span>Donec lacinia</span></dd>
+                        <dt class="n-list-group-item">Dapibus ac facilisis in</dt>
+                            <dd class="n-list-group-item"><span>Cras justo odio</span></dd>
+                            <dd class="n-list-group-item"><span>Nulla vel metus</span></dd>
+                            <dd class="n-list-group-item"><span>Donec lacinia</span></dd>
+                    </dl>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-7">
+        <span>Code</span>
+        <pre>
+<code>
+    &lt;!-- Scrollable list with selection --&gt;
+    &lt;dl class="n-list-group <span class="demo-highlight-color">n-list-group-scroll</span>"&gt;
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Nulla vel metus&lt;/span&gt;&lt;/dd&gt;
+            &lt;dd class="n-list-group-item selected"&gt;&lt;span&gt;Donec lacinia&lt;/span&gt;&lt;/dd&gt;
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+    &lt;/dl&gt;
+
+    &lt;!-- Disabled scrollable list with selection --&gt;
+    &lt;dl class="n-list-group <span class="demo-highlight-color">n-list-group-scroll disabled</span>"&gt;
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+        &lt;dt class="n-list-group-item"&gt;Dapibus ac facilisis in&lt;/dt&gt;
+            &lt;dd class="n-list-group-item"&gt;&lt;span&gt;Cras justo odio&lt;/span&gt;&lt;/dd&gt;
+            ... ...
+    &lt;/dl&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/list-group']);
+</script>
+</body>
+</html>

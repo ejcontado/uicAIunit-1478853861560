@@ -1,0 +1,316 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_list">Calendar</h1>
+<hr>
+<div class="row" id="angular_content" ng-controller="DemoController as demo" ng-cloak>
+    <div id="calendar-demo-container" class="col-md-5">
+        <wf-calendar id="wfDemoCalendar" disable-past-days="demo.disablePastDays" optional-config="demo.optionalConfig" disable="demo.disable" show-timer="demo.showTimer" on-date-selected="demo.onDateSelected"></wf-calendar>
+        <br/>
+        <h1>Calendar Customizer</h1>
+        Toggle enable calendar: <div class="n-toggle-switch n-toggle-switch-small n-toggle-switch-color" id="TA-calendar-enable">
+        <input type="checkbox" class="n-toggle-switch-input" id="wfCalendar_demo_disableToggle">
+        <label class="n-toggle-switch-container" for="wfCalendar_demo_disableToggle" id="TA-calendar-enable-label">
+            <span class="n-toggle-switch-handler"></span>
+            <span class="n-toggle-switch-slider"></span>
+        </label>
+    </div>
+        Toggle enable past days: <div class="n-toggle-switch n-toggle-switch-small n-toggle-switch-color" id="TA-calendar-enable-past">
+        <input type="checkbox" class="n-toggle-switch-input" id="wfCalendar_demo_pastDaysToggle">
+        <label class="n-toggle-switch-container" for="wfCalendar_demo_pastDaysToggle" id="TA-calendar-enable-past-label">
+            <span class="n-toggle-switch-handler"></span>
+            <span class="n-toggle-switch-slider"></span>
+        </label>
+    </div>
+        Toggle show time spinner: <div class="n-toggle-switch n-toggle-switch-small n-toggle-switch-color" id="TA-calendar-enable-spinner">
+        <input type="checkbox" class="n-toggle-switch-input" id="wfCalendar_demo_showTimeToggle">
+        <label class="n-toggle-switch-container" for="wfCalendar_demo_showTimeToggle" id="TA-calendar-enable-spinner-label">
+            <span class="n-toggle-switch-handler"></span>
+            <span class="n-toggle-switch-slider"></span>
+        </label>
+    </div>
+        Time format : <input id="TA-Angular-Calendar-time" class="n-inputfield" type="text" ng-model="demo.dateFormat"><br/><br/>
+        <button id="TA-Angular-Calendar-button" type="button" class="btn btn-small" ng-click="demo.compileCalendar()">Re-compile Calendar</button><br/>
+        <button id="TA-spinner-disableAction" class="btn btn-small" ng-click="demo.enableDisableAction()">
+            {{demo.actionState?"Disable":"Enable"}} callback actions
+        </button>
+    </div>
+    <div class="col-md-7">
+        <p>
+        <h2>Overview</h2>
+        This is an AngularJS 1.5 wrapped fuelux Calendar. The provided markup and attributes will automatically generate all the boilerplate needed to customize your fuelux calendar.
+        You can test some possiblities using the Calendar Customizer on the left. The show time spinner and time format toggles require re-compiling the calendar before it will take effect,
+        since those are initialization parameters.
+        <br/>
+        <h2>wf-calendar settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accepted values</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>optionalConfig: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>JS Object</li>
+                    </ul>
+                </td>
+                <td>
+                    You can use the optional parameters provided by fuelux <a href="http://getfuelux.com/javascript.html#datepicker-usage-options">here</a>. If not provided, default configuration will be :<br/>
+                    <code>{ allowPastDates: true, <br/>
+                        &nbsp;&nbsp;momentConfig: { <br/>
+                        &nbsp;&nbsp;culture: 'en', <br/>
+                        &nbsp;&nbsp;format: 'DD.MM.YYYY' } <br/></code>
+                </td>
+            </tr>
+            <tr>
+                <td><code>disable:&lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>false (Default)</li>
+                        <li>true</li>
+                    </ul>
+                </td>
+                <td>
+                    If true, disables the calendar.
+                </td>
+            </tr>
+            <tr>
+                <td><code>showTimer:&lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>false (Default)</li>
+                        <li>true</li>
+                    </ul>
+                </td>
+                <td>Shows the time spinners ( Hour, Minute, AM/PM ). <b>Note:</b> Make sure your format (passed via momentConfig object in optionalConfig attribute) includes hours (H/h) and minute (m)
+                    else it would have no effect in the UI. A small 'h' timeformat/no hour timeformat will generate the AM/PM spinner.</td>
+            </tr>
+            <tr>
+                <td><code>disablePastDays: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>false (Default)</li>
+                        <li>true</li>
+                    </ul>
+                </td>
+                <td>Will disable selection of days before the current Date if true. <b>Note:</b> This is a different style from passing <code>allowPastDates: false</code> in optionalConfig, which will apply a 'restricted' class
+                    to each past day. Either will disable days but will have different styles (<code>allowPastDates: false</code> will render a red strikethrough and a restricted cursor), we suggest you use this attribute instead for
+                    Ocean Touch Compliance.</td>
+            </tr>
+            <tr>
+                <td><code>onDateSelected: &</code></td>
+                <td>
+                    function(selectDate, event)
+                </td>
+                <td>
+                    Callback function when confirm select date
+                    <ul>
+                        <li>selectDate - current selected date</li>
+                        <li>event - event when date is selected</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Keyboard accessibility</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Traverses the focus selectable calendar interactions</td>
+                <td><kbd>Tab</kbd></td>
+                <td>
+                    Focus normally spawns focus from the currently selected item.
+                </td>
+            </tr>
+            <tr>
+                <td>Selects the currently focused item</td>
+                <td><kbd>Space</kbd></td>
+                <td>Will do nothing if nothing is focused. Will act similarly to <kbd>Enter</kbd> if no timer spinners are present.</td>
+            </tr>
+            <tr>
+                <td>Finalizes the entire date and or time selected and closes the datepicker</td>
+                <td><kbd>Enter</kbd></td>
+                <td>All configured values will be the final selection</td>
+            </tr>
+            <tr>
+                <td>Moves the time spinner up/down</td>
+                <td><kbd>↓</kbd> / <kbd>↑</kbd></td>
+                <td>Focus must be on a time spinner</td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Events</h2>
+        Fuelux already exposes some events related to datepicker. You can check them
+        <a href="http://getfuelux.com/javascript.html#datepicker-usage-events">here</a>. Since the Calendar has
+        multiple interactable elements, You can use the JQuery on() function to filter the events firing from it.
+        You can consult the "Latest events" portion on the left to check how it works.
+        Aside from that WULF Calendar exposes a few more events for easier access.
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Event</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>moveMonthBack.wulf.calendar</td>
+                <td>
+                    This event fires immediately when the Back chevron button for the Month is clicked
+            </tr>
+            <tr>
+                <td>moveMonthForward.wulf.calendar</td>
+                <td>
+                    This event fires immediately when the Forward chevron button for the Month is clicked
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+            <pre ng-non-bindable>
+                <code data-language="html">
+<div ng-controller="DemoController as demo">
+    <wf-calendar disable-past-days="demo.disablePastDays" optional-config="demo.optionalConfig" disable="demo.disable" show-timer="demo.showTimer" on-date-selected="demo.onDateSelected">
+    </wf-calendar>
+</div>
+                </code>
+            </pre>
+            </wf-pane>
+            <wf-pane label="Javascript">
+            <pre>
+                <code data-language="javascript">
+var DemoController = function() {
+    var ctrl = this;
+    ctrl.disable = false;
+    ctrl.disablePastDays = false;
+    ctrl.showTimer = false;
+    ctrl.dateFormat = 'YYYY-MM-DD HH:mm';
+
+    function initDemoConfig(dateFormat) {
+        ctrl.optionalConfig = {
+            allowPastDates: true,
+            sameYearOnly: true,
+            momentConfig: {
+                culture: 'en',
+                format: dateFormat
+            }
+        };
+        this.onDateSelected = function (selectDate) {
+            alert('current select date is\n'+ selectDate );
+        };
+    }
+
+    initDemoConfig(ctrl.dateFormat);
+};
+
+angular.module('wf.ng.demo', ['wf.angular.calendar']).controller('DemoController', DemoController);
+                </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/tabs/tabs.tlp.min', 'wulf-ng/calendar/calendar.tlp.min', 'wulf/buttons', 'jquery'], function (angular) {
+        var DemoController = function($scope, $compile) {
+            var ctrl = this;
+            var calendarElement = angular.element(document.querySelector('#wfDemoCalendar'));
+            ctrl.disable = false;
+            ctrl.disablePastDays = false;
+            ctrl.showTimer = true;
+            ctrl.dateFormat = 'YYYY-MM-DD HH:mm';
+
+            function initDemoConfig(dateFormat) {
+                ctrl.optionalConfig = {
+                    allowPastDates: true,
+                    momentConfig: {
+                        culture: 'en',
+                        format: dateFormat
+                    }
+                };
+            }
+
+            initDemoConfig(ctrl.dateFormat);
+
+            this.compileCalendar = function() {
+                initDemoConfig(ctrl.dateFormat);
+                $compile(calendarElement)($scope);
+            };
+            
+            this.onDateSelected = function (selectDate) {
+                if(ctrl.actionState){
+                    alert('current select date is\n'+ selectDate );
+                }
+            };
+
+            this.actionState = false;
+            this.enableDisableAction = function () {
+                this.actionState = !this.actionState;
+            };
+            
+            // Calendar customizer specific code below
+            $('input[type=checkbox]').change( function() {
+                if (this.id === 'wfCalendar_demo_pastDaysToggle'){
+                    ctrl.disablePastDays = $(this).is(':checked');
+                }
+                else if (this.id === 'wfCalendar_demo_disableToggle'){
+                    ctrl.disable = $(this).is(':checked');
+                }
+                else {
+                    ctrl.showTimer = !$(this).is(':checked');
+                }
+                $scope.$apply();
+            });
+
+        };
+
+        DemoController.$inject = ['$scope', '$compile'];
+        angular.module('wf.ng.demo', ['wf.angular.tabs', 'wf.angular.calendar'])
+                .controller('DemoController', DemoController);
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-jqWidget.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_table_filter">Table (JQWidget) with filters <span class="draft">DRAFT</span>
+</h1>
+<hr>
+<div class="col-md-12">
+    <div id="component-header" class="col-md-12">
+        <div id="table-filter" class="n-jqxgrid-table"></div>
+    </div>
+    <div class="col-md-12">
+        <br>
+        <p>The first step is to add links to the javascript files and css dependencies to your project. Table widget
+            requires the following files:</p>
+        <pre>
+<code>
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.dropdown.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-jqWidget.min.css" rel="stylesheet"/&gt;
+    &lt;script src="./js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcore.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdata.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxbuttons.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxscrollbar.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxmenu.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcheckbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxlistbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdropdownlist.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.edit.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.selection.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxpanel.js"&gt;&lt;/script&gt;
+    <span class="demo-highlight-color">&lt;script src="./js/dependencies/jqxgrid.filter.js"&gt;&lt;/script&gt;</span>
+    <span class="demo-highlight-color">&lt;script src="./js/dependencies/jqxgrid.pager.js"&gt;&lt;/script&gt;</span>
+    &lt;script src="./js/dependencies/jqxgrid.sort.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxpanel.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="./js/wulf.min.js"&gt;&lt;/script&gt;</code>
+        </pre>
+        <p>The next step is to create a DIV element within the body of the html document.</p>
+        <pre>
+<code>
+    &lt;div id="table-filter" class="n-jqxgrid-table"&gt;&lt;/div&gt;</code>
+        </pre>
+        <p>The last step is to initialize the widget. </p>
+        <pre>
+<code>
+    &lt;script&gt;
+    $(document).ready( function() {
+    /*---------------- test data ----------------*/
+    var data = new Array();
+    data[0] = {
+    name: 'Avatar',
+    alarmnumber: '113211',
+    alarmtext: 'System module error',
+    alarmtime: "1985/03/26"
+    };
+    ...
+
+    var source =
+    {
+    localdata: data,
+    datafields:
+    [
+    {name: 'name', type: 'string'},
+    {name: 'alarmnumber', type: 'number'},
+    {name: 'alarmtext', type: 'string'},
+    {name: 'alarmtime', type: 'string'}
+    ],
+    datatype: "array"
+    };
+
+    var columns = [
+    {text: 'Distinguished Name',columntype: 'custom',datafield: 'name',cellsrenderer: $.grid.nTextFieldCellRenderer,
+    createeditor: $.grid.nCreateTextFieldEditor,initeditor:$.grid.nInitTextFieldEditor,geteditorvalue:
+    $.grid.nGetTextFieldEditorValue},
+    {text: 'Alarm Number', datafield: 'alarmnumber',cellsalign: 'right', align:"right"},
+    {
+    text: 'Alarm Text', columntype: 'textbox', datafield: 'alarmtext', <span class="demo-highlight-color">filtertype: 'list'</span>,
+    width: 160,
+    <span class="demo-highlight-color">createfilterwidget: $.grid.dropdownFilterRender</span>
+    },
+    {
+    text: 'Alarm Time', columntype: 'textbox', datafield: 'alarmtime', <span class="demo-highlight-color">filtertype: 'list'</span>,
+    width: 160,
+    createfilterwidget: $.grid.dropdownFilterRender
+    }
+    ]
+
+    var dataAdapter = new $.jqx.dataAdapter(source);
+
+    $("#table-filter").jqxGrid(
+    {
+    width: 650,
+    height:250,
+    source: dataAdapter,
+    showfilterrow: true,
+    <span class="demo-highlight-color">filterable: true</span>,
+    <span class="demo-highlight-color">pageable: true</span>,
+    selectionmode: 'multiplecellsextended',
+    columns: columns,
+    <span class="demo-highlight-color">localization: $.grid.dropdownFilterString</span>,
+    <span class="demo-highlight-color">pagerheight: 40</span>,
+    <span class="demo-highlight-color">pagerrenderer: $.grid.pagerrenderer.bind(null, "#table-filter")//#table-filter is the table id</span>
+    handlekeyboardnavigation: function (e) {
+        return $.grid.handlekeyboardnavigation(e);
+    }
+    });
+    &lt;/script&gt;</code>
+	    </pre>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="col-md-12">
+        <br>
+        <p>The following example show filter and page at the same time based on the first filter table code.</p>
+    </div>
+    <div class="col-md-12">
+        <div id="table-filter-page" class="n-jqxgrid-table"></div>
+        <br>
+    </div>
+<pre>
+<code>
+    &lt;div id="table-filter-page" class="n-jqxgrid-table"&gt;&lt;/div&gt;
+    <span class="demo-highlight-color">&lt;script src="./js/dependencies/jqxcombobox.js"&gt;&lt;/script&gt;</span>
+    &lt;script&gt;
+    $("#table-filter-page").jqxGrid(
+    {
+    ...
+    pagerrenderer: $.grid.pagerrenderer.bind(null, "#table-filter-page", <span class="demo-highlight-color">true</span>);
+    });
+    &lt;/script&gt;
+</code>
+</pre>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/grid'], function ($) {
+        var data = new Array();
+        data[0] = {
+            name: 'Avatar',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26"
+        };
+        data[1] = {
+            name: 'Robert',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26"
+        };
+        data[2] = {
+            name: 'Tom',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26"
+        };
+        data[3] = {
+            name: 'Green',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26"
+        };
+        data[4] = {
+            name: 'Abby',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26"
+        };
+        data[5] = {
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26"
+        };
+        var source =
+        {
+            localdata: data,
+            datafields: [
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'}
+            ],
+            datatype: "array"
+        };
+
+        var columns = [
+            {
+                text: 'Distinguished Name',
+                columntype: 'custom',
+                datafield: 'name',
+                cellsrenderer: $.grid.nTextFieldCellRenderer,
+                createeditor: $.grid.nCreateTextFieldEditor,
+                initeditor: $.grid.nInitTextFieldEditor,
+                geteditorvalue: $.grid.nGetTextFieldEditorValue
+            },
+            {
+                text: 'Alarm Number',
+                datafield: 'alarmnumber',
+                cellsalign: 'right',
+                align: "right"
+            },
+            {
+                text: 'Alarm Text', columntype: 'textbox', datafield: 'alarmtext', filtertype: 'list', width: 160,
+                createfilterwidget: $.grid.dropdownFilterRender
+
+            },
+            {
+                text: 'Alarm Time', columntype: 'textbox', datafield: 'alarmtime', filtertype: 'list', width: 160,
+                createfilterwidget: $.grid.dropdownFilterRender
+            }
+        ];
+
+        var dataAdapter = new $.jqx.dataAdapter(source);
+
+        $("#table-filter").jqxGrid(
+                {
+                    width: 650,
+                    height: 254,
+                    source: dataAdapter,
+                    pageable: true,
+                    showfilterrow: true,
+                    filterable: true,
+                    selectionmode: 'multiplecellsextended',
+                    columns: columns,
+                    localization: $.grid.dropdownFilterString,
+                    pagerheight: 40,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    pagerrenderer: $.grid.pagerrenderer.bind(null, "#table-filter"),
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e);
+                    }
+                });
+
+        var dataAdapter1 = new $.jqx.dataAdapter(source);
+        $("#table-filter-page").jqxGrid(
+                {
+                    width: 650,
+                    height: 254,
+                    source: dataAdapter1,
+                    pageable: true,
+                    showfilterrow: true,
+                    filterable: true,
+                    selectionmode: 'multiplecellsextended',
+                    columns: columns,
+                    localization: $.grid.dropdownFilterString,
+                    pagerheight: 40,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    pagerrenderer: $.grid.pagerrenderer.bind(null, "#table-filter-page", true, [10, 30, 50]),
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e);
+                    }
+                });
+
+    });
+</script>
+</body>
+</html>

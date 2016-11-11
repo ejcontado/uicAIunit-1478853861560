@@ -1,0 +1,58 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+.shadow(@shadow-size,@shadow-blur,@shadow-color) {
+  box-shadow: inset @shadow-size @shadow-size @shadow-blur @shadow-color, 0 1px @shadow-size lighten(@shadow-color,5%);
+}
+
+.focusthumb() {
+  //box-shadow: 0 1px 1px #323232 ,-1px 0 1px #323232,1px 0 1px #323232;
+  box-shadow:none;
+  border-color: #323232;
+  background:@thumb-border-color;
+}
+
+.track() {
+  width: @track-width;
+  height: @track-height;
+  cursor: pointer;
+  background: @track-color;
+  animate: 0.2s;
+}
+
+.thumb_chrome(){
+  .shadow(@thumb-shadow-size,@thumb-shadow-blur,@thumb-shadow-color);
+  border: @thumb-border-width solid @thumb-border-color;
+  height: @thumb-height;
+  width: @thumb-width;
+  border-radius: @thumb-radius;
+  background: @thumb-color;
+  cursor: pointer;
+  &:hover {
+    box-shadow:  0 0 1px 1px #00a1cc;
+  };
+  &:active {
+    background: @thumb-color !important;
+    box-shadow: 1px 1px 3px #4D4D4D inset, 0 -1px 1px #5A5A5A ,-1px 0 1px #5A5A5A,1px 0 1px #5A5A5A !important;
+    border-color: @track-color !important;
+  }
+
+}
+.thumb() {
+  .shadow(@thumb-shadow-size,@thumb-shadow-blur,@thumb-shadow-color);
+  border: @thumb-border-width solid @thumb-border-color;
+  height: @track-height;
+  width: @track-height;
+  border-radius: @thumb-radius;
+  background: @thumb-color;
+  cursor: pointer;
+  &:hover {
+    box-shadow:  0 0 1px 1px #00a1cc;
+  };
+  &:active {
+    background: @thumb-color !important;
+    box-shadow: 1px 1px 3px #4D4D4D inset, 0 -1px 1px #5A5A5A ,-1px 0 1px #5A5A5A,1px 0 1px #5A5A5A !important;
+    border-color: @track-color !important;
+  }
+}

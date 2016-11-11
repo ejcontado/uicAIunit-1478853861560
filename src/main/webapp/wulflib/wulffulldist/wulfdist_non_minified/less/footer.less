@@ -1,0 +1,97 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+
+//OT3 P69 footer
+
+//footer class without border
+.n-footer {
+    height: 40px;
+    bottom: 0;
+    width: 100%;
+    line-height: 40px;
+    padding: 0 10px;
+
+    .n-footer-left {
+        float: left;
+    }
+
+    .n-footer-right {
+        float: right;
+    }
+}
+
+.n-footer-left {
+    :not(:last-child) {
+        margin-right: 15px;
+    }
+    ul {
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+    li {
+        list-style: none;
+        display: inline-block;
+        position: relative;
+    }
+}
+
+.n-footer-right {
+
+    .n-footer-copyright {
+        display: inline-block;
+        font-size: @font-size-small;
+        color: @gray-global;
+        font-weight:lighter;
+    }
+
+    .n-footer-icons {
+        margin-left: 20px;
+        float: right;
+
+        .item-icon {
+            margin-left: 5px;
+            display: inline-block;
+            line-height: 0;
+
+            img {
+                height: 24px;
+            }
+        }
+    }
+}
+
+//UI setup for the footer links
+.n-footer-links {
+    font-weight: lighter;
+    color: @gray-global;
+
+    &:hover {
+        color: @black-hover;
+        border-bottom: 1px solid @blue-underline;
+
+    }
+    &:focus {
+        color: @black-hover;
+        border-bottom: 1px solid @blue-underline;
+    }
+    //used to remove dotted border in IE and Firefox
+    &:focus, &:hover, &:active {
+        text-decoration: none;
+        outline: none;
+    }
+}
+
+//footer class used when border is required
+.n-footer-bordered {
+    border-top: 1px solid @footer-border-top;
+    .n-footer;
+}
+
+//content wrapper which is used to wrap all non footer content
+.n-footer-wrapper {
+    min-height: calc(~"100% - 30px");
+    line-height: 24px;
+}

@@ -1,0 +1,67 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.footer.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<div class="n-footer-wrapper">
+    <h1 class="component-header" id="nokia_footer_bordered">Footer bordered with links<a href="../demo-dev-react.html">
+        <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+    <hr>
+    <p>To create a footer with links, firstly, contents that are non-footer are wrapped in <code>n-footer-wrapper</code>. Place contents of the footer inside <code>n-footer</code> or <code>n-footer-bordered</code>.
+        Place footer links in the footer inside <code>n-footer-left</code> whose links have the class name
+        <code>n-footer-links</code>. Copyright is placed inside <code>n-footer-right</code> as normal.
+    </p>
+    <pre>
+<code>
+    &lt;div class="n-footer-wrapper"&gt;
+        &lt;!-- page items --&gt;
+    &lt;/div&gt;
+
+    &lt;!--Bordered footer with links --&gt;
+    &lt;div class="<span class="demo-highlight-color">n-footer-bordered</span>"&gt;
+        &lt;div class="<span class="demo-highlight-color">n-footer-left</span>"&gt;
+            &lt;ul&gt;
+                <span class="demo-highlight-color">&lt;li&gt;&lt;a href="#" class="n-footer-links"&gt;Link 1&lt;/a&gt;&lt;/li&gt;</span>
+                &lt;li&gt;&lt;a href="#" class="n-footer-links"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="n-footer-links"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class="n-footer-right"&gt;
+            &lt;div class="n-footer-copyright"&gt;
+                &copy;2016 Nokia. All rights reserved.
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</code>
+    </pre>
+    <p>JS & CSS dependency:</p>
+<pre>
+For footer components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.footer.min.css" rel="stylesheet"/&gt;
+</pre>
+</div>
+<div class="n-footer-bordered">
+    <div class="n-footer-left">
+        <ul>
+            <li id="TA-footer-links1"><a href="#" class="n-footer-links">Link 1</a></li>
+            <li id="TA-footer-links2"><a href="#" class="n-footer-links">Link 2</a></li>
+            <li id="TA-footer-link3"><a href="#" class="n-footer-links">Link 3</a></li>
+        </ul>
+    </div>
+    <div class="n-footer-right">
+        <div class="n-footer-copyright" id="TA-footer-copyright">
+            &copy;2016 Nokia. All rights reserved.
+        </div>
+    </div>
+</div>
+</body>
+</html>

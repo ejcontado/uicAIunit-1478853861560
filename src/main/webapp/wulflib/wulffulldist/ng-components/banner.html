@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Banner angular</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_list">Banner</h1>
+<hr>
+<div class="row col-md-12">
+    <p>
+        Angular version of Banner component <code>wfBanner</code>,  it contains four components  <code>wfBannerUtilitySet</code>,  <code>wfBannerNavTabs</code>,  <code>wfBannerActionSet</code> and <code>wfBannerNavTabContent</code>.
+        which are implemented by using .component() method introduced since Angular1.5. <code>wfBannerNavTabs</code> implemented nav Tab and Tab with menu(menuBar) function.
+    </p>
+
+    <h1>wf-banner settings</h1>
+    <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+        <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>product-info: &lt;</code></td>
+                <td>
+                    <ul>product and Suite name info.
+                        <li>product-name - string</li>
+                        <li>suite-name - string</li>
+                        <li>search - boolea, if has search.</li>
+                    </ul>
+                </td>
+                <td>
+                    The Product and suite name info, also include if search exist or not, like: productInfo = {
+                    product-name:  "WebUI Look & Feel",
+                    suite-name: "(WULF)",
+                    search: true
+                    };
+                </td>
+            </tr>
+            <tr>
+                <td><code>utility-set: &lt;</code></td>
+                <td>
+                    <ul>utility controls  info  array include following items:.
+                        <li>type - string, links or menu</li>
+                        <li>name - string, name</li>
+                        <li>link - string, url.</li>
+                        <li>menuItems - string array for menu type, null for links type.</li>
+                    </ul>
+                </td>
+                <td>
+                    The Utility controls info data like: utility-set= [
+                    {
+                    type: "links",
+                    name: "User Name",
+                    link: "#",
+                    menuItems: [],
+                    disable: false
+                    }]
+                </td>
+            </tr>
+            <tr>
+                <td><code>nav-tabs-info: &lt;</code></td>
+                <td>
+                    navigation control info:
+                  <!--  <ul>1. navTabIndex&#45;&#45; active tab index, -1: no active, 0: first tab, and so om.</ul>-->
+                    <ul>navTabIndex- active tab index;  navigation Tab item array info which include:
+                        <li>label - string, links or menu</li>
+                        <li>css-class - string, name</li>
+                        <li>link - string, url.</li>
+                        <li>data-item - string, associated nav tab item and tab content</li>
+                        <li>menu-bar - string array for menu/sub menu items, only display for cssClass type of dropdown.</li>
+                    </ul>
+                </td>
+                <td>
+                    nav-tabs-info ={
+                    navTabIndex:  -1,
+                    navTabs: [
+                    {
+                    label: "item 1",
+                    cssClass: "n-banner-3Link",
+                    link: "#",
+                    dataItem: "item1",
+                    menuBar: ""
+                    }]
+                </td>
+            </tr>
+            <tr>
+                <td><code>action-set: &lt;</code></td>
+                <td>
+                    <ul>action controls  info  array include following items:.
+                        <li>name - string, links or menu</li>
+                        <li>css-class - "dropdown" or empty string, just one Action ,you can use empty string</li>
+                        <li>icon - string, name</li>
+                        <li>link - string, url.</li>
+                        <li>has-child - string array for menu type, null for links type.</li>
+                        <li>childItems - string, url.</li>
+                    </ul>
+                </td>
+                <td>
+                    action-set = [
+                    {
+                    name: "Manage",
+                    cssClass: "dropdown",
+                    icon: "icon icon-manage",
+                    link: "#",
+                    hasChild: true,
+                    childItems: [
+                    {name: "sub item1", link: "#",selected: false},
+                    {name: "sub item2", link: "#",selected: false}
+                    ]
+                    },
+                </td>
+            </tr>
+            <tr>
+                <td><code>overflow-open: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>false</li>
+                        <li>true</li>
+                    </ul>
+                </td>
+                <td>
+                    overflow-open = true; if "overflowOpen = true",overflow function will open ,vice versa.
+                </td>
+            </tr>
+            <!--<tr>
+                <td><code>tab-content-template: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>Default: ng-template/banner/bannerNavTabsItem.html</li>
+                        <li>string which custormer define template</li>
+                    </ul>
+                </td>
+                <td>
+                    A URL representing the location of a template to use for the main component,, add the ability to override the template used in the component.
+                </td>
+            </tr>-->
+        </tbody>
+    </table>
+
+    <h2>Keyboard accessibility</h2>
+    Besides the basic keyboard support, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+    <kbd>Tab</kbd></kbd> and <kbd>Enter</kbd>. This component also supports the following
+    keystrokes for the interaction.
+    <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+        <thead>
+        <tr>
+            <th>Interaction</th>
+            <th>Keystrokes</th>
+            <th>Notes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Move focus to next/previous tab</td>
+            <td>
+                <kbd>→</kbd>/<kbd>↓</kbd>
+                or <kbd>←</kbd>/<kbd>↑</kbd>
+                - next/previous tab
+            </td>
+            <td>
+                <ul>
+                    <li>Using <kbd>Tab</kbd> or <kbd><kbd>Shift</kbd> + <kbd>Tab</kbd></kbd> can navigate out of the
+                        group of tabs
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Select tab</td>
+            <td>
+                <kbd>Spacebar</kbd>/<kbd>Enter</kbd> - Select current
+                focused tab
+            </td>
+            <td>
+                <ul>
+                    <li>The associated tab content would be also shown</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Move focus to next/previous menuBar</td>
+            <td>
+                <kbd>↓</kbd>
+                or <kbd>↑</kbd>
+                - next/previous menu item
+            </td>
+            <td>
+                <ul>
+                    <li>Using <kbd>Tab</kbd> or <kbd><kbd>Shift</kbd> + <kbd>Tab</kbd></kbd> can navigate out of the
+                        group of tabs
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Expand/Close sub menu</td>
+            <td>
+                <kbd>→</kbd>
+                or <kbd>←</kbd>
+                - Expand/Close sub menu
+            </td>
+            <td>
+                <ul>
+                    <li>Using <kbd>Tab</kbd> or <kbd><kbd>Shift</kbd> + <kbd>Tab</kbd></kbd> can navigate out of the
+                        group of tabs
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter/Select dropdown menu</td>
+            <td>
+                <kbd>Spacebar</kbd>/<kbd>Enter</kbd> - Select current
+                dropdown menu
+            </td>
+            <td>
+                <ul>
+                    <li>The associated tab content would be also shown</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Exit dropdown menu</td>
+            <td>
+                <kbd>ESC</kbd> - Exit current
+                dropdown menu
+            </td>
+            <td>
+                <ul>
+                    <li>Only on first level of sub menu items can exit.</li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Missing functionality</h2>
+    <ul>
+        <li>keyboard dependency on navbar/keyboad-core not stripped thoroughly.</li>
+    </ul>
+</div>
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+</body>
+</html>

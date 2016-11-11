@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-jqWidget.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_table_indicator">Table (JQWidget) with change indicator</h1>
+<hr>
+<div class="col-md-12">
+    <h4>Standard table with change indicator by row</h4>
+
+    <div class="col-md-12">
+        <div id="table-grid-indicator-by-row" class="n-table-hover n-jqxgrid-table"></div>
+    </div>
+
+    <div class="col-md-12">
+        <br>
+
+        <p>The first step is to add links to the javascript files and css dependencies to your project. Table widget requires the following files:</p>
+        <pre>
+<code>
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-jqWidget.min.css" rel="stylesheet"/&gt;
+    &lt;script src="./js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcore.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdata.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxbuttons.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxscrollbar.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxmenu.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcheckbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxlistbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdropdownlist.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.edit.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.selection.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxpanel.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="./js/wulf.min.js"&gt;&lt;/script&gt;
+</code>
+        </pre>
+
+        <p>The next step is to create a DIV element with class <span class="demo-highlight-color">n-jqxgrid-table</span>
+            within the body of the html document.</p>
+        <pre>
+<code>
+    &lt;div id="<span class="demo-highlight-color">table-grid-indicator-by-row</span>" class="<span
+        class="demo-highlight-color">n-jqxgrid-table</span>"&gt;&lt;/div&gt;
+</code>
+        </pre>
+
+        <p>The last step is to initialize the widget. </p>
+        <pre>
+<code>
+    &lt;script&gt;
+    $(document).ready( function() {
+        /*---------------- image render/editor ----------------*/
+        var imagerenderer = function (row, datafield, value) {
+        return '***';
+    };
+    /*---------------- test data ----------------*/
+    var data = new Array();
+    data[0] = {
+        severity: 'icon-fault-critical',
+        name: 'Avatar',
+        alarmnumber: '113211',
+        alarmtext: 'System module error',
+        alarmtime: "1985/03/26",
+        acknowledgment: "false",
+        server: 'nokia'
+    };
+    ...
+
+    var source =
+    {
+        localdata: data,
+        datafields: [
+            <span class="demo-highlight-color">{name: 'indicator', type: 'Image'},</span>
+            {name: 'severity', type: 'Image'},
+            {name: 'name', type: 'string'},
+            {name: 'alarmnumber', type: 'number'},
+            {name: 'alarmtext', type: 'string'},
+            {name: 'alarmtime', type: 'string'},
+            {name: 'acknowledgment', type: 'bool'},
+            {name: 'server', type: 'string'},
+        ],
+        datatype: "array"
+    };
+    var dataAdapter = new $.jqx.dataAdapter(source);
+
+    var columns = [
+        {
+            text: '',
+            columntype: 'textbox',
+            datafield: 'indicator',
+            filtertype: 'input',
+            cellsrenderer: <span class="demo-highlight-color">$.grid.indicatorRenderer("#table-grid-indicator-by-row"), // This parameter should be same as grid ID</span>
+            width: 24
+        },
+        {
+            text: 'Severity',
+            columntype: 'textbox',
+            datafield: 'severity',
+            filtertype: 'input',
+            cellsrenderer: imagerenderer,
+            width: 100
+        },
+        {
+            text: 'Distinguished name',
+            columntype: 'custom',
+            datafield: 'name',
+            filtertype: 'input',
+            cellsrenderer: <span class="demo-highlight-color">$.grid.nIndicatorTextFieldCellRenderer("#table-grid-indicator-by-row"), // This parameter should be same as grid ID</span>
+            createeditor: <span class="demo-highlight-color">$.grid.nCreateIndicatorTextFieldEditor,</span>
+            initeditor: <span class="demo-highlight-color">$.grid.nInitIndicatorTextFieldEditor,</span>
+            geteditorvalue: <span class="demo-highlight-color">$.grid.nGetIndicatorTextFieldEditorValue,</span>
+            width: 200
+        },
+        {
+            text: 'Alarm number',
+            columntype: 'NumberInput',
+            datafield: 'alarmnumber',
+            filtertype: 'number',
+            cellsalign: 'right',
+            align: "right",
+            width: 150
+        },
+        {
+            text: 'Alarm text',
+            columntype: 'textbox',
+            datafield: 'alarmtext',
+            filtertype: 'input',
+            width: 180
+        },
+        {
+            text: 'Alarm time',
+            columntype: 'textbox',
+            datafield: 'alarmtime',
+            filtertype: 'input',
+            width: 150
+        },
+        {
+            text: 'Acknowledgment',
+            columntype: 'custom',
+            datafield: 'acknowledgment',
+            filtertype: 'bool',
+            width: 150,
+            cellsrenderer: <span class="demo-highlight-color">$.grid.nIndicatorCheckboxCellsrenderer("#table-grid-indicator-by-row", "Option"), // The first parameter should be same as grid ID</span>
+            createeditor: <span class="demo-highlight-color">$.grid.nCreateIndicatorCheckboxEditor("Option"),</span>
+            initeditor: <span class="demo-highlight-color">$.grid.nInitIndicatorCheckboxEditor,</span>
+            geteditorvalue: <span class="demo-highlight-color">$.grid.nGetIndicatorCheckboxEditorValue</span>
+        },
+        {
+            text: 'Server',
+            columntype: 'custom',
+            datafield: 'server',
+            filtertype: 'input',
+            width: 180,
+            cellsrenderer: <span class="demo-highlight-color">$.grid.indicatorDropdownlistCellsrenderer("#table-grid-indicator-by-row"), // This parameter should be same as grid ID</span>
+            createeditor: <span class="demo-highlight-color">$.grid.indicatorDropdownlistEditor(['nokia', 'nsn', 'huawei', 'reebook', 'nike', 'dahua']),</span>
+            initeditor: <span class="demo-highlight-color">$.grid.indicatorDropdownlistInitEditor,</span>
+            geteditorvalue: <span class="demo-highlight-color">$.grid.indicatorDropdownlistEditorValue</span>
+        }
+    ]
+
+    // initialize jqxGrid
+    $("#table-grid-indicator-by-row").jqxGrid(
+    {
+        width: 1150,
+        height: 200,
+        source: dataAdapter,
+        editable: true,
+        editmode: 'click',
+        enableBrowserSelection: true,
+        selectionMode: 'singlerow',
+        columns: columns,
+        scrollBarSize: 8,
+        rowsheight: 26,
+        handlekeyboardnavigation: function (e) {
+            return $.grid.handlekeyboardnavigation(e);
+        }
+    });
+    $("#table-grid-indicator-by-row").jqxGrid('setcolumnproperty', 'indicator', 'editable', false);
+    $("#table-grid-indicator-by-row").jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+    $("#table-grid-indicator-by-row").jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+    $("#table-grid-indicator-by-row").jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+    $("#table-grid-indicator-by-row").jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+    <span class="demo-highlight-color">$.grid.indicatorRowSelectRenderer("#table-grid-indicator-by-row"); // This parameter should be same as grid ID</span>
+
+    &lt;/script&gt;
+</code>
+        </pre>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <h4>Standard table with change indicator by cell</h4>
+
+    <div class="col-md-12">
+        <div id="table-grid-indicator-by-cell" class="n-table-hover n-jqxgrid-table"></div>
+    </div>
+
+    <div class="col-md-12">
+        <br>
+        <p>The first step is to add links to the javascript files and css dependencies to your project. Table widget requires the following files:</p>
+        <pre>
+<code>
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.css" rel="stylesheet"/&gt;
+    &lt;script src="./js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcore.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdata.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxbuttons.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxscrollbar.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxmenu.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcheckbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxlistbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdropdownlist.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.edit.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.selection.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxpanel.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="./js/wulf.min.js"&gt;&lt;/script&gt;
+</code>
+        </pre>
+
+        <p>The next step is to create a DIV element with class <span class="demo-highlight-color">n-jqxgrid-table</span>
+            within the body of the html document.</p>
+        <pre>
+<code>
+    &lt;div id="<span class="demo-highlight-color">table-grid-indicator-by-cell</span>" class="<span
+        class="demo-highlight-color">n-jqxgrid-table</span>"&gt;&lt;/div&gt;
+</code>
+        </pre>
+
+        <p>The last step is to initialize the widget. </p>
+        <pre>
+<code>
+    &lt;script&gt;
+        $(document).ready( function() {
+        /*---------------- image render/editor ----------------*/
+        var imagerenderer = function (row, datafield, value) {
+        return '***';
+        };
+        /*---------------- test data ----------------*/
+        var data = new Array();
+        data[0] = {
+            severity: 'icon-fault-critical',
+            name: 'Avatar',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26",
+            acknowledgment: "false",
+            server: 'nokia'
+        };
+        ...
+
+        var source =
+        {
+            localdata: data,
+            datafields: [
+                {name: 'severity', type: 'Image'},
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'},
+                {name: 'acknowledgment', type: 'bool'},
+                {name: 'server', type: 'string'},
+            ],
+            datatype: "array"
+        };
+        var dataAdapter = new $.jqx.dataAdapter(source);
+
+        var columnsByCell = [
+            {
+                text: 'Severity',
+                columntype: 'textbox',
+                datafield: 'severity',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100
+            },
+            {
+                text: 'Distinguished name',
+                columntype: 'custom',
+                datafield: 'name',
+                filtertype: 'input',
+                cellsrenderer: <span class="demo-highlight-color">$.grid.nIndicatorTextFieldCellRenderer("#table-grid-indicator-by-cell"), // This parameter should be same as grid ID</span>
+                createeditor: <span class="demo-highlight-color">$.grid.nCreateIndicatorTextFieldEditor,</span>
+                initeditor: <span class="demo-highlight-color">$.grid.nInitIndicatorTextFieldEditor,</span>
+                geteditorvalue: <span class="demo-highlight-color">$.grid.nGetIndicatorTextFieldEditorValue,</span>
+                width: 200
+            },
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align: "right",
+                width: 150
+            },
+            {
+                text: 'Alarm text',
+                columntype: 'textbox',
+                datafield: 'alarmtext',
+                filtertype: 'input',
+                width: 180
+            },
+            {
+                text: 'Alarm time',
+                columntype: 'textbox',
+                datafield: 'alarmtime',
+                filtertype: 'input',
+                width: 150
+            },
+            {
+                text: 'Acknowledgment',
+                columntype: 'custom',
+                datafield: 'acknowledgment',
+                filtertype: 'bool',
+                width: 150,
+                cellsrenderer: <span class="demo-highlight-color">$.grid.nIndicatorCheckboxCellsrenderer("#table-grid-indicator-by-cell", "Option"), // The first parameter should be same as grid ID</span>
+                createeditor: <span class="demo-highlight-color">$.grid.nCreateIndicatorCheckboxEditor("Option"),</span>
+                initeditor: <span class="demo-highlight-color">$.grid.nInitIndicatorCheckboxEditor,</span>
+                geteditorvalue: <span class="demo-highlight-color">$.grid.nGetIndicatorCheckboxEditorValue</span>
+            },
+            {
+                text: 'Server',
+                columntype: 'custom',
+                datafield: 'server',
+                filtertype: 'input',
+                width: 180,
+                cellsrenderer: <span class="demo-highlight-color">$.grid.indicatorDropdownlistCellsrenderer("#table-grid-indicator-by-cell"), // This parameter should be same as grid ID</span>
+                createeditor: <span class="demo-highlight-color">$.grid.indicatorDropdownlistEditor(['nokia', 'nsn', 'huawei', 'reebook', 'nike', 'dahua']),</span>
+                initeditor: <span class="demo-highlight-color">$.grid.indicatorDropdownlistInitEditor,</span>
+                geteditorvalue: <span class="demo-highlight-color">$.grid.indicatorDropdownlistEditorValue</span>
+            }
+        ]
+
+        // initialize jqxGrid
+        $("#table-grid-indicator-by-row").jqxGrid(
+        {
+            width: 1130,
+            height: 200,
+            source: dataAdapter,
+            editable: true,
+            editmode: 'click',
+            enableBrowserSelection: true,
+            selectionMode: 'singlerow',
+            columns: columnsByCell,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+        });
+        $("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'indicator', 'editable', false);
+        $("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        $("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        $("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        $("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        <span class="demo-highlight-color">$.grid.indicatorRowSelectRenderer("#table-grid-indicator-by-cell"); // This parameter should be same as grid ID</span>
+
+        <span class="demo-highlight-color">$("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'name', 'indicator', true);</span>
+        <span class="demo-highlight-color">$("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'acknowledgment', 'indicator', true);</span>
+        <span class="demo-highlight-color">$("#table-grid-indicator-by-cell").jqxGrid('setcolumnproperty', 'server', 'indicator', true);</span>
+    &lt;/script&gt;
+</code>
+        </pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/grid'], function ($) {
+        /*---------------- image render/editor ----------------*/
+        var imagerenderer = function (row, datafield, value) {
+            return '<div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon '+value+'"></span></div></div>';
+        };
+
+        /*---------------- test data ----------------*/
+        var data = new Array();
+        data[0] = {
+            severity: 'icon-fault-critical',
+            name: 'Avatar',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26",
+            acknowledgment: "false",
+            server: 'nokia'
+        };
+        data[1] = {
+            severity: 'icon-fault-major',
+            name: 'Robert',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26",
+            acknowledgment: "false",
+            server: 'huawei'
+        };
+        data[2] = {
+            severity: 'icon-fault-minor',
+            name: 'Tom',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26",
+            acknowledgment: "false",
+            server: 'nokia'
+        };
+        data[3] = {
+            severity: 'icon-fault-warning',
+            name: 'Green',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26",
+            acknowledgment: "true",
+            server: 'nokia'
+        };
+        data[4] = {
+            severity: 'icon-fault-cleared',
+            name: 'Abby',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26",
+            acknowledgment: "true",
+            server: 'nokia'
+        };
+        data[5] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia'
+        };
+        data[6] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia'
+        };
+        data[7] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia'
+        };
+        data[8] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia'
+        };
+
+        var source =
+        {
+            localdata: data,
+            datafields: [
+                {name: 'indicator', type: 'Image'},
+                {name: 'severity', type: 'Image'},
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'},
+                {name: 'acknowledgment', type: 'bool'},
+                {name: 'server', type: 'string'}
+            ],
+            datatype: "array"
+        };
+        var dataAdapter1 = new $.jqx.dataAdapter(source);
+
+        var columnsByRow = [
+            {
+                text: '',
+                columntype: 'textbox',
+                datafield: 'indicator',
+                filtertype: 'input',
+                cellsrenderer: $.grid.indicatorRenderer("#table-grid-indicator-by-row"),
+                width: 26
+            },
+            {
+                text: 'Severity',
+                columntype: 'textbox',
+                datafield: 'severity',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100
+            },
+            {
+                text: 'Distinguished name',
+                columntype: 'custom',
+                datafield: 'name',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nIndicatorTextFieldCellRenderer("#table-grid-indicator-by-row"), // This parameter should be same as grid ID
+                createeditor: $.grid.nCreateIndicatorTextFieldEditor,
+                initeditor: $.grid.nInitIndicatorTextFieldEditor,
+                geteditorvalue: $.grid.nGetIndicatorTextFieldEditorValue,
+                width: 200
+            },
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align: "right",
+                width: 150
+            },
+            {
+                text: 'Alarm text',
+                columntype: 'textbox',
+                datafield: 'alarmtext',
+                filtertype: 'input',
+                width: 180
+            },
+            {
+                text: 'Alarm time',
+                columntype: 'textbox',
+                datafield: 'alarmtime',
+                filtertype: 'input',
+                width: 150
+            },
+            {
+                text: 'Acknowledgment',
+                columntype: 'custom',
+                datafield: 'acknowledgment',
+                filtertype: 'bool',
+                width: 150,
+                cellsrenderer: $.grid.nIndicatorCheckboxCellsrenderer("#table-grid-indicator-by-row", "Option"), // The first parameter should be same as grid ID
+                createeditor: $.grid.nCreateIndicatorCheckboxEditor("Option"),
+                initeditor: $.grid.nInitIndicatorCheckboxEditor,
+                geteditorvalue: $.grid.nGetIndicatorCheckboxEditorValue
+            },
+            {
+                text: 'Server',
+                columntype: 'custom',
+                datafield: 'server',
+                filtertype: 'input',
+                width: 180,
+                cellsrenderer: $.grid.indicatorDropdownlistCellsrenderer("#table-grid-indicator-by-row"), // This parameter should be same as grid ID
+                createeditor: $.grid.indicatorDropdownlistEditor(['nokia', 'nsn', 'huawei', 'reebook', 'nike', 'dahua']),
+                initeditor: $.grid.indicatorDropdownlistInitEditor,
+                geteditorvalue: $.grid.indicatorDropdownlistEditorValue
+            }
+        ];
+
+        var columnsByCell = [
+            {
+                text: 'Severity',
+                columntype: 'textbox',
+                datafield: 'severity',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100
+            },
+            {
+                text: 'Distinguished name',
+                columntype: 'custom',
+                datafield: 'name',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nIndicatorTextFieldCellRenderer("#table-grid-indicator-by-cell"), // This parameter should be same as grid ID
+                createeditor: $.grid.nCreateIndicatorTextFieldEditor,
+                initeditor: $.grid.nInitIndicatorTextFieldEditor,
+                geteditorvalue: $.grid.nGetIndicatorTextFieldEditorValue,
+                width: 200
+            },
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align: "right",
+                width: 150
+            },
+            {
+                text: 'Alarm text',
+                columntype: 'textbox',
+                datafield: 'alarmtext',
+                filtertype: 'input',
+                width: 180
+            },
+            {
+                text: 'Alarm time',
+                columntype: 'textbox',
+                datafield: 'alarmtime',
+                filtertype: 'input',
+                width: 150
+            },
+            {
+                text: 'Acknowledgment',
+                columntype: 'custom',
+                datafield: 'acknowledgment',
+                filtertype: 'bool',
+                width: 150,
+                cellsrenderer: $.grid.nIndicatorCheckboxCellsrenderer("#table-grid-indicator-by-cell", "Option"), // The first parameter should be same as grid ID
+                createeditor: $.grid.nCreateIndicatorCheckboxEditor("Option"),
+                initeditor: $.grid.nInitIndicatorCheckboxEditor,
+                geteditorvalue: $.grid.nGetIndicatorCheckboxEditorValue
+            },
+            {
+                text: 'Server',
+                columntype: 'custom',
+                datafield: 'server',
+                filtertype: 'input',
+                width: 180,
+                cellsrenderer: $.grid.indicatorDropdownlistCellsrenderer("#table-grid-indicator-by-cell"), // This parameter should be same as grid ID
+                createeditor: $.grid.indicatorDropdownlistEditor(['nokia', 'nsn', 'huawei', 'reebook', 'nike', 'dahua']),
+                initeditor: $.grid.indicatorDropdownlistInitEditor,
+                geteditorvalue: $.grid.indicatorDropdownlistEditorValue
+            }
+        ];
+        // initialize jqxGrid (indicated by row)
+        var indicatorByRow = $("#table-grid-indicator-by-row");
+        indicatorByRow.jqxGrid(
+                {
+                    width: 1150,
+                    height: 200,
+                    source: dataAdapter1,
+                    editable: true,
+                    editmode: 'click',
+                    enableBrowserSelection: true,
+                    selectionMode: 'singlerow',
+                    columns: columnsByRow,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e);
+                    }
+                });
+        indicatorByRow.jqxGrid('setcolumnproperty', 'indicator', 'editable', false);
+        indicatorByRow.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        indicatorByRow.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        indicatorByRow.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        indicatorByRow.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        $.grid.indicatorRowSelectRenderer("#table-grid-indicator-by-row");
+
+        // initialize jqxGrid (indicated by cell)
+        var dataAdapter2 = new $.jqx.dataAdapter(source);
+
+        var indicatorByCell = $("#table-grid-indicator-by-cell");
+        indicatorByCell.jqxGrid(
+                {
+                    width: 1125,
+                    height: 200,
+                    source: dataAdapter2,
+                    editable: true,
+                    editmode: 'click',
+                    enableBrowserSelection: true,
+                    selectionMode: 'singlerow',
+                    columns: columnsByCell,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 30,
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e);
+                    }
+                });
+        indicatorByCell.jqxGrid('setcolumnproperty', 'indicator', 'editable', false);
+        indicatorByCell.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        indicatorByCell.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        indicatorByCell.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        indicatorByCell.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        indicatorByCell.jqxGrid('setcolumnproperty', 'name', 'indicator', true);
+        indicatorByCell.jqxGrid('setcolumnproperty', 'acknowledgment', 'indicator', true);
+        indicatorByCell.jqxGrid('setcolumnproperty', 'server', 'indicator', true);
+
+        $.grid.indicatorRowSelectRenderer("#table-grid-indicator-by-cell");
+    })
+</script>
+</body>
+</html>

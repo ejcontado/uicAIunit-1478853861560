@@ -1,0 +1,371 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_panel">Panel</h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+    <div id="angular_section" class="row">
+        <div class="col-md-4" id="ng-app" ng-controller="SectionDemoController as demo">
+                <wf-panels header="Static Panel" slide-animation="false" id="TA-panel-static">
+                    <wf-panel-section id="TA-panel-static-section0">
+                            <h2 id="TA-panel-static-section0-h2">Title of section</h2>
+                            <div class="dummy-picture" id="TA-panel-static-section0-div"></div>
+                            <span id="TA-panel-static-section0-span">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                    <wf-panel-section id="TA-panel-static-section1">
+                        <h2 id="TA-panel-static-section1-h2">Title of section</h2>
+                        <div class="dummy-picture" id="TA-panel-static-section1-div"></div>
+                        <span id="TA-panel-static-section1-span">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                </wf-panels>
+
+                <wf-panels header="Vertical Panel" slide-animation="true" id="TA-panel-vertical" on-toggle="demo.onToggle">
+                    <wf-panel-section id="TA-panel-vertical-section0">
+                        <h2 id="TA-panel-vertical-section0-h2">Title of section</h2>
+                        <div class="dummy-picture" id="TA-panel-vertical-section0-div"></div>
+                        <span id="TA-panel-vertical-section0-span">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                    <wf-panel-section id="TA-panel-vertical-section1">
+                        <h2 id="TA-panel-vertical-section1-h2">Title of section</h2>
+                        <div class="dummy-picture" id="TA-panel-vertical-section1-div"></div>
+                        <span id="TA-panel-vertical-section1-span">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                </wf-panels>
+
+                <wf-panels slide-direction="horizontal" header="Horizontal Panel" slide-animation="1" id="TA-panel-horizontal" on-toggle="demo.onToggle">
+                    <wf-panel-section ng-repeat="section in demo.sections" id="TA-panel-horizontal-section{{$index}}">
+                        <h2 id="TA-panel-horizontal-section{{$index}}-h2">{{section.title}}</h2>
+                        <div class="{{section.divClass}}" id="TA-panel-horizontal-section{{$index}}-div"></div>
+                        <span id="TA-panel-horizontal-section{{$index}}-span">{{section.content}}</span>
+                    </wf-panel-section>
+                </wf-panels>
+                <h4>Panel with scroll</h4>
+                <wf-panels header="Available Operations" slide-animation="false" scrollbar="demo.config" id="TA-panel-scroll">
+                    <wf-panel-section id="TA-panel-scroll-section0">
+                        <h2 id="TA-panel-scroll-section0-h2">Title of section</h2>
+                        <div class="dummy-picture" id="TA-panel-scroll-section0-div"></div>
+                        <span id="TA-panel-scroll-section0-span">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                    <wf-panel-section>
+                        <h2>Title of section</h2>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                    <div class="panel-single-row">
+                        <h2>Title or label</h2>
+                    </div>
+                    <wf-panel-section>
+                        <h2>Title of section</h2>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        <button class="btn btn-standard" id="TA-panelWithScrollbar-button">Add to My favorites</button>
+                    </wf-panel-section>
+                </wf-panels>
+
+                <h4>Panel header with component</h4>
+                <wf-panels id="TA-panel-header-component">
+                    <wf-panel-header>
+                        <h1>
+                            <div class="panel-arrow">
+                                <label>Custom header</label>
+                                <button class="btn header-btn">Button</button>
+                            </div>
+                        </h1>
+                    </wf-panel-header>
+                    <wf-panel-section id="TA-panel-header-component-section0">
+                        <h2 id="TA-panel-header-component-section0-h2">Title of section</h2>
+                        <div class="dummy-picture" id="TA-panel-header-component-section0-div"></div>
+                        <span id="TA-panel-header-component-section0-span">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                    <wf-panel-section id="TA-panel-header-component-section1">
+                        <h2 id="TA-panel-header-component-section1-h2">Title of section</h2>
+                        <div class="dummy-picture" id="TA-panel-header-component-section1-div"></div>
+                        <span id="TA-panel-header-component-section1-span">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </wf-panel-section>
+                </wf-panels>
+
+                <button id="TA-panel-disableAction" class="btn btn-small" ng-click="demo.enableDisableAction()" ng-cloak style="margin-bottom: 20px">
+                    {{demo.actionState?"Disable":"Enable"}} callback actions
+                </button>
+            </div>
+        <div class="col-md-8">
+            <h2>Overview</h2>
+            <p>Angular version of panel component. It contains three components <code>wfPanels</code>, <code>wfPanelHeader</code> and <code>wfPanelSection</code>
+                which are implemented by using <code>.component()</code> method introduced since Angular1.5. This component
+                can be used to generate section in panel body from both static and dynamic
+                model data (using <code>ng-repeat</code> directive for <code>wf-panel-section</code>).
+                <code>wfPanelHeader</code> is optional. If you want to customize the styles for panel header, you can use <code>wfPanelHeader</code> component
+                and that will let <code>header</code> attribute invalid.</p>
+            <h2>wf-panels settings</h2>
+            <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+                <thead>
+                <tr>
+                    <th>Attributes:Bindings</th>
+                    <th>Arguments</th>
+                    <th>Note</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>slide-direction: &lt;</code></td>
+                    <td>
+                        Default:<code>vertical</code>
+                        Arguments:<code>vertical/horizontal</code>
+                    </td>
+                    <td>
+                        Whether panel collapse/expand in horizontal.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>slide-animation: &lt;</code></td>
+                    <td>
+                        Default:<code>false</code>
+                        Arguments:<code>true/false</code>
+                    </td>
+                    <td>
+                        Whether panel support collapse/expand animation
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>header: @</code></td>
+                    <td>
+                        string
+                    </td>
+                    <td>
+                        title of panel
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>on-toggle: &</code></td>
+                    <td>
+                        function (isShow ,header, event)
+                    </td>
+                    <td>
+                        Callback function when toggle panel.
+                        <ul>
+                            <li>isShow - whether current panel is show or hide</li>
+                            <li>header - title of current panel</li>
+                            <li>event - event when toggle panel</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>scrollbar: <</code></td>
+                    <td>
+                        object
+                    </td>
+                    <td>
+                        Config for scrollbar. Refers to scroll component <code>scrollbar-config</code>
+                        <ul>
+                            <li>e.g. { height: '300px' }</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h2>Keyboard accessibility</h2>
+            Besides the basic keyboard support, e.g. <kbd>Tab</kbd>,<kbd>Enter</kbd>. This component also supports the following
+            keystrokes for the interaction.
+            <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+                <thead>
+                <tr>
+                    <th>Interaction</th>
+                    <th>Keystrokes</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>collapse/expand panel body</td>
+                    <td>
+                        <kbd>Space</kbd>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Before to collapse/expand panel body, the icon placed section must be focus firstly</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<div ng-controller="SectionDemoController as demo">
+    <wf-panels header="Static Panel" slide-animation="false">
+        <wf-panel-section>
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+        </wf-panel-section>
+        <wf-panel-section>
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+        </wf-panel-section>
+    </wf-panels>
+    <wf-panels header="Vertical Panel" slide-animation="true" on-toggle="demo.onToggle">
+        <wf-panel-section>
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+        </wf-panel-section>
+        <wf-panel-section>
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+        </wf-panel-section>
+    </wf-panels>
+    <wf-panels slide-direction="horizontal" header="Horizontal Panel" slide-animation="true" on-toggle="demo.onToggle">
+        <wf-panel-section ng-repeat="section in demo.sections">
+            <h2>{{section.title}}</h2>
+            <div class="{{section.divClass}}"></div>
+            <span>{{section.content}}</span>
+        </wf-panel-section>
+    </wf-panels>
+    <wf-panels header="Available Operations" slide-animation="false" scrollbar="demo.config">
+        <wf-panel-section>
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span style="white-space: nowrap">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+        </wf-panel-section>
+        <wf-panel-section>
+            <h2>Title of section</h2>
+            <div class="dummy-picture"></div>
+            <span style="white-space: nowrap">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+            <button class="btn btn-standard">Add to My favorites</button>
+        </wf-panel-section>
+    </wf-panels>
+    <wf-panels>
+        <wf-panel-header>
+            <h1>
+                <div class="panel-arrow">
+                    <label>Custom header</label>
+                    <button class="btn header-btn">Button</button>
+                </div>
+            </h1>
+        </wf-panel-header>
+        <wf-panel-section >
+            <h2 >Title of section</h2>
+            <div class="dummy-picture" ></div>
+            <span >Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+        </wf-panel-section>
+        <wf-panel-section >
+            <h2 >Title of section</h2>
+            <div class="dummy-picture" ></div>
+            <span >Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+        </wf-panel-section>
+    </wf-panels>
+</div>
+                    </code></pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable><code data-language="javascript">
+angular.module('wf.ng.demo', ['wf.angular.constants', 'wf.angular.panels','wf.angular.tabs']).controller('SectionDemoController', SectionDemoController);
+function SectionDemoController() {
+    var makeSection = function (title, divClass, content) {
+        return {
+            title: title,
+            divClass: divClass,
+            content: content
+        }
+    };
+    var self = this;
+    self.sections = [makeSection('Title of section', 'dummy-picture', 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.'), makeSection('Title of section', 'dummy-picture', 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.')];
+    self.onToggle = function (isShow ,header) {
+        var state = isShow?'hidden':'shown';
+        alert(header + ' will be ' + state);
+    };
+    self.config = {
+        height: '300px',
+        onScroll: function() {
+                    var scrollObj = angular.element(this);
+                        alert('This is an onScroll callback. \n scroll direction: ' + scrollObj[0].mcs.direction +'\n' +
+                                'offset left: ' + scrollObj[0].mcs.left +'\n' +
+                                'offset top: ' + scrollObj[0].mcs.top );
+                  }
+    };
+}
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+        strictDi: true
+    });
+});
+                </code></pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular','angularAnimate', 'wulf-ng/panels/panels.tlp.min','wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.constants', 'wf.angular.panels','wf.angular.tabs']).controller('SectionDemoController', SectionDemoController);
+        function SectionDemoController() {
+            var self = this;
+            var makeSection = function (title, divClass, content) {
+                return {
+                    title: title,
+                    divClass: divClass,
+                    content: content
+                }
+            };
+            self.sections = [makeSection('Title of section', 'dummy-picture', 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.'), makeSection('Title of section', 'dummy-picture', 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.')];
+
+            self.onToggle = function (isShow ,header) {
+                if(self.actionState) {
+                    var state = isShow?'hidden':'shown';
+                    alert(header + ' will be ' + state);
+                }
+            };
+            self.actionState = false;
+            self.enableDisableAction = function () {
+                self.actionState = !self.actionState;
+            };
+            self.config = {
+                height: '300',
+                onScroll: function () {
+                    if(self.actionState){
+                        var scrollObj = angular.element(this);
+                        alert('This is an onScroll callback. \n scroll direction: ' + scrollObj[0].mcs.direction +'\n' +
+                                'offset left: ' + scrollObj[0].mcs.left +'\n' +
+                                'offset top: ' + scrollObj[0].mcs.top );
+                    }
+                }
+            };
+        }
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

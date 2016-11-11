@@ -1,0 +1,261 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/fuelux.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content scrollable">
+<h1 class="component-header" id="nokia_horizontal_navigation">Navigation - Horizontal <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <nav class="n-banner" id="TA-banner">
+            <div class="n-banner-1st-filler-white"></div>
+            <div class="n-banner-1st-filler-blue"></div>
+            <div class="n-banner-2nd-filler-blue hidden-xs hidden-on-blue-detached"></div>
+            <div class="n-banner-2nd-filler-gray hidden-xs"></div>
+            <div class="n-banner-3rd-filler-gray hidden-xs"></div>
+
+            <div class="container-fluid">
+                <div class="n-banner-header">
+                    <button class="n-banner-toggle collapsed" data-target="#n-banner-collapse" data-toggle="collapse"
+                            type="button">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="n-banner-brand" href="#">
+                        WebUI Look &amp; Feel <span>(WULF)</span>
+                    </a>
+                </div>
+
+                <div class="collapse n-banner-collapse" id="n-banner-collapse">
+
+                    <div class="row n-banner-1st" id="TA-banner-1st">
+
+                        <div class="n-banner-right n-banner-logo-img hidden-xs">
+                            <img alt="Nokia" src="../wulfdist/img/logo.png">
+                        </div>
+
+                        <div class="n-banner-right n-banner-1st-gray-to-white hidden-xs">
+                            <div class="gray-mask"></div>
+                            <div class="white-mask"></div>
+                            <div class="gray-corner"></div>
+                            <div class="white-corner"></div>
+                        </div>
+
+                        <ul class="nav n-banner-right n-banner-nav n-banner-controls" id="TA-banner-1st-ul">
+                            <li>
+                                <a href="#">
+                                    <i class="icon icon-profile"></i>
+                                    Nemuadmin
+                                </a>
+                            </li>
+                            <li class="hidden-xs">
+                                <p>
+                                    |
+                                </p>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="n-banner-right n-banner-1st-blue-to-gray hidden-xs">
+                            <div class="blue-mask"></div>
+                            <div class="gray-mask"></div>
+                            <div class="blue-corner"></div>
+                            <div class="gray-corner"></div>
+                        </div>
+
+                        <div class="n-banner-right n-search" id="TA-banner-1st-search">
+                            <a class="n-search-icon" href="javascript:void(0)">
+                                <span class="icon icon-search"></span>
+                            </a>
+                            <input type="text" class="n-inputfield n-search-input">
+                        </div>
+                    </div>
+
+                    <div class="row n-banner-2nd" id="TA-banner-2nd">
+
+                        <ul class="nav n-banner-nav n-banner-tabs">
+                            <li class="rightmost-tab">
+                                <a href="#"><span>High Value Consumer Insights</span></a>
+                            </li>
+                        </ul>
+
+                        <div class="n-banner-2nd-gray-to-blue hidden-xs hidden-on-blue-detached">
+                            <div class="gray-mask"></div>
+                            <div class="blue-mask"></div>
+                            <div class="gray-corner"></div>
+                            <div class="blue-corner"></div>
+                        </div>
+                    </div>
+                    <!-- Start of secondary horizontal navigation-->
+                    <div class="row n-banner-secondary-row" id="TA-banner-3rd">
+                        <ul class="nav nav-secondary-horizontal">
+                            <li id="TA-banner-3rd-li1">
+                                <a href="#">
+                                    <span>Item One</span>
+                                </a>
+                            </li>
+                            <li id="TA-banner-3rd-li2">
+                                <a href="#">
+                                    <span>Item Two</span>
+                                </a>
+                            </li>
+                            <li id="TA-banner-3rd-li3">
+                                <a href="#">
+                                    <span>Item Three</span>
+                                </a>
+                            </li>
+                            <li id="TA-banner-3rd-li4">
+                                <a href="#">
+                                    <span>Item Four</span>
+                                </a>
+                            </li>
+                            <li id="TA-banner-3rd-li5">
+                                <a href="#">
+                                    <span>Item Five</span>
+                                </a>
+                            </li>
+                            <li id="TA-banner-3rd-li6">
+                                <a href="#">
+                                    <span>Item Six</span>
+                                </a>
+                            </li>
+                            <li id="TA-banner-3rd-li7">
+                                <a href="#">
+                                    <span>Item Seven</span>
+                                </a>
+                            </li>
+                            <li id="TA-banner-3rd-li8">
+                                <a href="#">
+                                    <span>Item Eight</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-1">
+                    <div class="n-toggle-switch n-toggle-switch-small">
+                        <input type="checkbox" name="example-toggle-name" class="n-toggle-switch-input" id="example-toggle">
+                        <label class="n-toggle-switch-container" for="example-toggle">
+                            <span class="n-toggle-switch-handler"></span>
+                            <span class="n-toggle-switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <label class="col-sm-4 control-label">Condense navigation bar on scroll</label>
+            </div>
+        </form>
+        </div>
+        <div class="col-md-12">
+            <p>JS & CSS dependency:</p>
+<pre>
+For navigation horizontal components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/fuelux.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"/&gt;
+</pre>
+        <p>
+            This secondary navigation is an alternative to tab navigation.
+            Unlike tab navigation, secondary navigation acquires a drop shadow when the page scrolls upwards.<br>
+            To use the this, add a row with an <code>n-banner-secondary-row</code> class together with an
+            unordered list with the class<code>nav-secondary-horizontal</code>:
+        </p>
+	<pre>
+<code>
+    &lt;nav class="n-banner"&gt;
+        ......
+        &lt;div class="row <span class="demo-highlight-color">n-banner-secondary-row</span>"&gt;
+            &lt;ul class="nav <span class="demo-highlight-color">nav-secondary-horizontal</span>"&gt;
+                &lt;li&gt;
+                    &lt;a href="#"&gt;
+                        &lt;span&gt;Item One&lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                //More list items
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+</code></pre>
+    <p>
+        The condensed product banner can be employed upon scroll in place of the standard banner.<br>
+        To enable, just add some javascript like this on your page to automatically
+        add the class <code>condensed</code> on the banner upon scroll.
+    </p>
+        <pre>
+<code>
+    &lt;script&gt;
+        $(document).on('scroll', function() {
+            var nBanner = $('.nav-secondary-horizontal').parents('nav.n-banner');
+
+            if($(this).scrollTop()) {
+                nBanner.addClass('condensed');
+            } else {
+                nBanner.removeClass('condensed')
+            }
+        });
+    &lt;/script&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/navbar'], function($){
+        $(document).ready( function(){
+            var nBanner = $('.nav-secondary-horizontal').parents('nav.n-banner');
+
+            //Optional condensed banner on scroll
+            $(this).on('scroll', function() {
+                if ($('#example-toggle')[0].checked){
+                    $(this).scrollTop()? nBanner.addClass('condensed') : nBanner.removeClass('condensed');
+                }
+            });
+
+            //For demo purposes
+            $('#example-toggle').change(function() {
+                if(!$(this)[0].checked){
+                    nBanner.removeClass('condensed');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

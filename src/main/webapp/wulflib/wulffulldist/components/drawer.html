@@ -1,0 +1,184 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.flyout.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="col-md-12">
+    <h1 class="component-header" id="nokia_drawer">Drawer</h1>
+    <hr>
+    <p>JS & CSS dependency:</p>
+        <pre>
+For drawer components, it will be ok to import following css file :
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.flyout.min.css" rel="stylesheet"/&gt;</pre>
+    <p>
+    Drawer is a flyout menu. So we use flyout markup <code>data-markup="flyout"</code>. It opens from the bottom of screen. So we set the direction as top (expanse to top) <code>data-direction="top"</code>.
+    </p>
+    <p>
+    We can integrate it with tab component. The tab should point to the content with id: <code>&lt;a href="#content"&gt;</code> and <code>&lt;div id="content"&gt;</code>.
+    </p>
+    <pre>
+<code>
+    &lt;div class="<span class="demo-highlight-color">n-flyout n-drawer</span>" <span class="demo-highlight-color">data-markup="flyout" data-direction="top" data-expand="false"</span>&gt;
+        &lt;ul class="<span class="demo-highlight-color">n-flyout-open n-drawer-tabs</span>"&gt;
+            &lt;li&gt;
+                &lt;a href="<span class="demo-highlight-color">#one</span>"&gt;&lt;span class="topleft"&gt;&lt;/span&gt;&lt;span class="<span class="demo-highlight-color">border-container</span>"&gt;Tab one&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="<span class="demo-highlight-color">#two</span>"&gt;&lt;span class="topleft"&gt;&lt;/span&gt;&lt;span class="<span class="demo-highlight-color">border-container</span>"&gt;Tab Two&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="<span class="demo-highlight-color">#three</span>"&gt;&lt;span class="topleft"&gt;&lt;/span&gt;&lt;span class="<span class="demo-highlight-color">border-container</span>"&gt;Tab Three&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="<span class="demo-highlight-color">#four</span>"&gt;&lt;span class="topleft"&gt;&lt;/span&gt;&lt;span class="<span class="demo-highlight-color">border-container</span>"&gt;Tab Four&lt;/span&gt;&lt;span class="topright"&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div id="<span class="demo-highlight-color">one</span>" class="<span class="demo-highlight-color">n-flyout-container</span>"&gt;
+            one
+        &lt;/div&gt;
+        &lt;div id="<span class="demo-highlight-color">two</span>" class="<span class="demo-highlight-color">n-flyout-container</span>"&gt;
+            Tab two content
+        &lt;/div&gt;
+        &lt;div id="<span class="demo-highlight-color">three</span>" class="<span class="demo-highlight-color">n-flyout-container</span>"&gt;
+            Tab three content
+        &lt;/div&gt;
+        &lt;div id="<span class="demo-highlight-color">four</span>" class="<span class="demo-highlight-color">n-flyout-container</span>"&gt;
+            Tab four content
+        &lt;/div&gt;
+        &lt;div class="<span class="demo-highlight-color">drawer-toggle-up</span>"&gt;&lt;/div&gt;
+        &lt;div class="<span class="demo-highlight-color">drawer-shadow</span>"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+</code>
+    </pre>
+
+</div>
+<div class="n-flyout n-drawer" data-markup="flyout" data-direction="top" data-expand="false" id="TA-drawer">
+    <ul class="n-flyout-open n-drawer-tabs">
+        <li>
+            <a href="#one"><span class="topleft"></span><span class="border-container">Add Apps</span></a>
+        </li>
+        <li>
+            <a href="#two"><span class="topleft"></span><span class="border-container">Tab Two</span></a>
+        </li>
+        <li>
+            <a href="#three"><span class="topleft"></span><span class="border-container">Tab Three</span></a>
+        </li>
+        <li>
+            <a href="#four"><span class="topleft"></span><span class="border-container">Tab Four</span><span class="topright"></span></a>
+        </li>
+    </ul>
+    <div id="one" class="n-flyout-container">
+        <div class="btn-group n-tab-buttons" id="TA-drawer-tabButtons">
+            <button class="btn btn-standard">Common</button>
+            <button class="btn btn-standard">Content Management</button>
+            <button class="btn btn-standard">Monitoring</button>
+            <button class="btn btn-standard">Social</button>
+            <button class="btn btn-standard">Tools</button>
+        </div>
+        <div class="scrollbars horizontal scrollbars-horizontal-visible" id="TA-drawer-scrollbars">
+            <div class="drawer-content" style="width: 2150px;">
+                <div class="drawer-row">
+                    <div class="drawer-cell" id="TA-drawer-cell1">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell2">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell3">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell4">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell5">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                </div>
+                <div class="drawer-row">
+                    <div class="drawer-cell" id="TA-drawer-cell6">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell7">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell8">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell9">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                    <div class="drawer-cell" id="TA-drawer-cell10">
+                        <div class="drawer-cell-name">App Name</div>
+                        <div class="drawer-cell-description">Short discription goes here</div>
+                        <div class="dummy-picture"></div>
+                        <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="two" class="n-flyout-container">
+        <div class="scrollbars vertical scrollbars-vertical-visible">
+            <div class="drawer-content" style="height: 600px;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus orci felis, elementum vel gravida vel, commodo sit amet ligula. Proin id eros tellus. Proin risus orci, facilisis ac elementum ut, feugiat sit amet justo. In egestas lobortis eros, sed fringilla urna sodales eu. Nulla non orci sit amet nunc porttitor sodales vitae eu massa. Aenean et erat purus, eget malesuada orci. Maecenas convallis ultricies augue in iaculis.</p>
+            </div>
+        </div>
+    </div>
+    <div id="three" class="n-flyout-container">
+        Tab three content
+    </div>
+    <div id="four" class="n-flyout-container">
+        Tab four content
+    </div>
+    <div class="drawer-toggle-up"></div>
+    <div class="drawer-shadow"></div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/drawer']);
+</script>
+</body>
+</html>

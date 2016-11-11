@@ -1,0 +1,116 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.links.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_dlg_subheader">Active dialog <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="col-md-5">
+    <p>
+        Here are example of the active dialog:
+    </p>
+    <div>
+        <p>
+            <a href="#ActiveDialog" data-backdrop="false" data-toggle="modal" data-keyboard="true" id="TA-dialog-active">Dialog (active) </a>
+        </p>
+    </div>
+    <!--Active Dialog -->
+    <div class="modal active" id="ActiveDialog" role="dialog" aria-labelledby="myModalDlgLabel-active" aria-hidden="true" tabindex='1'>
+        <div class="modal-dialog">
+            <div class="modal-content" id="TA-active-dialog">
+                <div class="modal-header" id="TA-dialog-active-content-header">
+                    <div class="n-dialog-header-fg-filler">
+                        <h1 class="modal-title-active">Active dialog</h1>
+                    </div>
+                    <div class="n-dialog-header-bg-filler"></div>
+                    <!-- -->
+                    <div class="n-dialog-header-curve">
+                        <div class="fg-mask"></div>
+                        <div class="bg-mask"></div>
+                        <div class="fg-corner"></div>
+                        <div class="bg-corner"></div>
+                    </div>
+                    <i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close dialog" tabindex="4" id="TA-dialog-active-content-close"></i>
+                    <div style="clear: both"></div>
+                </div>
+                <div class="modal-body" id="TA-dialog-active-content-body">
+                    Text
+                </div>
+                <div class="modal-footer" id="TA-dialog-active-content-footer">
+                    <button class="btn btn-standard btn-defaultBlue" data-dismiss="modal" tabindex="2" id="TA-dialog-active-buttons-ok">OK</button>
+                    <button class="btn btn-standard" data-dismiss="modal" tabindex="3" id="TA-dialog-active-buttons-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-7">
+    <p>JS & CSS dependency:</p>
+        <pre>
+For active dialog components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dialog.min.css" rel="stylesheet"/&gt;</pre>
+    <p>
+        To use the dialogs, see the examples below.
+    </p>
+<pre>
+<code>
+&lt;!-- Standard dialog --&gt;
+&lt;a href="#ActiveDialog" data-backdrop="false" data-toggle="modal"&gt;Active dialog&lt;/a&gt;
+</code>
+</pre>
+    <p>
+        You can make use of the active dialog by add class <code> active</code>.See the examples below.
+    </p>
+<pre>
+<code>
+&lt;!-- Standard dialog --&gt;
+&lt;div class="modal <span class="demo-highlight-color">active</span>" id="ActiveDialog" role="dialog" aria-labelledby="myModalDlgLabel-active" aria-hidden="true" tabindex='-1'&gt;
+&lt;div class="modal-dialog"&gt;
+            &lt;div class="modal-content"&gt;
+                &lt;div class="modal-header"&gt;
+                    &lt;div class="n-dialog-header-fg-filler"&gt;&lt;div&gt;
+                    &lt;div class="n-dialog-header-bg-filler"&gt;&lt;/div&gt;
+                    <!-- -->
+                    &lt;div class="n-dialog-header-curve"&gt;
+                        &lt;div class="fg-mask"&gt;&lt;/div&gt;
+                        &lt;div class="bg-mask"&gt;&lt;/div&gt;
+                        &lt;div class="fg-corner"&gt;&lt;/div&gt;
+                        &lt;div class="bg-corner"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;i role="button" class="icon icon-close-rounded" data-dismiss="modal" aria-label="Close dialog"&gt;&lt;/i&gt;
+                    &lt;h1 class="modal-title-active"&gt;Active Dialog&lt;/h1&gt;
+                &lt;/div&gt;
+                &lt;div class="modal-body"&gt;
+                    Text
+                &lt;/div&gt;
+                &lt;div class="modal-footer"&gt;
+                    &lt;button class="btn btn-standard" data-dismiss="modal"&gt;OK&lt;/button&gt;
+                    &lt;button class="btn btn-standard" data-dismiss="modal"&gt;Cancel&lt;/button&gt;
+               &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['bootstrap', 'wulf/keyboard/keyboard-core']);
+</script>
+</body>
+</html>

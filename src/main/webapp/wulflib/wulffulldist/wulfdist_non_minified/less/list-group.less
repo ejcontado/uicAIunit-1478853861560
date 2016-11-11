@@ -1,0 +1,681 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/list-group.less";
+@import "./mixins/vendor-prefixes.less";
+@import "./mixins/gradients.less";
+@import "@{less-path-of-bootstrap}mixins/border-radius.less";
+@import "@{less-path-of-bootstrap}list-group.less";
+@import "variables.less";
+
+//== List group
+//
+//##
+
+// Normal list (light-weight implementation)
+ul.list-group {
+  cursor: default;
+  border-radius: @multicolumn-border-radius;
+  text-shadow: 0 1px @list-group-text-shadow;
+  border: 1px solid @list-group-border;
+
+  li {
+    border: 1px solid @list-group-li-border;
+    margin-bottom: 0;
+    font-weight: normal;
+    color: @gray-nav;
+    padding: 3px 10px 3px 10px;
+  }
+}
+
+dl.list-group {
+  cursor: default;
+  border-radius: @multicolumn-border-radius;
+  text-shadow: 0 1px @list-group-text-shadow;
+  border: 1px solid @list-group-border;
+
+  dt {
+    padding: 5px 10px;
+    background-color: @n-table-row-grey;
+    border: 1px solid @n-table-row-grey;
+  }
+
+  dd {
+    padding: 3px 20px;
+  }
+}
+
+.list-group-item {
+  border: 1px solid @list-group-item-border;
+}
+
+//list group header
+.n-list-group-header {
+  padding-left: 10px;
+  display: block;
+}
+
+// Striped list version
+.n-list-striped {
+  li:nth-child(odd) {
+    background-color: @n-table-row-white;
+  }
+  li:nth-child(even) {
+    background-color: @n-table-row-grey;
+  }
+}
+
+// Selectable list
+// This is for making selection support into list (without it being select-input component)
+.n-list-group:extend(.list-group all) {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.n-list-group-scroll {
+  height: 100px;
+
+  > .mCustomScrollBox {
+    border-radius: 5px;
+    padding: 0;
+
+    > .mCSB_container {
+      margin-right: 0;
+    }
+    &.mCS-disabled {
+      background-color: @list-group-scroll-disabled-background;
+    }
+  }
+}
+
+.n-list-group-small:extend(.n-list-group all) {
+  @list-group-border-radius: 6px; //@input-border-radius;
+  > li {
+    padding: 1px 10px 1px 10px;
+  }
+  > li:first-child {
+    padding: 4px 10px 2px 10px;
+  }
+  > li:last-child {
+    padding: 2px 10px 4px 10px;
+  }
+  dd {
+    padding: 1px 20px;
+  }
+  dd:first-child {
+    padding: 4px 20px 2px 20px !important;
+  }
+  dd:last-child {
+    padding: 2px 20px 4px 20px !important;
+  }
+}
+
+.n-list-group-item:extend(.list-group-item all) {
+  color: @gray-nav;
+  margin-bottom: 0;
+  &:hover, &:active {
+    border: 1px solid transparent;
+    cursor: pointer;
+    color: @list-group-item-extend-hover-text;
+    outline-style: none;
+    span {
+      border-bottom: 1px solid @blue-underline;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+// Focus without extra outlining
+li.n-list-group-item:focus:not(:active) {
+  outline-style: none;
+  box-shadow: none;
+  border: 1px solid @gray-medium !important;
+}
+
+dd.n-list-group-item:focus:not(:active) {
+  outline-style: none;
+  box-shadow: none;
+  border: 1px solid @gray-medium !important;
+}
+
+ul.n-list-group {
+  > li:first-child.selected {
+    border-top: 1px solid transparent;
+  }
+
+  > li:last-child.selected {
+    border-bottom: 1px solid transparent;
+  }
+}
+dl.n-list-group {
+  > dd:first-child.selected {
+    border-top: 1px solid transparent;
+  }
+
+  > dd:last-child.selected {
+    border-bottom: 1px solid transparent;
+  }
+}
+
+li.n-list-group-item.selected {
+  font-weight: bold;
+  text-shadow: none;
+  background-color: @list-selected-invert;
+  color: @list-group-item-selected-text;
+  outline: none;
+  border-color: transparent !important;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: none;
+    border: 1px solid @gray-medium !important;
+    span {
+      border-bottom: 1px solid @list-group-item-selected-text;
+    }
+  }
+
+  &:focus {
+    outline-style: none;
+    box-shadow: none;
+    border: 1px solid @gray-medium !important;
+  }
+}
+
+dd.n-list-group-item.selected {
+  font-weight: bold;
+  text-shadow: none;
+  background-color: @list-selected-invert;
+  color: @list-group-item-selected-text;
+  outline: none;
+  border-color: transparent !important;
+
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+    text-shadow: none;
+    border: 1px solid @gray-medium !important;
+    span {
+      border-bottom: 1px solid @list-group-item-selected-text;
+    }
+  }
+}
+
+dt.n-list-group-item :hover, :focus, :active {
+  outline: none;
+}
+
+
+// Disabled list
+ul.disabled {
+  cursor: default;
+  color: @list-group-disabled-text-color;
+  li.list-group-item, li.n-list-group-item {
+    color: @list-group-disabled-text-color;
+  }
+  li.list-group-item, li.n-list-group-item {
+    &:hover {
+      cursor: default;
+      span {
+        border-bottom: none;
+      }
+    }
+    &:focus {
+      border: 1px solid transparent !important;
+    }
+  }
+  &:before {
+    color: @list-group-disabled-text-color;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+dl.disabled {
+  cursor: default;
+  color: @list-group-disabled-text-color;
+  dt.list-group-item, dd.n-list-group-item {
+    color: @list-group-disabled-text-color;
+    &:hover {
+      cursor: default;
+      span {
+        border-bottom: none;
+      }
+    }
+    &:focus {
+      border: 1px solid transparent !important;
+    }
+  }
+  dd.list-group-item, dd.n-list-group-item {
+    color: @list-group-disabled-text-color;
+    &:hover {
+      cursor: default;
+      span {
+        border-bottom: none;
+      }
+    }
+    &:focus {
+      border: 1px solid transparent !important;
+    }
+  }
+  &:before {
+    color: @list-group-disabled-text-color;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+/**----------multi-column list-----------------**/
+.n-multicolumn-list {
+  // Cells
+  background-color: @gray-white;
+  border-radius: @multicolumn-border-radius;
+  border-collapse: inherit;
+  color: @gray-dark;
+
+  tbody:last-child:not(.group) {
+    > tr {
+      &:last-child {
+        > td {
+          &:first-child, &:first-child::after {
+            border-radius: 0 0 0 @multicolumn-border-radius;
+          }
+          &:last-child, &:last-child::after {
+            border-radius: 0 0 @multicolumn-border-radius 0;
+          }
+        }
+      }
+      &.subheader.last > td, &.subheader.last > td::after  {
+        border-bottom-left-radius: @multicolumn-border-radius;
+        border-bottom-right-radius: @multicolumn-border-radius;
+      }
+    }
+  }
+
+  > thead, tbody {
+    > tr {
+      > th, td {
+        padding: @multicolumn-cell-padding;
+        position: relative; //to get the cell texts situated nicely
+        border: solid @n-table-border-color;
+        font-weight: normal;
+      }
+      th, td:first-child{
+        padding: @multicolumn-bordered-cell-padding;
+      }
+      th:last-child{
+        padding-right: 1px;
+      }
+    }
+  }
+
+  > thead {
+    > tr {
+      > th {
+        text-align: left;
+        line-height: @multicolumn-header-height;
+        background-image: linear-gradient(to bottom, @multilist-thead-th-gradient-start 0%, @multilist-thead-th-gradient-end 100%);
+        border-width: 1px 0 1px 1px;
+        border-style: solid;
+        &:first-child {
+          border-radius: @multicolumn-border-radius 0 0 0;
+        }
+        &:last-child {
+          border-right-width: 1px;
+          border-radius: 0 @multicolumn-border-radius 0 0;
+          &.n-sortable:hover {
+            border-right: 1px solid @blue-hover;
+          }
+        }
+        span.icon {
+          visibility: hidden;
+        }
+
+        &:hover {
+          cursor: hand;
+          &:not(.selected):not(:focus) {
+            position: relative;
+            &::after {
+              .multicolumn-border(300, calc(~"100% + 2px"), calc(~"100% + 2px"), @blue-hover, -1px);
+              .box-shadow(inset 0 0 1px 1px @multilist-thead-th-hover-after-insetshadow);
+              border-width: 1px;
+            }
+
+            &:first-child::after {
+              border-top-left-radius: @multicolumn-border-radius;
+            }
+            &:last-child::after {
+              border-top-right-radius: @multicolumn-border-radius;
+            }
+          }
+          span.icon {
+            visibility: visible;
+          }
+        }
+
+        &.selected {
+          font-weight: bold;
+          border-width: 1px 0 1px 1px;
+          border-color: #b2b2b2;
+          #gradient > .vertical(#cbcbcb, #e0e0e0);
+          box-shadow: @multicolumn-active-background;
+          &:last-child {
+            border-right-width: 1px;
+          }
+
+          span.icon {
+            visibility: visible;
+          }
+        }
+
+        &:focus {
+          #gradient > .vertical(@dropdown-dark-focus-gradient-start, @dropdown-dark-focus-gradient-end);
+          color: @gray-white;
+          outline: 0;
+          span.icon {
+            visibility: visible;
+            &:before {
+              color: @gray-white;
+            }
+          }
+
+        }
+
+        > span.icon:before {
+          padding-left: 2px;
+          color: @multicolumn-caret-color;
+          display: inline-block;
+        }
+      }
+      //end th
+    }
+  }
+  //end thead
+
+  > tbody {
+    //Group selection in this exercise happens so that group is handled as one entity and only group gets selected,
+    //not a single item of group (even when a single item is clicked).
+    //That is way following code must be "overridden" in .group (for reasoning have a look at list-group.js).
+    &:not(.group) {
+      > tr {
+        > td {
+          &:hover:not(.selected), &:active:not(.selected) { //hovering of a basic td item. Active looks like hover
+            > span:not(.icon) {
+              border-bottom: 1px solid @blue-underline;
+              color: @black-hover;
+            }
+          }
+        }
+      }
+    }
+    > tr {
+      > td {
+        line-height: @multicolumn-row-height;
+        border-width: 0 0 1px 0;
+        color: @multicolumn-td-font-color;
+        &:first-child {
+          border-left-width: 1px;
+        }
+        &:last-child {
+          border-right-width: 1px;
+        }
+
+        &:focus:not(:active) {
+          outline: 0;
+          &::after {
+            .multicolumn-border(100, calc(~"100% + 1px"), calc(~"100% + 2px"), @gray-medium, -1px);
+            border-width: 1px;
+          }
+          &:first-child::after {
+            width: calc(~"100% + 2px");
+          }
+        }
+
+        &.selected {
+          font-weight: bold;
+          background-color: @blue-selection;
+          color: @gray-white;
+          &:hover { //hovering of a selected basic td item
+            > span:not(.icon) {
+              border-bottom: 1px solid @gray-white;
+            }
+          }
+          &:not(:last-child) > span::after {
+            .multicolumn-border(0, 1px, 100%, none, 0);
+            background-color: @blue-selection;
+          }
+        }
+
+      }
+
+      &.subheader {
+        > td {
+          padding-left: 7px;
+          border-radius: 0;
+          > span.icon:before {
+            padding-right: 3px;
+            font-weight: bold;
+            color: @multicolumn-caret-color;
+            display: inline-block;
+          }
+
+          &.selected {
+            font-weight: bold;
+            > span.icon:before {
+              color: @gray-white;
+            }
+          }
+        }
+      }
+      //end subheader
+
+      &.subheader-item {
+        display: none;
+        > td:first-child {
+          padding-left: 23px;
+        }
+
+        &.open {
+          display: table-row;
+        }
+      }
+      //end subheader-item
+    }
+    //end tr
+
+    &.group {
+      &:last-child > tr {
+        &:first-child > td:first-child, &:first-child > td:first-child::after {
+          border-bottom-left-radius: @multicolumn-border-radius;
+        }
+        &:last-child > td:last-child, &:last-child > td:last-child::after {
+          border-bottom-right-radius: @multicolumn-border-radius;
+        }
+      }
+      > tr:first-child > td {
+        border-top:  1px solid transparent; //this how focus of the group works nicely without extra resizings of the group
+      }
+      > tr {
+        > td {
+          border-left-width: 0;
+          border-bottom-width: 0;
+          > span::after {
+            .dotted-border-bottom-color-for-a-span(@multilist-tbody-group-span-border);
+          }
+          //to make it possible that group can start at any column position, not only from the first column
+          //and to get the bottom border of a group visible in all cases
+          &.n-multicolumn-list-td-group {
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+          }
+        }
+
+        &:first-child {
+          > td:first-child {
+            vertical-align: top;
+            border-left-width: 1px;
+            > span::after {
+              content: none;
+            }
+          }
+        }
+        &:last-child {
+          > td {
+            border-bottom: 1px solid @multilist-tbody-group-lasttr-border;
+            > span::after {
+              content: none;
+            }
+          }
+        }
+        &:not(:last-child) {
+          > td {
+            line-height: calc(~"@{multicolumn-row-height} + 1px");
+          }
+        }
+      }
+
+      &:hover:not(.selected), &active:not(selected) {
+        td > span {
+          border-bottom: 1px solid @blue-underline;
+        }
+      }
+
+      &:focus:not(:active) {
+        outline: 0;
+        > tr {
+          &:first-child {
+            > td {
+                border-top:1px solid @multicolumn-caret-color; //formerly transparent border-top is now visible
+                &.n-multicolumn-list-td-group {
+                  border-bottom:1px solid @multicolumn-caret-color;
+                }
+
+              &:first-child {
+                border-left:1px solid @multicolumn-caret-color;
+                border-right:none;
+              }
+            }
+          }
+          > td:last-child {
+            border-right: 1px solid @multicolumn-caret-color;
+          }
+          &:last-child {
+            > td {
+               border-bottom: 1px solid @multicolumn-caret-color;
+            }
+          }
+        }
+      }
+
+      &.selected {
+        font-weight: bold;
+        outline: 0;
+        td {
+          background-color: @blue-selection; //Firefox needs this to be defined for td
+        }
+        td > span {
+          color: @gray-white;
+          border: none;
+          &::after {
+            .dotted-border-bottom-color-for-a-span(@multicolumn-td-font-color);
+          }
+        }
+        &:hover { //hovering of a selected group
+          td {
+            > span:not(.icon) {
+              border-bottom: 1px solid @gray-white;
+            }
+          }
+        }
+      }
+    }
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  .multicolumn-border(@index, @width, @height, @border-color, @top) {
+    z-index: @index;
+    position: absolute;
+    top: @top;
+    right: -1px;
+    height: @height;
+    width: @width;
+    border: 0 solid @border-color;
+    content: " ";
+  }
+
+  .dotted-border-bottom-color-for-a-span(@colour) {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: calc(~"100% - 20px");
+    height: 1px;
+    content: " ";
+    border-bottom: 1px dotted;
+    border-bottom-color: @colour;
+  }
+}
+
+// +++ Dark list variant
+.n-list-group-dark:extend(.n-list-group all) {
+
+  > li:first-child {
+    border-top: 1px solid @dark-list-border-color;
+  }
+
+  .n-list-group-item {
+    border: 1px solid @dark-list-border-color;
+    border-top: 1px solid @dark-list-top-border-color;
+    color: @dark-list-text-color;
+    margin-bottom: 0;
+    background-color: @dark-list-background-color;
+    text-shadow: none;
+
+    &:hover, &:active {
+      cursor: pointer;
+      background-color: @dark-list-hover-color;
+      span {
+        border-bottom: 1px solid @dark-list-underline-color;
+        margin-bottom: -1px;
+      }
+    }
+
+    &:focus:not(:hover) {
+      outline-style: none;
+      box-shadow: none;
+      border: 1px solid @dark-list-focus-color !important;
+    }
+  }
+
+  li.n-list-group-item.selected {
+    font-weight: bold;
+    text-shadow: none;
+    background-color: @list-selected-invert;
+    color: @dark-list-text-color;
+    outline: none;
+    border-color: transparent !important;
+
+    &:hover:not(:focus),&:active {
+      cursor: pointer;
+      background-color: @dark-list-hover-color;
+      span {
+        border-bottom: 1px solid @dark-list-underline-color;
+        margin-bottom: -1px;
+      }
+    }
+
+    &:focus:not(:active) {
+      outline-style: none;
+      box-shadow: none;
+      border: 1px solid @dark-list-focus-color !important;
+    }
+  }
+
+  .mCustomScrollBox {
+    background: @dark-list-background-color;
+  }
+}

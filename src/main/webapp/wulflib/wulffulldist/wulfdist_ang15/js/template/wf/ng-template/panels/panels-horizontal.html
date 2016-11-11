@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<div class="panel-slide-horizontal">
+    <div class="panel-left panel panel-container panel-shadow">
+        <div class="panel panel-blue-cap" id="panelContent"  aria-expanded="{{!$ctrl.isShow}}">
+            <div class="panel-heading" ng-transclude="header">
+                <h1>{{$ctrl.header}}</h1>
+            </div>
+            <div class="panel-body"  ng-transclude="body">
+            </div>
+        </div>
+        <div class="panel-arrow panel-blue-cap" aria-controls="panelContent" role="button" ng-attr-tabindex="{{ $ctrl.index }}" ng-click="$ctrl.show($event)" ng-keydown="$ctrl.showKeydown($event);">
+            <span class="icon icon-left" aria-expanded="{{!$ctrl.isShow}}"></span>
+        </div>
+    </div>
+</div>

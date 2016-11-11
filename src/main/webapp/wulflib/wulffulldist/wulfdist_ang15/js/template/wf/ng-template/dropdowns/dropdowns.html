@@ -1,0 +1,12 @@
+<div ng-class="$ctrl.dropdownClassStr" data-resize="none" data-initialize="selectlist">
+    <button ng-class="$ctrl.dropdownButtonClassStr" ng-click="$ctrl.toggle($event)" data-toggle="dropdown" type="button" aria-expanded="{{$ctrl.show}}" ng-disabled="$ctrl.disable"
+            ng-keydown="$ctrl.keyboardStepInList($event)">
+        <span class="selected-label"><span>{{$ctrl.selectedItem}}</span></span>
+        <span class="selected-caret"><span class="caret"></span></span>
+        <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu" style="display: block" role="menu" ng-show="$ctrl.show" ng-transclude>
+    </ul>
+    <input class="hidden hidden-field" readonly="readonly" aria-hidden="true"
+           type="text"/>
+</div>

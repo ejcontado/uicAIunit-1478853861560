@@ -1,0 +1,15 @@
+<ul class="n-banner-nav n-banner-tabs"   role="tabs">
+    <li ng-cloak ng-repeat="item in $ctrl.itemes"  class="{{item.cssClass}}  ng-class:{active:item.selected}"
+        ng-click="$ctrl.click(item, $event)" ng-keydown="$ctrl.handleKeyDown(item, $event)"  wf-menu-bar-dropdown role="presentation">
+        <a  href={{item.link}}  data-item={{item.dataitem}}  aria-expanded="{{item.selected}}" role="tab"
+             ng-if="item.cssClass !== 'dropdown'">
+            <span>{{item.label}}</span></a>
+        <a  href={{item.link}}  data-item={{item.dataitem}} aria-expanded="false"   class="n-banner-dropdown-toggle" data-toggle="dropdown"
+            ng-if ="item.cssClass === 'dropdown'" role="button">
+            <span>{{item.label}}</span>
+            <span class="caret"></span>
+        </a>
+        <wf-menu-bar ng-cloak menu-bar='item.menuBar' ng-if="item.cssClass === 'dropdown'"></wf-menu-bar>
+    </li>
+    <div class="row n-banner-2nd" ng-transclude></div>
+</ul>

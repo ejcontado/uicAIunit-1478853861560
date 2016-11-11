@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Dialog</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Dialog Wizard</h1>
+<hr>
+<div id="angular_section" class="row">
+    <div class="col-md-5">
+        <div ng-controller="DialogDemoController as demo">
+            <h4>Toggle a dialog by clicking the link</h4>
+            <wf-dialog toggle-style="demo.wizard.toggleStyle" toggle-text="demo.wizard.toggleText"
+                       pattern="demo.wizard.pattern" title-text="demo.wizard.title" subheader="demo.wizard.subheader" active="demo.wizard.isActive"
+                       confirm-btn-text="demo.wizard.btnText" animation="demo.animation" is-wizard="true"
+                       on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle">
+                <wf-wizard>
+                    <wf-wizard-step on-step-traversed="demo.wizard.traverseCallBack" ng-repeat="step in demo.wizard.stepDetails" bullet-text="step.bulletText" set-active="step.active">
+                        <wf-wizard-step-description>{{step.description}}</wf-wizard-step-description>
+                        <wf-wizard-step-content>{{step.content}}</wf-wizard-step-content>
+                    </wf-wizard-step>
+                </wf-wizard>
+            </wf-dialog>
+            <br/>
+            <br/>
+            <h4>Toggle a dialog by clicking the button</h4>
+            <wf-dialog toggle-style="demo.wizard2.toggleStyle" toggle-text="demo.wizard2.toggleText"
+                       pattern="demo.wizard.pattern" title-text="demo.wizard2.title" active="demo.wizard.isActive"
+                       confirm-btn-text="demo.wizard.btnText" animation="demo.animation" is-wizard="true"
+                       on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle">
+                <wf-wizard>
+                    <wf-wizard-step bullet-text="1" set-active="true">
+                        <wf-wizard-step-description>Sign up here!</wf-wizard-step-description>
+                        <wf-wizard-step-content>
+                            <label class="col-sm-2 control-label">Name: </label><input type='text' class='n-inputfield' ng-model='demo.wizard2.demoName'><br/>
+                            <label class="col-sm-2 control-label">Email: </label><input type='email' class='n-inputfield' ng-model='demo.wizard2.demoEmail' ng-model-options="{'allowInvalid': true}">
+                        </wf-wizard-step-content>
+                    </wf-wizard-step>
+                    <wf-wizard-step bullet-text="2">
+                        <wf-wizard-step-description>Page 2</wf-wizard-step-description>
+                        <wf-wizard-step-content>
+                            Gender:<br/>
+                            <input class="col-sm-1" type="radio" value="Male" ng-model="demo.wizard2.gender"><label>Male</label><br/>
+                            <input class="col-sm-1" type="radio" value="Female" ng-model="demo.wizard2.gender"><label>Female</label><br/>
+                        </wf-wizard-step-content>
+                    </wf-wizard-step>
+                    <wf-wizard-step bullet-text="3">
+                        <wf-wizard-step-description>Verify your details</wf-wizard-step-description>
+                        <wf-wizard-step-content>
+                            Name: {{demo.wizard2.demoName}}<br/>
+                            Email: {{demo.wizard2.demoEmail}}<br/>
+                            Gender: {{demo.wizard2.gender}}
+                        </wf-wizard-step-content>
+                    </wf-wizard-step>
+                    <wf-wizard-step bullet-text="4">
+                        <wf-wizard-step-description>You are done!</wf-wizard-step-description>
+                        <wf-wizard-step-content>
+                            Press finish to continue and save changes!<br/>
+                            Press cancel to discard.
+                        </wf-wizard-step-content>
+                    </wf-wizard-step>
+                </wf-wizard>
+            </wf-dialog>
+
+            <div style="padding-top: 60px;">
+                <div style="float:left; padding-right: 10px; line-height: 30px;">Enable animation:</div>
+                <div id="TA-dialog-enableAnimate" class="n-toggle-switch n-toggle-switch-small" style="float:left;">
+                    <input type="checkbox" class="n-toggle-switch-input" id="enable-animation" ng-checked="!demo.animation"
+                           ng-click="demo.animation = !demo.animation">
+                    <label class="n-toggle-switch-container " for="enable-animation">
+                        <span class="n-toggle-switch-handler"></span>
+                        <span class="n-toggle-switch-slider"></span>
+                    </label>
+                </div>
+                <div style="float:left; padding-right: 10px; line-height: 30px; clear: left;">Enable action callback:</div>
+                <div id="TA-dialog-enableEvent" class="n-toggle-switch n-toggle-switch-small" style="float:left;">
+                    <input type="checkbox" class="n-toggle-switch-input" id="enable-event" ng-checked="!demo.actionState"
+                           ng-click="demo.actionState = !demo.actionState">
+                    <label class="n-toggle-switch-container " for="enable-event">
+                        <span class="n-toggle-switch-handler"></span>
+                        <span class="n-toggle-switch-slider"></span>
+                    </label>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <br/>
+            <div style="float:left; padding-right: 10px; line-height: 30px; clear: left;">
+                Registration Wizard user defined items:<br/>
+                Username: {{demo.wizard2.demoName}}<br/>
+                Email: {{demo.wizard2.demoEmail}}<br/>
+                Gender: {{demo.wizard2.gender}}<br/>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h2>Overview</h2>
+        <p>
+            Angular version of dialog wizard component which is implemented by using .component() method introduced since Angular 1.5.
+            This inherits and extends WULF's Angular Dialog functionality.
+        </p>
+        <h2>wf-dialog settings (Wizard specific)</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>is-wizard: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (default)</li>
+                    </ul>
+                </td>
+                <td>
+                    If true, structures the dialog to generate Step information and Next/Previous buttons for step navigation
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <b>wf-wizard does not have binding settings, it is only meant to mark html and impose structure.</b>
+        <h2>wf-wizard-step settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>bulletText: &lt;</code></td>
+                <td>
+                    Any short character
+                </td>
+                <td>
+                    Any relevant character. Be wary of the text size since it is only enclosed by a small circle.
+                </td>
+            </tr>
+            <tr>
+                <td><code>setActive: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>true</li>
+                        <li>false (default)</li>
+                    </ul>
+                </td>
+                <td>
+                    If true, sets the step as the active step and assumes the previous steps to be done. There must be <b>ONLY ONE</b> step set as active at one time.
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-step-traversed: &</code></td>
+                <td>
+                    Callback function
+                </td>
+                <td>
+                    Called when the step is traversed, either by the Next button or the Previous button
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>wf-wizard-step transclude slots</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Slot name</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>wf-wizard-step-description</code></td>
+                <td>
+                    General description of the step, accepts any html markup including Angular.
+                </td>
+            </tr>
+            <tr>
+                <td><code>wf-wizard-step-content</code></td>
+                <td>
+                    Specific content of the step, accepts any html markup including Angular.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>Keyboard accessibility</h2>
+        Shares keyboard functionality with base WULF Angular Dialog.
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+<wf-dialog toggle-style="demo.wizard.toggleStyle" toggle-text="demo.wizard.toggleText"
+           pattern="demo.wizard.pattern" title-text="demo.wizard.title" subheader="demo.wizard.subheader" active="demo.wizard.isActive"
+           confirm-btn-text="demo.wizard.btnText" animation="demo.animation" is-wizard="true"
+           on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle">
+    <wf-wizard>
+        <wf-wizard-step on-step-traversed="demo.wizard.traverseCallBack" ng-repeat="step in demo.wizard.stepDetails" bullet-text="step.bulletText" set-active="step.active">
+            <wf-wizard-step-description>{{step.description}}</wf-wizard-step-description>
+            <wf-wizard-step-content>{{step.content}}</wf-wizard-step-content>
+        </wf-wizard-step>
+    </wf-wizard>
+</wf-dialog>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+require(['angular', 'wulf-ng/dialog/dialog'], function (angular) {
+    angular.module('wf.ng.demo', ['wf.angular.dialog']).controller('DialogDemoController', DialogDemoController);
+
+    function DialogDemoController() {
+        this.animation = false;
+
+        this.wizard = {};
+        this.wizard2 = {};
+
+        this.wizard.title = "Create Task";
+        this.wizard.subheader = "General data";
+        this.wizard.isActive = true;
+        this.wizard.btnText = "Finish";
+        this.wizard.toggleStyle = "link";
+        this.wizard.pattern = "standard";
+        this.wizard.toggleText = 'Wizard Dialog';
+
+        this.wizard.stepDetails = [
+            {
+                description: 'Description Step 1',
+                content: 'Content Step 1',
+                active: true,
+                bulletText: 'I'
+            },
+            {
+                description: 'Description Step 2',
+                content: 'Content Step 2',
+                bulletText: 'II'
+            },
+            {
+                description: 'Description Step 3',
+                content: 'Content Step 3',
+                bulletText: 'III'
+            }
+        ];
+
+
+        this.wizard2.toggleStyle = "button";
+        this.wizard2.toggleText = 'Registration Wizard Dialog';
+        this.wizard2.title = "Registration";
+    });
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['angular', 'angularAnimate', 'wulf-ng/dialog/dialog', 'wulf-ng/wizard/wizard', 'wulf-ng/tabs/tabs'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.dialog','wf.angular.wizard','wf.angular.tabs'])
+                .controller('DialogDemoController', DialogDemoController);
+
+        function DialogDemoController() {
+            var self = this;
+            this.animation = false;
+
+            this.wizard = {};
+            this.wizard2 = {};
+
+            this.wizard.title = "Create Task";
+            this.wizard.subheader = "General data";
+            this.wizard.isActive = true;
+            this.wizard.btnText = "Finish";
+            this.wizard.toggleStyle = "link";
+            this.wizard.pattern = "standard";
+            this.wizard.toggleText = 'Wizard Dialog';
+
+            this.wizard.stepDetails = [
+                {
+                    description: 'Description Step 1',
+                    content: 'Content Step 1',
+                    active: true,
+                    bulletText: 'I'
+                },
+                {
+                    description: 'Description Step 2',
+                    content: 'Content Step 2',
+                    bulletText: 'II'
+                },
+                {
+                    description: 'Description Step 3',
+                    content: 'Content Step 3',
+                    bulletText: 'III'
+                }
+            ];
+
+            this.wizard2.toggleStyle = "button";
+            this.wizard2.toggleText = 'Registration Wizard Dialog';
+            this.wizard2.title = "Registration";
+            this.actionState = false;
+
+            this.wizard.traverseCallBack = function(selectedStepIdx) {
+                if (self.actionState) {
+                    alert('Step traversed, selected index in wizard is ' + selectedStepIdx);
+                }
+            }
+
+            this.onConfirm = function() {
+                if (self.actionState) {
+                    alert('Confirm button is clicked');
+                }
+            };
+            this.onCancel = function() {
+                if (self.actionState) {
+                    alert('Cancel button is clicked');
+                }
+                    self.wizard2.gender = '';
+                    self.wizard2.demoName = '';
+                    self.wizard2.demoEmail = '';
+            };
+            this.onToggle = function(isShow){
+                var status = isShow? 'shown':'hidden';
+                if (self.actionState) {
+                    alert('Dialog will be ' + status);
+                }
+            };
+        };
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

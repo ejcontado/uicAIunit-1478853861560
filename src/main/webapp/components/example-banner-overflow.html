@@ -1,0 +1,334 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_banner_overflow">Nokia Banner (Overflow) <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<p>
+    Nokia Banner is based on the Bootstrap Navbar component.
+</p>
+<div class="row">
+    <div class="col-md-12">
+
+        <!--
+        <ul>
+          <li>
+            <strong>Note:</strong> You have to set the @n-banner-breakpoint variable to match your logo width to get the collapsing working properly
+          </li>
+          <li>
+            <strong>Todo:</strong> Check colors from the reference fireworks images (.png has some gradient, noise &amp; shadow oddity)
+          </li>
+          <li>
+            <strong>Bug:</strong> Random 1px transparent (white) items around the "wave" blocks on IE
+          </li>
+        </ul>
+        -->
+
+        <nav class="n-banner">
+
+            <div class="n-banner-1st-filler-white"></div>
+            <div class="n-banner-1st-filler-blue"></div>
+            <div class="n-banner-2nd-filler-blue hidden-xs hidden-on-blue-detached"></div>
+            <div class="n-banner-2nd-filler-gray hidden-xs"></div>
+            <div class="n-banner-3rd-filler-gray hidden-xs"></div>
+
+            <div class="container-fluid">
+
+                <div class="n-banner-header">
+                    <button class="n-banner-toggle collapsed" data-target="#n-banner-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="n-banner-brand" href="#">
+                        WebUI Look &amp; Feel <span>(WULF)</span>
+                    </a>
+                </div>
+
+                <div class="collapse n-banner-collapse" id="n-banner-collapse">
+
+                    <div class="row n-banner-1st">
+
+                        <div class="n-banner-right n-banner-logo-img hidden-xs">
+                            <img alt="Nokia" src="../wulfdist/img/logo.png">
+                        </div>
+
+                        <div class="n-banner-right n-banner-1st-gray-to-white hidden-xs">
+                            <div class="gray-mask"></div>
+                            <div class="white-mask"></div>
+                            <div class="gray-corner"></div>
+                            <div class="white-corner"></div>
+                        </div>
+
+                        <ul class="nav n-banner-right n-banner-nav n-banner-controls">
+                            <li>
+                                <a id='TA_banner_username' href="#">
+                                    <i class="icon icon-profile"></i>
+                                    User Name
+                                </a>
+                            </li>
+                            <li class="hidden-xs">
+                                <p>
+                                    |
+                                </p>
+                            </li>
+                            <!--<li class="dropdown">
+                              <a aria-expanded="false" class="n-banner-dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                <span>Account</span>
+                                <i class="icon icon-arrow"></i>
+                              </a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li>
+                                  <a href="#">
+                                    <span>Account subitem</span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </li>
+                            <li class="hidden-xs">
+                              <p>
+                                |
+                              </p>
+                            </li>-->
+                            <li>
+                                <a id='TA_banner_logout' href="#">
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="n-banner-right n-banner-1st-blue-to-gray hidden-xs">
+                            <div class="blue-mask"></div>
+                            <div class="gray-mask"></div>
+                            <div class="blue-corner"></div>
+                            <div class="gray-corner"></div>
+                        </div>
+
+                        <div class="n-banner-right n-search">
+                            <a class="n-search-icon" href="#" >
+                                <span class="icon icon-search"></span>
+                            </a>
+                            <input id='TA_banner_search' type="text" class="n-inputfield n-search-input">
+                        </div>
+                    </div>
+
+                    <div class="row n-banner-2nd">
+
+                        <ul class="nav n-banner-nav n-banner-tabs">
+                            <li class="n-banner-3Link">
+                                <a id='TA_banner_item1' href="#" data-item="item1"><span>Item 1</span></a>
+                            </li>
+                            <li class="dropdown">
+                                <a id='TA_banner_item2' aria-expanded="false" class="n-banner-dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                    <span>Item 2</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a id='TA_banner_subitemone' href="#"><span>Subitem one</span></a>
+                                    </li>
+                                    <li>
+                                        <a id='TA_banner_subitemtwo' href="#"><span>Subitem two</span></a>
+                                    </li>
+                                    <li class="n-dropdown-menu-item-has-child">
+                                        <a id='TA_banner_subitemthree' href="#"><span>Subitem three</span><i class="icon icon-next"></i></a>
+                                        <ul class="n-dropdown-sub-menu">
+                                            <li class="n-dropdown-menu-item-has-child">
+                                                <a id='TA_banner_optionone' href="#"><span>Option one</span><i class="icon icon-next"></i></a>
+                                                <ul class="n-dropdown-sub-menu">
+                                                    <li><a id='TA_banner_oneitemone' href="#"><span>One: item one</span></a></li>
+                                                    <li><a id='TA_banner_oneitemtwo' href="#"><span>One: item two</span></a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a id='TA_banner_optiontwo' href="#"><span>Option two</span></a></li>
+                                            <li class="n-dropdown-menu-item-has-child">
+                                                <a id='TA_banner_optionthree' href="#"><span>Option three</span><i class="icon icon-next"></i></a>
+                                                <ul class="n-dropdown-sub-menu">
+                                                    <li><a id='TA_banner_threeitemone' href="#"><span>Three: item one</span></a></li>
+                                                    <li><a id='TA_banner_threeitemtwo' href="#"><span>Three: item two</span></a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="n-banner-3Link">
+                                <a id='TA_banner_item3' href="#" data-item="item3"><span>Item 3</span></a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_item4' href="#"><span>Item 4</span></a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_item5' href="#"><span>Item 5</span></a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_item6' href="#"><span>Item 6</span></a>
+                            </li>
+                            <li>
+                                <div class="dropdown n-banner-overflow-control">
+                                    <a href="#" class="n-banner-dropdown-toggle" data-toggle="dropdown" aria-expanded="false" role="button">
+                                        <span class="icon icon-dropdown-menu"></span>
+                                        <span class="overflow-toggle-area"></span>
+                                        <span class="overflow-toggle-area-cover"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a id='TA_banner_overflowpageone' href="#"><span>Overflow Page One</span></a>
+                                        </li>
+                                        <li>
+                                            <a id='TA_banner_overflowpagetwo' href="#"><span>Overflow Page Two</span></a>
+                                        </li>
+                                        <li>
+                                            <a id='TA_banner_overflowpagethree' href="#"><span>Overflow Page Three</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="n-banner-right n-banner-links-collapse dropdown">
+                            <a href="#" class="n-banner-dropdown-toggle n-banner-links-collapse-dropdown-toggle show-on-blue-detached" data-toggle="dropdown" aria-expanded="false" role="button">
+                                <span class="icon icon-dropdown-menu"></span>
+                            </a>
+                            <ul class="nav n-banner-nav n-banner-links">
+                                <li>
+                                    <a id='TA_banner_manage' href="#">
+                                    <span>
+                                        <i class="icon icon-manage"></i>
+                                        <span>Manage</span>
+                                    </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id='TA_banner_item_1' href="#">
+                                        <span>Item</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id='TA_banner_item_2' href="#">
+                                        <span>Item</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="n-banner-2nd-gray-to-blue hidden-xs hidden-on-blue-detached">
+                            <div class="gray-mask"></div>
+                            <div class="blue-mask"></div>
+                            <div id='TA_banner_graycorner' class="gray-corner"></div>
+                            <div class="blue-corner"></div>
+                        </div>
+                    </div>
+                    <div class="row n-banner-3rd">
+                        <ul class="nav n_banner_3rd_subItem" id="item1">
+                            <li>
+                                <a id='TA_banner_anchor1one' href="#">
+                                    <span>Anchor1 One</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_anchor1two' href="#">
+                                    <span>Anchor1 Two</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_anchor1three' href="#">
+                                    <span>Anchor1 Three</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_anchor1four' href="#">
+                                    <span>Anchor1 Four</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav n_banner_3rd_subItem" id="item3">
+                            <li>
+                                <a id='TA_banner_anchor3one' href="#">
+                                    <span>Anchor3 One</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_anchor3two' href="#">
+                                    <span>Anchor3 Two</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_anchor3three' href="#">
+                                    <span>Anchor3 Three</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a id='TA_banner_anchor3four' href="#">
+                                    <span>Anchor3 Four</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        <br>
+        <br>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <p>JS & CSS dependency:</p>
+<pre>
+For nokia banner (overflow) components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.search.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.navigation.min.css" rel="stylesheet"&gt;</pre>
+    <pre>
+<code>
+    &lt;!-- Needed scripts --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/wulf.min.js"&gt&lt/script&gt;
+
+    &lt;nav class="n-banner">
+        &lt;div class="n-banner-1st-filler-white">&lt;/div>
+        &lt;div class="n-banner-1st-filler-blue">&lt;/div>
+        &lt;div class="n-banner-2nd-filler-blue hidden-xs">&lt;/div>
+        &lt;div class="n-banner-2nd-filler-gray hidden-xs">&lt;/div>
+        &lt;div class="container">
+            &lt;div class="n-banner-header">&lt;/div>
+        &lt;/div>
+    &lt;/nav></code>
+    </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/navbar']);
+</script>
+</body>
+</html>

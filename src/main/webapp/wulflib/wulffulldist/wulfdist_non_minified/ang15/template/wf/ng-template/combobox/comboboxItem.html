@@ -1,0 +1,21 @@
+<li ng-if="$ctrl.parent.pattern !== 'file-selection'" ng-cloak data-value="{{$ctrl.itemValue}}" data-selected="{{$ctrl.parent.selectedItemValue === $ctrl.itemValue}}" ng-class="{'selected': $ctrl.parent.selectedItemValue === $ctrl.itemValue}">
+    <a href ng-click="$ctrl.selectItem($event)" ng-keydown="$ctrl.keyboardNavigation($event)"  ng-disabled="$ctrl.disable" tabindex="{{$ctrl.disable ? -1 : null}}">
+        <span class="ng-item">{{$ctrl.itemText === undefined ? $ctrl.itemValue : $ctrl.itemText}}</span>
+    </a>
+</li>
+
+
+<li ng-if="$ctrl.parent.pattern === 'file-selection'"  ng-cloak>
+    <a href="javascript:void(0);" ng-click="$ctrl.clearFile()" ng-keydown="$ctrl.keyboardNavigation($event)">
+        <span class="ng-item"></span>
+    </a>
+</li>
+<li ng-if="$ctrl.parent.pattern === 'file-selection'" ng-cloak>
+    <a ng-click="$ctrl.fileSelection($event)" class="n-file-select"  href="javascript:void(0);"  ng-keydown="$ctrl.keyboardNavigation($event)"  ng-disabled="$ctrl.disable" tabindex="{{$ctrl.disable ? -1 : null}}">
+        <span class="icon icon-folder-open" style="border-bottom:none"></span>
+        <span class="ng-item">{{$ctrl.itemValue === undefined ? "Browse...":$ctrl.itemValue}}</span>
+    </a>
+    <div  class="n-file-upload">
+        <input type="file" class="n-file-input" tabindex="-1"/>
+    </div>
+</li>

@@ -1,0 +1,652 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-jqWidget.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_grid_table">Table (JQWidget)</h1>
+<hr>
+<div class="col-md-12">
+    <h4>Standard table with alternating rows and cell selection</h4>
+    <div id="component-header" class="col-md-12">
+        <div id="table-alternating-cell-selection" class="grid-alternating-rows n-jqxgrid-table"></div>
+    </div>
+    <div class="col-md-12">
+        <br>
+        <p>The first step is to add links to the javascript files and css dependencies to your project. Table widget
+            requires the following files:</p>
+        <pre>
+<code>
+    &lt;link href="./css/jqx.base.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.basic.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.inputfield.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.dropdowns.min.css" rel="stylesheet"/&gt;
+    &lt;link href="./css/wulf.table-jqWidget.min.css" rel="stylesheet"/&gt;
+    &lt;script src="./js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcore.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdata.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxbuttons.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxscrollbar.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxmenu.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxcheckbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxlistbox.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdropdownlist.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.edit.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.columnsresize.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.columnsreorder.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxgrid.selection.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxpanel.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="./js/wulf.min.js"&gt;&lt;/script&gt;</code>
+        </pre>
+        <p>The next step is to create a DIV element with the class <span
+                class="demo-highlight-color">n-jqxgrid-table</span> within the body of the html document.</p>
+        <pre>
+<code>
+    &lt;div id="table-alternating-cell-selection" class="<span class="demo-highlight-color">n-jqxgrid-table</span>" &gt;&lt;/div&gt;
+</code>
+        </pre>
+        <p>The last step is to initialize the widget. </p>
+        <pre>
+<code>
+    &lt;script&gt;
+    $(document).ready( function() {
+        /*---------------- image render/editor ----------------*/
+        var imagerenderer = function (row, datafield, value) {
+            return '***';
+        };
+        /*---------------- test data ----------------*/
+        var data = new Array();
+        data[0] = {
+        severity: 'icon-fault-critical',
+        name: 'Avatar',
+        alarmnumber: '113211',
+        alarmtext: 'System module error',
+        alarmtime: "1985/03/26",
+        acknowledgment: "true",
+        server: 'nokia',
+        cancel: 'icon-fault-critical'
+        };
+        ...
+
+        var source =
+        {
+            localdata: data,
+            datafields: [
+                {name: 'severity', type: 'Image'},
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'},
+                {name: 'acknowledgment', type: 'bool'},
+                {name: 'server', type: 'string'},
+                {name: 'cancel', type: 'Image'}
+            ],
+            datatype: "array"
+        };
+        var dataAdapter = new $.jqx.dataAdapter(source);
+        var columns = [
+            {
+                text: 'Severity',
+                columntype: 'textbox',
+                datafield: 'severity',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100,
+                minWidth: 70
+            },
+            {
+                text: 'Distinguished name',
+                columntype: 'custom',
+                datafield: 'name',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nTextFieldCellRenderer,
+                createeditor: $.grid.nCreateTextFieldEditor,
+                initeditor: $.grid.nInitTextFieldEditor,
+                geteditorvalue: $.grid.nGetTextFieldEditorValue,
+                width: 200,
+                minWidth: 150
+            },
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align: "right",
+                width: 150,
+                minWidth: 110
+            },
+            {
+                text: 'Alarm text',
+                columntype: 'textbox',
+                datafield: 'alarmtext',
+                filtertype: 'input',
+                width: 180,
+                minWidth: 150
+            },
+            {
+                text: 'Alarm time',
+                columntype: 'textbox',
+                datafield: 'alarmtime',
+                filtertype: 'input',
+                width: 150,
+                minWidth: 100
+            },
+            {
+                text: 'Acknowledgment',
+                columntype: 'custom',
+                datafield: 'acknowledgment',
+                filtertype: 'bool',
+                width: 150,
+                minWidth: 130
+                cellsrenderer: $.grid.nCheckboxCellsrenderer("Option"),
+                createeditor: $.grid.nCreateCheckboxEditor("Option"),
+                initeditor: $.grid.nInitCheckboxEditor,
+                geteditorvalue: $.grid.nGetCheckboxEditorValue
+            },
+            {
+                text: 'Server',
+                columntype: 'custom',
+                datafield: 'server',
+                filtertype: 'input',
+                width: 180,
+                minWidth: 110
+                cellsrenderer: $.grid.dropdownlistCellsrenderer,
+                createeditor: $.grid.dropdownlistEditor(['nokia', 'nsn', 'huawei', 'reebook', 'nike', 'dahua']),
+                initeditor: $.grid.dropdownlistInitEditor,
+                geteditorvalue: $.grid.dropdownlistEditorValue
+            },
+            {
+                text: 'Cancel',
+                columntype: 'textbox',
+                datafield: 'cancel',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100,
+                minWidth: 60
+            }
+        ]
+        // initialize jqxGrid
+        $("#table-alternating-cell-selection").jqxGrid(
+        {
+            width: 1150,
+            height:190,
+            source: dataAdapter,
+            editable: true,
+            columnsResize: true, //columns resizable
+            columnsreorder: true, //reorder columns
+            editmode: 'click',
+            selectionmode: 'singlecell',
+            enableBrowserSelection: false,
+            autoshowcolumnsmenubutton: true,
+            altRows: true,
+            columns: columns,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+        });
+        $("#jqxgrid-alternating-cell-selection").jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+&lt;/script&gt;</code>
+        </pre>
+    </div>
+
+    <div class="col-md-12">
+    <pre>
+    <b>To support data export:</b>
+
+    First, add following dependency js file:
+    &lt;script src="./js/dependencies/jqxgrid.export.js"&gt;&lt;/script&gt;
+    &lt;script src="./js/dependencies/jqxdata.export.js"&gt;&lt;/script&gt;
+
+    Then, invoke the exportdata method:
+    $("#jqxgrid-alternating-cell-selection").jqxGrid('exportdata', 'json', 'dataFileName');
+    </pre></div>
+
+    <div class="col-md-12">
+    <pre>
+    <b>Enable or disable table:</b>
+
+    User can enable or disable table by using $("#gridId").jqxGrid({disabled: true}) or $("#gridId").jqxGrid({disabled: false});
+    Then need to refresh the table to update the component in table cell by using $("#gridId").jqxGrid("refresh");
+
+    </pre></div>
+
+</div>
+
+<div  class="col-md-12">
+    <h4>Standard table with alternating rows and row selection</h4>
+    <div  class="col-md-12">
+        <div id="table-alternating-row-selection" class="grid-alternating-rows n-table-hover n-jqxgrid-table"></div>
+        <br>
+    </div>
+    <div class="col-md-12">
+        <pre>
+<code>
+    &lt;div id="table-alternating-row-selection" class="grid-alternating-rows n-table-hover <span
+        class="demo-highlight-color">n-jqxgrid-table</span>"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $("#table-alternating-row-selection").jqxGrid({
+            altRows: true, //alternating rows
+            width: '100%',
+            height: 200,
+            source: dataAdapter,
+            pageable:false,
+            sortable:false,
+            selectionMode:'multiRow', //multi selection
+            enableBrowserSelection: false,
+            columnsResize:true, //resizable column
+            columnsreorder:true, //reorder columns
+            scrollBarSize: 8,
+            columns: columns,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+        });
+    &lt;/script&gt;</code>
+        </pre>
+    </div>
+</div>
+<div  class="col-md-12">
+    <h4>Standard table with grid lines and cell selection</h4>
+    <div  class="col-md-12">
+        <div id="table-grid-cell-selection" class="n-jqxgrid-table"></div>
+        <br>
+    </div>
+    <div class="col-md-12">
+        <pre>
+<code>
+    &lt;div id="table-grid-cell-selection" class="<span class="demo-highlight-color">n-jqxgrid-table</span>"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $("#table-grid-cell-selection").jqxGrid({
+            width: 1150,
+            height: 200,
+            source: dataAdapter,
+            editable: true,
+            columnsResize: true, //columns resizable
+            columnsreorder:true, //reorder columns
+            editmode: 'click',
+            selectionmode: 'singlecell',
+            enableBrowserSelection: false,
+            autoshowcolumnsmenubutton: true,
+            columns: columns,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+        });
+    &lt;/script&gt;</code>
+        </pre>
+    </div>
+</div>
+<div  class="col-md-12">
+    <h4>Standard table with grid lines and row selection</h4>
+    <div class="col-md-12">
+        <div id="table-grid-row-selection" class="n-table-hover n-jqxgrid-table"></div>
+        <br>
+    </div>
+    <div class="col-md-12">
+        <pre>
+<code>
+    &lt;div id="table-grid-row-selection" class="n-table-hover <span class="demo-highlight-color">n-jqxgrid-table</span>"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        $("#table-grid-row-selection").jqxGrid({
+            width: 1150,
+            height: 200,
+            source: dataAdapter,
+            editable: true,
+            columnsResize: true, //column resizeable
+            columnsreorder:true, //reorder columns
+            editmode: 'click',
+            selectionmode: 'singlerow',
+            enableBrowserSelection: true,
+            columns: columns,
+            scrollBarSize: 8,
+            rowsheight: 26,
+            columnsheight: 26,
+            handlekeyboardnavigation: function (e) {
+                return $.grid.handlekeyboardnavigation(e);
+            }
+        });
+    &lt;/script&gt;</code>
+        </pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/grid'], function ($) {
+        /*---------------- image render/editor ----------------*/
+        var imagerenderer = function (row, datafield, value) {
+            return '<div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon '+value+'"></span></div></div>';
+        };
+        /*---------------- test data ----------------*/
+        var data = [];
+        data[0] = {
+            severity: 'icon-fault-critical',
+            name: 'Avatar',
+            alarmnumber: '113211',
+            alarmtext: 'System module error',
+            alarmtime: "1985/03/26",
+            acknowledgment: "false",
+            server: 'nokia',
+            cancel: 'icon-fault-critical'
+        };
+        data[1] = {
+            severity: 'icon-fault-major',
+            name: 'Robert',
+            alarmnumber: '113212',
+            alarmtext: 'System module error',
+            alarmtime: "2001/10/26",
+            acknowledgment: "false",
+            server: 'huawei',
+            cancel: 'icon-fault-major'
+        };
+        data[2] = {
+            severity: 'icon-fault-minor',
+            name: 'Tom',
+            alarmnumber: '113213',
+            alarmtext: 'System module error',
+            alarmtime: "2013/11/26",
+            acknowledgment: "false",
+            server: 'nokia',
+            cancel: 'icon-fault-minor'
+        };
+        data[3] = {
+            severity: 'icon-fault-warning',
+            name: 'Green',
+            alarmnumber: '113214',
+            alarmtext: 'Small cell error',
+            alarmtime: "1999/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-warning'
+        };
+        data[4] = {
+            severity: 'icon-fault-cleared',
+            name: 'Abby',
+            alarmnumber: '113215',
+            alarmtext: 'BTS error',
+            alarmtime: "1985/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-cleared'
+        };
+        data[5] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[6] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[7] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+        data[8] = {
+            severity: 'icon-fault-unknown',
+            name: 'Caven',
+            alarmnumber: '113216',
+            alarmtext: 'Reset error',
+            alarmtime: "2015/12/26",
+            acknowledgment: "true",
+            server: 'nokia',
+            cancel: 'icon-fault-unknown'
+        };
+
+        var source =
+        {
+            localdata: data,
+            datafields: [
+                {name: 'severity', type: 'Image'},
+                {name: 'name', type: 'string'},
+                {name: 'alarmnumber', type: 'number'},
+                {name: 'alarmtext', type: 'string'},
+                {name: 'alarmtime', type: 'string'},
+                {name: 'acknowledgment', type: 'bool'},
+                {name: 'server', type: 'string'},
+                {name: 'cancel', type: 'Image'}
+            ],
+            datatype: "array"
+        };
+        var dataAdapter = new $.jqx.dataAdapter(source);
+        var columns = [
+            {
+                text: 'Severity',
+                columntype: 'textbox',
+                datafield: 'severity',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100,
+                minWidth: 70
+            },
+
+            {
+                text: 'Distinguished name',
+                columntype: 'custom',
+                datafield: 'name',
+                filtertype: 'input',
+                cellsrenderer: $.grid.nTextFieldCellRenderer,
+                createeditor: $.grid.nCreateTextFieldEditor,
+                initeditor: $.grid.nInitTextFieldEditor,
+                geteditorvalue: $.grid.nGetTextFieldEditorValue,
+                width: 200,
+                minWidth: 150
+            },
+            {
+                text: 'Alarm number',
+                columntype: 'NumberInput',
+                datafield: 'alarmnumber',
+                filtertype: 'number',
+                cellsalign: 'right',
+                align: "right",
+                width: 150,
+                minWidth: 110
+            },
+            {
+                text: 'Alarm text',
+                columntype: 'textbox',
+                datafield: 'alarmtext',
+                filtertype: 'input',
+                width: 180,
+                minWidth: 150
+            },
+            {
+                text: 'Alarm time',
+                columntype: 'textbox',
+                datafield: 'alarmtime',
+                filtertype: 'input',
+                width: 150,
+                minWidth: 100
+            },
+            {
+                text: 'Acknowledgment',
+                columntype: 'custom',
+                datafield: 'acknowledgment',
+                filtertype: 'bool',
+                width: 150,
+                minWidth: 130,
+                cellsrenderer: $.grid.nCheckboxCellsrenderer("Option"),
+                createeditor: $.grid.nCreateCheckboxEditor("Option"),
+                initeditor: $.grid.nInitCheckboxEditor,
+                geteditorvalue: $.grid.nGetCheckboxEditorValue
+            },
+            {
+                text: 'Server',
+                columntype: 'custom',
+                datafield: 'server',
+                filtertype: 'input',
+                width: 180,
+                minWidth: 110,
+                cellsrenderer: $.grid.dropdownlistCellsrenderer,
+                createeditor: $.grid.dropdownlistEditor(['nokia', 'nsn', 'huawei', 'reebook', 'nike', 'dahua']),
+                initeditor: $.grid.dropdownlistInitEditor,
+                geteditorvalue: $.grid.dropdownlistEditorValue
+            },
+            {
+                text: 'Cancel',
+                columntype: 'textbox',
+                datafield: 'cancel',
+                filtertype: 'input',
+                cellsrenderer: imagerenderer,
+                width: 100,
+                minWidth: 60
+            }
+        ];
+        // initialize jqxGrid
+        var alternatingCellSelection = $("#table-alternating-cell-selection");
+        alternatingCellSelection.jqxGrid(
+                {
+                    width: 1150,
+                    height: 200,
+                    source: dataAdapter,
+                    editable: true,
+                    columnsResize: true,
+                    columnsreorder: true,
+                    editmode: 'click',
+                    selectionmode: 'singlecell',
+                    enableBrowserSelection: false,
+                    autoshowcolumnsmenubutton: true,
+                    altRows: true,
+                    columns: columns,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e);
+                    }
+                });
+
+        alternatingCellSelection.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        alternatingCellSelection.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        alternatingCellSelection.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        alternatingCellSelection.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        alternatingCellSelection.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        var dataAdapter1 = new $.jqx.dataAdapter(source);
+        var alternatingRowSelection = $("#table-alternating-row-selection");
+        alternatingRowSelection.jqxGrid(
+                {
+                    width: 1150,
+                    height: 200,
+                    source: dataAdapter1,
+                    editable: true,
+                    columnsResize: true,
+                    columnsreorder: true,
+                    editmode: 'click',
+                    enableBrowserSelection: true,
+                    selectionMode: 'multiplerowsadvanced',
+                    altRows: true,
+                    columns: columns,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e, "#table-alternating-row-selection");
+                    }
+                });
+        alternatingRowSelection.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        alternatingRowSelection.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        alternatingRowSelection.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        alternatingRowSelection.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        alternatingRowSelection.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        var dataAdapter2 = new $.jqx.dataAdapter(source);
+        var gridCellSelection = $("#table-grid-cell-selection");
+        gridCellSelection.jqxGrid(
+                {
+                    width: 1150,
+                    height: 200,
+                    source: dataAdapter2,
+                    editable: true,
+                    columnsResize: true,
+                    columnsreorder: true,
+                    editmode: 'click',
+                    selectionmode: 'singlecell',
+                    enableBrowserSelection: false,
+                    autoshowcolumnsmenubutton: true,
+                    columns: columns,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e, "#table-grid-cell-selection");
+                    }
+                });
+        gridCellSelection.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        gridCellSelection.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        gridCellSelection.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        gridCellSelection.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        gridCellSelection.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+        var dataAdapter3 = new $.jqx.dataAdapter(source);
+        var gridRowSelection = $("#table-grid-row-selection");
+        gridRowSelection.jqxGrid(
+                {
+                    width: 1150,
+                    height: 200,
+                    source: dataAdapter3,
+                    editable: true,
+                    columnsResize: true,
+                    columnsreorder:true,
+                    editmode: 'click',
+                    enableBrowserSelection: true,
+                    selectionMode: 'multiplerowsadvanced',
+                    columns: columns,
+                    scrollBarSize: 8,
+                    rowsheight: 26,
+                    columnsheight: 26,
+                    handlekeyboardnavigation: function (e) {
+                        return $.grid.handlekeyboardnavigation(e, "#table-grid-row-selection");
+                    }
+                });
+        gridRowSelection.jqxGrid('setcolumnproperty', 'severity', 'editable', false);
+        gridRowSelection.jqxGrid('setcolumnproperty', 'alarmnumber', 'editable', false);
+        gridRowSelection.jqxGrid('setcolumnproperty', 'alarmtext', 'editable', false);
+        gridRowSelection.jqxGrid('setcolumnproperty', 'cancel', 'editable', false);
+        gridRowSelection.jqxGrid('setcolumnproperty', 'alarmtime', 'editable', false);
+
+    });
+</script>
+</body>
+</html>

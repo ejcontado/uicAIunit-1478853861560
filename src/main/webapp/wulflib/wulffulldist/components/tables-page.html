@@ -1,0 +1,398 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_table_page">Table with paging<a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+
+<div id="table-demo-container" class="col-md-12">
+
+    <h4>Standard table with paging</h4>
+    <div class="demo-table-min-size">
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover n-table-paging" id="TA-table-paging">
+            <thead>
+            <tr id="TA-table-pagingTr1">
+                <th class="n-sortable" id="TA-table-th-icon">With icon</span>
+                    <span class="icon icon-arrow" id="TA-table-icon1"></span>
+                </th>
+                <th class="n-sortable">With text</span>
+                    <span class="icon icon-arrow"></span>
+                </th>
+                <th>With editable cell</th>
+                <th>Checkbox cell</th>
+                <th>Dropdown cell</th>
+                <th class="text-right n-sortable">With error/alert
+                    <span class="icon icon-arrow"></span></th>
+                <th class="text-right n-sortable">With number<span class="icon icon-arrow"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="TA-table-pagingTr2">
+                <td class="text-center" id="TA-tablePaging-center">
+                    <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-critical"></span></div></div>
+                </td>
+                <td>Critical fault</td>
+                <td class="n-cell-control" id="TA-tablePaging-input"><input type="text" class="n-inputfield" value="10.39.190.96"></td>
+                <td>
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="cb1" checked/>
+                        <label for="cb1">Option1</label>
+                    </div>
+                </td>
+                <td class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                         id="mySelectlist11" >
+                        <button class="btn btn-default dropdown-toggle" id="TA-tablePaging-table1button1" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>Three1</span></span>
+                            <span class="selected-caret" ><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                            <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                            <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                            <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                               type="text">
+
+                    </div>
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr id="TA-table-pagingTr3">
+                <td class="text-center">
+                    <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-major"></span></div></div>
+                </td>
+                <td>Major fault</td>
+                <td class="n-cell-control"><input type="text" class="n-inputfield" value="10.39.190.96"></td>
+                <td>
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="cb2" disabled/>
+                        <label for="cb2">Option2</label>
+                    </div>
+                </td>
+                <td class="n-cell-control n-cell-dropdown" id="TA-tablePaging-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                         id="mySelectlist12" >
+                        <button class="btn btn-default dropdown-toggle" id="TA-tablePaging-table1button2" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>Three1</span></span>
+                            <span class="selected-caret" ><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                            <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                            <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                            <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                               type="text">
+
+                    </div>
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr id="TA-table-pagingTr4">
+                <td class="text-center">
+                    <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-minor"></span></div></div>
+                </td>
+                <td>Minor fault</td>
+                <td class="n-cell-control"><input type="text" class="n-inputfield" value="10.39.190.96"></td>
+                <td id="TA-table-option3">
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="cb3"/>
+                        <label for="cb3">Option3</label>
+                    </div>
+                </td>
+                <td class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                         id="mySelectlist13" >
+                        <button class="btn btn-default dropdown-toggle" id="TA-tablePaging-table1button3" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>Three1</span></span>
+                            <span class="selected-caret" ><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" id="TA-tablePaging-menu">
+                            <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                            <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                            <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                            <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                               type="text">
+
+                    </div>
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr id="TA-table-pagingTr5">
+                <td class="text-center">
+                    <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-warning"></span></div></div>
+                </td>
+                <td id="TA-table-warning">Warning</td>
+                <td class="n-cell-control"><input type="text" class="n-inputfield" value="10.39.190.96"></td>
+                <td id="TA-table-option4">
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="cb4" checked disabled/>
+                        <label for="cb4">Option4</label>
+                    </div>
+                </td>
+                <td class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                         id="mySelectlist14" >
+                        <button class="btn btn-default dropdown-toggle" id="TA-tablePaging-table1button4" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>Three1</span></span>
+                            <span class="selected-caret" ><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                            <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                            <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                            <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                               type="text">
+
+                    </div>
+                <td class="n-cell-error text-right" id="TA-tablePaging-number1">2010</td>
+                <td class="text-right" id="TA-tablePaging-number2">910</td>
+            </tr>
+            <tr id="TA-table-pagingTr6">
+                <td class="text-center">
+                    <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-cleared"></span></div></div>
+                </td>
+                <td>Fault cleared</td>
+                <td class="n-cell-control"><input type="text" class="n-inputfield" value="10.39.190.96"></td>
+                <td>
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="cb5"/>
+                        <label for="cb5">Option5</label>
+                    </div>
+                </td>
+                <td class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                         id="mySelectlist15" >
+                        <button class="btn btn-default dropdown-toggle" id="TA-tablePaging-table1button5" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>Three1</span></span>
+                            <span class="selected-caret" ><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                            <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                            <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                            <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                               type="text">
+
+                    </div>
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+            <tr id="TA-table-pagingTr7">
+                <td class="text-center">
+                    <div class="n-cell-icon-container"><div class="n-cell-icon"><span class="icon icon-fault-unknown"></span></div></div>
+                </td>
+                <td>Unknown situation</td>
+                <td class="n-cell-control"><input type="text" class="n-inputfield" value="10.39.190.96"></td>
+                <td>
+                    <div class="checkbox checkbox-small">
+                        <input type="checkbox" id="cb6"/>
+                        <label for="cb6">Option6</label>
+                    </div>
+                </td>
+                <td class="n-cell-control n-cell-dropdown">
+                    <div class="btn-group selectlist selectlist-small" data-resize="auto" data-initialize="selectlist"
+                         id="mySelectlist16" >
+                        <button class="btn btn-default dropdown-toggle" id="TA-tablePaging-table1button6" data-toggle="dropdown" type="button" aria-expanded="false">
+                            <span class="selected-label"><span>Three1</span></span>
+                            <span class="selected-caret" ><span class="caret"></span></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li data-value="1"><a href="javascript:void(0);"><span>One</span></a></li>
+                            <li data-value="2"><a href="javascript:void(0);"><span>Two</span></a></li>
+                            <li data-value="3"><a href="javascript:void(0);"><span>Three</span></a></li>
+                            <li data-value="4"><a href="javascript:void(0);"><span>Five Five Five</span></a></li>
+                        </ul>
+                        <!--suppress HtmlFormInputWithoutLabel -->
+                        <input class="hidden hidden-field" name="mySelectlist3" readonly="readonly" aria-hidden="true"
+                               type="text">
+
+                    </div>
+                <td class="n-cell-error text-right">2010</td>
+                <td class="text-right">910</td>
+            </tr>
+
+            </tbody>
+            <tfoot>
+            <tr id="TA-tablePaging-Tr8">
+                <td colspan="7">
+                    <div class="n-table-total">
+                        <span>Total: <span>5237</span></span>
+                    </div>
+
+                    <div class="n-table-pagenum">
+                        <button id="TA-tableWithPaging-firstPage" class="btn btn-icon">
+                            <span class="icon icon-first"></span>
+                        </button>
+                        <button id="TA-tableWithPaging-previousPage" class="btn btn-icon">
+                            <span class="icon icon-back"></span>
+                        </button>
+                        <span>Page</span><input id="Example1" type="text" class="n-inputfield n-inputfield-small" placeholder="1"><span>/ 255</span>
+                        <button id="TA-tableWithPaging-afterPage" class="btn btn-icon">
+                            <span class="icon icon-next"></span>
+                        </button>
+                        <button id="TA-tableWithPaging-lastPage" class="btn btn-icon">
+                            <span class="icon icon-last"></span>
+                        </button>
+                    </div>
+                    <div class="n-table-pageselect" id="TA-tablePaging-pageselect">
+
+                        <div class="n-table-pagecombox">
+                            <div class="input-group input-append dropdown combobox n-combobutton-small n-page-combox" data-initialize="combobox" id="myCombobox1">
+                                <input type="text" class="form-control n-inputfield n-inputfield-small">
+                                <div class="input-group-btn">
+                                    <button id="TA-tableWithPaging-itemPageDropdown" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                                            class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <li id="TA-tableWithPaging-pageDropdownitem1" data-value="1"><a href="javascript:void(0);"><span>1</span></a></li>
+                                        <li id="TA-tableWithPaging-pageDropdownitem2" data-value="2"><a href="javascript:void(0);"><span>2</span></a></li>
+                                        <li data-value="3"><a href="javascript:void(0);"><span>3</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="n-table-suffix">
+                            <span>Items per page</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="col-md-12">
+    <p>JS &amp; CSS dependency:</p>
+        <pre>For table with paging components,you can use following css import code:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.combobox.min.css" rel="stylesheet"&gt;
+&lt;link href="../wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"&gt;
+        </pre>
+    <pre>
+<code>
+    &lt;!-- Standard table with paging row --&gt;
+    &lt;table <span class="demo-highlight-color">class="n-table-pageing"</span>&gt;
+        &lt;thead&gt;...&lt;/thead&gt;
+        &lt;tbody&gt;...&lt;/tbody&gt;
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;td colspan="7"&gt;
+                    &lt;div class="n-table-total"&gt;
+                        &lt;span&gt;Total: &lt;span&gt;5237&lt;/span&gt;&lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="n-table-pagenum"&gt;
+                        &lt;button class="btn btn-icon"&gt;
+                            &lt;span class="icon icon-first"&gt;&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;button class="btn btn-icon"&gt;
+                            &lt;span class="icon icon-back"&gt;&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;span&gt;Page&lt;/span&gt;&lt;input id="Example1" type="text" class="n-inputfield" placeholder="1"&gt;&lt;span&gt;/255&lt;/span&gt;
+                        &lt;button class="btn btn-icon"&gt;
+                            &lt;span class="icon icon-next"&gt;&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;button class="btn btn-icon"&gt;
+                            &lt;span class="icon icon-last"&gt;&lt;/span&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="n-table-pageselect"&gt;
+                        &lt;div class="n-table-pagecombox"&gt;
+                            &lt;div class="input-group input-append dropdown combobox n-page-combox" data-initialize="combobox" id="myCombobox1"&gt;
+                            &lt;input type="text" class="form-control n-inputfield"&gt;
+                            &lt;div class="input-group-btn"&gt;
+                            &lt;button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;&lt;span
+                            class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+                            &lt;ul class="dropdown-menu dropdown-menu-right" role="menu"&gt;
+                                &lt;li data-value="1"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                                &lt;li data-value="2"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                                &lt;li data-value="3"&gt;&lt;a href="javascript:void(0);"&gt;&lt;span&gt;3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class="n-table-suffix"&gt;
+                    &lt;span&gt;Items per page&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;/table&gt;
+
+    &lt;!-- Java Script --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/bootstrap.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/fuelux.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mousewheel.min.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.mCustomScrollbar.js"&gt&lt/script&gt;
+    &lt;script src="../wulfdist/js/wulf.min.js"&gt&lt/script&gt;
+
+    &lt;script&gt;
+    $('#myCombobox1').combobox();
+        $(document).ready(function () {
+            $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+            $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    });
+    &lt;/script&gt;</code>
+    </pre>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/tables', 'wulf/combobox'], function($){
+        $('#myCombobox1').combobox();
+        $(document).ready(function () {
+            $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+                $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        });
+    });
+</script>
+</body>
+</html>

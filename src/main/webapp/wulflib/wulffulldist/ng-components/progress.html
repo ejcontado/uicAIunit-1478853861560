@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Progress bar</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_tabs">Progress</h1>
+<hr>
+<div id="angular_section" class="row">
+    <div class="col-md-5">
+        <div ng-controller="ProgressDemoController as demo">
+            <h4>Progress bar</h4>
+
+            <form class="form-horizontal">
+                <button id="TA-progress-btn" type="button" class="btn btn-small" ng-click="demo.random()">Randomize</button>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Empty:</label>
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.emptyValue" id="TA-progress-empty"></wf-progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Working:</label>
+
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.inProgressValue" id="TA-progress-working"></wf-progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Complete:</label>
+
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.completedValue" id="TA-progress-complete"></wf-progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">With value (OT3 style):</label>
+
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.inProgressValue" show-value="demo.standardbar.showValueInEnd"
+                                     id="TA-progress-withValueOT3"></wf-progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">With value (inline style):</label>
+
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.inProgressValue" show-value="demo.standardbar.showValueInline"
+                                     id="TA-progress-withValueInline"></wf-progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Small:</label>
+
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.smallbar.pattern" percentage="demo.smallbar.inProgressValue" id="TA-progress-small"></wf-progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Indeterminate:</label>
+
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.indeterminatebar.pattern" active="demo.indeterminatebar.isActive" id="TA-progress-indeterminate"></wf-progress>
+                    </div>
+                </div>
+            </form>
+
+            <h4>Loading</h4>
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Standard:</label>
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.loading.pattern" id="TA-progress-loading-standard"></wf-progress>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Small:</label>
+                    <div class="col-sm-8" style="clear: left;">
+                        <wf-progress pattern="demo.smallLoading.pattern" id="TA-progress-loading-small"></wf-progress>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h2>Overview</h2>
+        <p>Angular version of progress component which is implemented by using <code>.component()</code> method introduced since Angular1.5. </p>
+
+        <h2>wf-progress settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>pattern: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>bar - standard progress bar (Default)</li>
+                        <li>sm-bar - small progress bar</li>
+                        <li>indeterminate-bar - indeterminate progress bar</li>
+                        <li>loading - standard progress loading icon</li>
+                        <li>sm-loading - small progress loading icon</li>
+                    </ul>
+                </td>
+                <td>
+                    The pattern of progress bar to be created.
+                </td>
+            </tr>
+            <tr>
+                <td><code>percentage: &lt;</code></td>
+                <td>
+                    Integer: 0-100 (Default: 0)
+                </td>
+                <td>
+                    The current value of progress completed.
+                </td>
+            </tr>
+            <tr>
+                <td><code>show-value: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>end - Put the value indicator to end of the bar</li>
+                        <li>inline - Put the value indicator on the bar</li>
+                        <li>null - Default</li>
+                    </ul>
+                </td>
+                <td>
+                    The position where to put the value indicator.
+                </td>
+            </tr>
+            <tr>
+                <td><code>active: &lt;</code></td>
+                <td>
+                    Boolean: true or false (Default)
+                </td>
+                <td>
+                    The active status of indeterminate progress bar.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>If you are using this component in CSP mode, please make sure the 'unsafe-inline' is enabled.</p>
+        <p>Reference:</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/Security/CSP">https://developer.mozilla.org/en-US/docs/Web/Security/CSP</a></p>
+        <p><a href="https://docs.angularjs.org/api/ng/directive/ngCsp">https://docs.angularjs.org/api/ng/directive/ngCsp</a></p>
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+    <div ng-controller="ProgressDemoController as demo">
+        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.emptyValue"></wf-progress>
+        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.inProgressValue"></wf-progress>
+        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.completedValue"></wf-progress>
+        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.inProgressValue" show-value="demo.standardbar.showValueInEnd"></wf-progress>
+        <wf-progress pattern="demo.standardbar.pattern" percentage="demo.standardbar.inProgressValue" show-value="demo.standardbar.showValueInline"></wf-progress>
+        <wf-progress pattern="demo.smallbar.pattern" percentage="demo.smallbar.inProgressValue"></wf-progress>
+        <wf-progress pattern="demo.indeterminatebar.pattern" active="demo.indeterminatebar.isActive"></wf-progress>
+        <wf-progress pattern="demo.loading.pattern"></wf-progress>
+        <wf-progress pattern="demo.smallLoading.pattern"></wf-progress>
+    </div>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+    angular.module('wf.ng.demo', ['wf.angular.progress', 'wf.angular.tabs']).controller('ProgressDemoController', ProgressDemoController);
+
+    function ProgressDemoController(){
+        this.standardbar = {};
+        this.smallbar = {};
+        this.indeterminatebar = {};
+        this.loading = {};
+        this.smallLoading = {};
+
+        this.standardbar.pattern = 'bar';
+        this.standardbar.emptyValue = 0;
+        this.standardbar.inProgressValue = 60;
+        this.standardbar.completedValue = 100;
+        this.standardbar.showValueInline = 'inline';
+        this.standardbar.showValueInEnd = 'end';
+
+        this.smallbar.pattern = 'sm-bar';
+        this.smallbar.inProgressValue = 60;
+
+        this.indeterminatebar.pattern = 'indeterminate-bar';
+        this.indeterminatebar.isActive = true;
+
+        this.loading.pattern = 'loading';
+        this.smallLoading.pattern = 'sm-loading';
+
+        this.random = function(){
+            var value = Math.floor(Math.random() * 100 + 1);
+            this.standardbar.inProgressValue = value;
+            this.smallbar.inProgressValue = value;
+            value > 50 ? this.indeterminatebar.isActive = true : this.indeterminatebar.isActive = false;
+        }
+    }
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['angular', 'wulf-ng/progress/progress.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.progress', 'wf.angular.tabs']).controller('ProgressDemoController', ProgressDemoController);
+
+        function ProgressDemoController(){
+            this.standardbar = {};
+            this.smallbar = {};
+            this.indeterminatebar = {};
+            this.loading = {};
+            this.smallLoading = {};
+
+            this.standardbar.pattern = 'bar';
+            this.standardbar.emptyValue = 0;
+            this.standardbar.inProgressValue = 60;
+            this.standardbar.completedValue = 100;
+            this.standardbar.showValueInline = 'inline';
+            this.standardbar.showValueInEnd = 'end';
+
+            this.smallbar.pattern = 'sm-bar';
+            this.smallbar.inProgressValue = 60;
+
+            this.indeterminatebar.pattern = 'indeterminate-bar';
+            this.indeterminatebar.isActive = true;
+
+            this.loading.pattern = 'loading';
+            this.smallLoading.pattern = 'sm-loading';
+
+            this.random = function(){
+                var value = Math.floor(Math.random() * 100 + 1);
+                this.standardbar.inProgressValue = value;
+                this.smallbar.inProgressValue = value;
+                value > 50 ? this.indeterminatebar.isActive = true : this.indeterminatebar.isActive = false;
+            }
+        }
+
+        angular.element(document).ready(function(){
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

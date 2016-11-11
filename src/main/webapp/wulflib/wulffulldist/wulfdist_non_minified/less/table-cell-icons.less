@@ -1,0 +1,72 @@
+@import "./mixins/gradients.less";
+@import "variables.less";
+
+.n-cell-icon {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 2px;
+  border: 1px solid @gray-white;
+  background: @gray-white;
+  outline: none !important;
+  text-align: center;
+  display: inline-block;
+  line-height: 1;
+
+  .icon {
+    font-size: 16px;
+    padding: 1px;
+  }
+
+  .icon.icon-fault-warning:after {
+    left: 1px;
+    top: 1px;
+  }
+}
+
+.n-cell-icon-control{
+  &:extend(.n-cell-icon all);
+  cursor: pointer;
+
+  .icon:before {
+    color: @gray-dark;
+  }
+
+  &:focus {
+    #gradient > .vertical(@button-focus-gradient-start, @button-focus-gradient-end);
+    color: @gray-white;
+    border-color: @button-active-focus-border-color;
+    > .icon:before {
+      color: @gray-white;
+    }
+  }
+
+  &:hover:not(:focus) {
+    #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+    border-color: @blue-hover;
+  }
+
+  &:active {
+    #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+    border: 1px solid @input-border;
+
+    > .icon:before {
+      color: @gray-dark;
+    }
+  }
+
+  &[disabled] {
+    background-image: none !important;
+    border-color: white !important;
+    > .icon:before {
+      color: @gray-light !important;
+    }
+  }
+}
+
+.n-cell-icon-container{
+  padding: 3px 0;
+  text-align: center;
+  margin: auto;
+  line-height: 1;
+}

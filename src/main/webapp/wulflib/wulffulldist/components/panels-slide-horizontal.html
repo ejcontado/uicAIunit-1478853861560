@@ -1,0 +1,99 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <title>Panel slide horizontal</title>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_panels_horizontal">Panel slide Horizontal</h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="panel-slide-horizontal">
+            <div class="panel-left panel panel-shadow" id="TA-panelSlideHorizontal">
+                <div class="panel panel-blue-cap">
+                    <div class="panel-heading" id="TA-panelSlideHorizontal-panel-heading">
+                        <h1>Configuration groups</h1>
+                    </div>
+                    <div class="panel-body" style="height: 320px;display: block;" id="TA-panelSlideHorizontal-panel-body">
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture" id="TA-panelSlideHorizontal-dummy-picture1"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture" id="TA-panelSlideHorizontal-dummy-picture2"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-arrow panel-blue-cap" role="button"  tabindex="0"  id="TA-panelSlideHorizontal-arrow">
+                    <span class="icon icon-left"></span>
+                </div>
+            </div>
+            <div class="panel-right">
+                JS & CSS dependency:
+        <pre>
+For Panel slide Horizontal components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"&gt;
+        </pre>
+
+                <p>panel slide Toggle with Horizontal</p>
+<pre>
+<code>
+&lt;div class="panel-slide-horizontal"&gt;
+    &lt;div class="panel-left panel panel-shadow"&gt;
+        &lt;div class="panel panel-blue-cap"&gt;
+            &lt;div class="panel-heading"&gt;
+                &lt;h1&gt;Configuration groups&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;div class="panel-body"&gt;
+            ...
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="panel-arrow panel-blue-cap" role="button" tabindex="0" &gt;
+            &lt;span class="icon icon-left"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panel-right"&gt;
+        &lt;div class="panel-body"&gt;
+        ...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    $(".panel-slide-horizontal .panel-left .panel-arrow").slideToggleHorizontal({
+        isLeftOpen:true,
+        leftWidth:40
+    });
+&lt;/script&gt;
+
+</code>
+</pre>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/panels'], function ($) {
+        $(".panel-slide-horizontal .panel-left .panel-arrow").slideToggleHorizontal({
+            isLeftOpen:true,
+            leftWidth:40
+        });
+    });
+</script>
+</body>
+</html>

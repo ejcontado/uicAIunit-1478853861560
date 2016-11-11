@@ -1,0 +1,156 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/gradients.less";
+@import "variables.less";
+
+// White links in banner area
+.n-banner-links {
+
+  #gradient > .vertical(@n-banner-2nd-gradient-blue-start, @n-banner-2nd-gradient-blue-end);
+  height: @n-banner-2nd-gradient-blue-height;
+  padding-top: 0;
+  margin-right: 12px;
+
+  > li {
+    margin: 0;
+    height: @n-banner-2nd-menu-line-height;
+
+    > a {
+      color: @n-banner-links-list-item-text;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 44px;
+      padding: 0 10px;
+      border-radius: 7px 7px 0 0;
+      margin-top: -1px;
+      border: 1px solid transparent;
+      height: 37px;
+      text-shadow: 0 1px 1px @n-banner-links-list-item-text-shadow;
+
+      &:hover, &:focus {
+        outline: none;
+        > span {
+          background: transparent;
+          outline: none;
+          border-bottom: 1px solid @n-banner-links-list-item-hover-border;
+        }
+      }
+      &:active {
+        background-color:transparent;
+      }
+
+    }
+
+    .dropdown-menu {
+      > li > a {
+        height: 28px;
+        line-height: 28px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    .n-banner-span-caret(@n-banner-2nd-icon-color);
+    .n-banner-icon-before(@n-banner-2nd-icon-color);
+
+    &.dropdown {
+
+      //menu item vertical line
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 2px;
+        height: @n-banner-2nd-menu-line-height;
+        background: linear-gradient(to bottom, @n-banner-links-dropdown-bg-gradient-start, @n-banner-links-dropdown-bg-gradient-central, @n-banner-links-dropdown-bg-gradient-end);
+        border-width: 0 0 0 1px;
+        border-style: solid;
+        border-image: linear-gradient(to top,@n-banner-links-dropdown-border-gradient-start, @n-banner-links-dropdown-border-gradient-central, @n-banner-links-dropdown-border-gradient-end) 1 100%;
+      }
+      //move down the text of Menu 1px
+      .icon {
+        line-height: @n-banner-2nd-menu-line-height;
+      }
+      //The define for save-as icon because of its special size.
+      .icon.icon-save-as {
+        line-height: 39px;
+      }
+
+      .dropdown-menu {
+        border-radius: 0 5px 5px 5px;
+        margin-top: -1px;
+        border-color: @input-border;
+        min-width: 120%;
+      }
+
+      &.open > a {
+        background: @dropdown-menu-background;
+        box-shadow: 0 1px 3px 0 @n-banner-links-dropdown-open-item-shadow;
+        border: 1px solid @n-banner-links-dropdown-open-item-border;
+        color: @n-banner-links-dropdown-open-item-text;
+        margin-top: 1px;
+        height:42px;
+        .n-banner-corner-on-drop-down-tab(@nav-tabs-border-color, @dropdown-menu-background);
+        &:after {
+          height: 7px;
+          margin-bottom: 0;
+          z-index: 1001;
+        }
+        > span:after {
+          z-index: 1002;
+          #gradient > .vertical(@n-banner-2nd-gradient-blue-start, @n-banner-2nd-gradient-blue-end, -33px);
+          margin-bottom: 3px;
+        }
+        .n-banner-span-caret(@n-banner-2nd-icon-click-color);
+        .n-banner-icon-before(@n-banner-2nd-icon-click-color);
+        &:last-child {
+          //right aligned with nokia logo
+          padding-right: 0;
+        }
+      }
+    }
+
+    &.pull-right {
+      .dropdown-menu {
+        left: auto;
+        right: 0;
+        border-radius: 5px 0 5px 5px;
+      }
+      &.dropdown {
+        &.open > a {
+          &:after {
+            left: -7px;
+          }
+          > span:before {
+            visibility: visible;
+            bottom: 3px;
+            border-radius: 0 0 7px 0;
+            background-image: linear-gradient(to bottom, @n-banner-links-dropdown-right-open-bg-gradient-start -33px, @n-banner-links-dropdown-right-open-bg-gradient-end 100%);
+            z-index: 1002;
+          }
+          > span:after {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+
+.n-banner-icon-before(@n-banner-2nd-icon-color) {
+  .icon:before {
+    color: @n-banner-2nd-icon-color;
+    padding-right: 7px;
+    text-shadow: none;
+  }
+}
+
+.n-banner-span-caret (@n-banner-2nd-icon-color) {
+  span.caret {
+    border-bottom: none !important;
+    color: @n-banner-2nd-icon-color;
+    padding-bottom: 4px;
+  }
+}

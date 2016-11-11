@@ -1,0 +1,23 @@
+<div class="n-tile" ng-class="{'warn':$ctrl.warnStatus, 'normal':$ctrl.normalStatus, 'blocked': $ctrl.blocked}">
+    <div class="n-tile-left">
+        <div class="n-tile-title">{{$ctrl.tileTitle||'--'}}</div>
+        <div class="n-tile-content">
+            <p class="n-tile-state">{{$ctrl.status||'--'}}</p>
+            <p class="n-tile-frq">FRQ: {{$ctrl.tileFrq||'--'}} Mhz</p>
+            <p class="n-tile-id">ID: {{$ctrl.tileId||'--'}}</p>
+        </div>
+    </div>
+    <div class="n-tile-right">
+        <div ng-class="$ctrl.pieClass">
+            <div class="ppc-progress">
+                <div ng-style="$ctrl.rotate" class="ppc-progress-fill"></div>
+            </div>
+            <div class="ppc-percents">
+                <div class="pcc-percents-wrapper">
+                    <span>{{$ctrl.maskData||'--'}}</span>
+                </div>
+            </div>
+        </div>
+        <p class="pie-title">HW Status</p>
+    </div>
+</div>

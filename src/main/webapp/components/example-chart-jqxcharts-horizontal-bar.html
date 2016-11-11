@@ -1,0 +1,245 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html> <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link  href="../wulfdist/css/jqx.base.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.chart.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_chart">Horizontal Bar Chart (jqWidget)</h1>
+<hr>
+<div class="row"  style="padding-left: 15px">
+    <div id='chartContainer' aria-label="horizontal chart" role="grid" style="width:800px; height:300px"></div>
+</div>
+<br>
+<div class="row">
+        <div class="col-md-12">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For bar chart(jqWidget) components, it will be ok to import following css file:
+&lt;link  href="../wulfdist/css/jqx.base.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.chart.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/&gt;</pre>
+            <p>
+                Place the chart into a &lt;div&gt;
+            </p>
+            <pre>
+<code>
+&lt;!-- Main chart div --&gt;
+&lt;div id="chartContainer" style="width:800px; height:300px"&gt;
+&lt;/div&gt;</code>
+            </pre>
+
+            <p>Data and Settings ( For more settings, see the <a target="_blank" href="http://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxchart/jquery-chart-api.htm?search=">jqxChart API Reference</a> )</p>
+            <pre>
+<code>
+// the data to show on the chart
+var sampleData = [
+    { Phone: 'iPhone 3', Percentage: 6.4 },
+    { Phone: 'Nokia N9', Percentage: 4.2 },
+    { Phone: 'Blackberry', Percentage: 4.6 },
+    { Phone: 'iPhone 4', Percentage: 3.5 },
+    { Phone: 'HTC Desire', Percentage: 2.9 }];
+// prepare jqxChart settings
+var settings = {
+    title: "",
+    description: "",
+    borderLineWidth: 1,
+    backgroundColor:"transparent",
+    showBorderLine: false,
+    showLegend: true,
+    legendLayout: {
+        left: 600,
+        top: 123,
+        width: 300,
+        height: 200,
+        flow: 'vertical'
+    },
+    enableAnimations: true,
+    padding: { left: 82, top: 200, right: 240, bottom: 36 },
+    source: sampleData,
+    xAxis:
+    {
+        dataField: 'Phone',
+        flip: false,
+        labels: { 
+            visible: true, 
+            angle: 90,
+            offset: {x: -82, y: 0},
+            horizontalAlignment: "left",
+        },
+        gridLines: {
+            visible: false,
+            color: '#FFFFFF'
+        },
+        tickMarks: {
+            visible: false,
+        },
+    },
+    valueAxis:
+    {
+        flip: true,
+        labels: {
+            visible: true,
+            formatFunction: function (value) {
+                return value
+            },
+            offset:{x:0, y:4}
+        },
+        gridLines: {
+            visible: true,
+            step:1,
+            color: '#B1B1B1',
+            lineWidth: 10,
+        },
+        line:{visible: false},
+        minValue: 0,
+        maxValue: 7,
+        unitInterval: 1,
+        padding:{left:58,  right:0 },
+        tickMarks :{
+            size: 20,
+        },
+    },
+    colorScheme: 'scheme01',
+    seriesGroups:[
+       {
+           type: 'column',
+           orientation: 'horizontal',
+           columnsGapPercent: 13,
+           toolTipFormatSettings: { thousandsSeparator: ',' },
+           toolTipFormatFunction: function(value){
+               return "Data "+ value +"%"
+           },
+           series: [
+               { dataField: 'Percentage',
+                   displayText: 'Voice' ,
+                   formatSettings: { sufix: '%'},
+                   labels: {
+                        visible: true,
+                        formatSettings: { sufix: '%'},
+                        offset: { x: -30, y: 2 }
+                    },
+               },
+           ]
+       }
+    ]
+};
+// setup the chart
+$('#chartContainer').jqxChart(settings);
+</code>
+            </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script type="text/javascript">
+    require(['jquery', 'wulf/chart'], function ($) {
+         // prepare chart data
+        var sampleData = [
+            { Phone: 'iPhone 3', Percentage: 6.4 },
+            { Phone: 'Nokia N9', Percentage: 4.2 },
+            { Phone: 'Blackberry', Percentage: 4.6 },
+            { Phone: 'iPhone 4', Percentage: 3.5 },
+            { Phone: 'HTC Desire', Percentage: 2.9 }];
+        // prepare jqxChart settings
+        var settings = {
+            title: "",
+            description: "",
+            borderLineWidth: 1,
+            backgroundColor:"transparent",
+            showBorderLine: false,
+            showLegend: true,
+            legendLayout: {
+                left: 600,
+                top: 123,
+                width: 300,
+                height: 200,
+                flow: 'vertical'
+            },
+            enableAnimations: true,
+            padding: { left: 82, top: 200, right: 240, bottom: 36 },
+            source: sampleData,
+            xAxis:
+            {
+                dataField: 'Phone',
+                flip: false,
+                labels: {
+                    visible: true,
+                    angle: 90,
+                    offset: {x: -82, y: 0},
+                    horizontalAlignment: "left",
+                },
+                gridLines: {
+                    visible: false,
+                    color: '#FFFFFF'
+                },
+		            tickMarks: {
+                    visible: false,
+                },
+            },
+            valueAxis:
+            {
+                flip: true,
+                labels: {
+                    visible: true,
+                    formatFunction: function (value) {
+                        return value
+                    },
+                    offset:{x:0, y:4}
+                },
+                gridLines: {
+                    visible: true,
+                    step:1,
+                    color: '#B1B1B1',
+                    lineWidth: 10,
+                },
+                line:{visible: false},
+                minValue: 0,
+                maxValue: 7,
+                unitInterval: 1,
+                padding:{left:58,  right:0 },
+                tickMarks :{
+                    size: 20,
+                },
+            },
+            colorScheme: 'scheme01',
+            seriesGroups:[
+               {
+                   type: 'column',
+                   orientation: 'horizontal',
+                   columnsGapPercent: 13,
+                   toolTipFormatSettings: { thousandsSeparator: ',' },
+                   toolTipFormatFunction: function(value){
+                       return "Data "+ value +"%"
+                   },
+                   series: [
+                       { dataField: 'Percentage',
+                           displayText: 'Voice' ,
+                           enableSeriesToggle: false,
+                           formatSettings: { sufix: '%'},
+                           labels: {
+                                visible: true,
+                                formatSettings: { sufix: '%'},
+                                offset: { x: -30, y: 2 }
+                            },
+                       },
+                   ]
+               }
+            ]
+        };
+        // setup the chart
+        $('#chartContainer').jqxChart(settings);
+    });
+</script>
+
+</body>
+</html>

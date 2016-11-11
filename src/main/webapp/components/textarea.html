@@ -1,0 +1,145 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.textarea.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_textarea">Text area <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <form role="form">
+            <div class="form-group">
+                <div class="content" style="height: 150px">
+                    <label for="ta-normal">Normal text area</label>
+                    <textarea id="ta-normal" class="n-textarea">TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+<pre>
+For text area components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.textarea.min.css" rel="stylesheet"&gt;</pre>
+        <P>Add class <code>n-textarea</code> under the textarea element:</P>
+        <pre>
+<code>
+    &lt;!-- Text area --&gt;
+    &lt;form role="form"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="ta-normal"&gt;Normal text area&lt;/label&gt;
+            &lt;<span class="demo-highlight-color">textarea</span> id="ta-normal" class="<span class="demo-highlight-color">n-textarea</span>"&gt;
+                TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+            &lt;/textarea&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;</code>
+        </pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form role="form">
+            <div class="form-group">
+                <div class="content" style="height: 150px">
+                    <label for="ta-disabled" class="control-label label-disabled">Disabled textarea</label>
+                    <textarea id="ta-disabled" class="n-textarea" disabled>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <br/>
+        <P>Add class <code>n-textarea</code> under the textarea element and <code>disabled</code> label after the
+            element:</P>
+        <pre>
+<code>
+    &lt;!-- Text area (disabled) --&gt;
+    &lt;form role="form"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="ta-disabled" class="control-label <span class="demo-highlight-color">label-disabled</span>"&gt;Disabled textarea&lt;/label&gt;
+            &lt;textarea id="ta-disabled" class="n-textarea" <span class="demo-highlight-color">disabled</span>&gt;
+                TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+            &lt;/textarea&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;</code>
+         </pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form role="form">
+            <div class="form-group">
+                <div class="content" style="height: 150px">
+                    <label for="ta-readonly">Read-only textarea</label>
+                    <textarea id="ta-readonly" class="n-textarea" readonly>TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <P>Add class <code>n-textarea</code> under the textarea element and <code>readonly</code> label after the
+            element:</P>
+        <pre>
+<code>
+    &lt;!-- Text area (read-only) --&gt;
+    &lt;form role="form"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;label for="ta-readonly"&gt;Readonly textarea&lt;/label&gt;
+            &lt;textarea id="ta-readonly" class="n-textarea" <span class="demo-highlight-color">readonly</span>&gt;
+                TEXT TEXT TEXT TEXT TEXT TEXT TEXT
+             &lt;/textarea&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;</code>
+         </pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form role="form">
+            <div class="form-group">
+                <div class="content content-scroll" style="height: 150px">
+                    <label for="ta-scroll">Scrolling textarea</label>
+                    <textarea id="ta-scroll" class="n-textarea">TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT</textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8">
+        <P>Add class <code>content-scroll</code> in div, which has textarea child that has class <code>n-textarea</code>. Also you can change the width and height of textarea by overriding class name ".content-scroll" if you
+            want as in following example.</p>
+         <pre>
+<code>
+    &lt;form role="form"&gt;
+    &lt;div class="form-group"&gt;
+    &lt;div class="content <span class="demo-highlight-color">content-scroll</span>"&gt;
+    &lt;label for="ta-scroll"&gt;Scrolling text area&lt;/label&gt;
+    &lt;textarea id="ta-scroll" class="<span class="demo-highlight-color">n-textarea</span>"&gt;TEXT TEXT TEXT TEXT TEXT TEXT TEXT&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/form&gt;
+
+    // Change the textarea width and height if you want
+    &lt;style&gt;
+    .content-scroll{width:200px; height:200px;}
+    &lt;/style&gt;</code>
+         </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/textarea']);
+</script>
+</body>
+</html>

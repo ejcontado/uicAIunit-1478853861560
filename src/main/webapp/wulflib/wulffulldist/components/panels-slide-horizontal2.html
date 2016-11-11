@@ -1,0 +1,115 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Panel slide horizontal</title>
+
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet">
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_flyout_menu">Panel slide horizontal <span class="draft">DRAFT</span></h1>
+<hr>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4 flyout-demo">
+            <div class="configurationGroup" style="margin-left: 15px; margin-right: 1px; width: 315px; height: 385px; padding-left: 0; padding-right: 0; float: left; display: block;">
+                <div class="panel panel-shadow panel-blue-cap"
+                     style="float: left;border-top-right-radius:0;border-bottom-right-radius:0;width: 500px;">
+                    <div class="panel-heading">
+                        <h1>
+                            <label>Commissioning settings</label>
+                            <span class="icon icon-right" style="float:right;cursor:pointer;width: 20px;"></span>
+                        </h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                        <div class="panel-section">
+                            <h2>Title of section</h2>
+                            <div class="dummy-picture"></div>
+                            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <div class="col-md-8">
+            <p>panel slide Toggle with Vertical</p>
+            <pre>
+    <code>
+    &lt;div class="panel panel-simple-shadow panel-blue-cap"&gt;
+    &lt;div class="panel-heading"&gt;
+    &lt;h1&gt;
+    &lt;img src="../wulfdist/img/icn_chevron.svg" alt="" width="20" height="20"
+    style="margin-right:10px;cursor:pointer;"&gt;
+    &lt;label &gt;Commissioning settings&lt;/label&gt;
+    &lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div class="panel-body" id="commissionSettings" style="display: none;" &gt;
+    &lt;div&gt; this is the content for show&lt;/div&gt;
+    &lt;br&gt;
+    &lt;a&gt;text text text&lt;/a&gt;
+    &lt;br&gt;
+    &lt;a&gt;text text text&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    </code>
+            </pre>
+        </div>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    //TODO Jonathan: It seems this page is useless. should be removed?
+    require(['jquery', 'wulf/panels'], function ($) {
+        var img = $(".panel-heading h1 span");
+        img.click(function(){
+            var currentImg = $(this);
+            var panelBody = currentImg.parent().parent().parent();
+            var column = $(".col-md-8");
+            if(column.css("display")=="block")
+            {
+                column.hide();
+                var aniWidth = column.width() * 1.5;
+                panelBody.animate({width:aniWidth},function(){
+                    currentImg.removeClass( 'icon-right').addClass( 'icon-left' );
+                });
+            }
+            else
+            {
+                panelBody.animate({width:'500px'},function(){
+                    currentImg.removeClass( 'icon-left').addClass( 'icon-right' );
+                    column.show();
+
+                });
+            }
+        })
+    });
+</script>
+</body>
+</html>

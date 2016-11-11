@@ -1,0 +1,278 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../wulfdist/css/jqx.base.css" type="text/css"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.chart.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_chart">Line Chart (jQWidget)</h1>
+<hr>
+<div class="row" style="padding-left: 15px">
+    <div id='chartContainer' aria-label="line chart" role="grid" style="width:600px; height:450px"></div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For line chart(jQWidget) components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/jqx.base.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.chart.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/&gt;</pre>
+
+        <p>
+            Place the chart into a &lt;div&gt;
+        </p>
+            <pre>
+<code>
+&lt;!-- Main chart div --&gt;
+&lt;div id="chartContainer" style="width:600px; height:450px"&gt;
+&lt;/div&gt;</code>
+            </pre>
+
+        <p>Data and Settings ( For more settings, see the <a target="_blank" href="http://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxchart/jquery-chart-api.htm?search=">jqxChart API Reference</a> )</p>
+            <pre>
+<code>
+// the data to show on the chart
+var sampleData = [
+    { 'CE index': '10', iPhone3: 120, 'Nokia N9': 105},
+    { 'CE index': '20', iPhone3: 115, 'Nokia N9': 106},
+    { 'CE index': '30', iPhone3: 118, 'Nokia N9': 115},
+    { 'CE index': '40', iPhone3: 112, 'Nokia N9': 107},
+    { 'CE index': '50', iPhone3: 128, 'Nokia N9': 103},
+    { 'CE index': '60', iPhone3: 110, 'Nokia N9': 110},
+    { 'CE index': '70', iPhone3: 111, 'Nokia N9': 106},
+    { 'CE index': '80', iPhone3: 109, 'Nokia N9': 100},
+    { 'CE index': '90', iPhone3: 123, 'Nokia N9': 118},
+    { 'CE index': '100', iPhone3: 110, 'Nokia N9': 106}
+];
+// prepare jqxChart settings
+var settings = {
+    title: '',
+    description: '',
+    enableAnimations: true,
+    showLegend: true,
+    legendLayout: {
+        left: 460,
+        top: 0,
+        width: 300,
+        height: 200,
+        flow: 'vertical'
+    },
+    showBorderLine: false,
+    backgroundColor:'transparent',
+    source: sampleData,
+    xAxis: {
+        dataField: 'CE index',
+        unitInterval: 10,
+        verticalTextAlignment:'bottom',
+        tickMarks: { visible: true, interval: 1 },
+        line: {
+            visible: false,
+        },
+        valuesOnTicks: false,
+        labels: {
+            offset: { x: 0, y: 24 }
+        },
+        title:{
+            text: 'CE index',
+            offset: { x: 0, y: 27 }
+        },
+        gridLines: {
+            visible: false,
+            color: '#FFFFFF'
+        },
+        tickMarks: {
+            visible: false,
+        },
+    },
+    valueAxis: {
+        position: 'right',
+        unitInterval: 20,
+        minValue: 0,
+        maxValue: 140,
+        title: {
+            text: 'Number of subscribers',
+            offset: { x: 25, y: 0 }
+        },
+        labels: {
+            horizontalAlignment: 'left',
+            offset: { x: 25, y: 0 }
+        }
+    },
+    seriesGroups: [
+        {
+            toolTipFormatFunction: function (value, itemIndex) {
+                var dataItem = sampleData[itemIndex];
+                var ceIndex  = dataItem['CE index'];
+                return 'CE index ' + ceIndex + ' &lt;b&gt;' + value + '&lt;/b&gt;';
+            },
+            type: 'line',
+            series: [
+                {
+                    dataField: 'iPhone3',
+                    symbolType: 'circle',
+                    lineColor:'#0B6DAF',
+                    lineColorSymbol :'#0B6DAF',
+                    fillColorSymbol :'#0B6DAF',
+                    legendFillColor :'#0B6DAF',
+                    legendLineColor  : '#0B6DAF'
+                },
+                {
+                    dataField: 'Nokia N9',
+                    symbolType: 'circle',
+                    lineColor:'#B3B8BC',
+                    lineColorSymbol:'#B3B8BC',
+                    fillColorSymbol:'#B3B8BC',
+                    legendFillColor:'#B3B8BC',
+                    legendLineColor :'#B3B8BC'
+                }
+            ]
+        }
+    ]
+};
+// select the chartContainer DIV element and render the chart.
+$('#chartContainer').jqxChart(settings);
+</code>
+            </pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script type="text/javascript">
+    require(['jquery', 'wulf/chart'], function($) {
+        var sampleData = [
+            { 'CE index': '10', iPhone3: 120, 'Nokia N9': 105},
+            { 'CE index': '20', iPhone3: 115, 'Nokia N9': 106},
+            { 'CE index': '30', iPhone3: 118, 'Nokia N9': 115},
+            { 'CE index': '40', iPhone3: 112, 'Nokia N9': 107},
+            { 'CE index': '50', iPhone3: 128, 'Nokia N9': 103},
+            { 'CE index': '60', iPhone3: 110, 'Nokia N9': 110},
+            { 'CE index': '70', iPhone3: 111, 'Nokia N9': 106},
+            { 'CE index': '80', iPhone3: 109, 'Nokia N9': 100},
+            { 'CE index': '90', iPhone3: 123, 'Nokia N9': 118},
+            { 'CE index': '100', iPhone3: 110, 'Nokia N9': 106}
+        ];
+        // prepare jqxChart settings
+        var settings = {
+            title: '',
+            description: '',
+            enableAnimations: true,
+            showLegend: true,
+            legendLayout: {
+                left: 460,
+                top: 0,
+                width: 300,
+                height: 200,
+                flow: 'vertical'
+            },
+            showBorderLine: false,
+            backgroundColor:'transparent',
+            source: sampleData,
+            xAxis: {
+                dataField: 'CE index',
+                unitInterval: 10,
+                verticalTextAlignment:'bottom',
+                tickMarks: { visible: true, interval: 1 },
+                line: {
+                    visible: false
+                },
+                valuesOnTicks: false,
+                labels: {
+                    offset: { x: 0, y: 28 }
+                },
+                title:{
+                    text: 'CE index',
+                    offset: { x: 0, y: 31 }
+                },
+                gridLines: {
+                    visible: false,
+                    color: '#FFFFFF'
+                },
+                tickMarks: {
+                    visible: false,
+                },
+            },
+            valueAxis: {
+                position: 'right',
+                unitInterval: 20,
+                minValue: 0,
+                maxValue: 140,
+                title: {
+                    text: 'Number of subscribers',
+                    offset: { x: 25, y: 0 }
+                },
+                labels: {
+                    horizontalAlignment: 'left',
+                    offset: { x: 25, y: 0 }
+                }
+            },
+            seriesGroups: [
+                {
+                    toolTipFormatFunction: function (value, itemIndex) {
+                        var dataItem = sampleData[itemIndex];
+                        var ceIndex  = dataItem['CE index'];
+                        return 'CE index <b>' + ceIndex + '</b><br>Number of subscribers <b>' + value + '</b>';
+                    },
+                    type: 'line',
+                    enableSeriesToggle: false,
+                    valueAxis: {
+                        position: 'right',
+                        title: {
+                            text: 'Number of subscribers',
+                            offset: {x: 25, y: 0}
+                        },
+                        formatFunction: function (value) {
+                            return value ;
+                        },
+                        labels: {
+                            horizontalAlignment: 'left',
+                            offset: {x: 25, y: 0}
+                        },
+                        line: {visible: false},
+                        maxValue: 140,
+                        minValue: 0,
+                        unitInterval: 20,
+                        gridLines: {color: '#B1B1B1'}
+                    },
+                    series: [
+                        {
+                            dataField: 'iPhone3',
+                            symbolType: 'circle',
+                            lineColor:'#0B6DAF',
+                            lineColorSymbol :'#0B6DAF',
+                            fillColorSymbol :'#0B6DAF',
+                            legendFillColor :'#0B6DAF',
+                            legendLineColor  : '#0B6DAF'
+                        },
+                        {
+                            dataField: 'Nokia N9',
+                            symbolType: 'circle',
+                            lineColor:'#B3B8BC',
+                            lineColorSymbol:'#B3B8BC',
+                            fillColorSymbol:'#B3B8BC',
+                            legendFillColor:'#B3B8BC',
+                            legendLineColor :'#B3B8BC'
+                        }
+                    ]
+                }
+            ]
+        };
+        // setup the chart
+        $('#chartContainer').jqxChart(settings);
+    });
+</script>
+
+</body>
+</html>

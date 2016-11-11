@@ -1,0 +1,212 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../wulfdist/css/jqx.base.css" type="text/css"/>
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.chart.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_chart">Pie Chart (jQWidget)</h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <div style="display: inline-block;margin-right: 100px;">
+            <h4>Large version</h4>
+            <div id="chartContainer1" aria-label="large version pie chart" role="grid" style="width:600px; height:600px"></div>
+        </div>
+        <div style="display: inline-block;">
+            <h4>Small version</h4>
+            <div id="chartContainer2" aria-label="small version pie chart" role="grid" style="width:250px; height:250px"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For bar chart(jqWidget) components, it will be ok to import following css file:
+&lt;link  href="../wulfdist/css/jqx.base.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.chart.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.panel.min.css" rel="stylesheet"/&gt;</pre>
+        <p>
+            Place the chart into a &lt;div&gt;
+        </p>
+            <pre>
+<code>
+&lt;!-- Main chart div --&gt;
+&lt;div id="chartContainer" style="width:600px; height:600px"&gt;
+&lt;/div&gt;</code>
+            </pre>
+
+        <p>Data and Settings ( For more settings, see the <a target="_blank" href="http://www.jqwidgets.com/jquery-widgets-documentation/documentation/jqxchart/jquery-chart-api.htm?search=">jqxChart API Reference</a> )</p>
+            <pre>
+<code>
+// the data to show on the chart
+var sampleData = [
+    {'Phone':'Model J','Share':15},
+    {'Phone':'Model I','Share':4},
+    {'Phone':'Model H','Share':4},
+    {'Phone':'Model G','Share':15},
+    {'Phone':'Model F','Share':16},
+    {'Phone':'Model E','Share':7},
+    {'Phone':'Model D','Share':28},
+    {'Phone':'Model C','Share':3},
+    {'Phone':'Model B','Share':4},
+    {'Phone':'Model A','Share':5}
+];
+// the settings of the chart
+var settings = {
+    title: '',
+    description: '',
+    enableAnimations: true,
+    showLegend: false,
+    showBorderLine: false,
+    backgroundColor:'transparent',
+    source: sampleData,
+    seriesGroups:
+        [
+            {
+                type: 'donut',
+                showLabels: true,
+                toolTipFormatFunction: function (value, itemIndex) {
+                    var browser =  sampleData[itemIndex]['Phone'];
+                    return browser + '  &lt;b&gt;' + value + '&lt;/b&gt;';
+                },
+                series:
+                    [
+                        {
+                            dataField: 'Share',
+                            displayText: 'Phone',
+                            labelRadius: 175,
+                            initialAngle: 90,
+                            radius: 165,
+                            innerRadius: 100,
+                            centerOffset: 0,
+                            formatFunction : function (value, itemIndex) {
+                                var browser =  sampleData[itemIndex]['Phone'];
+                                return browser + ' ' + value + '%';
+                            }
+                        }
+                    ]
+            }
+        ]
+};
+// setup the chart
+$('#chartContainer').jqxChart(settings);
+$('#chartContainer').jqxChart('addColorScheme', 'nokiaScheme', ['#00F04D','#DB6D00','#D8D9DA','#68717A','#FFCC00','#474747','#00C9FF','#124191','#B3B8BC','#0B6DAF']);
+$('#chartContainer').jqxChart('colorScheme', 'nokiaScheme');
+</code>
+            </pre>
+    </div>
+</div>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script type="text/javascript">
+    require(['jquery', 'wulf/chart'], function($) {
+        var sampleData = [
+            {'Phone':'Model J','Share':15},
+            {'Phone':'Model I','Share':4},
+            {'Phone':'Model H','Share':4},
+            {'Phone':'Model G','Share':15},
+            {'Phone':'Model F','Share':16},
+            {'Phone':'Model E','Share':7},
+            {'Phone':'Model D','Share':28},
+            {'Phone':'Model C','Share':3},
+            {'Phone':'Model B','Share':4},
+            {'Phone':'Model A','Share':5}
+        ];
+        var settings1 = {
+            title: '',
+            description: '',
+            enableAnimations: true,
+            showLegend: false,
+            showBorderLine: false,
+            backgroundColor:'transparent',
+            source: sampleData,
+            seriesGroups:
+                [
+                    {
+                        type: 'donut',
+                        showLabels: true,
+                        toolTipFormatFunction: function (value, itemIndex) {
+                            var browser =  sampleData[itemIndex]['Phone'];
+                            return browser + '  &nbsp;&nbsp;<b>' + value + '%</b>';
+                        },
+                        series:
+                            [
+                                {
+                                    dataField: 'Share',
+                                    displayText: 'Phone',
+                                    labelRadius: 175,
+                                    initialAngle: 90,
+                                    radius: 165,
+                                    innerRadius: 100,
+                                    centerOffset: 0,
+                                    formatFunction : function (value, itemIndex) {
+                                        var browser =  sampleData[itemIndex]['Phone'];
+                                        return browser + ' \b ' + value + '%';
+                                    }
+                                }
+                            ]
+                    }
+                ]
+        };
+        // setup the chart
+        $('#chartContainer1').jqxChart(settings1);
+        $('#chartContainer1').jqxChart('addColorScheme', 'nokiaScheme', ['#00F04D','#DB6D00','#D8D9DA','#68717A','#FFCC00','#474747','#00C9FF','#124191','#B3B8BC','#0B6DAF']);
+        $('#chartContainer1').jqxChart('colorScheme', 'nokiaScheme');
+
+        var settings2 = {
+            title: '',
+            description: '',
+            enableAnimations: true,
+            showLegend: false,
+            showBorderLine: false,
+            backgroundColor:'transparent',
+            source: sampleData,
+            seriesGroups:
+                    [
+                        {
+                            type: 'donut',
+                            showLabels: false,
+                            toolTipFormatFunction: function (value, itemIndex) {
+                                var browser =  sampleData[itemIndex]['Phone'];
+                                return browser + '  &nbsp;&nbsp;<b>' + value + '%</b>';
+                            },
+                            series:
+                                    [
+                                        {
+                                            dataField: 'Share',
+                                            displayText: 'Phone',
+                                            labelRadius: 65,
+                                            initialAngle: 90,
+                                            radius: 55,
+                                            innerRadius: 30,
+                                            centerOffset: 0,
+                                            formatFunction : function (value, itemIndex) {
+                                                var browser =  sampleData[itemIndex]['Phone'];
+                                                return browser + ' \b ' + value + '%';
+                                            }
+                                        }
+                                    ]
+                        }
+                    ]
+        };
+        $('#chartContainer2').jqxChart(settings2);
+        $('#chartContainer2').jqxChart('addColorScheme', 'nokiaScheme', ['#00F04D','#DB6D00','#D8D9DA','#68717A','#FFCC00','#474747','#00C9FF','#124191','#B3B8BC','#0B6DAF']);
+        $('#chartContainer2').jqxChart('colorScheme', 'nokiaScheme');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,698 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/gradients.less";
+@import "./mixins/vendor-prefixes.less";
+@import "./mixins/border-radius.less";
+@import "@{less-path-of-bootstrap}mixins/nav-divider.less";
+@import "@{less-path-of-bootstrap}mixins/reset-filter.less";
+@import "@{less-path-of-bootstrap}dropdowns.less";
+@import "@{less-path-of-bootstrap}mixins/border-radius.less";
+@import "variables.less";
+
+
+
+
+// OT3 p.128
+// Settings work for FuelUX dropdowns
+// NOTE: these settings are impacting directly combobox and banner as well
+
+.btn-group {
+  .btn:first-child {
+    .border-right-radius(7px);
+  }
+}
+
+// Button definitions
+.dropdown-toggle {
+  #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+  color: @dropdown-text;
+  border: @button-default-border;
+  text-shadow: @button-text-shadow-white;
+  box-shadow: @n-dropdown-box-shadow;
+
+  .transition(none); //prevents black content in printing together with form-control class
+  outline: none !important;
+  border-radius: 7px;
+
+  // +++ Add border between text area and arrow
+  span.selected-label {
+    border-right: 1px solid @input-border;
+    padding: 0;
+    height: 100%;
+  }
+
+  // +++ Arrow placement
+  span.caret {
+    margin: 0 0 0 8px;
+    border-top: 5px solid;
+    color: @dropdown-arrow;
+  }
+
+
+  &:hover:not(:disabled):not([aria-expanded=true]) {
+    border-color: @blue-hover;
+    box-shadow: @button-drop-shadow-hover;
+    background-image: linear-gradient(to bottom,@button-basic-gradient-start 0,@button-basic-gradient-end 100%);
+    color: @gray-dark;
+    .selected-caret {
+      border-left: 1px solid @blue-hover;
+      span.caret {
+        color: @gray-medium;
+      }
+    }
+    span.selected-caret {
+      border-left: 1px solid @blue-hover;
+      box-shadow: -1px 0 0 0 @gray-white;
+      height: 99.5%;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    span.selected-label {
+      border-color: @blue-hover;
+    }
+    span.selected-caret {
+      border-color: @blue-hover;
+    }
+    span.caret {
+      color: @dropdown-arrow;
+    }
+    span.selected-caret {
+      color: @dropdown-arrow;
+    }
+  }
+
+  &:hover:disabled {
+    span.selected-caret {
+      border-color: @dropdown-select-caret-border-color;
+    }
+  }
+
+  &:hover {
+    span.selected-label {
+      border-color: @gray-dark;
+    }
+    span.caret {
+      color: @gray-white;
+    }
+    &:disabled {
+      span.caret {
+        color: @gray-light;
+      }
+    }
+  }
+
+  &:focus {
+    border-bottom: 1px solid @button-focus-hover-border-color;
+    span.selected-label {
+      border-color: @gray-dark;
+    }
+    span.selected-caret {
+      border-left: 1px solid @dropdown-dark-border-color;
+      box-shadow: -1px 0 0 0 @gray-dark;
+    }
+
+    span.caret {
+      color: @gray-white;
+    }
+    span.selected-caret {
+      color: @gray-white;
+    }
+  }
+
+  &:active {
+    border: @button-default-border;
+    span.selected-label {
+      border-color: @input-border;
+    }
+    span.selected-caret {
+      border-left: 1px solid @gray-white;
+      box-shadow: -1px 0 0 0 @input-border;
+    }
+    span.caret {
+      color: @dropdown-arrow;
+    }
+    span.selected-caret {
+      color: @dropdown-arrow;
+    }
+  }
+
+  &:disabled {
+    span.caret {
+      color: @gray-light;
+    }
+  }
+
+  &:active:disabled {
+    span.selected-caret {
+      border-color: @input-border-disabled;
+      box-shadow: none;
+    }
+  }
+
+  // List opened
+  &[aria-expanded=true] {
+    #gradient > .vertical(@nav-tabs-dark-gradient-top, @nav-tabs-dark-gradient-bottom) !important;
+    border-radius: 7px 7px 0 0 !important;
+    text-shadow: none !important;
+    color: @dropdown-text !important;
+    border: 1px solid @dropdown-list-opened-border !important;
+    box-shadow: none !important;
+    span.selected-label {
+      border-color: @input-border !important;
+    }
+    span.selected-caret {
+      border-left: 1px solid @gray-white;
+      box-shadow: -1px 0 0 0 @input-border;
+    }
+    span.caret {
+      color: @dropdown-arrow !important;
+    }
+    span.selected-caret {
+      color: @dropdown-arrow !important;
+    }
+  }
+}
+
+// Todo: make the opened list some 10px wider for the longest item (now the dropdown is not as wide as the selection showing
+// Todo: for first and last dropdown items the background color shows
+// Todo: variants: scrolling
+
+.selectlist-resize {
+  width: 100%;
+  margin: 0 0 1px 0;
+  .btn {
+    width: 100%;
+  }
+  .dropdown-menu {
+    width: 100%;
+  }
+
+
+  .dropdown-toggle {
+
+    &:focus {
+      .selected-caret {
+        border-left: 1px solid @dropdown-dark-border-color;
+        box-shadow: -1px 0 0 0 @gray-dark;
+      }
+      &[aria-expanded=true] {
+        .selected-caret {
+          border-left: 1px solid @gray-white;
+          box-shadow: -1px 0 0 0 @input-border;
+        }
+      }
+    }
+
+    &:hover:disabled {
+      .selected-caret {
+        border-left: 1px solid @dropdown-select-caret-border-color;
+        box-shadow: none;
+      }
+    }
+
+    &:hover {
+      .selected-caret {
+        border-left: 1px solid @dropdown-dark-border-color;
+        box-shadow: -1px 0 0 0 @gray-dark;
+      }
+
+      &[aria-expanded=true] {
+        .selected-caret {
+          border-left: 1px solid @gray-white;
+          box-shadow: -1px 0 0 0 @input-border;
+        }
+      }
+    }
+
+    &:active {
+      .selected-caret {
+        border-left: 1px solid @gray-white;
+        box-shadow: -1px 0 0 0 @input-border;
+      }
+    }
+
+    .selected-label {
+      float: left;
+      border-right: none;
+    }
+    .selected-caret {
+
+      float: right;
+      border-left: 1px solid @dropdown-select-caret-border-color;
+      .caret {
+        float: right;
+        margin-top: 13px;
+        margin-left: 10px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+.selectlist-small {
+  .dropdown-toggle {
+    span.caret {
+      margin: 0 0 0 6px;
+    }
+  }
+}
+
+.dropdown-menu, .dropdown-menu-right {
+  background-color: @dropdown-menu-background;
+  color: @dropdown-menu-color;
+  border-radius: 0 0 7px 7px;
+  margin-top: -1px;
+  min-width: 0;
+  // +++ Previously selected item in dropdown list with blue background
+  // Last two items are for combobox dropdown case
+  li[data-selected=true] a, li[data-selected=true] .n-a, li.selected a, li.selected .n-a {
+    background-color: @blue-selection;
+    color: white;
+  }
+  li.disabled a {
+    &:hover {
+      cursor:not-allowed;
+      > span:not(.ng-item) {
+        border-bottom: 1px solid transparent;
+      }
+    }
+    span.active{
+      &:before {
+        border-bottom: 1px solid transparent;
+      }
+    }
+  }
+  li a, li .n-a {
+    display: block;
+    padding: 3px 20px 3px 11px;
+    clear: both;
+    font-weight: normal;
+    line-height: @line-height-base;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    height: 27px;
+    border-bottom: 1px solid transparent;
+    // +++ Slightly grey the not-selected list items
+    background-color: @dropdown-menu-background;
+    color: @dropdown-text;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+
+    > span > span{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    // +++ Hover effects on the opened list, also used for the keyboard focusing effect
+    &:hover, &:focus {
+      background-image: none;/**in splited version,without this it'd become abnormal when it's hoved **/
+      background-color: @gray-white;
+      color: @black-hover;
+      // +++ Get rid of outline for Moz
+      outline: none;
+      // +++ Blue underline on hovered item
+      > span {
+        border-bottom: 1px solid @blue-underline;
+      }
+      > span > span {
+        border-bottom: 1px solid @blue-underline;
+      }
+    }
+    &[disabled]{
+      color: @dropdown-disabled-color;
+    }
+    span.active{
+      &:before {
+        position: absolute;
+        width: calc(~"100% - 31px");
+        height: 1px;
+        content: "";
+        /* top: -10px; */
+        bottom: 4px;
+        border-bottom: 1px solid @blue-underline;
+      }
+    }
+  }
+  .tooltip {
+    width: 200px;
+    position: fixed;
+  }
+}
+
+.n-dropdown-menu-scroll {
+  height: 150px;
+  li > a {
+    display: block;
+    padding: 3px 12px;
+    clear: both;
+    font-weight: normal;
+    line-height: @line-height-base;
+    color: @dropdown-link-color;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: @dropdown-link-hover-color;
+      background-color: @dropdown-link-hover-bg;
+    }
+  }
+
+  > .mCustomScrollBox {
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+
+    > .mCSB_container {
+      margin-right: 0;
+    }
+  }
+}
+
+.selectlist {
+  .dropdown-menu {
+    min-width: 100%;
+  }
+}
+
+.dropdown-menu.n-dropdown-menu-scroll {
+  padding: 3px 0;
+  overflow: hidden;
+  .mCSB_scrollTools {
+    top: 0px;
+    bottom: 0px;
+  }
+}
+
+.selectlist .dropdown-toggle {
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 100%;
+
+  //display: inline-flex;
+  display: inline-block;
+  .selected-caret {
+    float: right;
+    border-left: 1px solid @dropdown-select-caret-border-color;
+    .caret {
+      float: right;
+      margin-top: 13px;
+      margin-left: 12px;
+      margin-bottom: 12px;
+      height: 5px;
+    }
+  }
+}
+
+.selectlist-resize .dropdown-toggle {
+  display: inline-block;
+}
+
+.selectlist-small .dropdown-toggle {
+  display: inline-block;
+}
+
+.selectlist .dropdown-toggle > .selected-label {
+  height: @n-dropdown-standard-height;
+  line-height: @n-dropdown-standard-height;
+  display: inline-block;
+  float: left;
+  border-right: none;
+  width: calc(~"100% - 30px");
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+// +++ Small variant
+.selectlist-small {
+  .dropdown-toggle {
+    border-radius: 6px;
+    font-size: @font-size-small;
+    padding-left: 11px;
+    padding-right: 10px;
+    span.selected-label {
+      height: @selectlist-small-height;
+      line-height: @selectlist-small-height;
+      padding: 0 10px 0 0;
+    }
+    &[aria-expanded=true] {
+      border-radius: 6px 6px 0 0;
+    }
+  }
+  .dropdown-menu {
+    border-radius: 0 0 6px 6px;
+    font-size: @font-size-small;
+
+    > li > a {
+      padding-top: 6px;
+    }
+  }
+}
+
+.selectlist-small {
+  .dropdown-toggle {
+    .caret {
+      margin: 0 0 0 6px;
+    }
+    .selected-caret {
+      .caret {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 9px;
+      }
+    }
+  }
+}
+
+// +++ Dark variant
+.selectlist-dark {
+  .dropdown-toggle {
+    #gradient > .vertical(@dropdown-dark-focus-gradient-start, @dropdown-dark-focus-gradient-end);
+    color: white;
+    text-shadow: none;
+    box-shadow: 0 1px 3px 0 @tooltip-border-shadow !important;
+
+    span.selected-caret {
+      border-left: 1px solid @dropdown-dark-border-color;
+      box-shadow: -1px 0 0 0 @gray-dark;
+    }
+    span.caret {
+      color: @dropdown-arrow-dark;
+    }
+    &[aria-expanded=true] {
+      #gradient > .vertical(@dropdown-dark-focus-gradient-end, @dropdown-dark-focus-gradient-start) !important;
+      color: @gray-white !important;
+      .selected-label {
+        border-color: @gray-dark !important;
+      }
+      &:hover span.selected-caret,span.selected-caret {
+        border-left: 1px solid @dropdown-dark-border-color;
+        box-shadow: -1px 0 0 0 @gray-dark;
+      }
+
+      &:focus {
+        span.selected-caret {
+          border-left: 1px solid @dropdown-dark-border-color;
+          box-shadow: -1px 0 0 0 @gray-dark;
+        }
+      }
+      span.caret {
+        color: @dropdown-arrow-dark !important;
+      }
+    }
+
+    &:hover:not(:focus) {
+      #gradient > .vertical(@dropdown-dark-hover-gradient-start, @dropdown-dark-hover-gradient-end);
+      color: @gray-white;
+      text-shadow: none;
+      &:not(:disabled):not([aria-expanded=true]) span.selected-caret {
+        border-color: @blue-hover;
+        box-shadow: none;
+      }
+      span.caret {
+        color: @dropdown-arrow-dark;
+      }
+    }
+
+    &:hover {
+      #gradient > .vertical(@dropdown-dark-focus-gradient-end, @dropdown-dark-focus-gradient-start);
+      color: @gray-white;
+      text-shadow: none;
+      .selected-label {
+        border-color: @gray-dark;
+      }
+    }
+
+    &:active {
+      #gradient > .vertical(@button-action-active-gradient-start, @button-action-active-gradient-end);
+      color: @gray-white;
+      border-left: @button-default-dotted-border;
+      border-right: @button-default-dotted-border;
+      border-color: @button-active-focus-border-color;
+      text-shadow: @button-text-shadow-dark;
+      box-shadow: none;
+      .selected-label {
+        border-color: @gray-dark;
+      }
+      span.selected-caret {
+        border-left: 1px solid @dropdown-dark-border-color;
+        box-shadow: -1px 0 0 0 @gray-dark;
+      }
+    }
+
+    &[disabled] {
+      color: @selectlist-dark-dropdown-toggle-disabled-text !important;
+      border: 1px solid @dropdown-dark-disabled-border !important;
+      #gradient > .vertical(@dropdown-dark--gradient-start, @dropdown-dark-disabled-gradient-end) !important;
+      .selected-caret {
+        border-color: @dropdown-dark-disabled-border !important;
+        box-shadow: none;
+        .caret {
+          color: @dropdown-dark-disabled-caret-text !important;
+        }
+      }
+      &:hover {
+        .selected-caret {
+          border-color: @dropdown-dark-disabled-border !important;
+        }
+      }
+    }
+  }
+  .dropdown-menu {
+    background-color: @dropdown-dark-menu-item;
+    color: @selectlist-dark-dropdown-menu-color;
+    margin-top: -2px;
+    li[data-selected=true] > a, li[data-selected=true] > .n-a {
+      background-color: @blue-selection;
+      color: white;
+    }
+    li > a, li > .n-a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: normal;
+      line-height: @line-height-base;
+      white-space: nowrap; // prevent links from randomly breaking onto new lines
+      // +++ Not-selected list items
+      background-color: @dropdown-dark-menu-item;
+      color: @gray-white;
+      &:hover, &:focus {
+        background-color: @dropdown-dark-menu-item-hover !important;
+        color: @gray-white;
+        // +++ White underline on hovered item
+        > span:not(.ng-item) {
+           border-bottom: 1px solid white;
+         }
+        > span > span {
+          border-bottom: 1px solid white;
+        }
+      }
+      &[disabled] {
+        color: @gray-light;
+        background-color: @selectlist-dark-dropdown-item-disabled-bg;
+      }
+    }
+  }
+}
+
+.selectlist-indicated {
+  > .form-control-feedback {
+    line-height: 28px;
+    right: 32px;
+    text-align: right;
+  }
+}
+
+// Disabled cases
+.btn-group.selectlist.disabled {
+  outline: none !important;
+  color: @input-color-disabled;
+  span.selected-label {
+    border-right: 1px solid @button-disabled-border;
+  }
+  span.caret {
+    color: @dropdown-dark-disabled-text;
+  }
+  &:hover {
+    span.selected-label {
+      border-color: @selectlist-disabled-hover-label;
+    }
+    span.selected-caret {
+      border-color: @selectlist-disabled-hover-caret;
+    }
+  }
+}
+
+.selectlist-multiple {
+  .dropdown-toggle {
+    .selected-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      span:nth-child(2) {
+        float: left;
+      }
+      span:nth-child(3) {
+        float: left;
+      }
+
+    }
+  }
+  .dropdown-menu {
+    li > a {
+      padding-right: 0;
+      &:hover, &:focus {
+        > span {
+          border-bottom: 0;
+        }
+        > span > label {
+          width: 100%;
+          > span {
+            border-bottom: 1px solid @blue-underline;
+          }
+        }
+      }
+    }
+    li[data-selected=true] > a {
+      color: inherit;
+      background-color: inherit;
+      &:focus,
+      &:hover {
+        color: black;
+        background-color: @gray-white;
+        outline: none;
+      }
+    }
+    .checkbox {
+      padding-top: 0;
+      & input[type=checkbox]:hover + label:before {
+        border: 1px solid @dropdown-checkbox-hover-color;
+        box-shadow: 0 1px 3px 0 @dropdown-checkbox-hover-color;
+      }
+    }
+  }
+}
+
+span.n-small-caret {
+  margin: 0 0 0 6px;
+}
+
+@media print {
+  .dropdown-toggle {
+    background-color: @dropdown-toggle-print-background !important;
+  }
+}
+
+// If active state, hover and focus creates white underline
+.dropdown-menu > .active > a {
+  &:focus, &:hover {
+    & > span {
+      border-bottom: 1px solid @gray-white !important;
+    }
+  }
+}
+

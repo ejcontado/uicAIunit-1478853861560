@@ -1,0 +1,92 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content" id="angular_content" ng-controller="DemoController as demo">
+<h1 class="component-header" id="nokia_list">Tooltip (Angular)</h1>
+<hr>
+
+
+<div class="row">
+    <div class="col-md-5" style="position:static">
+
+        Hold pointer on top of the links above for few seconds to get the tooltips visible.</br></br>
+        This text here is for demonstrating default
+        <a wf-tooltip wf-location="top" wf-context="Top Tooltip" href="javascript:void(0)">tooltip </a> behavior.
+        </br>
+        This text here is for demonstrating forced <a wf-tooltip wf-location="bottom" wf-context="Bottom Tooltip" href="javascript:void(0)">bottom tooltip </a>
+        behavior.</br>
+        This text here is for demonstrating forced
+        <a wf-tooltip wf-location="right" wf-context="Right Tooltip" href="javascript:void(0)">right</a>
+        behavior.
+    </div>
+
+    <div class="col-md-5">
+        <p>
+            Tooltips can be used to display quick information on an element in the page.
+            To use tooltip in Angular in WULF, add the directive <code>wf-tooltip</code>.
+        <h1>wf-tooltip settings</h1>
+        <ul>
+            <li>
+                <code>wf-context: '@'</code> - This will determine the content of your tooltip
+            </li>
+            <li>
+                <code>wf-location: '='</code> - This will define the location of the tooltip in accordance to its
+                parent component
+                It can be set to <b>left</b>, <b>right</b>, <b>top</b> or <b>bottom</b>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="row">
+    <wf-tabs ng-cloak>
+        <wf-pane label="Markup">
+            <pre ng-non-bindable>
+
+&lta wf-tooltip wf-location="top" wf-context="Tooltip Top" href="javascript:void(0)"&gttop &lt/a&gt
+
+
+
+            </pre>
+        </wf-pane>
+        <wf-pane label="Javascript">
+            <pre ng-non-bindable>
+                <code data-language="javascript">
+//add tooltip directory to your dependecy to use tooltip
+require(['angular', 'wulf-ng/tooltip/tooltip'], function (angular) {
+angular.module('userPageModule', ['wf.angular.tooltip']).controller('UserPageController', function (){});
+                </code>
+            </pre>
+        </wf-pane>
+    </wf-tabs>
+</div>
+</body>
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular','wulf-ng/tooltip/tooltip','wulf-ng/tabs/tabs'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.tooltip', 'wf.angular.tabs'])
+                .controller('DemoController', function (){});
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</html>

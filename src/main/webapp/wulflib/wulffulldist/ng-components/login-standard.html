@@ -1,0 +1,96 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en" ng-cloak>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet">
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Angular Login </title>
+</head>
+<body class="demo-body-content">
+<div style='height: 500px' class="row">
+    <div style='height: 400px' ng-controller="loginDemoController as demo">
+        <h1 class="component-header" id="nokia_login">Login standard</h1>
+        <hr>
+        <wf-login id="TA-standardLogin" login-type="demo.standardlogin.loginType" title-text="demo.standardlogin.titleText" version="demo.standardlogin.version" copyright="demo.standardlogin.copyright" on-login="demo.standardlogin.onLogin" forgot-password="demo.standardlogin.forgotPsw"></wf-login>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <wf-tabs>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+Login standard:
+<wf-login login-type="demo.standardlogin.loginType" title-text="demo.standardlogin.titleText" version="demo.standardlogin.version" copyright="demo.standardlogin.copyright" on-login="demo.standardlogin.onLogin" forgot-password="demo.standardlogin.forgotPsw"></wf-login>
+                    </code></pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable><code data-language="javascript">
+require(['angular', 'wulf-ng/login/login'], function (angular) {
+angular.module('wf.ng.demo', ['wf.angular.login']).controller('loginDemoController', loginDemoController);
+function loginDemoController() {
+    //Login standard:
+    this.standardlogin = {};
+    this.standardlogin.loginType = 'standard';
+    this.standardlogin.titleText = 'BTS Site Manager';
+    this.standardlogin.version = 'Version 0.0.1 beta';
+    this.standardlogin.copyright = '2016 Nokia. All rights reserved.';
+    this.standardlogin.onLogin = function (username, password) {
+        alert('This is an on-login callback.\n username : '+ username +'\n password : ' + password);
+    }
+    this.standardlogin.forgotPsw = function () {
+        alert('This is a forget password callback.');
+    };
+}
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['wf.ng.demo'], {
+    strictDi: true
+    });
+});
+                </code></pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['angular', 'wulf-ng/login/login.tlp.min','wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.login','wf.angular.tabs']).controller('loginDemoController', loginDemoController);
+        function loginDemoController() {
+            this.standardlogin = {};
+            this.standardlogin.loginType = 'standard';
+            this.standardlogin.titleText = 'BTS Site Manager';
+            this.standardlogin.version = 'Version 0.0.1 beta';
+            this.standardlogin.copyright = ' 2016 Nokia. All rights reserved.';
+            this.standardlogin.onLogin = function (username, password) {
+                alert('This is an on-login callback.\nusername : '+ username +'\npassword : ' + password);
+            };
+            this.standardlogin.forgotPsw = function () {
+                alert('This is a forget password callback.');
+            };
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

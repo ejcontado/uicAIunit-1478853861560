@@ -1,0 +1,257 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "./mixins/gradients.less";
+@import "variables.less";
+
+.n-login-screen {
+  height: 100%;
+  #gradient > .radial(@gradient-background-radial-center, @gradient-background-radial-far-side);
+  background-repeat: repeat;
+  padding: 0;
+}
+
+.n-login {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: @n-login-width;
+  min-height: @n-login-height;
+  margin-left: @n-login-margin-left;
+  margin-top: 139px;
+
+  .n-login-logo {
+    text-align: right;
+    padding-right: 5px; // 5 from dialog edge
+    margin-bottom: 43px; // 43 distance to version and system info
+  }
+
+  .panel {
+    margin: 0 auto;
+    padding: 0 28px;
+
+    button {
+      margin-top: 0;
+      margin-right: 2px;
+      margin-bottom: 2px;
+    }
+
+    .n-login-title {
+      height: 44px;
+      padding-top: 24px;
+
+      .n-product-name-blue {
+        color: @n-product-name-blue;
+      }
+    }
+
+    .panel-body {
+      background: none;
+
+      h2.n-login-title-version-light {
+        height: 21px;
+        margin: 0;
+        padding-top: 10px;
+        color: @n-login-title-version-light-text;
+        font-weight: 300;
+      }
+
+      .n-login-product-name {
+        margin: 36px 0 -16px;
+        color: @n-login-product-name-text;
+        font-size: 14px;
+      }
+
+      .alert-error {
+        display: none;
+        padding-bottom: 20px;
+        > .icon:first-child {
+          top: 3px;
+          position: relative;
+          font-size: @font-size-medium;
+          margin-right: 5px;
+        }
+      }
+
+      .n-login-panel-fields {
+        padding: 39px 0 20px 0;
+        overflow: hidden;
+
+        .input-required {
+          padding: 0;
+          width: 50%;
+          float: left;
+
+          &:first-child {
+            padding-right: 5px;
+          }
+          &:last-child {
+            padding-left: 5px;
+          }
+        }
+
+        .n-login-textfields {
+          padding: 0;
+          margin: 0;
+
+          .form-control-feedback {
+            padding-top: 1px;
+            right: 4px !important;
+          }
+        }
+      }
+
+      .n-login-action {
+        overflow: hidden;
+        padding-top: 20px;
+
+        .n-login-forget-password {
+          display: inline-block;
+          line-height: 28px;
+
+          a:hover, a:active, a:focus {
+            border-bottom: 1px solid @blue-underline;
+            outline: none;
+          }
+
+          a.n-link-visited {
+            color: @gray-dark;
+            border-bottom: 1px solid @gray-medium;
+          }
+
+          .icon-breadcrumb {
+            font-size: 80%;
+            font-weight: bold;
+            &:after {
+              color: @n-login-forget-password-icon-breadcrumb;
+            }
+          }
+        }
+
+        button {
+          float: right;
+        }
+      }
+    }
+  }
+ }
+
+.n-login-wrapper{
+  min-height: 100%;
+  margin-bottom: -18px;
+  overflow: hidden;
+  &:after{
+    content: "";
+    display: block;
+    height: 18px;
+  }
+}
+
+.n-login-copyright {
+  width: 100%;
+  height: 18px;
+  text-align: center;
+  color: @n-login-text-color;
+}
+
+.n-login-product {
+  min-height: 318px;
+  margin-top: 159px;
+}
+
+.n-login-button {
+  height: 33px;
+  min-width: 90px;
+}
+
+.n-login-signup {
+
+  min-height: 350px;
+  margin-top: 175px;
+
+  .n-login-sign-up-bar {
+    border-top: 1px solid @n-login-sign-up-bar-border-top;
+    padding: 20px 0;
+
+    span {
+      color: @n-login-sign-up-bar-border-top-text;
+      font-size: 14px;
+      line-height: 32px;
+    }
+
+  }
+}
+
+.n-login-legal-copy {
+  min-height: 358px;
+  margin-top: 159px;
+
+  .n-login-legal-copy-text {
+    border-top: 1px solid @n-login-legal-copy-text-border;
+    color: @n-login-legal-copy-text;
+    font-size: 11px;
+    padding: 14px 0;
+  }
+}
+
+.n-login-legal-acceptance {
+  min-height: 296px;
+  margin-top: 148px;
+
+  .n-login-panel-fields {
+    color: @n-login-legal-acceptance-panel-text;
+    font-size: 12px;
+  }
+}
+
+.n-login-with-four-column {
+  position: relative;
+  top: 0;
+  padding-top: 80px;
+  margin-top: 0;
+}
+
+.n-login-four-column {
+  width: 840px;
+  margin: 30px auto 30px;
+  overflow: hidden;
+
+  .n-login-column-panel {
+    width: 390px;
+    float: left;
+
+    &:first-child {
+      margin-right: 60px;
+    }
+
+    h1 {
+      font-size: 20px;
+      color: @n-login-four-column-panel-h1;
+    }
+
+    .n-login-column {
+      vertical-align: top;
+      width: 180px;
+      float: left;
+      color: @n-login-four-column-text;
+      font-size: 12px;
+
+      &:first-of-type {
+        margin-right: 30px;
+      }
+    }
+  }
+
+}
+
+.n-login-footer {
+  padding-bottom: 16px;
+  padding-right: 4px;
+
+  button {
+    float: right;
+  }
+
+}
+

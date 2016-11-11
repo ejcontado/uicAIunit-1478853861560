@@ -1,0 +1,5 @@
+<li role="listitem" ng-attr-tabindex="{{$ctrl.tabindex}}" ng-class=
+"{'n-list-group-item' : $ctrl.isSelectable === true, 'list-group-item' :  $ctrl.isSelectable === false, 'selected': $ctrl.select}"
+    ng-click="$ctrl.selectThis($event)" ng-focus="$ctrl.focusThis()">
+    <ng-transclude></ng-transclude>
+</li>

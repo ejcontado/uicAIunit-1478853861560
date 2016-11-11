@@ -1,0 +1,88 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content" style="height: calc(100% - 20px);">
+
+<h1>Tips</h1>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        More detailed <a href="https://confluence.inside.nsn.com/display/WULF" class="n-link" target="_blank">WULF project</a>
+        information can
+        be found
+        in Confluence pages.
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            Removing flash of unstyled text
+        </p>
+        <ul>
+            <li><strong>Font loader</strong>: In order to avoid FOUT (flash of unstyled text), you can use
+                webfont.js. Please add the following JavaScript:
+            </li>
+<pre><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+WebFont.load({
+custom: {
+families: ['Nokia Pure:n3,n4,n7'],
+urls : ['wulfdist/css/wulf.min.css'] <span style="color:#f00">// define the file location in your case</span>
+}
+});
+&lt;/script&gt;
+</code></pre>
+        </ul>
+        <p>Jquery-ui theme tips:</p>
+        <ul><li>
+<pre><code>Where to get the theme file:
+"Download" -> "Download Releases" -> "Logical place to search for the theme downloading"
+
+1.The demo page to show jquery-ui control with wulf theme style
+  juery-ui-wulf\jquery-ui\index.html
+
+2.The links that is need to be imported
+  &lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+  &lt;link href="jquery-ui.theme.css" rel="stylesheet"&gt;
+
+3.What is wulf.basic.min.css?
+  It is the basic style definition in wulf, such as font family(Nokia Pure), font size, layout.
+  In jquery-ui.theme,  nokia font is needed, so wulf.basic.min.css and font folder is also included.
+
+4.Some different from OT3 because of code structure:
+  Dialog title corner:
+  The value part of slider: the component is different with wulf.
+
+5.Other comments:
+  Maybe other problem will happen when apply to your project since some style may be overridden.</code></pre>
+        </li></ul>
+        <p>
+            The <a href="demo.html" class="n-link" target="_blank">old demo page</a> is here for reference/testing purposes, not maintained.
+        </p>
+
+        <p>
+            <a href="https://sharenet-ims.inside.nsn.com/Guest/Open/D387258045" class="n-link" target="_blank">NSN Interaction Design
+                Book</a> (v-9) from Nokia GUI Board<br>
+            <a href="https://workspaces.emea.nsn-net.net/sites/NSNGUIB/default.aspx" class="n-link" target="_blank">Nokia GUI
+                Board</a>
+        </p>
+        <br>
+    </div>
+</div>
+<div><span class="glyphicon glyphicon-share-alt flip-horizontal back-to-top n-link" aria-hidden="true"></span> <a
+    href="#top">Back to top</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_chart">Bar Charts (HighCharts)</h1>
+<hr>
+<div class="col-md-6">
+    <p>
+        Bar - horizontal:
+    </p>
+    <div id="chart" style="width:100%; height:400px;"></div>
+</div>
+
+<div class="col-md-6">
+    Note: you need to have purchased the HighCharts license and placed the library files under wulfdist/js/dependencies folder to get the chart visible.<br>
+<pre>
+<code>
+    &lt;!-- Charts --&gt;
+    &lt;div id="container" style="width:100%; height:400px;"&gt;&lt;/div&gt;
+
+    &lt;!-- Needed scripts --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/highcharts.src.latest.js"&gt;&lt;/script&gt;
+    &lt;script src="../wulfdist/js/dependencies/charts.js"&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+    window.onload = function(e){
+    var chart = Charts.stacked_bar({
+    title: {
+    text: 'Fruit Consumption'
+    },
+    categories: [
+    'iPhone 3',
+    'Nokia N9',
+    'Blackberry',
+    'iPhone 4',
+    'HTC Desire'
+    ],
+    series: [
+    {
+    name: 'Data',
+    data: [4, 1.8, 3.8, 1.4, 1.8]
+    },
+    {
+    name: 'SMS',
+    data: [1, 1.7, 1.7, 0.2, 0.6]
+    },
+    {
+    name: 'Voice',
+    data: [1.35, 2, 0.2, 2.7, 0.8]
+    }
+    ]
+    });
+    });
+    &lt;/script&gt;
+
+</code>
+</pre>
+</div>
+
+<script type="text/javascript" src="wulfdist/js/dependencies/jquery.min.js"></script>
+<script type="text/javascript" src="wulfdist/js/dependencies/highcharts.src.latest.js"></script>
+<script type="text/javascript" src="wulfdist/js/dependencies/charts.js"></script>
+
+<script>
+//    $(function () {
+//        $( window ).bind('resize onLoad',function() {
+//            var chart = Charts.stacked_bar({
+//                title: {
+//                    text: 'Fruit Consumption'
+//                },
+//                categories: [
+//                    'iPhone 3',
+//                    'Nokia N9',
+//                    'Blackberry',
+//                    'iPhone 4',
+//                    'HTC Desire'
+//                ],
+//                series: [
+//                    {
+//                        name: 'Data',
+//                        data: [4, 1.8, 3.8, 1.4, 1.8]
+//                    },
+//                    {
+//                        name: 'SMS',
+//                        data: [1, 1.7, 1.7, 0.2, 0.6]
+//                    },
+//                    {
+//                        name: 'Voice',
+//                        data: [1.35, 2, 0.2, 2.7, 0.8]
+//                    }
+//                ]
+//            });
+//        })
+//    });
+    window.onload = function(e){
+        var chart = Charts.stacked_bar({
+            title: {
+                text: 'Fruit Consumption'
+            },
+            categories: [
+                'iPhone 3',
+                'Nokia N9',
+                'Blackberry',
+                'iPhone 4',
+                'HTC Desire'
+            ],
+            series: [
+                {
+                    name: 'Data',
+                    data: [4, 1.8, 3.8, 1.4, 1.8]
+                },
+                {
+                    name: 'SMS',
+                    data: [1, 1.7, 1.7, 0.2, 0.6]
+                },
+                {
+                    name: 'Voice',
+                    data: [1.35, 2, 0.2, 2.7, 0.8]
+                }
+            ]
+        });
+    }
+</script>
+</body>
+</html>

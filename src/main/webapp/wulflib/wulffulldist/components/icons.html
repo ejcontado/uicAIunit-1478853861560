@@ -1,0 +1,432 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_icons">Icons <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <p>Icons in the Nokia icons font. Note, most of the icons are still in draft state.</p>
+        <p>JS & CSS dependency:</p>
+        <pre>
+For icons components, it will be ok to import following css file :
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;</pre>
+    </div>
+</div>
+<div id="icons-demo">
+    <div class="col-md-6">
+        <div class="row">
+            <h4>Alert icons</h4>
+            <table id="TA-icons-alertIcons" class="table table-condensed">
+                <tr>
+                    <th width="10%">Icon</th>
+                    <th width="20%">Name</th>
+                    <th width="70%">Code and class</th>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-ok"></span></td>
+                    <td>Ok</td>
+                    <td><code>"\e600, icon-ok"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-error"></span></td>
+                    <td>Error</td>
+                    <td><code>"\e601, icon-error"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-info"></span></td>
+                    <td>Info</td>
+                    <td><code>"\e602, icon-info"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-warning"></span></td>
+                    <td>Warning</td>
+                    <td><code>"\e603, icon-warning"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-edited"></span></td>
+                    <td>Edited</td>
+                    <td><code>"\e62f, icon-edited"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-spinner"></span></td>
+                    <td>Spinner</td>
+                    <td><code>"icon-spinner"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-spinner icon-spinner-large"></span></td>
+                    <td>Large spinner</td>
+                    <td><code>"icon-spinner icon-spinner-large"</code></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <h4>Navigation icons</h4>
+            <table id="TA-icons-navigationIcons" class="table table-condensed">
+                <tr>
+                    <th width="10%">Icon</th>
+                    <th width="20%">Name</th>
+                    <th width="70%">Code and class</th>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-voice"></span></td>
+                    <td>Voice</td>
+                    <td><code>"\e61c, icon-voice"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-message"></span></td>
+                    <td>Message</td>
+                    <td><code>"\e60f, icon-message"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-data"></span></td>
+                    <td>Data</td>
+                    <td><code>"\e62b, icon-data"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-settings"></span></td>
+                    <td>Settings</td>
+                    <td><code>"\e618, icon-settings"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-settings-menu"></span></td>
+                    <td>Settings menu</td>
+                    <td><code>"\e619, icon-settings-menu"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-add"></span></td>
+                    <td>Add</td>
+                    <td><code>"\e625, icon-add"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-goto"></span></td>
+                    <td>Go to</td>
+                    <td><code>"\e607, icon-goto"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-dashboard"></span></td>
+                    <td>Dashboard</td>
+                    <td><code>"\e62a, icon-dashboard"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-dropdown-menu"></span></td>
+                    <td>Dropdown menu</td>
+                    <td><code>"\e613, icon-dropdown-menu"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-back"></span></td>
+                    <td>Back</td>
+                    <td><code>"\e61e, icon-back"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-first"></span></td>
+                    <td>First</td>
+                    <td><code>"\e606, icon-first"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-last"></span></td>
+                    <td>Last</td>
+                    <td><code>"\e60b, icon-last"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-next"></span></td>
+                    <td>Next</td>
+                    <td><code>"\e612, icon-next"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-manage"></span></td>
+                    <td>Manage</td>
+                    <td><code>"\e614, icon-manage"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-calendar"></span></td>
+                    <td>Calendar</td>
+                    <td><code>"\e901, icon-calendar"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-regions"></span></td>
+                    <td>Regions</td>
+                    <td><code>"\e616, icon-regions"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-corporation "></span></td>
+                    <td>Corporation</td>
+                    <td><code>"\e628, icon-corporation"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-phone"></span></td>
+                    <td>Phone</td>
+                    <td><code>"\10c, icon-phone"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-profile"></span></td>
+                    <td>Profile/user</td>
+                    <td><code>"\e632, icon-profile"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-edit"></span></td>
+                    <td>Edit</td>
+                    <td><code>"\e62d, icon-edit"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-home"></span></td>
+                    <td>Home</td>
+                    <td><code>"\e609, icon-home"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-actions-menu"></span></td>
+                    <td>Actions menu</td>
+                    <td><code>"\e630, icon-actions-menu"</code></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+
+        <div class="row">
+            <h4>Fault icons</h4>
+            <table id="TA-icons-faultIcons" class="table table-condensed">
+                <tr>
+                    <th width="10%">Icon</th>
+                    <th width="20%">Name</th>
+                    <th width="70%">Code and class</th>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-fault-critical"></span></td>
+                    <td>Critical</td>
+                    <td><code>"\e629, icon-fault-critical"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-fault-major"></span></td>
+                    <td>Major</td>
+                    <td><code>"\e634, icon-fault-major"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-fault-minor"></span></td>
+                    <td>Minor</td>
+                    <td><code>"\e610, icon-fault-minor"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-fault-warning"></span></td>
+                    <td>Warning</td>
+                    <td><code>"\e61b,\e622, icon-fault-warning"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-fault-cleared"></span></td>
+                    <td>Cleared</td>
+                    <td><code>"\e624, icon-fault-cleared"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-fault-unknown"></span></td>
+                    <td>Unknown</td>
+                    <td><code>"\e61a, icon-fault-unknown"</code></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <h4>Tools icons</h4>
+            <table id="TA-icons-toolIcons" class="table table-condensed">
+                <tr>
+                    <th width="10%">Icon</th>
+                    <th width="20%">Name</th>
+                    <th width="70%">Code and class</th>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-edit-tool"></span></td>
+                    <td>Edit tool</td>
+                    <td><code>"\e62e, icon-edit-tool"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-expand"></span></td>
+                    <td>Expand</td>
+                    <td><code>"\e631, icon-expand"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-close"></span></td>
+                    <td>Close</td>
+                    <td><code>"\e604, icon-close"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-close-rounded"></span></td>
+                    <td>Close</td>
+                    <td><code>"\e626, icon-close-rounded"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-collapse"></span></td>
+                    <td>Collapse, minus</td>
+                    <td><code>"\e611, icon-collapse"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-collapse-rounded"></span></td>
+                    <td>Collapse</td>
+                    <td><code>"\e627, icon-collapse-rounded"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-cancel"></span></td>
+                    <td>Cancel</td>
+                    <td><code>"\e623, icon-cancel"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-help "></span></td>
+                    <td>Help</td>
+                    <td><code>"\e608, icon-help"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-calendar-menu"></span></td>
+                    <td>Calendar menu</td>
+                    <td><code>"\e636, icon-calendar-menu"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-arrow"></span></td>
+                    <td>Arrow</td>
+                    <td><code>"\e61d, icon-arrow"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-refresh"></span></td>
+                    <td>Refresh</td>
+                    <td><code>"\e615, icon-refresh"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-filter"></span></td>
+                    <td>Filter</td>
+                    <td><code>"\e605, icon-filter"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-search"></span></td>
+                    <td>Search</td>
+                    <td><code>"\e617, icon-search"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-arrow-up"></span></td>
+                    <td>Up arrow</td>
+                    <td><code>"\e635, icon-arrow-up"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-copy"></span></td>
+                    <td>Copy</td>
+                    <td><code>"\e638, icon-copy"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-add-mo"></span></td>
+                    <td>Add MO</td>
+                    <td><code>"\e639, icon-add-mo"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-delete"></span></td>
+                    <td>Delete</td>
+                    <td><code>"\e63a, icon-delete"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-save-as"></span></td>
+                    <td>Save as</td>
+                    <td><code>"\e64b,\e64c, icon-save-as"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-print"></span></td>
+                    <td>Print</td>
+                    <td><code>"\e63e, icon-print"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-undo"></span></td>
+                    <td>Undo</td>
+                    <td><code>"\e63a, icon-undo"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-folder-open"></span></td>
+                    <td>Folder open</td>
+                    <td><code>"\e63d, icon-folder-open"</code></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row">
+            <h4>Other</h4>
+            <table id="TA-icons-other" class="table table-condensed">
+                <tr>
+                    <th width="10%">Icon</th>
+                    <th width="20%">Name</th>
+                    <th width="70%">Code and class</th>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-breadcrumb"></span></td>
+                    <td>Breadcrumb</td>
+                    <td><code>"\e61f, icon-breadcrumb"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-input-error"></span></td>
+                    <td>Error in input field</td>
+                    <td><code>"\e60a, icon-input-error"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-list"></span></td>
+                    <td>List</td>
+                    <td><code>"\e60c, icon-list"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-mandatory"></span></td>
+                    <td>Mandatory field</td>
+                    <td><code>"\e60e, icon-mandatory"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-bubble"></span></td>
+                    <td>Message/bubble</td>
+                    <td><code>"\e620, icon-bubble"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-license-info"></span></td>
+                    <td>license info</td>
+                    <td><code>"\e63d, icon-license-info"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-left"></span></td>
+                    <td>arrow left</td>
+                    <td><code>"\e801, icon-left"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-right"></span></td>
+                    <td>arrow right</td>
+                    <td><code>"\e800, icon-right"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-down"></span></td>
+                    <td>arrow down</td>
+                    <td><code>"\e802, icon-down"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-bullet"></span></td>
+                    <td>bullet</td>
+                    <td><code>"\e009, icon-bullet"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-indicator"></span></td>
+                    <td>indicator</td>
+                    <td><code>"\e900, icon-indicator"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-more-vert"></span></td>
+                    <td>more vertical</td>
+                    <td><code>"\e955, icon-more-vert"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="icon icon-more-horiz"></span></td>
+                    <td>more horizontal</td>
+                    <td><code>"\e954, icon-more-horiz"</code></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

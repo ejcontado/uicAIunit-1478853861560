@@ -1,0 +1,236 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.list.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_multicolumn_list">Multi-column Lists <a href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30"
+         src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div id="list-demo-container" class="col-md-4">
+        <span>Standard Multicolumn list</span>
+        <table class="n-multicolumn-list" id="TA-multicolumn_lists-standard">
+            <thead>
+            <tr>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-standardThA">Column A<span class="icon icon-arrow"></span></th>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-standardThB">Column B<span class="icon icon-arrow"></span></th>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-standardThC">Column C<span class="icon icon-arrow"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-standardItem1"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 3</span></td>
+            </tr>
+            <tr>
+                <td class="n-multicolumn-list-td"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-standardItem2"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 3</span></td>
+            </tr>
+            <tr>
+                <td class="n-multicolumn-list-td"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td"  id="TA-multicolumn_lists-standardItem3"><span>Item 3</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+<pre>
+For multi-column lists components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.list.min.css" rel="stylesheet"&gt;</pre>
+        To make use of the multicolumn list, create a table with the class <code>n-multicolumn-list</code>.
+        <pre>
+<code>
+    &lt;table class="<span class="demo-highlight-color">n-multicolumn-list</span>"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;Column A&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;Column B&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;Column C&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+    &lt;td&gt;&lt;span&gt;Item 1&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Item 2&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Item 3&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div id="list-demo-container-selection" class="col-md-4">
+        <span>Multicolumn list with subheaders</span>
+        <table class="n-multicolumn-list" id="TA-multicolumn_lists-subheaders">
+            <thead>
+            <tr>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-subheadersThA">Column A<span class="icon icon-arrow"></span></th>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-subheadersThB">Column B<span class="icon icon-arrow"></span></th>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-subheadersThC">Column C<span class="icon icon-arrow"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="subheader">
+                <td colspan="3" class="n-multicolumn-list-td" id="TA-multicolumn_lists-subheader1"><span class="icon icon-next"></span><span>Subheader 1</span></td>
+            </tr>
+            <tr class="subheader-item">
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-subheaderItem1"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 3</span></td>
+            </tr>
+            <tr class="subheader">
+                <td colspan="3" class="n-multicolumn-list-td" id="TA-multicolumn_lists-subheader2"><span class="icon icon-next"></span><span>Subheader 2</span></td>
+            </tr>
+            <tr class="subheader-item">
+                <td class="n-multicolumn-list-td"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-subheaderItem2"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 3</span></td>
+            </tr>
+            <tr class="subheader-item">
+                <td class="n-multicolumn-list-td"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 3</span></td>
+            </tr>
+            <tr class="subheader">
+                <td colspan="3" class="n-multicolumn-list-td" id="TA-multicolumn_lists-subheader3"><span class="icon icon-next"></span><span>Subheader 3</span></td>
+            </tr>
+            <tr class="subheader-item">
+                <td class="n-multicolumn-list-td"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-subheaderItem3"><span>Item 3</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-8">
+        To put subheaders, first, make use of the classes in the standard multicolumn list. The tr element must have the
+        class <code>subheader</code>, its first td element occupying the whole row by using the <code>colspan</code>
+        attribute. The items under each subheader must be contained in another tr element with the class <code>subheader-item</code>.
+        <pre>
+<code>
+    &lt;table class="<span class="demo-highlight-color">n-multicolumn-list</span>"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;Column A&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;Column B&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;Column C&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr class="<span class="demo-highlight-color">subheader</span>"&gt;
+    &lt;td <span class="demo-highlight-color">colspan="3"</span> &gt;&lt;span class="<span class="demo-highlight-color">icon icon-next</span>"&gt;&lt;/span&gt;&lt;span&gt;Subheader
+    1&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="<span class="demo-highlight-color">subheader-item</span>"&gt;
+    &lt;td&gt;&lt;span&gt;Item 1&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Item 2&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Item 3&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div id="multicolumn-rows-demo" class="col-md-4">
+        <span>Multicolumn rows</span>
+        <table class="n-multicolumn-list" id="TA-multicolumn_lists-rows">
+            <thead>
+            <tr>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-rowsThA">Column A<span class="icon icon-arrow"></span></th>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-rowsThB">Column B<span class="icon icon-arrow"></span></th>
+                <th class="n-multicolumn-list-th" id="TA-multicolumn_lists-rowsThC">Column C<span class="icon icon-arrow"></span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-rowsItem1"><span>Item 1</span></td>
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-rowsItem2"><span>Item 2</span></td>
+                <td class="n-multicolumn-list-td" id="TA-multicolumn_lists-rowsItem3"><span>Item 3</span></td>
+            </tr>
+            </tbody>
+            <tbody class="group" id="TA-multicolumn_lists-rowsGroup">
+            <tr>
+                <td rowspan="3" class="n-multicolumn-list-td-group" id="n-multicolumn-list-td1"><span>Group</span></td>
+                <td class="n-multicolumn-list-td" id="n-multicolumn-list-td2"><span>Group Item 1</span></td>
+                <td class="n-multicolumn-list-td" id="n-multicolumn-list-td3"><span>Group Item 1</span></td>
+            </tr>
+            <tr>
+                <td class="n-multicolumn-list-td" id="n-multicolumn-list-td4"><span>Group Item 2</span></td>
+                <td class="n-multicolumn-list-td" id="n-multicolumn-list-td5"><span>Group Item 2</span></td>
+            </tr>
+            <tr>
+                <td class="n-multicolumn-list-td" id="n-multicolumn-list-td6"><span>Group Item 3</span></td>
+                <td class="n-multicolumn-list-td" id="n-multicolumn-list-td7"><span>Group Item 3</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-8">
+        Following the template for standard multicolumn lists, create a separate tbody element with the class <code>group</code>.
+        The first <code>td</code> of the <code>group</code> must be of class <code>n-multicolumn-list-td-group</code>.
+        This first <code>td</code> must occupy the whole column in the <code>group</code> by using the <code>rowspan</code> attribute.
+        <pre>
+<code>
+    &lt;table class="<span class="demo-highlight-color">n-multicolumn-list</span>"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;Column A&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;Column B&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;Column C&lt;span class="icon icon-arrow"&gt;&lt;/span&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;tr&gt;
+    &lt;td&gt;&lt;span&gt;Item 1&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Item 2&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Item 3&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+    &lt;/tbody&gt;
+    &lt;tbody class="<span class="demo-highlight-color">group</span>"&gt;
+    &lt;tr&gt;
+    &lt;td <span class="demo-highlight-color">rowspan="3"</span>&gt;&lt;span&gt;Group&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Group Item 1&lt;/span&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;span&gt;Group Item 1&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    ...
+    &lt;/tbody&gt;
+    &lt;/table&gt;
+</code>
+        </pre>
+    </div>
+</div>
+
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['wulf/list-group']);
+</script>
+</body>
+</html>

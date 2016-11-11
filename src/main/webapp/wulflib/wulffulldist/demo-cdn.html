@@ -1,0 +1,73 @@
+<!--
+WULF (http://networks.nokia.com/)
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="./wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1>CDN</h1>
+<div class="row">
+    <div class="col-xs-12">
+        <p>
+            WULF can be included into your project dynamically in runtime using <a
+            href="https://en.wikipedia.org/wiki/Content_delivery_network" target="_blank">CDN</a> solution. You find the addresses
+            below for HTTP protocols.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-11 col-xs-offset-1">
+        <p>
+            <strong>HTTP</strong><br>
+			For OT31:<br>
+                http://wulf-cdn.dynamic.nsn-net.net/OT31/latest/css/wulf.min.css<br>
+                http://wulf-cdn.dynamic.nsn-net.net/OT31/latest/js/wulf.min.js<br><br>
+			For OT40:<br>
+                http://wulf-cdn.dynamic.nsn-net.net/OT40/latest/css/wulf.min.css<br>
+                http://wulf-cdn.dynamic.nsn-net.net/OT40/latest/js/wulf.min.js<br><br>
+			For specific version, e.g. WULF_OT31_1_2_13:<br>
+                http://wulf-cdn.dynamic.nsn-net.net/WULF_OT31_1_2_13/css/wulf.min.css<br>
+                http://wulf-cdn.dynamic.nsn-net.net/WULF_OT31_1_2_13/js/wulf.min.js		
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <p>
+            Benefit of this is that you don't need to download WULF / re-package your web pages to get a new version
+            into use. You have always the latest version of WULF in use automatically. This is handy for making quick
+            proof of concepts and small internal web tools. At the moment we are not offering any frozen WULF versions
+            via CDN, it is always the latest development version - if certain released versions offering is needed
+            via the CDN, let us know.
+        </p>
+        <p>
+            Note: this CDN approach is not directly feasible for web applications given to customers. As the WULF CDN
+            server is located inside Nokia intranet the applications cannot access the files from outside.
+        </p>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Usage</h1>
+        You just replace in your web pages:<br>
+        <pre>
+<code>&lt;link href="./wulfdist/css/wulf.css" rel="stylesheet"/&gt;
+...
+&lt;script src="./wulfdist/js/wulf.min.js"&gt;&lt;/script&gt;</code></pre>
+        with for example:
+        <pre>
+<code>&lt;link href="<span class="demo-highlight-color">http://wulf-cdn.dynamic.nsn-net.net/OT31/latest/css/wulf.css</span>" rel="stylesheet"/&gt;
+...
+&lt;script src="<span class="demo-highlight-color">http://wulf-cdn.dynamic.nsn-net.net/OT31/latest/js/wulf.min.js</span>"&gt;&lt;/script&gt;</code></pre>
+    </div>
+</div>
+
+</body>
+</html>

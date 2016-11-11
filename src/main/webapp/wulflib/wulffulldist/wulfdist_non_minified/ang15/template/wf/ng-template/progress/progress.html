@@ -1,0 +1,15 @@
+<div ng-if="$ctrl.pattern === 'bar' || $ctrl.pattern === 'sm-bar' || $ctrl.pattern === 'indeterminate-bar'"
+     class="progress"
+     ng-class="{'progress-small': $ctrl.pattern === 'sm-bar', 'n-indeterminate-progress':$ctrl.pattern === 'indeterminate-bar', 'with-value': $ctrl.showValue === 'end'}">
+    <div class="progress-bar"
+         ng-class="{active:$ctrl.active, 'progress-bar-striped':$ctrl.pattern === 'indeterminate-bar'}"
+         role="progressbar" aria-valuenow="{{$ctrl.percentage}}"
+         aria-valuemin="0" aria-valuemax="100" ng-style="{'width': $ctrl.percentage + '%'}">
+        <span ng-if="$ctrl.showValue == 'inline'" class="progress-value">{{$ctrl.percentage}}%</span>
+        <span ng-if="$ctrl.showValue == null" class="sr-only">{{$ctrl.percentage}}% completed</span>
+    </div>
+</div>
+<span ng-if="($ctrl.pattern === 'bar' || $ctrl.pattern === 'sm-bar' || $ctrl.pattern === 'indeterminate-bar')
+    && $ctrl.showValue == 'end'" class="progress-value-inverse">{{$ctrl.percentage}}%</span>
+<span ng-if="$ctrl.pattern === 'loading' || $ctrl.pattern === 'sm-loading'" class="icon icon-spinner"
+      ng-class="{'icon-spinner-large':$ctrl.pattern === 'loading'}"></span>

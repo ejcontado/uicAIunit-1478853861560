@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.angular.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/angular-csp.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/github.css" rel="stylesheet"/>
+    <title>Dialog</title>
+</head>
+<body class="demo-body-content" ng-cloak>
+<h1 class="component-header" id="nokia_tabs">Dialog</h1>
+<hr>
+<div id="angular_section" class="row">
+    <div class="col-md-5">
+        <div ng-controller="DialogDemoController as demo">
+            <h4>Toggle a dialog by clicking the link</h4>
+            <wf-dialog id="TA-Angular-Standard-Dialog" toggle-style="demo.standard.toggleStyle" toggle-text="demo.standard.toggleText"
+                       pattern="demo.standard.pattern" title-text="demo.standard.title" subheader="demo.standard.subheader"
+                       instruction="demo.standard.instruction" active="demo.standard.isActive"
+                       confirm-btn-text="demo.standard.btnText" animation="demo.animation"
+                       on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle">The content of this dialog. Support the HTML code.
+            </wf-dialog>
+            <br/>
+            <wf-dialog id="TA-Angular-Error-Dialog" toggle-style="demo.error.toggleStyle" toggle-text="demo.error.toggleText"
+                       pattern="demo.error.pattern" title-text="demo.error.title" instruction="demo.error.instruction"
+                       active="demo.error.isActive" confirm-btn-text="demo.error.btnText" animation="demo.animation"
+                       on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle"></wf-dialog>
+            <br/>
+            <br/>
+            <h4>Toggle a dialog by clicking the button</h4>
+            <wf-dialog id="TA-Angular-Waring-Dialog" toggle-style="demo.warning.toggleStyle" toggle-text="demo.warning.toggleText"
+                       pattern="demo.warning.pattern" title-text="demo.warning.title" instruction="demo.warning.instruction"
+                       active="demo.warning.isActive" confirm-btn-text="demo.warning.btnText" animation="demo.animation"
+                       on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle"></wf-dialog>
+            <br/>
+            <wf-dialog id="TA-Angular-Confirmation-Dialog" toggle-style="demo.confirmation.toggleStyle" toggle-text="demo.confirmation.toggleText"
+                       pattern="demo.confirmation.pattern" title-text="demo.confirmation.title"
+                       instruction="demo.confirmation.instruction" active="demo.confirmation.isActive"
+                       confirm-btn-text="demo.confirmation.btnText" animation="demo.animation"
+                       on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle"></wf-dialog>
+
+            <div style="padding-top: 60px;">
+                <div style="float:left; padding-right: 10px; line-height: 30px;">Enable animation:</div>
+                <div id="TA-dialog-enableAnimate" class="n-toggle-switch n-toggle-switch-small" style="float:left;">
+                    <input type="checkbox" class="n-toggle-switch-input" id="enable-animation" ng-checked="!demo.animation"
+                           ng-click="demo.animation = !demo.animation">
+                    <label class="n-toggle-switch-container " for="enable-animation">
+                        <span class="n-toggle-switch-handler"></span>
+                        <span class="n-toggle-switch-slider"></span>
+                    </label>
+                </div>
+                <div style="float:left; padding-right: 10px; line-height: 30px; clear: left;">Enable action callback:</div>
+                <div id="TA-dialog-enableEvent" class="n-toggle-switch n-toggle-switch-small" style="float:left;">
+                    <input type="checkbox" class="n-toggle-switch-input" id="enable-event" ng-checked="!demo.actionState"
+                           ng-click="demo.actionState = !demo.actionState">
+                    <label class="n-toggle-switch-container " for="enable-event">
+                        <span class="n-toggle-switch-handler"></span>
+                        <span class="n-toggle-switch-slider"></span>
+                    </label>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h2>Overview</h2>
+        <p>
+            Angular version of dialog component which is implemented by using .component() method introduced since Angular1.5.
+        </p>
+
+        <h2>wf-dialog settings</h2>
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Attributes:Bindings</th>
+                <th>Accept value</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><code>pattern: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>standard (Default)</li>
+                        <li>error</li>
+                        <li>warning</li>
+                        <li>confirmation</li>
+                    </ul>
+                </td>
+                <td>
+                    The pattern of dialog to be created.
+                </td>
+            </tr>
+            <tr>
+                <td><code>title-text: &lt;</code></td>
+                <td>
+                    String (Default: null)
+                </td>
+                <td>
+                    The title text of dialog.
+                </td>
+            </tr>
+            <tr>
+                <td><code>subheader: &lt;</code></td>
+                <td>
+                    String (Default: null)
+                </td>
+                <td>
+                    The sub header text of dialog.
+                </td>
+            </tr>
+            <tr>
+                <td><code>instruction: &lt;</code></td>
+                <td>
+                    String (Default: null)
+                </td>
+                <td>
+                    The instruction text of dialog.
+                </td>
+            </tr>
+            <tr>
+                <td><code>active: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>false (Default)</li>
+                        <li>true</li>
+                    </ul>
+                </td>
+                <td>
+                    Active the dialog or not.
+                </td>
+            </tr>
+            <tr>
+                <td><code>confirm-btn-text: &lt;</code></td>
+                <td>
+                    String (Default: OK)
+                </td>
+                <td>
+                    The text in confirm button of dialog.
+                </td>
+            </tr>
+            <tr>
+                <td><code>toggle-style: &lt;</code></td>
+                <td>
+                    <ul>
+                        <li>link (Default)</li>
+                        <li>button</li>
+                    </ul>
+                </td>
+                <td>
+                    The toggle style of dialog. Can be link or button
+                </td>
+            </tr>
+            <tr>
+                <td><code>toggle-text: &lt;</code></td>
+                <td>
+                    String (Default: null)
+                </td>
+                <td>
+                    The toggle text of dialog.
+                </td>
+            </tr>
+            <tr>
+                <td><code>animation: &lt;?</code></td>
+                <td>
+                    <ul>
+                        <li>false (Default)</li>
+                        <li>true</li>
+                    </ul>
+                </td>
+                <td>
+                    Enable the animation or not.
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-confirm: &</code></td>
+                <td>
+                    function(event)
+                </td>
+                <td>
+                    Callback function when confirm button is clicked.
+                <ul>
+                    <li>event - event when confirm button is clicked</li>
+                </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-cancel: &</code></td>
+                <td>
+                    function(event)
+                </td>
+                <td>
+                    Callback function when cancel button is clicked.
+                    <ul>
+                        <li>event - event when cancel button is clicked</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>on-toggle: &</code></td>
+                <td>
+                    function(isShow, event)
+                </td>
+                <td>
+                    Callback function when dialog is toggled.
+                    <ul>
+                        <li>isShow - Whether the dialog is show or hide</li>
+                        <li>event - event when toggle dialog</li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2>Keyboard accessibility</h2>
+        Besides the basic keyboard support, e.g. <kbd>Tab</kbd>, <kbd><kbd>Shift</kbd> +
+        <kbd>Tab</kbd></kbd> and <kbd>Enter</kbd>. This component also supports the following
+        keystrokes for the interaction.
+        <table class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th>Interaction</th>
+                <th>Keystrokes</th>
+                <th>Notes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Toggle</td>
+                <td>
+                    <kbd>Spacebar</kbd>/<kbd>Enter</kbd> - Toggle on the dialog
+                </td>
+                <td>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<hr>
+<div id="demo_code" class="row">
+    <div class="col-md-12">
+        <wf-tabs ng-cloak>
+            <wf-pane label="Markup">
+                <pre ng-non-bindable>
+                    <code data-language="html">
+    <wf-dialog toggle-style="demo.toggleStyle" toggle-text="demo.toggleText"
+       pattern="demo.pattern" title-text="demo.title" subheader="demo.subheader"
+       instruction="demo.instruction" active="demo.isActive" confirm-btn-text="demo.btnText"
+               animation="demo.animation" on-confirm="demo.onConfirm" on-cancel="demo.onCancel" on-toggle="demo.onToggle">The content of this dialog. Support the HTML code.
+    </wf-dialog>
+                    </code>
+                </pre>
+            </wf-pane>
+            <wf-pane label="JavaScript">
+                <pre ng-non-bindable>
+                    <code data-language="javascript">
+    angular.module('wf.ng.demo', ['wf.angular.dialog', 'wf.angular.tabs']).controller('DialogDemoController', DialogDemoController);
+    function DialogDemoController() {
+        this.pattern = 'standard';
+        this.title = 'Standard Dialog';
+        this.subheader = 'Subheader';
+        this.instruction = 'Instruction';
+        this.isActive = true;
+        this.btnText = 'OK';
+        this.toggleStyle = 'link';
+        this.toggleText = 'Standard Dialog';
+        this.animation = true;
+        this.onConfirm = function() {
+            alert('Confirm button is clicked');
+        };
+        this.onCancel = function() {
+            alert('Cancel button is clicked');
+        };
+        this.onToggle = function(isShow){
+            var status = isShow? 'shown':'hidden';
+            alert('Dialog will be ' + status);
+        }
+    }
+                    </code>
+                </pre>
+            </wf-pane>
+        </wf-tabs>
+    </div>
+</div>
+
+<!-- Rainbow JS related. Only for demo code-->
+<script src="../assets/js/rainbow.min.js"></script>
+<script src="../assets/js/generic.js"></script>
+<script src="../assets/js/javascript.js"></script>
+<script src="../assets/js/html.js"></script>
+
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+
+<script>
+    require(['angular', 'angularAnimate', 'wulf-ng/dialog/dialog.tlp.min', 'wulf-ng/tabs/tabs.tlp.min'], function (angular) {
+        angular.module('wf.ng.demo', ['wf.angular.dialog', 'wf.angular.tabs']).controller('DialogDemoController', DialogDemoController);
+
+        function DialogDemoController() {
+            var self = this;
+            this.animation = false;
+
+            this.standard = {};
+            this.error = {};
+            this.warning = {};
+            this.confirmation = {};
+
+            this.standard.pattern = 'standard';
+            this.error.pattern = 'error';
+            this.warning.pattern = 'warning';
+            this.confirmation.pattern = 'confirmation';
+
+            this.standard.title = 'Standard Dialog';
+            this.error.title = 'Connection lost';
+            this.warning.title = 'IP Address is already in use';
+            this.confirmation.title = 'Do you want to delete this user?';
+
+            this.standard.subheader = 'Subheader';
+
+            this.standard.instruction = 'Instruction';
+            this.error.instruction = 'Check cable connections and try to reconnect';
+            this.warning.instruction = 'Update the configuration before trying to reconnect.';
+            this.confirmation.instruction = 'Warn users about the possible consequences of a requested action. The warning alerts users to confirm or cancel request.';
+
+            this.standard.isActive = true;
+            this.error.isActive = false;
+            this.warning.isActive = false;
+            this.confirmation.isActive = false;
+
+            this.standard.btnText = 'OK';
+            this.error.btnText = 'OK';
+            this.warning.btnText = 'OK';
+            this.confirmation.btnText = 'Delete \'OMC Admin\'';
+
+            this.standard.toggleStyle = 'link';
+            this.error.toggleStyle = 'link';
+            this.warning.toggleStyle = 'button';
+            this.confirmation.toggleStyle = 'button';
+
+            this.standard.toggleText = 'Standard Dialog';
+            this.error.toggleText = 'Error Dialog';
+            this.warning.toggleText = 'Warning Dialog';
+            this.confirmation.toggleText = 'Confirmation Dialog';
+            this.actionState = false;
+
+            this.onConfirm = function() {
+                if (self.actionState) {
+                    alert('Confirm button is clicked');
+                }
+            };
+            this.onCancel = function() {
+                if (self.actionState) {
+                    alert('Cancel button is clicked');
+                }
+            };
+            this.onToggle = function(isShow){
+                var status = isShow? 'shown':'hidden';
+                if (self.actionState) {
+                    alert('Dialog will be ' + status);
+                }
+            }
+
+        }
+
+        angular.element(document).ready(function () {
+            angular.bootstrap(document, ['wf.ng.demo'], {
+                strictDi: true
+            });
+        });
+    });
+</script>
+</body>
+</html>

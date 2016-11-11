@@ -1,0 +1,378 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "variables.less";
+
+[ng-cloak]{
+  display: none;
+}
+
+//dialog component CSS for animation
+wf-dialog {
+  .modal.transparent{
+    transition: 0.5s linear all;
+    opacity: 0;
+
+    &.open {
+      opacity: 1;
+      transform: translateY(5%);
+    }
+  }
+}
+
+//List item component CSS
+.n-list-striped {
+  wf-list-item:nth-child(odd) li {
+    &:first-child, &:last-child {
+      background-color: @n-table-row-white;
+    }
+  }
+
+  wf-list-item:nth-child(even) li {
+    &:first-child, &:last-child {
+      background-color: @n-table-row-grey;
+    }
+  }
+}
+
+wf-list-item:first-child  {
+  .n-list-group-item, .list-group-item {
+    &:first-child, &:last-child {
+      border-radius: 5px 5px 0 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+wf-list-item:last-child {
+  .n-list-group-item, .list-group-item {
+    &:first-child, &:last-child {
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+wf-list-item:not(:first-child):not(:last-child) {
+  .n-list-group-item, .list-group-item {
+    &:first-child, &:last-child {
+      border-radius: 0 0 0 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.n-list-striped wf-list-item li:first-child:last-child {
+  &.n-list-group-item.selected {
+    background-color: @list-selected-invert;
+  }
+}
+
+.n-list-group-dark.disabled wf-list-item li:first-child:last-child {
+  &.n-list-group-item {
+    cursor: default;
+    color: @list-group-disabled-text-color;
+    &:hover {
+      background-color: @dark-list-background-color;
+    }
+    &.selected {
+      background-color: @list-selected-invert;
+      &:hover span {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+//Panel component CSS
+wf-panels[slide-animation=false] .panel-slide-vertical .panel-heading:hover {
+  cursor: auto;
+  text-shadow: none;
+  border: 1px solid @panel-heading-hover-border !important;
+  div {
+    cursor:auto;
+  }
+}
+wf-panels .panel-body {
+  transition: height 1s ease-in;
+  overflow: hidden;
+  &.panel-animation {
+    height: 0;
+    transition: height 1s ease-out;
+  }
+  & .panel-section {
+    border-bottom: 1px solid @panel-section-dark-border;
+  }
+  & wf-panel-section:last-child .panel-section {
+    border-bottom:none;
+  }
+}
+wf-panels[slide-direction=horizontal] .panel-left {
+  width:100%;
+  background: none;
+  box-shadow: none;
+  & .panel {
+    transition: width 1s ease-in;
+    overflow: hidden;
+    & .panel-heading {
+      overflow: hidden;
+      padding-right: 0;
+    }
+    &.panel-animation {
+      width: 0;
+      transition: width 1s ease-out;
+    }
+  }
+}
+
+//tree component CSS
+.fuelux .tree {
+  wf-tree-node .tree-item:last-child {
+    border-bottom: none;
+  }
+  wf-tree-node.last .tree-item:last-child {
+    border-bottom: 1px dotted @n-tree-item-last-border-bottom;
+  }
+}
+
+//login error
+wf-login .n-login .panel .panel-body .alert-error {
+  display: block;
+}
+
+//Drilldown
+.drilldown-animation {
+  overflow: hidden;
+  &.drilldown-collapsed {
+    height: 0;
+    transition: height 0.5s ease-in;
+  }
+  &.drilldown-expanded {
+    //height: 400px;
+    transition: height 0.5s ease-out;
+  }
+}
+
+// tree table
+wf-tree-table.tree-table {
+    width: 100%;
+    display: block;
+
+    .n-tree-table {
+        width: 100%;
+        border: 0;
+        tr {
+          height: 28px;
+          td {
+            padding: 0 8px;
+            border-color: #b2b2b2;
+          }
+          td.n-tree-table-td-left {
+            text-align: left;
+          }
+          td.n-tree-table-td-right {
+            text-align: right;
+          }
+          td.n-tree-table-td-center {
+            text-align: center;
+          }
+          td:first-child {
+            border-left: none;
+          }
+          td:last-child {
+            border-right: none;
+          }
+        }
+        thead>tr {
+          background: linear-gradient(#fff,#eaeaea);
+          td {
+            border-top: none;          }
+          td:first-child {
+            width: 1.5em;
+          }
+        }
+        tbody>tr {
+            cursor: pointer;
+            &:hover {
+              background: #CCF4FF;
+            }
+            td:hover {
+              .icon-arrow:before {
+                color: #666666;
+              }
+              .icon-next:before {
+                color: #666666;
+              }
+            }
+            td:first-child {
+              text-align: center;
+              div.checkbox {
+                margin: 0;
+                padding: 0;
+                height: 13px;
+                width: 13px;
+                label {
+                  margin: 0;
+                  padding: 0;
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  height: 13px;
+                  width: 13px;
+                  min-height: 0;
+                }
+                input {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                }
+              }
+            }
+        }
+        tbody>tr.selected {
+            background: #0B6DAF;
+            color: #fff;
+            .icon-next:before {
+              color: #fff;
+            }
+            .icon-arrow:before {
+              color: #fff;
+            }
+            td:first-child {
+              text-align: center;
+            }
+        }
+        
+        .with-expand-span-ahead{
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: top;
+        }
+    }
+    .n-tree-table-control-area {
+        padding: 0.5em;
+        display: block;
+        // height: 2.36em;
+        button {
+          margin: 0;
+        }
+    }
+    .n-tree-table-container {
+        overflow: auto;
+        border-radius: 7px;
+        box-shadow: 0 1px 3px 0 #888;
+        background-color: #fff;
+    }
+    .tree-table-td {
+        display: inline-block;
+    }
+}
+
+//banner
+.n-banner-links-collapse-dropdown-toggle, .icon.icon-back.show-on-blue-detached, .n-banner, wf-banner-nav-tab-content{
+  display: none;
+}
+
+.n-flyout wf-flyout-tabs-container ul.n-flyout-activity-area-tabs li a.right i {
+    font-size: 18px;
+    left: -36px;
+    top: 2px;
+}
+
+.n-flyout wf-flyout-tabs-container ul.n-flyout-activity-area-tabs li a.left i {
+    font-size: 18px;
+    left: -32px;
+    top: 4px;
+}
+
+//splitter
+.splitter-container {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+
+  .split-pane {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .split-handler {
+    position: absolute;
+    background: #efefef;
+    border: 1px solid #d8d8d8;
+    z-index: 9;
+
+    &:hover {
+      border: 1px solid #d8d8d8;
+      background: #e8e8e8;
+    }
+
+    &:after {
+      font-family: Icons, Helvetica, Arial, sans-serif;
+      position: relative;
+      display: inline-block;
+      color: #666;
+      font-size: large;
+    }
+  }
+
+  &.horizontal {
+    .split-pane {
+      padding: 4px 0 0 0;
+    }
+    split:first-child .split-pane {
+      padding-top: 0;
+      padding-bottom: 4px;
+    }
+    .split-handler.horizontal {
+      width: 100%;
+      height: 8px;
+      cursor: row-resize;
+      border-left: none;
+      border-right: none;
+
+      &:after {
+        left: 50%;
+        margin-left: -9px;
+        top: -9px;
+        content: "\e954";
+      }
+    }
+  }
+
+  &.vertical {
+    .split-pane {
+      padding:0 0 0 4px;
+    }
+    split:first-child .split-pane {
+      padding-left: 0;
+      padding-right: 4px;
+    }
+    .split-handler.vertical {
+      width: 8px;
+      height:100%;
+      cursor: col-resize;
+      border-top: none;
+      border-bottom: none;
+
+      &:after {
+        top: 45%;
+        left: -6px;
+        content: "\e955";
+      }
+    }
+  }
+}
+
+.tab-content > wf-wizard-step {
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}

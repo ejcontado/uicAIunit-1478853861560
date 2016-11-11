@@ -1,0 +1,144 @@
+<!--
+WULF (http://networks.nokia.com/) 
+Copyright (C) 2015 Nokia Solutions and Networks. All rights Reserved.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.lifecycle.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_lifecycle">Lifecycle<a
+        href="../demo-dev-react.html">
+    <img class="react-logo" align="right" alt="react usage" height="30" width="30" src="../assets/images/react-logo.svg"></a></h1>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <div id="lifecycle1">
+            <div class="n-lifecycle n-lifecycle-start" id="TA-lifecycle-EDIT">
+                <div class="n-lifecycle-content top"><span>EDIT</span></div>
+            </div>
+
+            <div class="n-lifecycle">
+                <div class="n-lifecycle-content bottom"></div>
+                <div class="n-lifecycle-content top"><span>TEST</span></div>
+            </div>
+
+            <div class="n-lifecycle">
+                <div class="n-lifecycle-content bottom"></div>
+                <div class="n-lifecycle-content top"><span>APPROVE</span></div>
+            </div>
+
+            <div class="n-lifecycle">
+                <div class="n-lifecycle-content bottom"></div>
+                <div class="n-lifecycle-content top"><span>DEPLOY</span></div>
+            </div>
+
+            <div class="n-lifecycle">
+                <div class="n-lifecycle-content bottom"></div>
+                <div class="n-lifecycle-content top"><span>ACTIVATE</span></div>
+            </div>
+
+
+            <div class="n-lifecycle n-lifecycle-end">
+                <div class="n-lifecycle-content bottom"></div>
+                <div class="n-lifecycle-content top"><span>ARCHIVE</span></div>
+            </div>
+        </div>
+
+        <div class="lifecycleControl">
+            <input type="button" class="btn btn-standard previous" value="Previous" id="TA-lifecycle-previousbutton">
+            <input type="button" class="btn btn-standard next" value="Next" id="TA-lifecycle-nextbutton">
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>JS & CSS dependency:</p>
+<pre>
+For lifecycle components, it will be ok to import following css file:
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;
+&lt;link href="../wulfdist/css/wulf.lifecycle.min.css" rel="stylesheet"/&gt;
+</pre>
+        <pre>
+<code>
+    &lt;div id="lifecycle1"&gt;
+        &lt;div class="n-lifecycle n-lifecycle-start" &gt;
+            &lt;div class="n-lifecycle-content bottom" &gt; &lt;/div &gt;
+            &lt;div class="n-lifecycle-content top" &gt; &lt;span &gt;START &lt;/span &gt; &lt;/div &gt;
+        &lt;/div &gt;
+        &lt;div class="n-lifecycle" &gt;
+            &lt;div class="n-lifecycle-content bottom" &gt; &lt;/div &gt;
+            &lt;div class="n-lifecycle-content top" &gt; &lt;span &gt;MIDDEL &lt;/span &gt; &lt;/div &gt;
+        &lt;/div &gt;
+        ...
+        &lt;div class="n-lifecycle n-lifecycle-end" &gt;
+            &lt;div class="n-lifecycle-content bottom" &gt; &lt;/div &gt;
+            &lt;div class="n-lifecycle-content top" &gt; &lt;span &gt;END &lt;/span &gt; &lt;/div &gt;
+        &lt;/div &gt;
+    &lt;/div&gt;
+
+    &lt;!-- Needed scripts --&gt;
+    &lt;script src="../wulfdist/js/dependencies/jquery.min.js"&gt&lt/script&gt;
+    &lt;script&gt;
+    $(document).ready(function () {
+
+        var $lifecycle = $("#lifecycle1");
+        $(".next").on("click", $lifecycle, function () {
+            $lifecycle.find(".n-lifecycle").each(function () {
+                if (!$(this).hasClass("selected")) {
+                    $(this).addClass("selected");
+                    return false;
+                }
+            });
+        });
+
+        $(".previous").on("click", $lifecycle, function () {
+            $($lifecycle.find(".n-lifecycle").get().reverse()).each(function () {
+                if ($(this).hasClass("selected")) {
+                    $(this).removeClass("selected");
+                    return false;
+                }
+            });
+        });
+    });
+    &lt;/script&gt;
+</code>
+        </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery'],function($){
+        $(document).ready(function () {
+            var $lifecycle = $("#lifecycle1");
+            $(".next").on("click", $lifecycle, function () {
+                $lifecycle.find(".n-lifecycle").each(function () {
+                    if (!$(this).hasClass("selected")) {
+                        $(this).addClass("selected");
+                        return false;
+                    }
+                });
+            });
+
+            $(".previous").on("click", $lifecycle, function () {
+                $($lifecycle.find(".n-lifecycle").get().reverse()).each(function () {
+                    if ($(this).hasClass("selected")) {
+                        $(this).removeClass("selected");
+                        return false;
+                    }
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

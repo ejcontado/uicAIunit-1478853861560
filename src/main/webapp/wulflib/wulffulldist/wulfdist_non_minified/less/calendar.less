@@ -1,0 +1,554 @@
+/*
+ * WULF (http://networks.nokia.com/)
+ * Copyright (C) 2016 Nokia Solutions and Networks. All rights Reserved.
+ */
+@import "@{less-path-of-fuelux}mixins.less";
+@import "@{less-path-of-fuelux}variables.less";
+@import "./mixins/gradients.less";
+@import "variables.less";
+
+.fuelux .n-calendar {
+  button {
+    &:active {
+      outline: none;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.fuelux {
+  .datepicker-calendar-wrapper {
+    width: 260px;
+    button {
+      &:focus {
+        border-bottom: 1px solid @blue-hover;
+      }
+    }
+  }
+}
+
+.fuelux {
+  .n-calendar {
+    .input-group-btn {
+      width: inherit;
+    }
+  }
+}
+
+.fuelux {
+  .n-calendar {
+    .form-control {
+      border-left-width: 1px;
+      padding-right: 10px;
+    }
+    .input-group-btn {
+      .btn-default {
+         margin: 0;
+       }
+      .dropdown-toggle {
+        border-top-left-radius: 0 !important;
+        margin-top: 0;
+        padding: 6px 10px 5px 10px;
+        box-shadow: 0 1px 3px 0 @n-calendar-dropdown-toggle-shadow, inset 0 1px 0 0 lighten(@n-calendar-dropdown-toggle-shadow-inset, 30%);
+
+        &:focus {
+          #gradient > .vertical(@button-focus-gradient-start, @button-focus-gradient-end);
+          color: @gray-white;
+          border-color: @button-active-focus-border-color;
+          text-shadow: @button-text-shadow-dark;
+          box-shadow: @button-drop-shadow;
+        }
+
+        &:hover:not(:focus) {
+          #gradient > .vertical(@button-basic-gradient-start, @button-basic-gradient-end);
+          color: @gray-dark;
+          border-color: @blue-hover;
+          text-shadow: @button-text-shadow-white;
+          box-shadow: @button-drop-shadow-hover;
+        }
+
+        &:hover {
+          #gradient > .vertical(@button-focus-gradient-end, @button-focus-gradient-start);
+          color:@gray-white;
+          border-color: @button-focus-hover-border-color;
+          text-shadow: none;
+          box-shadow:none;
+        }
+
+        &:active {
+          #gradient > .vertical(@button-active-gradient-start, @button-active-gradient-end);
+          color: @gray-dark;
+          border:@button-default-border;
+          border-color: @button-active-border-color;
+          border-top-color: @button-active-top-border-color;
+          text-shadow: @button-text-shadow-white;
+          box-shadow: @button-drop-shadow-active;
+        }
+
+        &[disabled] {
+          color: @input-color-disabled !important;
+          #gradient > .vertical(@button-disabled-gradient-start, @button-disabled-gradient-end) !important;
+          border: @button-disabled-border !important;
+          box-shadow: @button-drop-shadow-disabled !important;
+          text-shadow: none !important;
+        }
+      }
+      .glyphicon-calendar {
+        font-family: @font-family-icons;
+        width: 1em;
+        &:before {
+          content: '\e636';
+        }
+      }
+    }
+  }
+}
+
+.fuelux {
+  .n-calendar {
+    .form-control {
+      &:hover {
+        border: 1px solid @blue-hover;
+        box-shadow: inset 0 0 0 1px @calendar-input-box-shadow;
+      }
+      &:focus {
+        border: 1px solid @gray-medium;
+        box-shadow:inset 0 1px 1px @n-calendar-form-focus-shadow;
+      }
+      &[disabled] {
+        border: 1px solid @n-calendar-form-disabled-border;
+        border-right: none;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.fuelux {
+  .datepicker-calendar {
+    padding: 7px 7px 6px 6px;
+    min-height:0;
+  }
+}
+
+.fuelux {
+  .datepicker-calendar-header {
+    margin-top: 1px;
+    .pre-next-commonstyle(@font-family, @content, @margin-left, @margin-right,@color) {
+      font-family: @font-family;
+      content: @content;
+      margin-left: @margin-left;
+      margin-right: @margin-right;
+      color: @color;
+    }
+    .title {
+      margin-top: 7px;
+      text-decoration: none;
+      width: auto;
+      line-height: 16px;
+      display:table;
+      color: @gray-global;
+      font-size: 16px;
+      &:hover {
+        color: @blue-selection;
+        text-decoration: none;
+        border-bottom: 1px solid @blue-hover;
+      }
+    }
+    .next {
+      background: none;
+      & :before {
+        .pre-next-commonstyle('Icons',"\e612",1px,1px,@calendar-text);
+      }
+      &:hover {
+        background: none;
+      }
+      &:hover :before{
+        color:@blue-selection;
+      }
+      &:focus{
+        border-bottom:none;
+      }
+      &:focus :before{
+        color:@blue-selection;
+      }
+    }
+    .prev {
+      background: none;
+      & :before {
+        .pre-next-commonstyle('Icons',"\e61e",1px,1px,@calendar-text);
+      }
+      &:hover {
+        background: none;
+      }
+      &:hover :before{
+        color:@blue-selection;
+      }
+      &:focus{
+        border-bottom:none;
+      }
+      &:focus :before{
+        color:@blue-selection;
+      }
+    }
+  }
+}
+
+.fuelux {
+  .datepicker-calendar-days {
+    border-collapse: collapse;
+    margin: 3px 0 0 0;
+
+    thead tr{
+      background: @datepicker-calendar-days-thead-row-background !important;
+    }
+
+    th{
+      font-size: 12px;
+      line-height: 1.42857143;
+      padding:0;
+      border-left:0;
+      height: 19px;
+    }
+
+    thead {
+      border-bottom: none;
+      color: @gray-global;
+    }
+
+    tbody::before{
+      display:none;
+    }
+
+    td {
+      line-height: 1.42857143;
+      height: 35px;
+      width: 35px;
+      font-size: 14px;
+      padding: 0 !important;
+      font-weight: lighter;
+      border: 1px solid @datepicker-calendar-days-cell-border !important;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: @datepicker-calendar-days-cell-background;
+
+      span {
+        height: 100%;
+        position: relative;
+        border-radius: 0;
+      }
+
+      button {
+        color: @calendar-text;
+        width: auto;
+        height: 20px;
+        margin: 6px 5px;
+        padding-top: 2px;
+      }
+
+      &:hover {
+        > span {
+          background: none;
+          > button {
+            color: @black-hover;
+            border-bottom: 1px solid @blue-underline;
+          }
+        }
+      }
+
+      &.past button{
+        color: @calendar-text;
+      }
+    }
+
+    td.next-month, td.last-month {
+      background: @calendar-row-last-month;
+      cursor: auto;
+      border: 0 !important;
+
+      span {
+        display: none;
+      }
+
+      &.last {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &.selected {
+        background: @calendar-row-last-month;
+      }
+    }
+
+    td.selected {
+      background: @calendar-row-selected;
+      span {
+        background: @calendar-row-selected;
+        &:hover {
+          background: @calendar-row-selected;
+        }
+      }
+      button {
+        font-weight: bold;
+        color: @calendar-row-white;
+      }
+    }
+
+    td.selected.current-day{
+      background: @calendar-row-selected;
+      button{
+        color: @calendar-row-white;
+      }
+    }
+
+    td.current-day {
+      background: @calendar-row-today;
+
+      span
+      {
+        border:none;
+      }
+      button {
+        border: none;
+      }
+    }
+  }
+
+  .datepicker-calendar-timer{
+    display: none;
+    padding-top: 12px;
+    text-align: right;
+
+    .spinner-container {
+      display: inline-block;
+
+      .n-inputfield {
+        border-radius: 7pt;
+        padding-left: 13px;
+        z-index: 0;
+      }
+
+      &.datepicker-calendar-minute:before{
+        content: ':';
+        position: relative;
+        top: -13px;
+        left: -4px;
+      }
+
+      &.datepicker-calendar-hour {
+        width: 75px !important;
+      }
+
+      &.datepicker-calendar-minute {
+        width: 84px !important;
+      }
+
+      &.datepicker-calendar-AMPM{
+        width: 77px !important;
+
+        .ampm{
+          width: 40px;
+          border-radius: 10px 0 0 10px;
+          position: absolute;
+          bottom: 53px;
+          right: 38px;
+          padding-right: 0;
+        }
+      }
+
+      .spinbox {
+        .spinbox-input {
+          width: 70px;
+          padding:0 39px 0 10px;
+          text-align: center;
+        }
+        .spinbox-buttons {
+          top: -2px !important;
+          z-index: 2;
+
+          .icon-arrow, .icon-arrow-up{
+            position:relative;
+            top:2px;
+          }
+
+          button{
+            border: 1px solid @datepicker-calendar-timer-spinner-btn-border;
+
+            &:focus {
+              border-color: @button-active-focus-border-color;
+            }
+
+            &:hover:not(:focus) {
+              border-color: @blue-hover;
+            }
+            &:hover {
+              border-color: @button-focus-hover-border-color;
+            }
+
+            &:active {
+              border-color: @button-active-border-color;
+            }
+          }
+        }
+      }
+    }
+
+    .operator-btn button{
+      margin-left: 3px;
+      margin-right: 2px;
+    }
+
+    .datepicker-calendar-AMPM{
+      display:none;
+    }
+
+    .operator-btn{
+      padding-top: 8px;
+      .now{
+        border:@button-default-border;
+
+        &:focus {
+          border-color: @button-active-focus-border-color;
+        }
+
+        &:hover:not(:focus) {
+          border-color: @blue-hover;
+        }
+
+        &:hover {
+          border-color: @button-focus-hover-border-color;
+        }
+
+        &:active {
+          border-color: @button-active-border-color;
+        }
+      }
+    .done{
+      &:focus {
+        border-bottom: none;
+      }
+    }
+    }
+  }
+}
+
+.fuelux {
+  .datepicker-wheels-month {
+    .header {
+      padding-right: 6px;
+      font-size: 16px;
+    }
+  }
+
+  .datepicker-wheels-year {
+    .header {
+      padding-right: 20px;
+      font-size: 16px;
+    }
+  }
+
+  .datepicker-wheels-month ul li button, .datepicker-wheels-year ul li button {
+    width: 40px;
+    height: 25px;
+    padding: 1px;
+    margin-left: 45px;
+    border-right-width: 25px;
+    text-align: center;
+    color: #414041;
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+
+    &:hover {
+      background: none;
+      border-bottom: 1px solid @blue-hover;
+    }
+  }
+
+  .datepicker-wheels-month ul li button {
+    width: 32px;
+  }
+
+  .datepicker-wheels-month ul li.selected button, .datepicker-wheels-year ul li.selected button {
+    font-weight: bold;
+    background: @calendar-row-selected;
+    color: @calendar-row-white;
+  }
+}
+
+.fuelux {
+  .datepicker-wheels-footer {
+    border-radius: 0 0 7px 7px;
+
+    .datepicker-wheels-back, .datepicker-wheels-select {
+      margin: 10px;
+      font-size: 14px;
+      height: 32px;
+      padding-top: 6px;
+      padding-right: 19px;
+      padding-left: 19px;
+      border-radius: 7px;
+      float: right;
+      background-color: transparent;
+      color: @calendar-text;
+
+      &:hover {
+        color: @calendar-text;
+      }
+      &:focus{
+        border-bottom: none;
+      }
+    }
+
+    .datepicker-wheels-back {
+      float: left;
+      border: 1px solid @input-border;
+      &:hover {
+        border: 1px solid @blue-hover;
+      }
+      &:focus{
+        border: none;
+      }
+    }
+  }
+}
+
+.fuelux {
+  .n-calendar.calendar-small {
+    .form-control {
+      height: 26px;
+    }
+    .dropdown-toggle {
+      padding: 1px 5px;
+    }
+  }
+}
+
+.n-calendar-lock-past, .n-date-range-end {
+  .datepicker-calendar-days {
+    td.past {
+      cursor: auto;
+
+      &:not(.last-month):not(.next-month){
+        background: @calendar-row-locked;
+      }
+
+      button {
+        color: @calendar-locked-text;
+      }
+
+      &:hover {
+        > span {
+          background: none;
+          > button {
+            color: @calendar-locked-text;
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

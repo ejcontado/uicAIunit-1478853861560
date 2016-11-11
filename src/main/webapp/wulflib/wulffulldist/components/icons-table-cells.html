@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
+    <link href="../wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+</head>
+<body class="demo-body-content">
+<h1 class="component-header" id="nokia_icons_table_cells">Icons in table cells</h1>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Icons in table cells</h4>
+        <table id="TA-iconsInTableCell-table" class="n-table n-table-standard n-table-striped n-table-cell-hover">
+            <thead>
+            <tr>
+                <th width="50%">Description</th>
+                <th width="50%">Icons</th>
+            </tr>
+            </thead>
+            <tr>
+                <td>Icon status</td>
+                <td>
+                    <div id="TA-iconsInTableCell-critical" class="n-cell-icon-container">
+                        <div class="n-cell-icon">
+                            <span class="icon icon-fault-critical"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Icon control</td>
+                <td>
+                    <div id="TA-iconsInTableCell-cancel" class="n-cell-icon-container">
+                        <div class="n-cell-icon-control">
+                            <span class="icon icon-cancel"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-8">
+        <p>JS & CSS dependency:</p>
+        <pre>
+For icons in table cells components, it will be ok to import following css file :
+&lt;link href="../wulfdist/css/wulf.basic.min.css" rel="stylesheet"/&gt;</pre>
+        <p>
+            Status icons and clickable icons in table cells have an added background to provide the
+            necessary color contrast in a selected table row or cell.<br><br>
+            Add <code>n-cell-icon</code> on a div to apply the style.<br>
+            Use the <code>n-cell-icon-container</code> for the default alignment or you can specify your own alignment inside cells.
+        </p>
+
+        <pre>
+<code>
+    &lt;!-- Icon Status --&gt;
+    &lt;td&gt;
+        &lt;div class="<span class="demo-highlight-color">n-cell-icon-container</span>"&gt;
+            &lt;div class="<span class="demo-highlight-color">n-cell-icon</span>"&gt;
+                &lt;span class="icon icon-fault-critical"&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;td&gt;
+    </code>
+          </pre>
+
+    <p>
+        Use <code>n-cell-icon-control</code> for icon control.
+    </p>
+    <pre>
+<code>
+    &lt;!-- Icon Control --&gt;
+    &lt;div class="<span class="demo-highlight-color">n-cell-icon-container</span>"&gt;
+        &lt;button class="<span class="demo-highlight-color">n-cell-icon-control</span>"&gt;
+            &lt;span class="icon icon-fault-critical"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    </code>
+        </pre>
+    </div>
+</div>
+<script src="../assets/js/require.js"></script>
+<script src="../assets/js/require-config.js"></script>
+<script>
+    require(['jquery', 'wulf/tables']);
+</script>
+</body>
+</html>
