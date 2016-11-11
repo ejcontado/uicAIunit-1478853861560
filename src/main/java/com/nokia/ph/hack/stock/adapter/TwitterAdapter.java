@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import com.nokia.ph.hack.stock.servlet.utils.GeneralUtils;
+
 import twitter4j.GeoLocation;
 import twitter4j.Query;
 import twitter4j.QueryResult;
@@ -35,7 +37,7 @@ public class TwitterAdapter
         Query query = new Query();
 
         query.setQuery( "$" + symbol );
-        setQueryDate( query );
+        setQueryDate( query, startDate, endDate );
         query.setGeoCode( new GeoLocation( 39.726867, -98.656872 ), 2500, Query.KILOMETERS );
 
         System.out.println( query );
@@ -89,13 +91,22 @@ public class TwitterAdapter
         return retVal;
     }
 
-    private void setQueryDate( Query query )
+    private void setQueryDate( Query query, String startDate, String endDate )
     {
         SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
-        Calendar cal = Calendar.getInstance();
-        query.setUntil( sdf.format( cal.getTime() ) );
 
-        cal.add( Calendar.DAY_OF_MONTH, -1 );
-        query.setSince( sdf.format( cal.getTime() ) );
+        if( GeneralUtils.isEmpty( startDate ) || GeneralUtils.isEmpty( endDate ) )
+        {
+            Calendar cal = Calendar.getInstance();
+            query.setUntil( sdf.format( cal.getTime() ) );
+
+            cal.add( Calendar.DAY_OF_MONTH, -1 );
+            query.setSince( sdf.format( cal.getTime() ) );
+        }
+        else
+        {
+            query.setUntil( endDate );
+            query.setSince( startDate );
+        }
     }
 }
