@@ -119,13 +119,13 @@
 		              </div>
 		         </div>
 		         <h5>Start Date</h5>
-		         <input id="startDate" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
+		         <input id="startDate" disabled="disabled" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
 		         
 		         <h5>End Date</h5>
-		         <input id="endDate" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
+		         <input id="endDate" disabled="disabled" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
 		         
 		         <br/><br/>
-		         <button class="btn btn-standard" onclick="analyze()">Analyze</button>
+		         <button id="analyzeButton" disabled="disabled" class="btn btn-standard" onclick="analyze()">Analyze</button>
 		         <br/>
 	         </div>
 	         <!-- Main Panel -->
@@ -192,7 +192,7 @@
 		                    $("#industryName").html(node[0][6]);
 		                    $("#separator").html("&gt;");
 	
-		                    clearAll();
+		                    clearForm();
 		                }
 		            });
 		        });
@@ -225,6 +225,11 @@
 	        if ('' == typedInput) {
 	            $('li.ticker-symbols').show();
 	            clearAll();
+	            
+	            $("#stockName").html("");
+                $("#sectorName").html("");
+                $("#industryName").html("");
+                $("#separator").html("");
 	        } else {
 	            $('li.ticker-symbols').hide();
 	            $('li.ticker-symbols[data-value^=' + typedInput + ']').show();
@@ -249,9 +254,7 @@
 	        dateStr = date.toISOString().slice(0, 10);
 	        $("#startDate").val(dateStr);
 
-	        $("#tickerSymbol").removeAttr("disabled");
-	        $("#dropDownButton").removeAttr("disabled");
-	        $("#dropDownButton").removeClass("disabled");
+	       enableForm();
 	    });
 	});
 	</script>

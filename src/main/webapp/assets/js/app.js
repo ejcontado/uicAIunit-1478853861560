@@ -39,6 +39,7 @@ function ajaxSuccess(data){
 	
 	$("#analysisSpan").html(data.sentiment);
 	
+	$("#tweetPanel").append('<div id="tweetPanelData" class="panel-body panel-body-scroll"></div>');
 	var tweets = data.tweets;
 	$("#tweetSize").html(tweets.length);
 	
@@ -63,13 +64,18 @@ function ajaxSuccess(data){
 }
 
 function ajaxBeforeSend(jqXHR, settings){
-	clearAll()
-	//add loading gif here
+	clearForm();
+	
+	$("#analyzeButton").attr("disabled","disabled");
+	$("#tickerSymbol").attr("disabled","disabled");
+    $("#dropDownButton").attr("disabled","disabled");
+    $("#startDate").attr("disabled","disabled");
+    $("#endDate").attr("disabled","disabled");
 }
 
-function clearAll(){
+function clearForm(){
 	$("#tweetSize").html("");
-	$("#tweetPanelData").html("");
+	$("#tweetPanelData").remove("");
 	$("#emotionsTbody").html("");
 	$("#analysisSpan").html("");
 	$("#emotionsTable").hide();
@@ -78,9 +84,30 @@ function clearAll(){
 }
 
 function ajaxComplete(jqXHR, textStatus){
-	//remove loading gif here
+	disableForm();
 }
 
 function ajaxError(jqXHR, textStatus, errorThrown) {
-	//remove loading gif here
+	clearForm();
+	enableForm();
+}
+
+function disableForm(){
+	$("#tickerSymbol").removeAttr("disabled");
+    $("#dropDownButton").removeAttr("disabled");
+    $("#analyzeButton").removeAttr("disabled");
+    $("#startDate").removeAttr("disabled");
+	$("#endDate").removeAttr("disabled");
+    
+    $("#dropDownButton").removeClass("disabled");
+}
+
+function enableForm(){
+	$("#startDate").removeAttr("disabled");
+	$("#endDate").removeAttr("disabled");
+	$("#tickerSymbol").removeAttr("disabled");
+	$("#analyzeButton").removeAttr("disabled");
+	
+    $("#dropDownButton").removeAttr("disabled");
+    $("#dropDownButton").removeClass("disabled");
 }
