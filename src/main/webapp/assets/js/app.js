@@ -1,5 +1,19 @@
 function analyze(tickerSymbol){
-		ajaxRequest({type : "symbol", symbol : tickerSymbol}, "StockInsightServlet", false, ajaxSuccess)
+	var tickerSymbol = $("#tickerSymbol").val();
+	var startDate = $("#startDate").val();
+	var endDate = $("#endDate").val();
+	
+	if(tickerSymbol==""){
+		return;
+	}
+	
+	var data = {
+			type : "symbol", 
+			symbol : tickerSymbol,
+			start_date : startDate,
+			end_date : endDate
+	};
+	ajaxRequest(data, "StockInsightServlet", false, ajaxSuccess)
 }
 
 function ajaxRequest(data, url, cache, fxn) {

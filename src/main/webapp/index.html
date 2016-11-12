@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Java Web Starter Application</title>
+	<title>Stockwitter</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="style.css" />
 	<link href="wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
@@ -60,7 +60,7 @@
                             <li>
                                 <a id='TA_banner_username' href="#">
                                     <i class="icon icon-profile"></i>
-                                    User Name
+                                    uicAIunit
                                 </a>
                             </li>
                             <li class="hidden-xs">
@@ -76,7 +76,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a id='TA_banner_accountsubitem' href="#">
-                                            <span>Account subitem</span>
+                                            <span>Change Password</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -105,25 +105,32 @@
             </div>
         </nav>
         <div class="row " style="padding:20px">
-        <div class="col-sm-8  panel panel-shadow demo-menu-example-panel nav-secondary-vertical " style="width:30%;height:100%;padding:10px;">
-        <h3>Stock Symbol</h3>
-        <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
-                  <input id="combo1" type="text" class="form-control n-inputfield">
-                  <div class="input-group-btn">
-                  <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-	              <ul  id= "symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu"> </ul>
-              </div>
-         </div>
-         
-         <h4>Stock Name</h4>
-         <input id="stockName" type="text" class="form-control n-inputfield n-inputfield-uneditable" readonly value="">
-         <h4>Sector:</h4>
-         <input id="sectorName" type="text" class=" n-inputfield n-inputfield-uneditable" readonly value="" style="width:50%">
-         <h4>Industry:</h4>
-         <input id="industryName" type="text" class="form-control n-inputfield n-inputfield-uneditable" readonly value=""style="width:50%">
-         </div>
-         <div class="col-sm-8  panel panel-shadow demo-menu-example-panel nav-secondary-vertical " style="width:70%;height:100%;padding:10px;">
-         </div>
+	        <div class="col-md-2  panel panel-shadow demo-menu-example-panel nav-secondary-vertical">
+		        <h5>Stock Symbol</h5>
+		        <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
+		              <input id="tickerSymbol" type="text" class="form-control n-inputfield">
+		              <div class="input-group-btn">
+		                  <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+			              <ul  id= "symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu"> </ul>
+		              </div>
+		         </div>
+		         <h5>Start Date</h5>
+		         <input id="startDate" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
+		         
+		         <h5>End Date</h5>
+		         <input id="endDate" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
+		         
+		         <br/>
+		         <button class="btn btn-standard" onclick="analyze()">Analyze</button>
+		         
+		         <br/><br/><br/><br/>
+	         </div>
+	         <div class="col-md-10  panel panel-shadow">
+		         <span id="sectorName"></span> 
+		         <span id="separator"></span>
+		         <span id="industryName"></span> 
+		         <h3 id="stockName"></h3>
+	         </div>
          </div>
          
 	
@@ -148,7 +155,7 @@
 	    	var list = $('#symbol_list');
 	    	
 	    	nodeArray.forEach(function(symbols_data){
-	    		list.append( '<li data-value="'+ symbols_data[0][0]  +'" class="ticker-symbols" ><a href="javascript:void(0)" onclick="analyze(\''+ symbols_data[0][0]  +'\');"><span>'+ symbols_data[0][0]  +'</span></a></li>');
+	    		list.append( '<li data-value="'+ symbols_data[0][0]  +'" class="ticker-symbols" ><a href="javascript:void(0)"><span>'+ symbols_data[0][0]  +'</span></a></li>');
 	    	});
 	    		
 	    	$("#myCombobox1").find("li").on("click",function(event)
@@ -158,9 +165,10 @@
 				{
 					if(node[0][0]===currentNode)
 					{
-						$("#stockName").attr("value",node[0][1]);
-						$("#sectorName").attr("value",node[0][5]);
-						$("#industryName").attr("value",node[0][6]);
+						$("#stockName").html(node[0][1]);
+						$("#sectorName").html(node[0][5]);
+						$("#industryName").html(node[0][6]);
+						$("#separator").html("&gt;");
 					}
 				});
 	    	});
@@ -173,7 +181,7 @@
 		    $(document).on('input','.combobox .n-inputfield', function() {
 			        var toggle = $('button.dropdown-toggle');
 			        var parent = $(this).parent('.combobox');
-			      var isOpen = parent.hasClass('combobox-open');
+					var isOpen = parent.hasClass('combobox-open');
 			
 			       if( !isOpen ){
 			           parent.find(toggle).trigger('click');
@@ -191,21 +199,35 @@
 			           }
 			           
 			           if('' == typedInput){
-			            $('li.ticker-symbols').show();
+							$('li.ticker-symbols').show();
+							$("#stockName").html("");
+							$("#sectorName").html("");
+							$("#industryName").html("");
+							$("#separator").html("");
 			           }else{
-			            $('li.ticker-symbols').hide();
-			            $('li.ticker-symbols[data-value^='+typedInput+']').show();
+							$('li.ticker-symbols').hide();
+							$('li.ticker-symbols[data-value^='+typedInput+']').show();
 			           }
 			        
 			   });
-		      $('#myCombobox1').combobox();
-		      $(document).ready(function () {
-	          $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
-	              $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
-	              $(this).addClass('selected');
-	          });
-	          $(".n-dropdown-menu-scroll").nScrollbar();
-	      });
+		    
+			$('#myCombobox1').combobox();
+			$(document).ready(function () {
+		          $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
+		              $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+		              $(this).addClass('selected');
+			      });
+			      $(".n-dropdown-menu-scroll").nScrollbar();
+			      
+			      var date = new Date()
+			      
+	              var dateStr = date.toISOString().slice(0,10);
+	              $("#endDate").val(dateStr);
+			      
+	              date.setDate(date.getDate()-1);
+			      dateStr = date.toISOString().slice(0,10);
+	              $("#startDate").val(dateStr);
+	      	});
     	});
 	</script>
 	
