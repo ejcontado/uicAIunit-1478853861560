@@ -1,262 +1,215 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Stockwitter</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="style.css" />
-	<link href="wulfdist/css/wulf.basic.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.search.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.navigation.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.inputfield.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/>
-    <link href="wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
-	<link href="wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
-	<link href="wulfdist/css/wulf.panel.min.css" rel="stylesheet">
-    <link href="assets/css/demo.css" rel="stylesheet"/>
+    <title>StockOverflow</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="wulfdist/css/wulf.basic.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.inputfield.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.search.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.dropdowns.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.navigation.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.inputfield.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.buttons.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.combobox.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.tooltip.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.table-normal.min.css" rel="stylesheet" />
+    <link href="wulfdist/css/wulf.panel.min.css" rel="stylesheet">
+    <link href="assets/tc/ot2.css" rel="stylesheet" />
 </head>
+
 <body>
-
-	<nav class="n-banner nokia_banner_normal">
-
-            <div class="n-banner-1st-filler-white"></div>
-            <div class="n-banner-1st-filler-blue"></div>
-            <div class="n-banner-2nd-filler-blue hidden-xs hidden-on-blue-detached"></div>
-            <div class="n-banner-2nd-filler-gray hidden-xs"></div>
-            <div class="n-banner-3rd-filler-gray hidden-xs"></div>
-
-            <div class="container-fluid">
-
-                <div class="n-banner-header">
-                    <button class="n-banner-toggle collapsed" data-target="#n-banner-collapse" data-toggle="collapse" type="button">
-            <span class="sr-only">
-              Toggle navigation
-            </span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="n-banner-brand" href="#">
-                        Stockwitter
-                    </a>
-                </div>
-
-                <div class="collapse n-banner-collapse" id="n-banner-collapse">
-
-                    <div class="row n-banner-1st">
-
-                        <div class="n-banner-right n-banner-logo-img hidden-xs">
-                            <img alt="Nokia" src="wulfdist/img/logo.png">
+    <div class="navigation condensed">
+        <div class="navigation-inner">
+            <div class="primary">
+                <div class="fill-left"></div>
+                <div class="fill-right"></div>
+                <div class="content">
+                    <div class="logo"></div>
+                    <h1>Stock<span class="alt">Overflow</span></h1>
+                    <div class="controls">
+                        <div class="links">
+                            <ul>
+                                <li>
+                                    &nbsp;
+                                </li>
+                            </ul>
+                            <div class="links-inner"></div>
                         </div>
-
-                        <div class="n-banner-right n-banner-1st-gray-to-white hidden-xs">
-                            <div class="gray-mask"></div>
-                            <div class="white-mask"></div>
-                            <div class="gray-corner"></div>
-                            <div class="white-corner"></div>
-                        </div>
-
-                        <ul class="n-banner-right n-banner-nav n-banner-controls">
-                            <li>
-                                <a id='TA_banner_username' href="#">
-                                    <i class="icon icon-profile"></i>
-                                    uicAIunit
-                                </a>
-                            </li>
-                            <li class="hidden-xs">
-                                <p>
-                                    |
-                                </p>
-                            </li>
-                            <li class="dropdown">
-                                <a aria-expanded="false" class="n-banner-dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                    <span>Account</span>
-                                    <i class="icon icon-arrow"></i>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a id='TA_banner_accountsubitem' href="#">
-                                            <span>Change Password</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="hidden-xs">
-                                <p>
-                                    |
-                                </p>
-                            </li>
-                            <li>
-                                <a id='TA_banner_logout' href="#">
-                                    Log Out
-                                </a>
-                            </li>
-                        </ul>
-
-                        <div class="n-banner-right n-banner-1st-blue-to-gray hidden-xs">
-                            <div class="blue-mask"></div>
-                            <div class="gray-mask"></div>
-                            <div class="blue-corner"></div>
-                            <div class="gray-corner"></div>
-                        </div>
-                 
                     </div>
                 </div>
             </div>
-        </nav>
-        <div class="row " style="padding:20px">
-        	
-        	<!-- Sidebar -->
-	        <div class="col-md-2  panel panel-shadow demo-menu-example-panel nav-secondary-vertical">
-		        <h5>Stock Symbol</h5>
-		        <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
-		              <input id="tickerSymbol" disabled="disabled" type="text" class="form-control n-inputfield">
-		              <div class="input-group-btn">
-		                  <button id="dropDownButton" disabled="disabled" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-			              <ul  id= "symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu"> </ul>
-		              </div>
-		         </div>
-		         <h5>Start Date</h5>
-		         <input id="startDate" disabled="disabled" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
-		         
-		         <h5>End Date</h5>
-		         <input id="endDate" disabled="disabled" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
-		         
-		         <br/><br/>
-		         <button id="analyzeButton" disabled="disabled" class="btn btn-standard" onclick="analyze()">Analyze</button>
-		         <br/>
-	         </div>
-	         <!-- Main Panel -->
-	         <div class="col-md-10">
-		         <span id="sectorName"></span> 
-		         <span id="separator"></span>
-		         <span id="industryName"></span> 
-		         <h1 id="stockName"></h1>
-		         <br />
-		         <span id="loading" class="icon icon-spinner icon-spinner-large"></span>
-		         <h2 id="analysisH2" style="display:none">Analysis: <span id="analysisSpan"></span></h2>
-		         <table id="emotionsTable" class="n-table n-table-standard n-table-striped n-table-cell-hover" style="display:none">
-		         	<thead>
-		         		<tr>
-		         			<th>Emotion</th>
-		         			<th>Percentage</th>
-		         		</tr>
-		         	</thead>
-		         	<tbody id="emotionsTbody">
-		         		
-		         	</tbody>
-		         </table>
-		         
-				<div id="tweetPanel" class="panel panel-shadow panel-blue-cap" style="display:none">
-					<div class="panel-heading">
-						Tweets (<span id="tweetSize"></span>)
-					</div>
-					<div class="panel-body panel-body-scroll" id="tweetPanelData">
-					</div>
-				</div>
-         </div>
-         
-	
-	<script src="assets/js/app.js"></script>
-	<script src="assets/js/require.js"></script>
-	<script src="assets/js/require-config.js"></script>
-	<script>
-		require(['jquery'], function($) {
-	
-		    var symbols = 'assets/stock_symbol/NASDAQ.txt';
-	
-		    var nodeArray = new Array();
-	
-		    jQuery.get(symbols, function(data) {
-		        var myvar = data;
-	
-		        var arrLines = myvar.split("\n");
-		        arrLines.forEach(function(line) {
-		            nodeArray.push(new Array(line.split("\t")));
-		        });
-	
-		        var list = $('#symbol_list');
-	
-		        nodeArray.forEach(function(symbols_data) {
-		            list.append('<li data-value="' + symbols_data[0][0] + '" class="ticker-symbols" ><a href="javascript:void(0)"><span>' + symbols_data[0][0] + '</span></a></li>');
-		        });
-	
-		        $("#myCombobox1").find("li").on("click", function(event) {
-		            var currentNode = $(this).attr("data-value");
-		            nodeArray.forEach(function(node) {
-		                if (node[0][0] === currentNode) {
-		                    $("#stockName").html(node[0][1]);
-		                    $("#sectorName").html(node[0][5]);
-		                    $("#industryName").html(node[0][6]);
-		                    $("#separator").html("&gt;");
-	
-		                    clearForm();
-		                }
-		            });
-		        });
-		    });
-		});
-	</script>
-	<script>
-	require(['jquery', 'wulf/combobox', 'wulf/navbar'], function($) {
+            <div class="secondary single-tab">
+                <div class="fill-left"></div>
+                <div class="fill-right"></div>
+                <div class="content">
+                    <div class="title">
+                        uicAIunit
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	    $(document).on('input', '.combobox .n-inputfield', function() {
-	        var toggle = $('button.dropdown-toggle');
-	        var parent = $(this).parent('.combobox');
-	        var isOpen = parent.hasClass('combobox-open');
+    <br /><br />
+    <div class="row " id="mainPanel" style="padding:20px">
+        <br /><br />
+        <!-- Sidebar -->
+        <div class="col-md-2  panel panel-shadow demo-menu-example-panel nav-secondary-vertical">
+        	<br />
+            <h5>Stock Symbol</h5>
+            <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
+                <input id="tickerSymbol" disabled="disabled" type="text" class="form-control n-inputfield">
+                <div class="input-group-btn">
+                    <button id="dropDownButton" disabled="disabled" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                    <ul id="symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu"> </ul>
+                </div>
+            </div><br />
+            <h5>Start Date</h5>
+            <input id="startDate" disabled="disabled" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
+            <br /><br />
 
-	        if (!isOpen) {
-	            parent.find(toggle).trigger('click');
-	            $(this).focus();
-	        }
+            <h5>End Date</h5>
+            <input id="endDate" disabled="disabled" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
 
-	        if ($(this).val() == 0 && isOpen) {
-	            parent.find(toggle).trigger('click');
-	        }
+            <br/><br/>
+            <button id="analyzeButton" disabled="disabled" class="btn btn-standard" onclick="analyze()">Analyze</button>
+            <br/><br />
+        </div>
+        
+        
+        <!-- Main Panel -->
+        <div class="col-md-10">
+            <span id="sectorName"></span>
+            <span id="separator"></span>
+            <span id="industryName"></span>
+            <h1 id="stockName"></h1>
+            <br />
+            <span id="loading" class="icon icon-spinner icon-spinner-large"></span>
+            <h2 id="analysisH2" style="display:none">Analysis: <span id="analysisSpan"></span></h2>
+            <table id="emotionsTable" class="n-table n-table-standard n-table-striped n-table-cell-hover" style="display:none">
+                <thead>
+                    <tr>
+                        <th>Emotion</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody id="emotionsTbody">
 
-	        var typedInput = $(this).val();
+                </tbody>
+            </table>
 
-	        if (typedInput == 0 && isOpen) {
-	            parent.find(toggle).trigger('click');
-	        }
+            <div id="tweetPanel" class="panel panel-shadow panel-blue-cap" style="display:none">
+                <div class="panel-heading">
+                    Tweets (<span id="tweetSize"></span>)
+                </div>
+                <div class="panel-body panel-body-scroll" id="tweetPanelData">
+                </div>
+            </div>
+        </div>
+    </div>
 
-	        if ('' == typedInput) {
-	            $('li.ticker-symbols').show();
-	            clearForm();
-	            
-	            $("#stockName").html("");
-                $("#sectorName").html("");
-                $("#industryName").html("");
-                $("#separator").html("");
-	        } else {
-	            $('li.ticker-symbols').hide();
-	            $('li.ticker-symbols[data-value^=' + typedInput + ']').show();
-	        }
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/require.js"></script>
+    <script src="assets/js/require-config.js"></script>
+    <script>
+        require(['jquery'], function($) {
 
-	    });
+            var symbols = 'assets/stock_symbol/NASDAQ.txt';
 
-	    $('#myCombobox1').combobox();
-	    $(document).ready(function() {
-	        $('ul.dropdown-menu.dropdown-menu-right li').click(function() {
-	            $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
-	            $(this).addClass('selected');
-	        });
-	        $(".n-dropdown-menu-scroll").nScrollbar();
+            var nodeArray = new Array();
 
-	        var date = new Date()
+            jQuery.get(symbols, function(data) {
+                var myvar = data;
 
-	        var dateStr = date.toISOString().slice(0, 10);
-	        $("#endDate").val(dateStr);
+                var arrLines = myvar.split("\n");
+                arrLines.forEach(function(line) {
+                    nodeArray.push(new Array(line.split("\t")));
+                });
 
-	        date.setDate(date.getDate() - 1);
-	        dateStr = date.toISOString().slice(0, 10);
-	        $("#startDate").val(dateStr);
+                var list = $('#symbol_list');
 
-	       enableForm();
-	    });
-	});
-	</script>
+                nodeArray.forEach(function(symbols_data) {
+                    list.append('<li data-value="' + symbols_data[0][0] + '" class="ticker-symbols" ><a href="javascript:void(0)"><span>' + symbols_data[0][0] + '</span></a></li>');
+                });
+
+                $("#myCombobox1").find("li").on("click", function(event) {
+                    var currentNode = $(this).attr("data-value");
+                    nodeArray.forEach(function(node) {
+                        if (node[0][0] === currentNode) {
+                            $("#stockName").html(node[0][1]);
+                            $("#sectorName").html(node[0][5]);
+                            $("#industryName").html(node[0][6]);
+                            $("#separator").html("&gt;");
+
+                            clearForm();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script>
+        require(['jquery', 'wulf/combobox', 'wulf/navbar'], function($) {
+
+            $(document).on('input', '.combobox .n-inputfield', function() {
+                var toggle = $('button.dropdown-toggle');
+                var parent = $(this).parent('.combobox');
+                var isOpen = parent.hasClass('combobox-open');
+
+                if (!isOpen) {
+                    parent.find(toggle).trigger('click');
+                    $(this).focus();
+                }
+
+                if ($(this).val() == 0 && isOpen) {
+                    parent.find(toggle).trigger('click');
+                }
+
+                var typedInput = $(this).val();
+
+                if (typedInput == 0 && isOpen) {
+                    parent.find(toggle).trigger('click');
+                }
+
+                if ('' == typedInput) {
+                    $('li.ticker-symbols').show();
+                    clearForm();
+
+                    $("#stockName").html("");
+                    $("#sectorName").html("");
+                    $("#industryName").html("");
+                    $("#separator").html("");
+                } else {
+                    $('li.ticker-symbols').hide();
+                    $('li.ticker-symbols[data-value^=' + typedInput + ']').show();
+                }
+
+            });
+
+            $('#myCombobox1').combobox();
+            $(document).ready(function() {
+                $('ul.dropdown-menu.dropdown-menu-right li').click(function() {
+                    $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+                    $(this).addClass('selected');
+                });
+                $(".n-dropdown-menu-scroll").nScrollbar();
+
+                var date = new Date()
+
+                var dateStr = date.toISOString().slice(0, 10);
+                $("#endDate").val(dateStr);
+
+                date.setDate(date.getDate() - 1);
+                dateStr = date.toISOString().slice(0, 10);
+                $("#startDate").val(dateStr);
+
+                enableForm();
+            });
+        });
+    </script>
 </body>
+
 </html>
