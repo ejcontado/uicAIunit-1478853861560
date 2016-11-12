@@ -163,100 +163,97 @@
 	<script src="assets/js/require.js"></script>
 	<script src="assets/js/require-config.js"></script>
 	<script>
-	require(['jquery'], function($){
+		require(['jquery'], function($) {
 	
-	  var symbols = 'assets/stock_symbol/NASDAQ.txt';
-
-	  		var nodeArray=new Array(); 
-	  	
-	    	jQuery.get(symbols, function(data) {
-	    		var myvar = data;
-	    		
-	    		var arrLines = myvar.split("\n");
-	    		  arrLines.forEach(function (line) {
-	    		    nodeArray.push(new Array(line.split("\t")));
-	    		  });
-	  	    	
-	    	var list = $('#symbol_list');
-	    	
-	    	nodeArray.forEach(function(symbols_data){
-	    		list.append( '<li data-value="'+ symbols_data[0][0]  +'" class="ticker-symbols" ><a href="javascript:void(0)"><span>'+ symbols_data[0][0]  +'</span></a></li>');
-	    	});
-	    		
-	    	$("#myCombobox1").find("li").on("click",function(event)
-	    	{
-	    		var currentNode = $(this).attr("data-value");
-				nodeArray.forEach(function(node)
-				{
-					if(node[0][0]===currentNode)
-					{
-						$("#stockName").html(node[0][1]);
-						$("#sectorName").html(node[0][5]);
-						$("#industryName").html(node[0][6]);
-						$("#separator").html("&gt;");
-						
-						clearAll();
-					}
-				});
-	    	});
-	    	});
-	});
+		    var symbols = 'assets/stock_symbol/NASDAQ.txt';
+	
+		    var nodeArray = new Array();
+	
+		    jQuery.get(symbols, function(data) {
+		        var myvar = data;
+	
+		        var arrLines = myvar.split("\n");
+		        arrLines.forEach(function(line) {
+		            nodeArray.push(new Array(line.split("\t")));
+		        });
+	
+		        var list = $('#symbol_list');
+	
+		        nodeArray.forEach(function(symbols_data) {
+		            list.append('<li data-value="' + symbols_data[0][0] + '" class="ticker-symbols" ><a href="javascript:void(0)"><span>' + symbols_data[0][0] + '</span></a></li>');
+		        });
+	
+		        $("#myCombobox1").find("li").on("click", function(event) {
+		            var currentNode = $(this).attr("data-value");
+		            nodeArray.forEach(function(node) {
+		                if (node[0][0] === currentNode) {
+		                    $("#stockName").html(node[0][1]);
+		                    $("#sectorName").html(node[0][5]);
+		                    $("#industryName").html(node[0][6]);
+		                    $("#separator").html("&gt;");
+	
+		                    clearAll();
+		                }
+		            });
+		        });
+		    });
+		});
 	</script>
 	<script>
-    	require(['jquery', 'wulf/combobox','wulf/navbar', 'wulf/Servlet'], function($){
-    		
-		    $(document).on('input','.combobox .n-inputfield', function() {
-			        var toggle = $('button.dropdown-toggle');
-			        var parent = $(this).parent('.combobox');
-					var isOpen = parent.hasClass('combobox-open');
-			
-			       if( !isOpen ){
-			           parent.find(toggle).trigger('click');
-			            $(this).focus();
-			        }
-			
-			        if( $(this).val() == 0 && isOpen ){
-			            parent.find(toggle).trigger('click');
-			        }
-			        
-			        var typedInput = $(this).val();
-			          
-			           if( typedInput == 0  && isOpen ){
-			               parent.find(toggle).trigger('click');
-			           }
-			           
-			           if('' == typedInput){
-							$('li.ticker-symbols').show();
-							clearAll();
-			           }else{
-							$('li.ticker-symbols').hide();
-							$('li.ticker-symbols[data-value^='+typedInput+']').show();
-			           }
-			        
-			   });
-		    
-			$('#myCombobox1').combobox();
-			$(document).ready(function () {
-		          $('ul.dropdown-menu.dropdown-menu-right li').click(function () {
-		              $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
-		              $(this).addClass('selected');
-			      });
-			      $(".n-dropdown-menu-scroll").nScrollbar();
-			      
-			      var date = new Date()
-			      
-	              var dateStr = date.toISOString().slice(0,10);
-	              $("#endDate").val(dateStr);
-			      
-	              date.setDate(date.getDate()-1);
-			      dateStr = date.toISOString().slice(0,10);
-	              $("#startDate").val(dateStr);
-	              
-	              $("#tickerSymbol").removeAttr("disabled");
-	              $("#dropDownButton").removeAttr("disabled");
-	      	});
-    	});
+	require(['jquery', 'wulf/combobox', 'wulf/navbar'], function($) {
+
+	    $(document).on('input', '.combobox .n-inputfield', function() {
+	        var toggle = $('button.dropdown-toggle');
+	        var parent = $(this).parent('.combobox');
+	        var isOpen = parent.hasClass('combobox-open');
+
+	        if (!isOpen) {
+	            parent.find(toggle).trigger('click');
+	            $(this).focus();
+	        }
+
+	        if ($(this).val() == 0 && isOpen) {
+	            parent.find(toggle).trigger('click');
+	        }
+
+	        var typedInput = $(this).val();
+
+	        if (typedInput == 0 && isOpen) {
+	            parent.find(toggle).trigger('click');
+	        }
+
+	        if ('' == typedInput) {
+	            $('li.ticker-symbols').show();
+	            clearAll();
+	        } else {
+	            $('li.ticker-symbols').hide();
+	            $('li.ticker-symbols[data-value^=' + typedInput + ']').show();
+	        }
+
+	    });
+
+	    $('#myCombobox1').combobox();
+	    $(document).ready(function() {
+	        $('ul.dropdown-menu.dropdown-menu-right li').click(function() {
+	            $('ul.dropdown-menu.dropdown-menu-right li').removeClass('selected');
+	            $(this).addClass('selected');
+	        });
+	        $(".n-dropdown-menu-scroll").nScrollbar();
+
+	        var date = new Date()
+
+	        var dateStr = date.toISOString().slice(0, 10);
+	        $("#endDate").val(dateStr);
+
+	        date.setDate(date.getDate() - 1);
+	        dateStr = date.toISOString().slice(0, 10);
+	        $("#startDate").val(dateStr);
+
+	        $("#tickerSymbol").removeAttr("disabled");
+	        $("#dropDownButton").removeAttr("disabled");
+	        $("#dropDownButton").removeClass("disabled");
+	    });
+	});
 	</script>
-	
 </body>
 </html>
