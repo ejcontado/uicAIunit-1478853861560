@@ -112,9 +112,9 @@
 	        <div class="col-md-2  panel panel-shadow demo-menu-example-panel nav-secondary-vertical">
 		        <h5>Stock Symbol</h5>
 		        <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
-		              <input id="tickerSymbol" type="text" class="form-control n-inputfield">
+		              <input id="tickerSymbol" disabled="disabled" type="text" class="form-control n-inputfield">
 		              <div class="input-group-btn">
-		                  <button  type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+		                  <button id="dropDownButton" disabled="disabled" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
 			              <ul  id= "symbol_list" class="dropdown-menu dropdown-menu-right n-dropdown-menu-scroll" role="menu"> </ul>
 		              </div>
 		         </div>
@@ -137,7 +137,7 @@
 		         <h1 id="stockName"></h1>
 		         
 		         <br />
-		         <h2 id="analysisH2" style="display:none">Neutral</h2>
+		         <h2 id="analysisH2" style="display:none">Analysis: <span id="analysisSpan"></span></h2>
 		         <table id="emotionsTable" class="n-table n-table-standard n-table-striped n-table-cell-hover" style="display:none">
 		         	<thead>
 		         		<tr>
@@ -146,43 +146,15 @@
 		         		</tr>
 		         	</thead>
 		         	<tbody id="emotionsTbody">
-		         		<tr>
-		         			<td>Joy</td>
-		         			<td>70</td>
-		         		</tr>
-		         		<tr>
-		         			<td>Sad</td>
-		         			<td>30</td>
-		         		</tr>
+		         		
 		         	</tbody>
 		         </table>
 		         
 				<div id="tweetPanel" class="panel panel-shadow panel-blue-cap" style="display:none">
 					<div class="panel-heading">
-						Tweets
+						Tweets (<span id="tweetSize"></span>)
 					</div>
-					<div class="panel-body panel-body-scroll">
-					          <div class="panel-section">
-					            <h2>Title of section</h2>
-					            <div class="dummy-picture"></div>
-					            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
-					          </div>
-					
-					          <div class="panel-section">
-					            <h2>Title of section</h2>
-					            <div class="dummy-picture"></div>
-					            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
-					          </div>
-					
-					          <div class="panel-single-row">
-					            <h2>Title or label</h2>
-					          </div>
-					
-					          <div class="panel-section">
-					            <h2>Title of section</h2>
-					            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. dolor</span>
-					            <button class="btn btn-standard" id="TA-panelWithScrollbar-button">Add to My favorites</button>
-					          </div>
+					<div class="panel-body panel-body-scroll" id="tweetPanelData">
 					</div>
 				</div>
          </div>
@@ -223,9 +195,8 @@
 						$("#sectorName").html(node[0][5]);
 						$("#industryName").html(node[0][6]);
 						$("#separator").html("&gt;");
-						$("#emotionsTable").show();
-						$("#tweetPanel").show();
-						$("#analysisH2").show();
+						
+						clearAll();
 					}
 				});
 	    	});
@@ -257,13 +228,7 @@
 			           
 			           if('' == typedInput){
 							$('li.ticker-symbols').show();
-							$("#stockName").html("");
-							$("#sectorName").html("");
-							$("#industryName").html("");
-							$("#separator").html("");
-							$("#emotionsTable").hide();
-							$("#tweetPanel").hide();
-							$("#analysisH2").hide();
+							clearAll();
 			           }else{
 							$('li.ticker-symbols').hide();
 							$('li.ticker-symbols[data-value^='+typedInput+']').show();
@@ -278,7 +243,6 @@
 		              $(this).addClass('selected');
 			      });
 			      $(".n-dropdown-menu-scroll").nScrollbar();
-			      $(".panel-body-scroll").nScrollbar();
 			      
 			      var date = new Date()
 			      
@@ -288,6 +252,9 @@
 	              date.setDate(date.getDate()-1);
 			      dateStr = date.toISOString().slice(0,10);
 	              $("#startDate").val(dateStr);
+	              
+	              $("#tickerSymbol").removeAttr("disabled");
+	              $("#dropDownButton").removeAttr("disabled");
 	      	});
     	});
 	</script>

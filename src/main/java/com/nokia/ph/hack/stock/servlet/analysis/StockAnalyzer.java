@@ -3,6 +3,7 @@ package com.nokia.ph.hack.stock.servlet.analysis;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -70,7 +71,15 @@ public class StockAnalyzer
         retVal.put( "tweets", tweetsJSON );
 
         Map<String, Double> toneScores = getToneScores( tweets );
-        retVal.put( "tones", new JSONObject( toneScores ) );
+        JSONArray toneScoresJSON = new JSONArray();
+        for( Entry<String, Double> toneScore : toneScores.entrySet() )
+        {
+            JSONObject toneScoreJSON = new JSONObject();
+            toneScoreJSON.put( "name", toneScore.getKey() );
+            toneScoreJSON.put( "score", toneScore.getValue() * 100 );
+            toneScoresJSON.add( toneScoreJSON );
+        }
+        retVal.put( "tones", toneScoresJSON );
         retVal.put( "sentiment", getAnalysis( toneScores ) );
 
         retVal.put( "code", "ok" );
