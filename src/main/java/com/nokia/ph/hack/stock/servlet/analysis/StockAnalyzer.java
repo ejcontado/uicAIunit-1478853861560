@@ -96,7 +96,7 @@ public class StockAnalyzer
         {
             return "Neutral";
         }
-        else if( joy >= 0.6 )
+        else if( joy >= 0.55 )
         {
             return "Bullish";
         }
