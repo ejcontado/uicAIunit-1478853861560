@@ -13,7 +13,8 @@ function analyze(tickerSymbol){
 			start_date : startDate,
 			end_date : endDate
 	};
-	ajaxRequest(data, "StockInsightServlet", false, ajaxSuccess)
+	ajaxRequest(data, "StockInsightServlet", false, ajaxSuccess);
+	$("#loading").css("display", "block");
 }
 
 function ajaxRequest(data, url, cache, fxn) {
@@ -30,6 +31,7 @@ function ajaxRequest(data, url, cache, fxn) {
 }
 
 function ajaxSuccess(data){
+	$("#loading").css("display", "none");
 	if(data.code != 'ok'){
 		alert("Analysis failed.\n\n"+data.message);
 		return;

@@ -89,3 +89,7 @@ pre {
 	width: 200px;
 }
 
+#loading {
+	display: none;
+}
+
