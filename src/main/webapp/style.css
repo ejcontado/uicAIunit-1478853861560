@@ -29,7 +29,6 @@ a:hover {
 
 h1 {
 	font-weight: bold;
-	font-size: 2em;
 }
 
 .leftHalf {
@@ -64,7 +63,6 @@ table {
 	width: 800px;
 	margin: 0 auto;
 	word-wrap: break-word;
-	padding-top:10%;
 }
 
 th {

@@ -13,6 +13,8 @@
     <link href="wulfdist/css/wulf.buttons.min.css" rel="stylesheet"/>
     <link href="wulfdist/css/wulf.combobox.min.css" rel="stylesheet"/>
     <link href="wulfdist/css/wulf.tooltip.min.css" rel="stylesheet"/>
+	<link href="wulfdist/css/wulf.table-normal.min.css" rel="stylesheet"/>
+	<link href="wulfdist/css/wulf.panel.min.css" rel="stylesheet">
     <link href="assets/css/demo.css" rel="stylesheet"/>
 </head>
 <body>
@@ -105,6 +107,8 @@
             </div>
         </nav>
         <div class="row " style="padding:20px">
+        	
+        	<!-- Sidebar -->
 	        <div class="col-md-2  panel panel-shadow demo-menu-example-panel nav-secondary-vertical">
 		        <h5>Stock Symbol</h5>
 		        <div class="input-group input-append dropdown combobox" data-initialize="combobox" id="myCombobox1">
@@ -120,17 +124,67 @@
 		         <h5>End Date</h5>
 		         <input id="endDate" class="n-inputfield-placeholder n-inputfield" type="date" placeholder="YYYY-MM-DD">
 		         
-		         <br/>
+		         <br/><br/>
 		         <button class="btn btn-standard" onclick="analyze()">Analyze</button>
-		         
-		         <br/><br/><br/><br/>
+		         <br/>
 	         </div>
-	         <div class="col-md-10  panel panel-shadow">
+	         
+	         <!-- Main Panel -->
+	         <div class="col-md-10">
 		         <span id="sectorName"></span> 
 		         <span id="separator"></span>
 		         <span id="industryName"></span> 
-		         <h3 id="stockName"></h3>
-	         </div>
+		         <h1 id="stockName"></h1>
+		         
+		         <br />
+		         <h2 id="analysisH2" style="display:none">Neutral</h2>
+		         <table id="emotionsTable" class="n-table n-table-standard n-table-striped n-table-cell-hover" style="display:none">
+		         	<thead>
+		         		<tr>
+		         			<th>Emotion</th>
+		         			<th>Percentage</th>
+		         		</tr>
+		         	</thead>
+		         	<tbody id="emotionsTbody">
+		         		<tr>
+		         			<td>Joy</td>
+		         			<td>70</td>
+		         		</tr>
+		         		<tr>
+		         			<td>Sad</td>
+		         			<td>30</td>
+		         		</tr>
+		         	</tbody>
+		         </table>
+		         
+				<div id="tweetPanel" class="panel panel-shadow panel-blue-cap" style="display:none">
+					<div class="panel-heading">
+						Tweets
+					</div>
+					<div class="panel-body panel-body-scroll">
+					          <div class="panel-section">
+					            <h2>Title of section</h2>
+					            <div class="dummy-picture"></div>
+					            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+					          </div>
+					
+					          <div class="panel-section">
+					            <h2>Title of section</h2>
+					            <div class="dummy-picture"></div>
+					            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Lorem ipsum dolor.</span>
+					          </div>
+					
+					          <div class="panel-single-row">
+					            <h2>Title or label</h2>
+					          </div>
+					
+					          <div class="panel-section">
+					            <h2>Title of section</h2>
+					            <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. dolor</span>
+					            <button class="btn btn-standard" id="TA-panelWithScrollbar-button">Add to My favorites</button>
+					          </div>
+					</div>
+				</div>
          </div>
          
 	
@@ -169,6 +223,9 @@
 						$("#sectorName").html(node[0][5]);
 						$("#industryName").html(node[0][6]);
 						$("#separator").html("&gt;");
+						$("#emotionsTable").show();
+						$("#tweetPanel").show();
+						$("#analysisH2").show();
 					}
 				});
 	    	});
@@ -204,6 +261,9 @@
 							$("#sectorName").html("");
 							$("#industryName").html("");
 							$("#separator").html("");
+							$("#emotionsTable").hide();
+							$("#tweetPanel").hide();
+							$("#analysisH2").hide();
 			           }else{
 							$('li.ticker-symbols').hide();
 							$('li.ticker-symbols[data-value^='+typedInput+']').show();
@@ -218,6 +278,7 @@
 		              $(this).addClass('selected');
 			      });
 			      $(".n-dropdown-menu-scroll").nScrollbar();
+			      $(".panel-body-scroll").nScrollbar();
 			      
 			      var date = new Date()
 			      
